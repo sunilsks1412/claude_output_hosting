@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundWave Pro — Secure Checkout</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+  <style>
+    /* ── Design Tokens ── */
+    :root {
+      --ink:       #0f0f14;
+      --slate:     #2a2d3e;
+      --mid:       #6b7280;
+      --border:    #e2e5ec;
+      --bg:        #f5f6fa;
+      --surface:   #ffffff;
+      --accent:    #4f46e5;          /* indigo */
+      --accent-lt: #ede9fe;
+      --success:   #059669;
+      --warn:      #f59e0b;
+      --danger:    #ef4444;
+      --radius:    10px;
+      --shadow:    0 2px 14px rgba(15,15,20,0.08);
+    }
+
+    /* ── Reset / Base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0; padding: 0;
+    }
+    img { max-width: 100%; }
+    a { color: var(--accent); }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--ink);
+      padding: 14px 0;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .site-header .brand {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .site-header .brand span { color: var(--accent); }
+    .secure-badge {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .secure-badge i { color: var(--success); }
+
+    /* ── Progress Bar ── */
+    .checkout-progress {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .step-list {
+      display: flex; align-items: center;
+      justify-content: center; gap: 0;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .step-list li {
+      display: flex; align-items: center;
+      font-size: 0.8rem; color: var(--mid);
+    }
+    .step-list li.active { color: var(--accent); font-weight: 600; }
+    .step-list li.done  { color: var(--success); }
+    .step-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      border: 2px solid currentColor;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700; margin-right: 6px;
+    }
+    .step-list li.done .step-num { background: var(--success); border-color: var(--success); color: #fff; }
+    .step-list li.active .step-num { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .step-sep { width: 40px; height: 2px; background: var(--border); margin: 0 10px; }
+    .step-sep.done { background: var(--success); }
+
+    /* ── Layout ── */
+    .checkout-wrap { max-width: 1100px; margin: 0 auto; padding: 32px 16px 60px; }
+
+    /* ── Card ── */
+    .cc-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 28px;
+      margin-bottom: 20px;
+    }
+    .cc-card-title {
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+      text-transform: uppercase; letter-spacing: 0.6px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .cc-card-title i { color: var(--accent); font-size: 0.95rem; }
+
+    /* ── Product Summary (right column) ── */
+    .product-img-wrap {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .product-img-wrap img { max-height: 200px; object-fit: contain; }
+    .product-name {
+      font-size: 1.15rem; font-weight: 700; color: var(--ink);
+    }
+    .product-stars { color: var(--warn); font-size: 0.85rem; }
+    .product-review-count { font-size: 0.78rem; color: var(--mid); }
+    .price-row {
+      display: flex; align-items: baseline; gap: 10px;
+      margin: 10px 0;
+    }
+    .price-now { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .price-was { font-size: 1rem; color: var(--mid); text-decoration: line-through; }
+    .price-save {
+      font-size: 0.78rem; font-weight: 700;
+      background: #dcfce7; color: var(--success);
+      padding: 2px 8px; border-radius: 20px;
+    }
+    .feature-list { list-style: none; padding: 0; margin: 14px 0; }
+    .feature-list li {
+      font-size: 0.85rem; color: #444;
+      padding: 5px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li i { color: var(--accent); width: 16px; }
+
+    /* ── Order Summary ── */
+    .summary-line {
+      display: flex; justify-content: space-between;
+      font-size: 0.9rem; padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .summary-line:last-child { border-bottom: none; }
+    .summary-total {
+      display: flex; justify-content: space-between;
+      font-size: 1.1rem; font-weight: 800;
+      padding: 12px 0 0; margin-top: 6px;
+      border-top: 2px solid var(--ink);
+    }
+
+    /* ── Trust Badges ── */
+    .trust-row {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .trust-badge {
+      flex: 1; min-width: 120px;
+      background: var(--bg); border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--slate);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .trust-badge i { color: var(--accent); font-size: 1rem; }
+
+    /* ── Coupon Section ── */
+    .coupon-toggle {
+      font-size: 0.85rem; color: var(--accent);
+      cursor: pointer; text-decoration: underline;
+      margin-bottom: 12px; display: inline-block;
+    }
+
+    /* ── Form Styles (preserving CC structure) ── */
+    .form-control-custom {
+      display: block; width: 100%;
+      padding: 11px 14px;
+      font-size: 0.95rem; line-height: 1.5;
+      color: #495057; background: #fff;
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .form-control-custom:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
+      outline: none;
+    }
+    .form-group-div { margin: 10px 0; width: 100%; padding: 0 8px; }
+    .row-wrap { display: flex; flex-wrap: wrap; margin: 0 -8px; }
+    label { font-size: 0.83rem; font-weight: 600; color: var(--slate); margin-bottom: 5px; display: block; }
+    select.form-control-custom { padding: 11px 14px; }
+
+    /* Section headings inside form */
+    .shipping-sec {
+      font-size: 0.9rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--accent); background: var(--accent-lt);
+      padding: 8px 14px; border-radius: 6px;
+      margin: 18px 0 10px;
+    }
+
+    /* ── CC Submit Button ── */
+    .btn { display: inline-block; font-weight: 400; text-align: center; white-space: normal; vertical-align: middle; user-select: none; border: 1px solid transparent; line-height: 1.5; border-radius: .25rem; transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; margin: 20px auto; font-size: 20px; font-family: Helvetica, serif; }
+    .btn.btn-primary { background: #007bff; color: #fff; border-color: #007bff; white-space: normal; }
+    .btn.btn-primary.btn-one-style:active:focus { box-shadow: none; }
+    .btn.btn-primary.btn-one-style:focus { box-shadow: none; }
+
+    /* Override for big checkout CTA */
+    .cta-checkout {
+      width: 100%; padding: 16px !important;
+      font-size: 1.1rem !important; font-weight: 700 !important;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+      border-color: transparent !important;
+      border-radius: 10px !important;
+      letter-spacing: 0.4px;
+      margin: 12px 0 0 !important;
+      box-shadow: 0 4px 18px rgba(79,70,229,0.35);
+    }
+    .cta-checkout:hover {
+      background: linear-gradient(135deg, #4338ca, #6d28d9) !important;
+      box-shadow: 0 6px 24px rgba(79,70,229,0.45);
+    }
+
+    /* ── Order Bump ── */
+    #bumpHeadingClass { color: rgb(0,153,34); margin-top:10px; margin-bottom:10px; margin-right:10px; padding-left:55px; }
+    .bump-heading-helper { background-color: rgba(255,255,0,0.486); text-align:center; margin-left:-10px; }
+    .order-bump-checkbox { margin-top:7px; margin-left:-20px; display:inline; margin-right:5px; }
+    .bump-div-class { background-color:rgb(252,248,227); padding-left:20px; border-style:dashed; border-color:rgb(33,37,41); border-radius: 8px; }
+    #orderBumpParagraph { text-align:initial; font-size:16px; display:inline-block; max-width:100%; margin:0 10px; }
+    .orderBump-paragraph-helper { margin-left:-10px !important; margin-bottom:20px !important; }
+    #orderBumpHref { color:rgb(204,63,0); text-decoration:underline; font-weight:bold; font-size:16px; }
+    #arrowGif { display:inline; width:32px; margin:1px 25px 5px -55px; }
+    #formCheckLabelOrderBump { color:rgb(0,153,34); margin-bottom:0; font-weight:500; font-size:18px; margin-top:1px; text-align:left; margin-left:1px; font-family:Roboto,Helvetica,sans-serif; }
+    #orderBumpSpan { font-weight:400; margin-left:1px; margin-right:10px; color:rgb(33,37,41); font-size:16px; }
+
+    /* ── Coupon ── */
+    .coupon-section { display: none; }
+    .coupon-section.show { display: block; }
+    .half-width { display: inline-block; width: 55%; }
+    .apply-coupon { display: inline-block; margin-left: 8px; padding: 11px 20px; font-size: 0.9rem; font-weight: 600; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; vertical-align: top; margin-top: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 767px) {
+      .cc-card { padding: 18px 14px; }
+      .checkout-wrap { padding: 16px 10px 50px; }
+      .step-sep { width: 24px; }
+    }
+
+    /* ── Payment icons ── */
+    .payment-icons { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .payment-icons img { height: 26px; border: 1px solid var(--border); border-radius: 4px; padding: 2px 5px; background: #fff; }
+    .ssl-note { font-size: 0.76rem; color: var(--mid); margin-top: 8px; display: flex; align-items: center; gap: 5px; }
+    .ssl-note i { color: var(--success); }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="#" class="brand">Sound<span>Wave</span> Pro</a>
+        <div class="secure-badge">
+          <i class="fas fa-lock"></i> 256-bit SSL Secure Checkout
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Progress ── -->
+  <div class="checkout-progress">
+    <ul class="step-list">
+      <li class="done">
+        <div class="step-num"><i class="fas fa-check" style="font-size:0.6rem"></i></div> Cart
+      </li>
+      <div class="step-sep done"></div>
+      <li class="active">
+        <div class="step-num">2</div> Checkout
+      </li>
+      <div class="step-sep"></div>
+      <li>
+        <div class="step-num">3</div> Confirmation
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Main ── -->
+  <div class="checkout-wrap">
+    <div class="row">
+
+      <!-- LEFT: Form column -->
+      <div class="col-md-7">
+
+        <!-- Contact Info + Full Form -->
+        <div class="cc-card">
+          <div class="cc-card-title"><i class="fas fa-user"></i> Your Information</div>
+
+          <!-- ═══════════════════════════════════════════════════
+               CC COMPONENT: Checkout Form (page type 4)
+               Structure preserved exactly as required
+          ════════════════════════════════════════════════════ -->
+          <form class="form form-style cc-cl-checkout-form"
+                data-gjs-type="form"
+                data-gjs-highlightable="false"
+                data-gjs-editable="false"
+                data-gjs-resizable="false"
+                data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)"
+                data-gjs-unstylable='[["width","height"],"shape-outside"]'>
+
+            <!-- User Details -->
+            <div class="row-wrap fk-element-container"
+                 data-gjs-custom-name="User details"
+                 data-gjs-type="element-container"
+                 data-gjs-unstylable='["height","shape-outside"]'
+                 data-gjs-removable="true"
+                 data-gjs-draggable=".form">
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">First Name</label>
+                <input type="text" class="form-control-custom" name="firstName" required="true"
+                       placeholder="John"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Last Name</label>
+                <input type="text" class="form-control-custom" name="lastName" required="true"
+                       placeholder="Doe"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Email Address</label>
+                <input type="text" class="form-control-custom" name="emailAddress" required="true"
+                       placeholder="john@example.com"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Phone Number</label>
+                <input type="text" class="form-control-custom" name="phoneNumber" required="true"
+                       placeholder="+1 (555) 000-0000"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+            </div>
+
+            <!-- Billing -->
+            <h3 class="shipping-sec"><i class="fas fa-map-marker-alt mr-2"></i>Billing Address</h3>
+            <div class="row-wrap fk-element-container"
+                 data-gjs-custom-name="Billing details"
+                 data-gjs-type="element-container"
+                 data-gjs-unstylable='["height","shape-outside"]'
+                 data-gjs-removable="true"
+                 data-gjs-draggable=".form">
+              <div class="form-group-div col-sm-12 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Full Address</label>
+                <input type="text" class="form-control-custom" name="address1" required="true"
+                       placeholder="123 Main Street"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-12 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Address Line 2 (Optional)</label>
+                <input type="text" class="form-control-custom" name="address2"
+                       placeholder="Apt, Suite, etc."
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-4 col-lg-4 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">City</label>
+                <input type="text" class="form-control-custom" name="city" required="true"
+                       placeholder="New York"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-4 col-lg-4 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">State / Province</label>
+                <select name="state" required="true"
+                        class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select"
+                        data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                  <option value="">-- State --</option>
+                  <option value="CA">California</option>
+                  <option value="NY">New York</option>
+                  <option value="TX">Texas</option>
+                  <option value="FL">Florida</option>
+                  <option value="WA">Washington</option>
+                  <option value="IL">Illinois</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-4 col-lg-4 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">ZIP Code</label>
+                <input type="text" class="form-control-custom" name="postalCode" required="true"
+                       placeholder="10001"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Country</label>
+                <select name="country" required="true"
+                        class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select"
+                        data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                  <option value="">-- Country --</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="AU">Australia</option>
+                  <option value="IN">India</option>
+                </select>
+              </div>
+
+              <!-- billShipSame checkbox -->
+              <div class="row-wrap fk-element-container float-left form-check"
+                   style="padding-left: 20px; margin: 8px 0 0 8px;"
+                   data-gjs-type="element-container"
+                   data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true"
+                   data-gjs-draggable=".form">
+                <input type="checkbox"
+                       class="fk-form-checkbox form-check-input"
+                       data-gjs-type="form-checkbox"
+                       name="billShipSame"
+                       checked
+                       onclick="checkBoxChange(attributes)"
+                       opencheckboxsection="shippingSection">
+                <label class="form-check-label ml-2"
+                       data-gjs-type="form-label"
+                       data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">
+                  Billing and shipping address are the same
+                </label>
+              </div>
+            </div>
+
+            <!-- Shipping -->
+            <h3 class="shipping-sec"><i class="fas fa-truck mr-2"></i>Shipping Address</h3>
+            <div id="shippingSection" class="row-wrap fk-element-container"
+                 data-gjs-custom-name="Shipping details"
+                 data-gjs-type="element-container"
+                 data-gjs-unstylable='["height","shape-outside"]'
+                 data-gjs-removable="true"
+                 data-gjs-draggable=".form">
+              <div class="form-group-div col-sm-12 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Full Address</label>
+                <input type="text" class="form-control-custom" name="shipAddress1" required="true"
+                       placeholder="123 Main Street"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-12 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Address Line 2 (Optional)</label>
+                <input type="text" class="form-control-custom" name="shipAddress2"
+                       placeholder="Apt, Suite, etc."
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-4 col-lg-4 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">City</label>
+                <input type="text" class="form-control-custom" name="shipCity" required="true"
+                       placeholder="New York"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-4 col-lg-4 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">State / Province</label>
+                <select name="shipState" required="true"
+                        class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select"
+                        data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                  <option value="">-- State --</option>
+                  <option value="CA">California</option>
+                  <option value="NY">New York</option>
+                  <option value="TX">Texas</option>
+                  <option value="FL">Florida</option>
+                  <option value="WA">Washington</option>
+                  <option value="IL">Illinois</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-4 col-lg-4 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">ZIP Code</label>
+                <input type="text" class="form-control-custom" name="shipPostalCode" required="true"
+                       placeholder="10001"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Country</label>
+                <select name="shipCountry" required="true"
+                        class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select"
+                        data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                  <option value="">-- Country --</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="AU">Australia</option>
+                  <option value="IN">India</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Payment -->
+            <h3 class="shipping-sec"><i class="fas fa-credit-card mr-2"></i>Payment Details</h3>
+            <div class="row-wrap fk-element-container"
+                 data-gjs-custom-name="Order details"
+                 data-gjs-type="element-container"
+                 data-gjs-unstylable='["height","shape-outside"]'
+                 data-gjs-removable="true"
+                 data-gjs-draggable=".form">
+              <div class="form-group-div col-sm-12 col-md-8 col-lg-8 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Card Number</label>
+                <input type="text" class="form-control-custom" name="cardNumber"
+                       required="true" maxlength="16"
+                       placeholder="1234  5678  9012  3456"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-4 col-lg-4 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">CVV</label>
+                <input type="text" class="form-control-custom" name="cardSecurityCode"
+                       required="true" maxlength="4"
+                       placeholder="123"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Expiry Month</label>
+                <select name="cardMonth" required="true"
+                        class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select"
+                        data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                  <option>Month</option>
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+              </div>
+              <div class="form-group-div col-sm-6 col-md-6 col-lg-6 fk-element-container"
+                   data-gjs-type="element-container" data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true" data-gjs-draggable=".form">
+                <label data-gjs-type="form-label" data-gjs-name="Label"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='[["width","height"],"shape-outside"]'
+                       data-gjs-editable="true">Expiry Year</label>
+                <select name="cardYear" required="true"
+                        class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select"
+                        data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                  <option>Year</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  <option value="2028">2028</option>
+                  <option value="2029">2029</option>
+                  <option value="2030">2030</option>
+                  <option value="2031">2031</option>
+                  <option value="2032">2032</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Payment icons -->
+            <div class="payment-icons" style="padding: 0 8px;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" alt="Mastercard">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/200px-American_Express_logo_%282018%29.svg.png" alt="Amex">
+            </div>
+            <p class="ssl-note" style="padding: 0 8px;"><i class="fas fa-lock"></i> Your payment info is encrypted with 256-bit SSL</p>
+
+            <!-- Submit Button (CC Button1 component) -->
+            <div class="row-wrap fk-element-container"
+                 data-gjs-type="element-container"
+                 data-gjs-unstylable='["height","shape-outside"]'
+                 data-gjs-removable="true"
+                 data-gjs-draggable=".form"
+                 style="padding: 0 8px;">
+              <button class="btn btn-primary btn-one-style cta-checkout w-100"
+                      action="submit"
+                      onclick="callMethod(event)">
+                <i class="fas fa-lock mr-2"></i> Complete My Order — $79.99
+              </button>
+            </div>
+
+          </form>
+        </div><!-- /cc-card -->
+
+        <!-- ═══════════════════════════════════════════════════
+             CC COMPONENT: Coupon (page type 4)
+        ════════════════════════════════════════════════════ -->
+        <div class="cc-card">
+          <div class="cc-card-title"><i class="fas fa-tag"></i> Discount Code</div>
+          <span class="coupon-toggle" onclick="this.nextElementSibling.classList.toggle('show')">
+            Have a coupon? Click to enter code
+          </span>
+          <div class="coupon-section">
+            <form class="form form-style"
+                  data-gjs-type="form"
+                  data-gjs-highlightable="false"
+                  data-gjs-editable="false"
+                  data-gjs-resizable="false"
+                  data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)"
+                  data-gjs-unstylable='[["width","height"],"shape-outside"]'>
+              <div class="fk-element-container half-width top-margin"
+                   data-gjs-type="element-container"
+                   data-gjs-unstylable='["height","shape-outside"]'
+                   data-gjs-removable="true"
+                   data-gjs-draggable=".form">
+                <input type="text" class="form-control-custom" name="couponCode"
+                       placeholder="Coupon Code"
+                       data-gjs-type="input" data-gjs-stylable="true"
+                       data-gjs-draggable=".form, .io-attrs"
+                       data-gjs-unstylable='["height","shape-outside"]'>
+              </div>
+              <button class="btn btn-primary apply-coupon"
+                      action="applyCoupon"
+                      onclick="applyCoupon(event)">Apply</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════
+             CC COMPONENT: Order Bump (page type 4)
+        ════════════════════════════════════════════════════ -->
+        <div class="cc-card" style="padding: 0; overflow: hidden;">
+          <div class="form-check bump-div-class cc-order-bump"
+               data-cc-type="orderBump"
+               data-cc-editable="false"
+               data-cc-draggable=":not([data-cc-type=wrapper])"
+               data-cc-droppable="true"
+               draggable="true">
+            <h5 data-text="text"
+                id="bumpHeadingClass"
+                class="fk-product bump-heading-class fk-element-container bump-heading-helper"
+                data-cc-type="element-container"
+                data-cc-editable="false"
+                data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                data-cc-droppable="true"
+                draggable="true">
+              <img src="https://dev-assets.imagehub.io/config/arrow-flash-small.webp"
+                   id="arrowGif" class="arrow-gif" alt="Arrow Gif"
+                   data-cc-type="image" title="" href="" onclick="" target="_self"
+                   align="center" width="" height=""
+                   data-cc-editable="false"
+                   data-cc-draggable=":not([data-cc-type=wrapper]):not([data-cc-type=form]):not(.form-group)"
+                   data-cc-droppable="false" draggable="true">
+              <input type="checkbox"
+                     id="orderBumpCheckbox"
+                     class="fk-product fk-product-checkbox form-check-input order-bump-checkbox"
+                     data-cc-type="product-checkbox"
+                     name="product"
+                     data-cc-editable="false"
+                     data-cc-draggable="true"
+                     data-cc-droppable="false"
+                     draggable="true">
+              <label for="inlineCheckbox1"
+                     id="formCheckLabelOrderBump"
+                     class="form-check-label"
+                     data-cc-type="form-label"
+                     data-cc-editable="true"
+                     data-cc-draggable=".fk-col, :not([data-cc-type=wrapper]):not(row):not(section)"
+                     data-cc-droppable="false"
+                     draggable="true">
+                Yes! Add the SoundWave Pro Carry Case — Only $14.99!
+              </label>
+            </h5>
+            <p data-text="text"
+               id="orderBumpParagraph"
+               class="order-bump-paragraph orderBump-paragraph-helper"
+               data-cc-type="text"
+               data-cc-editable="true"
+               data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+               data-cc-droppable="false"
+               draggable="true"
+               data-layer-name="Text">
+              <a href="" tabindex="0"
+                 id="orderBumpHref"
+                 class="order-bump-href"
+                 data-cc-type="link"
+                 title="ONE TIME OFFER"
+                 target="_self"
+                 action="choose"
+                 align="center"
+                 onclick="linkMethod(event)"
+                 data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                 data-cc-droppable="false"
+                 draggable="true">ONE TIME OFFER</a>:<span data-text="text"
+                id="orderBumpSpan"
+                data-cc-type="text"
+                data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                data-cc-droppable="false"
+                draggable="true">
+                Protect your SoundWave Pro earphones in style! This premium hard-shell carry case includes a carabiner clip, USB cable organizer pocket, and water-resistant lining. Normally $29.99 — grab it today for just $14.99. This offer disappears when you leave this page.
+              </span>
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /col-md-7 -->
+
+
+      <!-- RIGHT: Order summary column -->
+      <div class="col-md-5 mt-4 mt-md-0">
+
+        <!-- Product Card -->
+        <div class="cc-card">
+          <div class="product-img-wrap">
+            <!-- Inline SVG earphone illustration as product visual -->
+            <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg" style="max-height:180px;width:100%">
+              <!-- Left earphone -->
+              <ellipse cx="75" cy="110" rx="40" ry="48" fill="#2d2f7a" rx="10"/>
+              <ellipse cx="75" cy="110" rx="30" ry="38" fill="#3d40a0"/>
+              <circle cx="75" cy="110" r="18" fill="#1a1b4b"/>
+              <circle cx="75" cy="110" r="10" fill="#4f46e5"/>
+              <circle cx="75" cy="110" r="4" fill="#a5b4fc"/>
+              <!-- Right earphone -->
+              <ellipse cx="185" cy="110" rx="40" ry="48" fill="#2d2f7a"/>
+              <ellipse cx="185" cy="110" rx="30" ry="38" fill="#3d40a0"/>
+              <circle cx="185" cy="110" r="18" fill="#1a1b4b"/>
+              <circle cx="185" cy="110" r="10" fill="#4f46e5"/>
+              <circle cx="185" cy="110" r="4" fill="#a5b4fc"/>
+              <!-- Cable arc -->
+              <path d="M115 90 Q130 40 145 90" fill="none" stroke="#a5b4fc" stroke-width="3" stroke-linecap="round"/>
+              <!-- Mic on left wire -->
+              <circle cx="120" cy="75" r="5" fill="#7c3aed"/>
+              <!-- Highlights -->
+              <ellipse cx="62" cy="88" rx="8" ry="5" fill="rgba(255,255,255,0.15)" transform="rotate(-20,62,88)"/>
+              <ellipse cx="172" cy="88" rx="8" ry="5" fill="rgba(255,255,255,0.15)" transform="rotate(-20,172,88)"/>
+            </svg>
+          </div>
+
+          <div class="product-name">SoundWave Pro Earphones</div>
+          <div class="mt-1">
+            <span class="product-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </span>
+            <span class="product-review-count ml-1">4.8 (2,341 reviews)</span>
+          </div>
+
+          <div class="price-row mt-2">
+            <span class="price-now">$79.99</span>
+            <span class="price-was">$149.99</span>
+            <span class="price-save">Save 47%</span>
+          </div>
+
+          <ul class="feature-list">
+            <li><i class="fas fa-volume-up"></i> 40mm Dynamic Drivers — Room-filling bass</li>
+            <li><i class="fas fa-microphone-slash"></i> Active Noise Cancellation</li>
+            <li><i class="fas fa-battery-full"></i> 32-hour battery life</li>
+            <li><i class="fas fa-bluetooth-b"></i> Bluetooth 5.2 multipoint connect</li>
+            <li><i class="fas fa-tachometer-alt"></i> 4-minute quick charge = 3 hrs play</li>
+            <li><i class="fas fa-check-circle"></i> Foldable, ultra-lightweight design</li>
+          </ul>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="cc-card">
+          <div class="cc-card-title"><i class="fas fa-receipt"></i> Order Summary</div>
+          <div class="summary-line">
+            <span>SoundWave Pro Earphones × 1</span>
+            <span>$79.99</span>
+          </div>
+          <div class="summary-line">
+            <span>Shipping</span>
+            <span style="color: var(--success); font-weight: 600;">FREE</span>
+          </div>
+          <div class="summary-line">
+            <span>Discount (SAVE47)</span>
+            <span style="color: var(--danger);">−$70.00</span>
+          </div>
+          <div class="summary-total">
+            <span>Total</span>
+            <span>$79.99</span>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="cc-card" style="padding: 20px;">
+          <div class="trust-row">
+            <div class="trust-badge">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <div style="font-size:0.75rem;font-weight:700;">30-Day Money Back</div>
+                <div style="font-size:0.7rem;color:var(--mid);font-weight:400;">No questions asked</div>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <i class="fas fa-shipping-fast"></i>
+              <div>
+                <div style="font-size:0.75rem;font-weight:700;">Free Shipping</div>
+                <div style="font-size:0.7rem;color:var(--mid);font-weight:400;">Delivered in 3–5 days</div>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <i class="fas fa-headset"></i>
+              <div>
+                <div style="font-size:0.75rem;font-weight:700;">24/7 Support</div>
+                <div style="font-size:0.7rem;color:var(--mid);font-weight:400;">Live chat & email</div>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <i class="fas fa-box"></i>
+              <div>
+                <div style="font-size:0.75rem;font-weight:700;">1-Year Warranty</div>
+                <div style="font-size:0.7rem;color:var(--mid);font-weight:400;">Manufacturer backed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /col-md-5 -->
+    </div><!-- /row -->
+  </div><!-- /checkout-wrap -->
+
+  <!-- Footer -->
+  <footer style="background: var(--ink); color: rgba(255,255,255,0.5); text-align:center; padding:20px; font-size:0.78rem;">
+    © 2026 SoundWave Pro. All rights reserved. &nbsp;|&nbsp;
+    <a href="#" style="color:rgba(255,255,255,0.5);">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="#" style="color:rgba(255,255,255,0.5);">Terms of Service</a>
+  </footer>
+
+</body>
+</html>
