@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SoundWave Pro — App Shell</title>
+  <title>NexForce Gaming – App Entry</title>
 </head>
 <body>
   <!--
-  window.routes = ["/checkoutpage"];
+  window.routes = ["/checkoutpage", "/thankyoupage"];
 
   window.navigations = {
     "checkoutpage": {
-      "buttonid1": "checkoutpage"
+      "fkt-link-071-6a0-9f7": "checkoutpage",
+      "cc-form-submit-btn": "thankyoupage"
     }
   };
   -->
+  <script>
+    // Redirect to checkout page by default
+    if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+      window.location.href = "/checkoutpage";
+    }
+  </script>
 </body>
 </html>
