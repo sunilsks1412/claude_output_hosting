@@ -628,6 +628,95 @@
         </div>
       </div>
 
+      <!-- Product Checkbox Component (Clickable Product - Add to Order) -->
+      <div class="checkout-card">
+        <div class="checkout-card-header"><i class="fa fa-box"></i> Select Your Product</div>
+        <div class="checkout-card-body">
+          <style>
+            .fk-product-checkbox-button-parent {
+              display: flex;
+              align-items: center;
+              padding: 14px 16px;
+              border: 1px solid #e2e5e9;
+              border-radius: 8px;
+              margin: 8px 0;
+              cursor: pointer;
+              transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+            }
+
+            .fk-product-checkbox-button-parent:hover {
+              border-color: #007bff;
+              background-color: #f8fbff;
+            }
+
+            .fk-product-checkbox-label {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+                "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+              font-size: 16px;
+              font-weight: 500;
+              margin-bottom: 0;
+            }
+
+            .fk-form-product-radio-checkbox {
+              margin-right: 5px;
+              position: inherit;
+            }
+
+            .fk-product-item-style {
+              float: left;
+              margin-right: 5px;
+              position: inherit;
+              margin-top: 0.3rem;
+              margin-left: -1.25rem;
+              margin-bottom: inherit;
+              width: 20px;
+              height: 20px;
+              cursor: pointer;
+            }
+
+            .product-checkbox-price-label {
+              font-weight: 700;
+              color: #007bff;
+              font-size: 17px;
+            }
+
+            .product-checkbox-img {
+              width: 56px;
+              height: 56px;
+              object-fit: contain;
+              margin-right: 14px;
+              border-radius: 6px;
+            }
+
+            .product-checkbox-text-wrap {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .product-checkbox-sub {
+              font-size: 13px;
+              color: #8a8f98;
+              font-weight: 400;
+            }
+          </style>
+          <div class="form-check fk-product-checkbox-button-parent">
+            <input name="product"
+              class="fk-product-checkbox form-check-input fk-form-product-radio-checkbox fk-product-item-style"
+              value="281" type="checkbox" />
+            <img class="product-checkbox-img"
+              src="https://dev-assets.imagehub.io/snippets/testimonials/generic-product.webp" alt="Product" />
+            <div class="product-checkbox-text-wrap" style="flex:1;">
+              <label class="form-check-label fk-product-checkbox-label" for="inlineCheckbox1">Premium Product
+                Bundle</label>
+              <span class="product-checkbox-sub">Click to add this item to your order</span>
+            </div>
+            <label class="form-check-label fk-product-checkbox-label product-checkbox-price-label"
+              style="float:right; margin-left:auto">$49.99</label>
+          </div>
+        </div>
+      </div>
+
       <!-- Order Bump Variants Component -->
       <div class="checkout-card">
         <div class="checkout-card-body">
