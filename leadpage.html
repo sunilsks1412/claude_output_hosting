@@ -1,502 +1,275 @@
 <!DOCTYPE html>
-<html lang="en" id="cc-id-uG3gn4HhX0RS">
-<head id="cc-id-vNp42E32IuOM">
-  <meta charset="UTF-8" id="cc-id-rHygvNd25JhJ" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="cc-id-qUzx1ejC8441" />
-  <title id="cc-id-6cnNDjcmJStA">Solstice Botanicals &mdash; Claim Your Free Starter Kit</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-8Jgv8Rz2jDob" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-dnrLRmLfte0f" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" id="cc-id-BJtlB9QvSo6B" />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" id="cc-id-FD3Lf1NRJKvK" />
-  <style id="cc-id-87XrXRYmKLDv">
-    :root {
-      --cc-forest: #2F4538;
-      --cc-forest-dark: #223328;
-      --cc-sand: #F7F3EC;
-      --cc-amber: #C9A227;
-      --cc-charcoal: #24261F;
-      --cc-cream-line: #E7DFCF;
-    }
-
+<html lang="en">
+<head>
+  <meta charset="UTF-8" id="cc-id-Ee5fG6hI7jKl" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="cc-id-Ff6gH7iJ8kLm" />
+  <title id="cc-id-Gg7hI8jK9lMn">Get Started &mdash; Sign Up Today</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-Hh8iJ9kL1mNo" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-Ii9jK1lM2nOp" />
+  <style id="cc-id-Jj1kL2mN3oPq">
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--cc-sand);
-      color: var(--cc-charcoal);
+      font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #2b2b2b;
+      background-color: #ffffff;
+      margin: 0;
     }
 
-    h1, h2, h3, .cc-display {
-      font-family: 'Fraunces', serif;
+    .cc-hero-section {
+      background: linear-gradient(135deg, #fff4ec 0%, #fdece1 100%);
+      padding: 60px 20px 50px 20px;
     }
 
-    .cc-hero {
-      background: linear-gradient(180deg, var(--cc-forest) 0%, var(--cc-forest-dark) 100%);
-      color: var(--cc-sand);
-      position: relative;
-      overflow: hidden;
-      padding: 96px 0 120px;
+    .cc-hero-heading {
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: #1f2933;
+      margin-bottom: 15px;
     }
 
-    .cc-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 12% 20%, rgba(201, 162, 39, 0.18) 0, transparent 42%),
-        radial-gradient(circle at 88% 82%, rgba(201, 162, 39, 0.14) 0, transparent 45%);
-      pointer-events: none;
-    }
-
-    .cc-eyebrow {
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--cc-amber);
-    }
-
-    .cc-hero h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      line-height: 1.12;
-      margin: 18px 0 20px;
-    }
-
-    .cc-hero p.cc-lead-copy {
+    .cc-hero-subheading {
       font-size: 1.15rem;
+      color: #52606d;
+      max-width: 640px;
+      margin: 0 auto 30px auto;
+    }
+
+    .cc-bullet-wrapper {
       max-width: 520px;
-      color: rgba(247, 243, 236, 0.86);
+      margin: 0 auto;
+      text-align: left;
     }
 
-    .cc-sprig {
-      position: absolute;
-      right: 6%;
-      top: 18%;
-      width: 220px;
-      opacity: 0.9;
+    .cc-bullet-wrapper .fk-bullet {
+      padding: 2px 0;
     }
 
-    .cc-form-card {
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 30px 60px rgba(34, 51, 40, 0.28);
-      margin-top: -72px;
-      position: relative;
-      z-index: 2;
-      padding: 8px;
+    .cc-bullet-wrapper .fk-bullet-icon-container i {
+      color: #f26419;
     }
 
-    .cc-form-card .cc-cl-lead-basic h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--cc-forest);
-      margin-bottom: 22px;
+    .cc-form-section {
+      padding: 50px 20px 70px 20px;
+      background-color: #ffffff;
     }
 
-    .cc-form-card .cc-v2 {
-      background: #ffffff;
-      padding: 32px 24px 16px;
+    .cc-form-outer {
+      max-width: 640px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .cc-form-card .form-control-custom {
-      border: 1px solid var(--cc-cream-line);
-      font-family: 'Inter', sans-serif;
-    }
-
-    .cc-form-card .cc-form-btn {
-      background: var(--cc-forest) !important;
-      border-color: var(--cc-forest) !important;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .cc-form-card .cc-form-btn:hover {
-      background: var(--cc-forest-dark) !important;
-      border-color: var(--cc-forest-dark) !important;
-    }
-
-    .cc-benefits {
-      padding: 88px 0 96px;
-    }
-
-    .cc-benefit-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: rgba(47, 69, 56, 0.08);
-      color: var(--cc-forest);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 14px;
-    }
-
-    .cc-benefit-title {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-    }
-
-    .cc-divider {
-      width: 56px;
-      height: 3px;
-      background: var(--cc-amber);
-      border: none;
-      margin: 0 auto 18px;
-    }
-
-    footer.cc-footer {
-      background: var(--cc-forest-dark);
-      color: rgba(247, 243, 236, 0.65);
-      padding: 28px 0;
-      font-size: 0.85rem;
+    .cc-v2 h1 {
+      font-size: 1.6rem;
       text-align: center;
+      margin-bottom: 10px;
+      color: #1f2933;
     }
 
-    @media (max-width: 767px) {
-      .cc-hero { padding: 64px 0 148px; }
-      .cc-hero h1 { font-size: 2.1rem; }
-      .cc-sprig { display: none; }
-      .cc-form-card { margin-top: -96px; }
+    .cc-footer {
+      background-color: #1f2933;
+      color: #cbd2d9;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 576px) {
+      .cc-hero-heading {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
+<body id="cc-id-Kk2lM3nO4pQr">
 
-<body id="cc-id-kq8imZvjxIGc">
-
-  <header class="cartPanelHeader" id="cc-id-pfDU7Uz2sAAz">
-    <div class="fk-inner-header-wrapper" id="cc-id-7VLgl4A07rGp">
-      <div class="fk-brand-wrapper" id="cc-id-lhUsx3uDTGQh">
-        <div class="fk-menu-btn-container" id="cc-id-fqievwgxNa7h">
+  <!-- ===================== Header component ===================== -->
+  <header class="cartPanelHeader" id="cc-id-hQ7mZ2xT9aBn">
+    <div class="fk-inner-header-wrapper" id="cc-id-Lp3kX8vC1wRt">
+      <div class="fk-brand-wrapper" id="cc-id-Wn6tY4uH2jKd">
+        <div class="fk-menu-btn-container" id="cc-id-Fz9pQ1sD5nMb">
           <span class="fk-menu-btn" onclick="toggleSideMenuItems(event)" title="" target="_self" action="choose"
             align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
             data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
-            id="cc-id-Fg3BKF15iRtZ">
-            <i class="fa fa-bars" id="cc-id-FQdeFybXAoty"></i>
+            id="cc-id-Xk2vB7tR4hLp">
+            <i class="fa fa-bars" id="cc-id-Jm8cQ3wZ6yTn"></i>
           </span>
         </div>
         <img id="img1" class="image-quantity-container image-cart-header fk-logo fk-brand"
           src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title="" href=""
-          onclick="" target="_self" alt="Solstice Botanicals" align="center" width="150" height="50" />
+          onclick="" target="_self" alt="Brand logo" align="center" width="150" height="50" />
       </div>
-      <div class="fk-menu-container" id="cc-id-7c8LWdulyUrL">
-        <div class="fk-menu" data-selector="true" id="cc-id-CliH7dPAOedy">
+      <div class="fk-menu-container" id="cc-id-Vr5hN9kP2eXs">
+        <div class="fk-menu" data-selector="true" id="cc-id-Bt4wL8yQ1cRz">
           Menu Option
         </div>
       </div>
-      <div class="fk-cart-wrapper" id="cc-id-jTjN7Y117lOi">
-        <div class="fk-cart-container" id="cc-id-2XGvui8Yvi4P">
+      <div class="fk-cart-wrapper" id="cc-id-Hs7mK3xN6vPq">
+        <div class="fk-cart-container" id="cc-id-Cy2fR9tB4wLm">
           <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
-            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()" id="cc-id-h6T7PNJ6O6QM"></i>
+            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()" id="cc-id-Dp6nX1qZ8vKt"></i>
             <span id="panelCartCircle" class="quantity-circle panelCartCircle">0</span>
           </span>
         </div>
       </div>
     </div>
-    <div class="rightPanelHTML" id="rightPanelHTML" style="display:none;">
+    <div class="rightPanelHTML" id="rightPanelHTML">
       <div id="mySidepanel" class="sidepanel cc-custom-right-panel"
         style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
-        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-ih3iWYwkUqJh">
-          <h2 style="margin-left:2%" id="cc-id-GpVMVcx6ajdo">
-            Your Cart<span id="cc-id-6CMnAVvLAeZt"> </span><span class="close-panel" onclick="closeNav()" title="&times;" target="_self" action="choose"
+        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-Gm3vT7yH2sXn">
+          <h2 style="margin-left:2%" id="cc-id-Kw9pL4xB6mRz">
+            Your Cart<span> </span><span class="close-panel" onclick="closeNav()" title="×" target="_self" action="choose"
               align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
-              data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price="">&times;</span>
+              data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
+              id="cc-id-Nq5tZ8vC3wYm">×</span>
           </h2>
         </div>
         <div id="cartPanelId" class="sticky" style="padding:1%;overflow:hidden"></div>
-        <h5 style="margin-left:2%" id="cc-id-XfEaFImoCLnd">
+        <h5 style="margin-left:2%" id="cc-id-Rj2xM6bH9pLt">
           Subtotal:
           <span class="cartPanelSubtotalClass">0</span>
         </h5>
-        <br id="cc-id-fN7A2jUoW4Sj" />
-        <p style="margin-left:2%" id="cc-id-x7LzRbP68GIQ">
+        <br />
+        <p style="margin-left:2%" id="cc-id-Ty8kP4nX7vBq">
           Taxes, shipping, and coupons will be calculated at checkout
         </p>
         <button style="margin-left:12%;width:224px;" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL"
           action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
           data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
-          upsell="" quantity="" price="">
-          VIEW CART</button><br id="cc-id-wpg3PJwZlwon" /><br id="cc-id-EKdQJxKuHtdZ" />
+          upsell="" quantity="" price="" id="cc-id-Uc3wR9tK6mXz">
+          VIEW CART</button><br /><br />
         <button style="margin-left:12%;width:224px;"
           class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" action="route"
           onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay="" data-minutesdelay=""
           type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer="" upsell="" quantity=""
-          price="">
+          price="" id="cc-id-Vw6xN2tQ9pRm">
           PROCEED TO CHECKOUT
         </button>
       </div>
     </div>
   </header>
+  <!-- =================== end Header component ==================== -->
 
-  <section class="cc-hero" id="cc-id-Q3Ji2lepRTMp">
-    <svg class="cc-sprig" id="cc-id-vj5h8BnmHnJ3" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M50 210 C 50 150, 30 140, 40 90 C 48 55, 40 30, 50 10" stroke="#C9A227" stroke-width="2" fill="none" opacity="0.7" id="cc-id-SPtwQcnB1WbV"/>
-      <ellipse cx="40" cy="90" rx="16" ry="8" fill="#C9A227" opacity="0.35" transform="rotate(-30 40 90)" id="cc-id-phgpXhe5fvVe"/>
-      <ellipse cx="50" cy="60" rx="16" ry="8" fill="#C9A227" opacity="0.5" transform="rotate(20 50 60)" id="cc-id-aYHlqyORtxiB"/>
-      <ellipse cx="44" cy="130" rx="18" ry="9" fill="#C9A227" opacity="0.3" transform="rotate(-40 44 130)" id="cc-id-1RdZNsqNJfda"/>
-    </svg>
-    <div class="container" id="cc-id-oU36EIyxeps8">
-      <div class="row" id="cc-id-bghG6bPYJCrf">
-        <div class="col-lg-7" id="cc-id-eLhPnbORsuXu">
-          <div class="cc-eyebrow" id="cc-id-kPlaiL6Fy0iu">Small-batch herbal blends</div>
-          <h1 id="cc-id-TLgabGMTqDjU">Claim your free Solstice starter kit</h1>
-          <p class="cc-lead-copy" id="cc-id-9YipIHqh0mVi">
-            Three adaptogenic blends, steeped from wild-harvested botanicals. Tell us where to send your
-            complimentary starter kit &mdash; no card required.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="cc-id-ELA1PRtNacxk">
-    <div class="container" id="cc-id-XG9MxlJzG2Cu">
-      <div class="row justify-content-center" id="cc-id-2Xm0F8uibb53">
-        <div class="col-lg-6 col-md-8" id="cc-id-puX5fUTFC4S1">
-          <div class="cc-form-card" id="cc-id-5KYRNnqFsUWl">
-
-            <!-- CheckoutChamp Lead Basic component (page type 2) — structure preserved exactly -->
-            <style>
-              label.label-name.mandatory {
-                width: 120px;
-                float: left;
-              }
-
-              .form-style {
-                width: auto;
-                border: 1px solid #f4f4f4;
-              }
-
-              .btn {
-                display: inline-block;
-                font-weight: 400;
-                text-align: center;
-                white-space: normal;
-                vertical-align: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                border: 1px solid transparent;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                padding-left: 25px;
-                padding-right: 25px;
-                line-height: 1.5;
-                border-radius: 0.25rem;
-                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-                  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-                margin: 20px auto;
-                white-space: normal;
-                font-size: 20px;
-              }
-
-              .btn-primary {
-                background: #007bff;
-                color: #fff;
-                border-color: #007bff;
-                white-space: normal;
-              }
-
-              .form-control-custom {
-                display: block;
-                width: 100%;
-                padding: 12px 18px;
-                font-size: 1rem;
-                line-height: 1.5;
-                color: #495057;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                border-radius: 0.25rem;
-                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-              }
-
-              .form-group-div {
-                margin: 10px 0px;
-                width: 100%;
-                padding: 0px 15px;
-              }
-
-              .text-center {
-                text-align: center;
-              }
-
-              .row-wrap {
-                display: flex;
-                flex-wrap: wrap;
-                width: auto;
-              }
-
-              .cc-v2 {
-                border-radius: 6px;
-                background: #f4f4f4ff;
-                padding: 20px 10px 10px 10px;
-                font-family: Poppins;
-                font-weight: 400;
-              }
-
-              .cc-v2 label {
-                font-family: Poppins;
-                font-weight: 400;
-                width: fit-content;
-              }
-
-              .cc-v2 .btn.btn-primary.cc-form-btn {
-                padding-top: 8px;
-                padding-bottom: 8px;
-                padding-left: 25px;
-                padding-right: 25px;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                font-size: 20px;
-                background: #f26419ff;
-                border-color: #f26419ff;
-              }
-
-              .cc-v2 .btn.btn-primary.cc-form-btn:hover {
-                background: #f26419ff;
-                border-color: #f26419ff;
-              }
-
-              .cc-container {
-                justify-content: space-between;
-                align-items: center;
-                font-family: Poppins;
-                font-weight: 400;
-              }
-
-              .cc-container div {
-                text-align: left;
-                width: 49%;
-                padding: 0px;
-              }
-
-              .cc-container-100 div {
-                text-align: left;
-                padding: 0px;
-              }
-
-              .cc-container.cc-text-center .cc-inline-style {
-                padding-left: 20px;
-                width: auto;
-              }
-
-              .cc-container-full div {
-                width: 100%;
-                margin: 10px 0px;
-                padding: 0px;
-              }
-
-              .cc-container .cc-text-center {
-                text-align: center;
-              }
-
-              .cc-container.cc-text-center div {
-                text-align: center;
-              }
-
-              .cc-container h1 {
-                font-family: montserrat;
-              }
-
-              .form-check-label {
-                font-family: Poppins;
-                font-weight: 400;
-              }
-
-              .form-control-custom:focus,
-              input:not([type="radio"]):focus,
-              select:focus {
-                border: solid 1px rgba(242, 100, 25, 1);
-                border-radius: 6px;
-                outline: none !important;
-                box-shadow: none;
-              }
-
-              @media screen and (max-width: 576px) {
-                .cc-container div {
-                  width: 100%;
-                }
-              }
-            </style>
-            <form class="form form-style cc-v2 cc-cl-lead-basic" id="cc-id-tDx27bDZ2wS2">
-              <h1 id="cc-id-EK7ZclKyRoeh">Signup for more information</h1>
-              <div class="row-wrap fk-element-container cc-container" id="cc-id-ACEBVtKFxxHj">
-                <div class="form-group-div fk-element-container" id="cc-id-GMjWHX98Do0E">
-                  <label class="label-name" id="cc-id-Xeks5YM1DmgA">First name</label>
-                  <input type="text" class="form-control-custom" name="firstName" customval="" placeholder=""
-                    id="cc-id-z5CtchDR4KHA" />
+  <!-- ===================== Hero / 1 Column component ===================== -->
+  <section class="cc-hero-section" id="cc-id-Wx8yP4vN1tKq">
+    <div class="fk-row cc-cl-column1" id="cc-id-Xy9zQ5wR2uLp">
+      <div class="fk-col col" align="center" id="cc-id-Yz1aR6xS3vMq">
+        <h1 class="cc-hero-heading" id="cc-id-Za2bS7yT4wNr">Sign Up &amp; Get Instant Access</h1>
+        <p class="cc-hero-subheading" id="cc-id-Ab3cT8zU5xOs">
+          Tell us a little about yourself and we&rsquo;ll get you started right away. Join thousands of happy customers today.
+        </p>
+        <div class="cc-bullet-wrapper" id="cc-id-Bc4dU9aV6yPt">
+          <ul class="fk-bullet" id="cc-id-Cd5eV1bW7zQu">
+            <li>
+              <div class="fk-bullet-list-container" id="cc-id-De6fW2cX8aRv">
+                <div class="fk-bullet-icon-container" id="cc-id-Ef7gX3dY9bSw">
+                  <i class="fas fa-check-circle" id="cc-id-Fg8hY4eZ1cTx"></i>
                 </div>
-                <div class="form-group-div fk-element-container" id="cc-id-hJc6t8Kmv7IL">
-                  <label class="label-name" id="cc-id-X2idofslFGUG">Last Name</label>
-                  <input type="text" class="form-control-custom" name="lastName" customval="" placeholder=""
-                    id="cc-id-8ATWiuOZ5xu2" />
-                </div>
-                <div class="form-group-div fk-element-container" id="cc-id-82ZqScp9nV1c">
-                  <label class="label-name" id="cc-id-YCdDQYJi07mx">Email Address</label>
-                  <input type="text" class="form-control-custom" name="emailAddress" customval="" placeholder=""
-                    id="cc-id-FGiwsKM1O1Ly" />
-                </div>
-                <div class="form-group-div fk-element-container" id="cc-id-F39s5ZpQHBuE">
-                  <label class="label-name" id="cc-id-uG3gn4HhX0RT">Phone Number</label>
-                  <input type="text" class="form-control-custom" name="phoneNumber" inputmode="tel" customval=""
-                    placeholder="" id="cc-id-vNp42E32IuON" />
+                <div id="cc-id-Gh9iZ5fA2dUy">
+                  <div id="cc-id-Hi1jA6gB3eVz">Fast, secure sign up in under a minute</div>
                 </div>
               </div>
-              <div class="text-center fk-element-container" id="cc-id-rHygvNd25JhK">
-                <button class="btn btn-primary cc-form-btn" style="margin-left: auto; margin-right: auto;" title=""
-                  align="center" btntype="none" type="button" onclick="callMethod(event)" action="submit"
-                  size="none" id="cc-id-qUzx1ejC8442">
-                  Submit
-                </button>
+            </li>
+            <li>
+              <div class="fk-bullet-list-container" id="cc-id-Ij2kB7hC4fWa">
+                <div class="fk-bullet-icon-container" id="cc-id-Jk3lC8iD5gXb">
+                  <i class="fas fa-check-circle" id="cc-id-Kl4mD9jE6hYc"></i>
+                </div>
+                <div id="cc-id-Lm5nE1kF7iZd">
+                  <div id="cc-id-Mn6oF2lG8jAe">No spam, ever &mdash; your info stays private</div>
+                </div>
               </div>
-            </form>
-            <!-- end Lead Basic component -->
-
-          </div>
+            </li>
+            <li>
+              <div class="fk-bullet-list-container" id="cc-id-No7pG3mH9kBf">
+                <div class="fk-bullet-icon-container" id="cc-id-Op8qH4nI1lCg">
+                  <i class="fas fa-check-circle" id="cc-id-Pq9rI5oJ2mDh"></i>
+                </div>
+                <div id="cc-id-Qr1sJ6pK3nEi">
+                  <div id="cc-id-Rs2tK7qL4oFj">Exclusive offers sent straight to you</div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
+  <!-- =================== end Hero / 1 Column component ==================== -->
 
-  <section class="cc-benefits" id="cc-id-6cnNDjcmJStB">
-    <div class="container" id="cc-id-8Jgv8Rz2jDoc">
-      <div class="row text-center mb-5" id="cc-id-dnrLRmLftf0f">
-        <div class="col-12" id="cc-id-BJtlB9QvSo6C">
-          <hr class="cc-divider" id="cc-id-FD3Lf1NRJKvL" />
-          <h2 id="cc-id-87XrXRYmKLDw">What's in the kit</h2>
-        </div>
-      </div>
-      <div class="row" id="cc-id-kq8imZvjxIGd">
-        <div class="col-md-4 mb-4" id="cc-id-pfDU7Uz2sAAy">
-          <div class="cc-benefit-icon" id="cc-id-7VLgl4A07rGq"><i class="fa fa-leaf" id="cc-id-lhUsx3uDTGQi"></i></div>
-          <div class="cc-benefit-title" id="cc-id-fqievwgxNa7i">Three signature blends</div>
-          <p id="cc-id-Fg3BKF15iRtY">Calm, Focus, and Root &mdash; sample sachets of our most-loved teas.</p>
-        </div>
-        <div class="col-md-4 mb-4" id="cc-id-FQdeFybXAotz">
-          <div class="cc-benefit-icon" id="cc-id-7c8LWdulyUrK"><i class="fa fa-seedling" id="cc-id-CliH7dPAOedx"></i></div>
-          <div class="cc-benefit-title" id="cc-id-jTjN7Y117lOh">Wild-harvested, always</div>
-          <p id="cc-id-2XGvui8Yvi4O">Sourced from small growers who tend the land they harvest from.</p>
-        </div>
-        <div class="col-md-4 mb-4" id="cc-id-h6T7PNJ6O6QN">
-          <div class="cc-benefit-icon" id="cc-id-ih3iWYwkUqJi"><i class="fa fa-envelope-open-text" id="cc-id-GpVMVcx6ajdn"></i></div>
-          <div class="cc-benefit-title" id="cc-id-6CMnAVvLAeZs">A steeping guide</div>
-          <p id="cc-id-XfEaFImoCLnc">Notes on ratios, timing, and pairing &mdash; straight from our tea room.</p>
+  <!-- ===================== Lead form section (1 Column + Lead - with placeholder) ===================== -->
+  <section class="cc-form-section" id="cc-id-St3uL8rM5pGk">
+    <div class="fk-row cc-cl-column1" id="cc-id-Tu4vM9sN6qHl">
+      <div class="fk-col col" align="center" id="cc-id-Uv5wN1tO7rIm">
+        <div class="cc-form-outer" id="cc-id-Vw6xO2uP8sJn">
+          <form class="form form-style cc-v2 cc-cl-lead-with-placeholder" id="cc-id-Pf6vN2kQ8xLb">
+            <h1 id="cc-id-Ww7yP3vQ9tKo">Signup for more information</h1>
+            <div class="row-wrap fk-element-container cc-container" id="cc-id-Qm9tX4vB7wRp">
+              <div class="form-group-div fk-element-container" id="cc-id-Aq3xT7vN2mKp">
+                <input type="text" class="form-control-custom" name="firstName" placeholder="First name *" required=""
+                  customval="" id="cc-id-Bz8mR4wQ1vLn" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Ck6pX9tB3wMq">
+                <input type="text" class="form-control-custom" name="lastName" placeholder="Last name *" required=""
+                  customval="" id="cc-id-Dn2vQ7xR5tKp" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Em9wT3vN6xLq">
+                <input type="text" class="form-control-custom" name="emailAddress" placeholder="Email *" required=""
+                  customval="" id="cc-id-Fp4xB8mR2vTn" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Gq7nX1tV5wRp">
+                <input type="text" class="form-control-custom" name="phoneNumber" placeholder="Phone *" required=""
+                  inputmode="tel" customval="" id="cc-id-Hr3mQ9vB6xLn" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Is8pT4nX2vRq">
+                <input type="text" class="form-control-custom" name="address1" placeholder="Address *" required=""
+                  customval="" id="cc-id-Jt6vR9wQ3xMp" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Ku2xN7tB5vLq">
+                <input type="text" class="form-control-custom" name="address2" placeholder="Apt, Suite, etc"
+                  customval="" id="cc-id-Lv9mQ4xR8wTn" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Mw3nT6vX1pRq">
+                <input type="text" class="form-control-custom" name="city" placeholder="City*" required="" customval=""
+                  id="cc-id-Nx8pR2vB5tMq" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Oy4xQ9tN6wLp">
+                <select name="state" class="form-control-custom fk-form-select cc-form-control-custom" type="select"
+                  customval="" id="cc-id-Pz7vR3mX2tBq">
+                  <option value="">State *</option>
+                </select>
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Qa2nT8xV5wMp">
+                <input type="text" class="form-control-custom" name="postalCode" placeholder="ZIP Code *" required=""
+                  customval="" id="cc-id-Rb6vX4tQ9pLn" />
+              </div>
+              <div class="form-group-div fk-element-container" id="cc-id-Sc9mR1xN6vTq">
+                <select onchange="changeCountry()" name="country" required=""
+                  class="form-control-custom fk-form-select cc-form-control-custom" type="select" customval=""
+                  id="cc-id-Td3xQ7vB2wLp">
+                  <option value="">Country *</option>
+                </select>
+              </div>
+            </div>
+            <div class="text-center fk-element-container" id="cc-id-Ue8nT4xR9vMp">
+              <button class="btn btn-primary cc-form-btn" title="" style="margin-left: auto; margin-right: auto;"
+                align="center" btntype="none" type="button" onclick="callMethod(event)" action="submit" size="none"
+                id="cc-id-Vf2vQ6xN3tLp">
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
+  <!-- =================== end Lead form section ==================== -->
 
-  <footer class="cc-footer" id="cc-id-fN7A2jUoW4Sk">
-    &copy; 2026 Solstice Botanicals. All rights reserved.
+  <footer class="cc-footer" id="cc-id-Xh4zR1yS8uOq">
+    <p id="cc-id-Yi5aS2zT9vPr">&copy; 2026 Your Brand. All rights reserved.</p>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" id="cc-id-x7LzRbP68GIP"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" id="cc-id-wpg3PJwZlwoo"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js" id="cc-id-EKdQJxKuHtdY"></script>
 </body>
 </html>
