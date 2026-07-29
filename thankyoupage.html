@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thank You | CheckoutChamp</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet"/>
+<style id="cc-id-uEXOxhhLUhfT">
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #f7f9fb;
+      color: #333;
+    }
+
+    .thank-you-hero {
+      background: linear-gradient(135deg, #277098 0%, #1d5878 100%);
+      color: #fff;
+      padding: 60px 15px;
+      text-align: center;
+    }
+
+    .thank-you-hero .fa-check-circle {
+      font-size: 4.5rem;
+      margin-bottom: 15px;
+    }
+
+    .thank-you-hero h1 {
+      font-weight: 600;
+    }
+
+    .info-card {
+      border: 1px solid #e1e6ea;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+    }
+
+    .info-card .card-header {
+      background: #277098;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px 10px 0 0 !important;
+    }
+
+    .info-card .card-body p {
+      margin-bottom: 8px;
+    }
+
+    .info-card .card-body p label {
+      font-weight: 600;
+      margin-right: 6px;
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-weight: 600;
+      color: #277098;
+      margin-bottom: 20px;
+    }
+
+    /* Invoice 1 component styles (kept as provided) */
+    .heading-main {
+      margin-top: 0px;
+      margin-bottom: 0.5rem;
+      font-family: inherit;
+      font-weight: 500;
+      line-height: 1.2;
+      color: inherit;
+      font-size: 30px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .list-of-items {
+      padding: 15px;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .header-align {
+      padding: 10px 0px;
+    }
+
+    .div-border {
+      border: 1px solid #277098;
+      border-radius: 10px;
+    }
+
+    .row-style {
+      background: #277098;
+      color: #fff;
+    }
+
+    .row-padding {
+      padding: 8px;
+    }
+
+    .fk-text-right {
+      text-align: right;
+    }
+
+    .total-prices {
+      margin-top: 15px;
+      padding-top: 15px;
+      text-align: right;
+      border-top: 1px solid #277098;
+    }
+
+    .total-prices .each-price label {
+      margin: 0;
+      font-weight: 700;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body id="cc-id-kKauVyPGiT6Y">
+<!-- Header Component -->
+<header class="cartPanelHeader" id="cc-id-j9D4bIX4yO8s">
+<div class="fk-inner-header-wrapper" id="cc-id-a0EniH055GWp">
+<div class="fk-brand-wrapper" id="cc-id-TzK0SyfiAaJg">
+<div class="fk-menu-btn-container" id="cc-id-ETPNxpUYBBeq">
+<span action="choose" align="center" animate="" billnow="false" class="fk-menu-btn" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-bMp8yRg2pCfu" loop="none" offer="" onclick="toggleSideMenuItems(event)" price="" quantity="" replaceproductid="" speed="" target="_self" title="" upsell="" variantvalue="">
+<i class="fa fa-bars" id="cc-id-b4FSpXpAoj0Z"></i>
+</span>
+</div>
+<img align="center" alt="Brand Logo" class="image-quantity-container image-cart-header fk-logo fk-brand" height="50" href="" id="cc-id-y6UDpmBLzc9U" onclick="" src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" target="_self" title="" width="150"/>
+</div>
+<div class="fk-menu-container" id="cc-id-9Dqmo996T8Cr">
+<div class="fk-menu" data-selector="true" id="cc-id-EPsd4hKXCPjk">
+          Menu Option
+        </div>
+</div>
+<div class="fk-cart-wrapper" id="cc-id-GzBhX5WEbkHE">
+<div class="fk-cart-container" id="cc-id-osc7Fr3nogpd">
+<span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
+<i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" id="cc-id-Lqya3WJ7ejkf" onclick="openNav()"></i>
+<span class="quantity-circle panelCartCircle" id="panelCartCircle">0</span>
+</span>
+</div>
+</div>
+</div>
+<div class="rightPanelHTML" id="rightPanelHTML" style="display:none;">
+<div class="sidepanel cc-custom-right-panel" id="mySidepanel" style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
+<div class="sticky" id="cc-id-mi0sj8Ed0EZZ" style="padding:1%;overflow:hidden">
+<h2 id="cc-id-L8aDmVULwoyV" style="margin-left:2%">
+            Your Cart<span id="cc-id-bVNp5hms9pfg"> </span><span action="choose" align="center" animate="" billnow="false" class="close-panel" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-D94W0tPbjegk" loop="none" offer="" onclick="closeNav()" price="" quantity="" replaceproductid="" speed="" target="_self" title="×" upsell="" variantvalue="">×</span>
+</h2>
+</div>
+<div class="sticky" id="cartPanelId" style="padding:1%;overflow:hidden"></div>
+<h5 id="cc-id-DgvtQnnB57r0" style="margin-left:2%">
+          Subtotal:
+          <span class="cartPanelSubtotalClass" id="cc-id-9ejEUoSUz3s2">0</span>
+</h5>
+<br id="cc-id-d73spV6nWaAQ"/>
+<p id="cc-id-XVaQMx9CT2op" style="margin-left:2%">
+          Taxes, shipping, and coupons will be calculated at checkout
+        </p>
+<button action="route" align="center" billnow="false" btntype="none" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL" data-minutesdelay="" data-secondsdelay="" id="cc-id-vueTMsvDqVZa" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
+          VIEW CART</button><br id="cc-id-qXD2By0VqBpP"/><br id="cc-id-Dw0a0Qenk5VU"/>
+<button action="route" align="center" billnow="false" btntype="none" class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" data-minutesdelay="" data-secondsdelay="" id="cc-id-6MbiTr0Yhkpd" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
+          PROCEED TO CHECKOUT
+        </button>
+</div>
+</div>
+</header>
+<!-- Thank You Section -->
+<section class="thank-you-hero" id="cc-id-FyaiaOvRtouB">
+<div class="container" id="cc-id-719Vf1Cwe1II">
+<i class="fas fa-check-circle" id="cc-id-QplGEuJzALWj"></i>
+<h1 id="cc-id-PDsukrUGNKh0">Thank You, {firstName} {lastName}!</h1>
+<p class="lead" id="cc-id-SVrgQLXWO0u7">Your order has been placed successfully. A confirmation email is on its way.</p>
+<p id="cc-id-IY6sEpHTwBCm">Order ID: <strong id="cc-id-GOX9KJWDu6PU">{orderId}</strong></p>
+</div>
+</section>
+<div class="container my-5" id="cc-id-091gIHuBTRve">
+<!-- Invoice 1 Component -->
+<form class="form cc-cl-invoice1" id="cc-id-Z1YpnuoU22tT">
+<h1 class="heading-main text-center" id="cc-id-rIH7QqYpkFKA">
+        Thank you for your Order!!!!
+      </h1>
+<p id="cc-id-fred67BF4mPb">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores pariatur
+        sint amet numquam, vitae nemo ipsum fuga blanditiis quis repudiandae ipsa,
+        sequi rerum corrupti aspernatur, non itaque praesentium incidunt iure!
+      </p>
+<div class="list-of-items p-2 div-border fk-element-container" id="cc-id-yQGws5ZnTVhL">
+<table class="full-width" id="fk-invoice-table">
+<thead id="cc-id-TyD7XL6nVsDa">
+<tr class="row-style" id="cc-id-J5UfKEHliwdq">
+<th class="row-padding" colspan="3" id="cc-id-Tqy9ghClTxxu">
+                Items Ordered
+              </th>
+</tr>
+<tr id="cc-id-l1VqLHIO9MMs">
+<th class="header-align" id="cc-id-A92XaVStQjRU">Item</th>
+<th class="header-align text-center" id="cc-id-H4HZppuKGWVK">
+                Quantity
+              </th>
+<th class="header-align fk-text-right" id="cc-id-hE4PMY2f4b72">
+                Price
+              </th>
+</tr>
+</thead>
+<tbody id="items-list">
+<tr id="fk-dynamic-invoice-row">
+<td class="table-cell table-text" id="cc-id-vaAYui9zEV6F" title="Item">
+                Sample cell
+              </td>
+<td class="text-center table-text" id="cc-id-ztdK64Bfa3uv" title="Quantity">
+                1
+              </td>
+<td class="fk-text-right" id="cc-id-7k6htq8zX9si" title="Price">
+                $0.00
+              </td>
+</tr>
+<tr id="cc-id-60yNvnyPEg0D">
+<td class="cell" id="cc-id-P05b5fAmYxtF"></td>
+</tr>
+<tr id="fk-dynamic-invoice-price-row">
+<td colspan="3" id="cc-id-pv3vY9eAn6Iy">
+<div class="total-prices" id="cc-id-H3FIEdUyd8xL">
+<div class="each-price" id="cc-id-tllbZNq4F5n5">
+<label id="cc-id-rxoXgRPCYha2">Sub Total:</label>
+<span id="subTotal"> $0.00</span>
+</div>
+<div class="each-price" id="cc-id-3WnS9OSm5lTi">
+<label id="cc-id-BG6lvmAaCpId">Shipping:</label>
+<span id="sAndHFee"> $0.00</span>
+</div>
+<div class="each-price" id="cc-id-3Dqpgc696l86">
+<label id="cc-id-dPpk9Hd2UxfJ">Sales Tax: </label>
+<span id="tax"> $0.00</span>
+</div>
+<div class="each-price" id="cc-id-qo8kCJCBBelM">
+<label id="cc-id-oEnPiDQ3GojV">Discount: </label>
+<span id="discount"> $0.00</span>
+</div>
+<div class="each-price" id="cc-id-u1LkZOq4w1QF">
+<label id="cc-id-e9FnSvyQdwhE">Grand Total: </label>
+<span id="grandTotal"> $0.00</span>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+<div class="row mt-4" id="cc-id-sy7XwIZdkOeM">
+<!-- Contact Information Section -->
+<div class="col-md-6" id="cc-id-6rlVeqtO9AdV">
+<div class="info-card" id="cc-id-9ATdJRz5j0Hq">
+<div class="card-header" id="cc-id-84Mj28vyAppD">
+<i class="fas fa-envelope mr-2" id="cc-id-WITX9Vp83v9v"></i>Contact Information
+          </div>
+<div class="card-body" id="cc-id-FsBhTlITgNSM">
+<p id="cc-id-3KVTbAIcomF6"><label id="cc-id-pXBVvvEQMWG1">Email:</label>{emailAddress}</p>
+</div>
+</div>
+</div>
+<!-- Shipping Method Section -->
+<div class="col-md-6" id="cc-id-y0RA17C8smN9">
+<div class="info-card" id="cc-id-JqNdVIPQkjwc">
+<div class="card-header" id="cc-id-7FZqZgtF9eVH">
+<i class="fas fa-truck mr-2" id="cc-id-Ez3Cu64fCCc1"></i>Shipping Method
+          </div>
+<div class="card-body" id="cc-id-2FvhwCPOrxdI">
+<p id="cc-id-uEZzRhFDcVr5"><label id="cc-id-GtcXe17glCAi">Method:</label>{shipMethod}</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="cc-id-dPWJhIUuwAEd">
+<!-- Shipping Address Section -->
+<div class="col-md-6" id="cc-id-CHOGdgcb9PgV">
+<div class="info-card" id="cc-id-yUGckEp8Rtrj">
+<div class="card-header" id="cc-id-eO2TF2MhzapL">
+<i class="fas fa-shipping-fast mr-2" id="cc-id-hKV9muflom9d"></i>Shipping Address
+          </div>
+<div class="card-body" id="cc-id-u48iec3B5L1D">
+<p id="cc-id-lGMIC51AOt43"><label id="cc-id-q5XUXhouHuaC">Name:</label>{shipFirstName} {shipLastName}</p>
+<p id="cc-id-JTll8XBTQK6U"><label id="cc-id-I24Iir2hGNPt">Address:</label>{shipAddress1}</p>
+<p id="cc-id-q9eykwjucJJh"><label id="cc-id-pZuMjvdfJb1d">City:</label>{shipCity}</p>
+<p id="cc-id-zdeact4kVbHy"><label id="cc-id-KMj0dvw9JBlB">State:</label>{shipState}</p>
+<p id="cc-id-aTQR8l2CQ1Pq"><label id="cc-id-kFb6TBE6VvZd">Postal Code:</label>{shipPostalCode}</p>
+<p id="cc-id-cGCll693qEX7"><label id="cc-id-TEWNw9HohYq1">Country:</label>{shipCountry}</p>
+</div>
+</div>
+</div>
+<!-- Billing Address Section -->
+<div class="col-md-6" id="cc-id-PT8Msgcy2iYM">
+<div class="info-card" id="cc-id-ddt66JhahMNu">
+<div class="card-header" id="cc-id-nXsxg0Od3UYG">
+<i class="fas fa-file-invoice-dollar mr-2" id="cc-id-D9uHygEFR1Rw"></i>Billing Address
+          </div>
+<div class="card-body" id="cc-id-bSbnYaWEmZIF">
+<p id="cc-id-rKmj912bBBr4"><label id="cc-id-FwqqJw9qKYXt">Name:</label>{firstName} {lastName}</p>
+<p id="cc-id-g8O28wsMgCeY"><label id="cc-id-gc3Np3291NB0">Address:</label>{address1}</p>
+<p id="cc-id-qSZgOCfSd73l"><label id="cc-id-ZjZvML96WuSz">City:</label>{city}</p>
+<p id="cc-id-19PFvnDQNxQU"><label id="cc-id-FnbauBeD7Aqm">State:</label>{state}</p>
+<p id="cc-id-kCI0kBgSIVhM"><label id="cc-id-hJYwDiIU9Rlg">Postal Code:</label>{postalCode}</p>
+<p id="cc-id-Hy8i2O8l5cbf"><label id="cc-id-8vjnK6QFvdhd">Country:</label>{country}</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="cc-id-BnfLz8OOIvsm">
+<!-- Payment Section -->
+<div class="col-md-12" id="cc-id-II0z5GkSlpcV">
+<div class="info-card" id="cc-id-g9AbU94lFx6I">
+<div class="card-header" id="cc-id-5MJmBRUij6Yp">
+<i class="fas fa-credit-card mr-2" id="cc-id-o20QnQZvFARR"></i>Payment
+          </div>
+<div class="card-body" id="cc-id-YnHBWcxN50MQ">
+<p id="cc-id-KfddRohBiRgH"><label id="cc-id-jvLVCHSY44Bc">Amount Paid:</label>{currencySymbol}{amountPaid}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
