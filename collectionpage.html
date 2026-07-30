@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" id="cc-id-b7kYFZltfWHm">
+<head>
+  <meta charset="UTF-8" id="cc-id-oNIjny6c76yM">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="cc-id-Ecw9h94QdDQf">
+  <title id="cc-id-1kxsONkqE4DO">Shop Our Collection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-gWsuqCWuiIv3">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-cHk6IGnejvk2">
+  <style id="cc-id-08U6GnDTVx6c">
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #212529;
+      margin: 0;
+    }
+
+    /* ---------- Header component styles ---------- */
+    .quantity-circle {
+      margin-right: 9%;
+      margin-top: 1%;
+      position: absolute;
+      top: unset;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      padding: 8px;
+      border: 2px solid #666;
+      color: #666;
+      text-align: center;
+      font: 10px Arial, sans-serif;
+      right: unset;
+    }
+
+    .image-quantity-container {
+      margin: 0 auto;
+      width: 100px;
+      height: auto;
+      position: relative;
+    }
+
+    .image-cart-header {
+      width: 300px;
+      height: 56px;
+      float: left;
+      margin-left: 10%;
+      max-height: 100px;
+    }
+
+    .cc-cv-canvas__tools > #cc-tools > .cc-toolbar > div > .fa-trash-o {
+      pointer-events: none;
+    }
+
+    .rightPanelHTML {
+      display: none;
+    }
+
+    .fk-parent-cart-element {
+      display: inline-block;
+      float: right;
+      margin-right: 10%;
+    }
+
+    .panelCartCircle {
+      position: absolute;
+      margin: 0%;
+      margin-left: -6px;
+      top: unset;
+      right: unset;
+    }
+
+    .fk-shopping-cart-icon {
+      font-size: 32px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .cartPanelHeader {
+      padding: 0.5rem;
+      min-height: 80px;
+      background-color: #fff;
+      overflow: visible;
+    }
+
+    .fk-inner-header-wrapper {
+      display: flex;
+      flex-direction: row;
+      margin: 0 10%;
+      justify-content: space-between;
+    }
+
+    .fk-brand-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .fk-brand,
+    .fk-cart-icon-container {
+      margin: 0;
+    }
+
+    .fk-menu-container {
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      flex-wrap: wrap;
+      margin-right: auto;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu {
+      padding: 5px;
+      white-space: nowrap;
+      color: black;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
+      color: black;
+    }
+
+    .fk-menu-btn-container {
+      display: none;
+      padding: 5px;
+    }
+
+    .fk-menu-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: black;
+      font-size: 25px;
+      padding: 5px 8px;
+    }
+
+    .fk-menu-btn,
+    .fk-menu-btn:focus {
+      outline: none;
+    }
+
+    .fk-cart-container {
+      padding: 5px;
+      position: relative;
+    }
+
+    .fk-cart-wrapper {
+      display: flex;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    .sidepanel .cc-panel-view-cart,
+    .sidepanel .cc-panel-checkout {
+      font-size: 16px;
+      padding: 5px 0;
+      margin: 0px auto;
+    }
+
+    @media (max-width: 480px) {
+      .image-quantity-container {
+        margin: 0 auto;
+        width: 55px;
+        position: relative;
+      }
+      .image-cart-header {
+        margin-left: 5%;
+        width: 150px;
+        height: 28px;
+        margin-top: 3%;
+      }
+      .quantity-circle {
+        position: absolute;
+        top: unset;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        border: 2px solid #666;
+        color: #666;
+        text-align: center;
+        font: 8px Arial, sans-serif;
+        right: unset;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .fk-menu-btn-container {
+        display: flex;
+        align-self: center;
+      }
+      .fk-menu-container {
+        display: none;
+      }
+      .cartPanelHeader {
+        height: 70px;
+      }
+      .fk-shopping-cart-icon {
+        font-size: 25px;
+      }
+      .fk-inner-header-wrapper {
+        margin-left: 3%;
+        margin-right: 8%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fk-shopping-cart-icon {
+        font-size: 20px;
+      }
+      .cartPanelHeader {
+        height: 60px;
+      }
+      .panelCartCircle {
+        position: absolute;
+        margin: 0%;
+        margin-left: -6px;
+        top: unset;
+        right: unset;
+      }
+    }
+
+    /* ---------- 1 Column component styles ---------- */
+    .fk-row {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-wrap: nowrap;
+      padding: 1px;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .fk-col {
+      min-height: 25px;
+      padding: 1px;
+      flex-grow: 1;
+      width: min-content;
+    }
+
+    @media (max-width: 768px) {
+      .fk-row {
+        flex-wrap: wrap;
+      }
+      .fk-col {
+        flex-basis: 100%;
+        display: block;
+      }
+    }
+
+    /* Hero banner styling built inside the 1 Column block */
+    .cc-collection-hero {
+      background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+      color: #ffffff;
+      width: 100%;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .cc-collection-hero h1 {
+      font-weight: 700;
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .cc-collection-hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cc-section-heading {
+      text-align: center;
+      margin: 45px 0 10px;
+      font-weight: 700;
+      font-size: 28px;
+      color: #212529;
+    }
+
+    .cc-section-subheading {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #6c757d;
+      font-size: 16px;
+    }
+
+    /* ---------- Product Row component styles ---------- */
+    .fk-product-row {
+      margin: 10px 18%;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .fk-product-col {
+      padding: 10px;
+      width: 25%;
+      display: flex;
+      flex: 0 0 auto;
+    }
+
+    .fk-product-col-dynamic {
+      flex: 0 0 auto;
+      width: 25%;
+    }
+
+    .fk-product-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .fk-product-card-image:hover {
+      transform: scale(1.1);
+    }
+
+    .fk-product-card-image-container {
+      overflow: hidden;
+      width: 100%;
+      height: 150px;
+    }
+
+    .fk-product-card {
+      border: 1px solid #80808047;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .fk-product-body {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .fk-product-price span {
+      font-size: 18px;
+    }
+
+    .fk-product-actual-price {
+      text-decoration: line-through red;
+      word-break: break-word;
+    }
+
+    .fk-product-offer-price {
+      color: green;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .fk-product-name,
+    .fk-product-headline {
+      font-size: 18px;
+      font-weight: 400;
+      word-break: break-word;
+    }
+
+    .cc-align-center-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cc-align-center-box .btn-outline-primary {
+      border-color: #007bff !important;
+    }
+
+    #productRow {
+      flex: none;
+    }
+
+    @media (max-width: 991.98px) {
+      .fk-product-col,
+      .fk-product-col-dynamic {
+        width: 33.3333%;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .fk-product-col,
+      .fk-product-col-dynamic {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fk-product-col,
+      .fk-product-col-dynamic {
+        width: 100%;
+      }
+    }
+
+    /* ---------- Pagination component styles ---------- */
+    .cc-pagination-bar {
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      margin: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+    }
+
+    .cc-pagination-tab {
+      padding: 7px 15px;
+      cursor: pointer;
+      position: relative;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .cc-pagination-tab:hover {
+      background-color: #f5f6f6;
+    }
+
+    .cc-active-pagination-tab {
+      background-color: #f5f6f6;
+      border: 2px solid black;
+    }
+
+    .cc-disabled-pagination-tab,
+    .cc-disabled-pagination-tab:hover {
+      background-color: #ffffff;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .cc-pagination-tab-next-icon:after {
+      content: '';
+      width: 1px;
+      height: 80%;
+      background: #d5d9d9;
+      position: absolute;
+      top: 5px;
+      left: 0;
+      margin-right: 5px;
+    }
+
+    .cc-pagination-tab-prev-icon:after {
+      content: '';
+      width: 1px;
+      height: 80%;
+      background: #d5d9d9;
+      position: absolute;
+      top: 5px;
+      right: 0;
+      margin-left: 5px;
+    }
+
+    .cc-pagination-tab-next-icon {
+      margin-left: 5px;
+    }
+
+    .cc-pagination-tab-prev-icon {
+      margin-right: 5px;
+    }
+
+    .cc-pagination-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 60px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .cc-pagination-tab-prev-text,
+      .cc-pagination-tab-next-text {
+        display: none;
+      }
+
+      .cc-pagination-tab-next-icon,
+      .cc-pagination-tab-prev-icon {
+        margin: 0px;
+      }
+    }
+  </style>
+</head>
+<body id="cc-id-CM0cUjz80eab">
+
+  <!-- ============ Header Component ============ -->
+  <header class="cartPanelHeader" id="cc-id-flNRDpHBxzCw">
+    <div class="fk-inner-header-wrapper" id="cc-id-btgrhQGVYSLG">
+      <div class="fk-brand-wrapper" id="cc-id-sf045UJdDVUb">
+        <div class="fk-menu-btn-container" id="cc-id-7IVL0AfmU8oE">
+          <span class="fk-menu-btn" onclick="toggleSideMenuItems(event)" title="" target="_self" action="choose"
+            align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
+            data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
+            id="cc-id-WXqs4o3ZzCzw">
+            <i class="fa fa-bars" id="cc-id-RQ9htGX9YfVn"></i>
+          </span>
+        </div>
+        <img id="img1" class="image-quantity-container image-cart-header fk-logo fk-brand"
+          src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title="" href=""
+          onclick="" target="_self" alt="" align="center" width="150" height="50" />
+      </div>
+      <div class="fk-menu-container" id="cc-id-YZ4nK4HQgPbF">
+        <div class="fk-menu" data-selector="true" id="cc-id-cgbCfCJoPFtG">
+          Menu Option
+        </div>
+      </div>
+      <div class="fk-cart-wrapper" id="cc-id-bK6B1Qbeu8OL">
+        <div class="fk-cart-container" id="cc-id-R7GarBzSkaO9">
+          <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
+            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()" id="cc-id-af5hyD2iqVfk"></i>
+            <span id="panelCartCircle" class="quantity-circle panelCartCircle">0</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="rightPanelHTML" id="rightPanelHTML">
+      <div id="mySidepanel" class="sidepanel cc-custom-right-panel"
+        style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
+        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-sAxwlQZJoVcQ">
+          <h2 style="margin-left:2%" id="cc-id-2bPJSkZXr6dH">
+            Your Cart<span id="cc-id-dzAYlXIZYFSi"> </span><span class="close-panel" onclick="closeNav()" title="" target="_self" action="choose"
+              align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
+              data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
+              id="cc-id-vhp6tROPCBOi">×</span>
+          </h2>
+        </div>
+        <div id="cartPanelId" class="sticky" style="padding:1%;overflow:hidden"></div>
+        <h5 style="margin-left:2%" id="cc-id-fCeWHgBWIh6d">
+          Subtotal:
+          <span class="cartPanelSubtotalClass">0</span>
+        </h5>
+        <br id="cc-id-Xw4JUj7Cieda" />
+        <p style="margin-left:2%" id="cc-id-WsoVhuKE6Dzl">
+          Taxes, shipping, and coupons will be calculated at checkout
+        </p>
+        <button style="margin-left:12%;width:224px;" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL"
+          action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
+          data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
+          upsell="" quantity="" price="">
+          VIEW CART</button><br id="cc-id-WcWYY6NZHPeI" /><br id="cc-id-UnIk6yOFQmVy" />
+        <button style="margin-left:12%;width:224px;"
+          class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" action="route"
+          onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay="" data-minutesdelay=""
+          type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer="" upsell="" quantity=""
+          price="">
+          PROCEED TO CHECKOUT
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="cc-id-gJk6htfxaLig">
+
+    <!-- ============ 1 Column Component (Hero Banner) ============ -->
+    <div class="fk-row cc-cl-column1" id="cc-id-9ySlDHVtDlJ6">
+      <div class="fk-col col" align="center" id="cc-id-Bl8etOcVak2c">
+        <section class="cc-collection-hero" id="cc-id-lFWnvnjPZGBs">
+          <h1 id="cc-id-1vjB4kEswf4p">Shop Our Collection</h1>
+          <p id="cc-id-lfmIBRe08TU0">Browse our full range of hand-picked products, crafted with quality and designed for you.</p>
+        </section>
+      </div>
+    </div>
+
+    <h2 class="cc-section-heading" id="cc-id-WkAbKFAmNc5D">All Products</h2>
+    <p class="cc-section-subheading" id="cc-id-scbToFrayC7F">Discover the latest additions to our collection</p>
+
+    <!-- ============ Product Row Component ============ -->
+    <div class="fk-product-row" id="productRow" columns="4" lazyload="0" maxproducts="100"
+      desktopsize="4"
+      desktopsizeproducts="100"
+      largetabletsize="3"
+      largetabletsizeproducts="80"
+      tabletsize="2"
+      tabletsizeproducts="60"
+      largemobilesize="2"
+      largemobilesizeproducts="40"
+      mobilesize="1"
+      mobilesizeproducts="30"
+    >
+      <div class="fk-product-col" id="productColumn">
+        <section class="fk-product-section fk-product-card" name="product" type="section" value="">
+          <div class="fk-product-card-container" id="cc-id-3EDQvxWP3JZZ">
+            <div class="fk-product-card-image-container" id="cc-id-N5OUED4DctDb">
+              <img class="fk-product-card-image"
+                src="https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/1624453926190_second_img.jpg"
+                title="" alt="" align="center" />
+            </div>
+            <div class="fk-product-body" id="cc-id-riBEGQ2HHlxt">
+              <div class="fk-product-name" id="cc-id-hErX7UuDToXc">
+                {{productName}}
+              </div>
+              <div class="fk-product-price" id="cc-id-b7oFx8SLEq0g">
+                <span class="fk-product-actual-price">{{compareAtPrice}}</span>
+              </div>
+              <div class="fk-product-price" id="cc-id-8y0Gb5QJBa2d">
+                <span class="fk-product-offer-price">{{cycle1_price}}</span>
+              </div>
+            </div>
+            <div class="cc-align-center-box" id="cc-id-DQSPXbRBxXi5">
+              <button type="button" class="btn btn-outline-primary mt-2 fk-cc-id-WhWOxAwutIjx" action="route"
+                onclick="route(event)" title="" align="center" btntype="none" variantvalue="" size="none" offer="">
+                Details
+              </button>
+              <button type="button" class="btn btn-primary mt-2 fk-cc-id-5nIACsY9sPV5" data-text-value="Add to Cart"
+                action="addToCart" onclick="toggleProductSelection(event)" title="" align="center" btntype="none"
+                variantvalue="" size="none" offer="">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============ Pagination Component ============ -->
+    <div class="cc-pagination-wrapper" id="cc-id-NZqj8dFM7fRe">
+      <div class="cc-pagination-bar d-inline-flex" id="cc-id-AebA2rbQrfm2">
+        <div class="cc-pagination-tab cc-pagination-tab-prev" onclick="ccPagePrev()">
+          <span class="fa fa-chevron-left cc-pagination-tab-prev-icon" id="cc-id-RhDo3kJtLbWr"></span>
+          <span class="cc-pagination-tab-prev-text" id="cc-id-YdawXpDfr61f">Previous</span>
+        </div>
+        <div class="d-inline-flex cc-pagination-tab-container" id="cc-id-XuoYhDILjNF0">
+          <div class="cc-pagination-tab cc-active-pagination-tab" id="cc-id-WGFy1xUIRteP">
+            <span class="cc-pagination-tab-number" id="cc-id-o6DQrkaszGMQ">1</span>
+          </div>
+          <div class="cc-pagination-tab cc-disabled-pagination-tab" id="cc-id-2XQXHD43x1AU">
+            <span class="cc-pagination-tab-number" id="cc-id-QWk6xCERVmZA">2</span>
+          </div>
+        </div>
+        <div class="cc-pagination-tab cc-pagination-tab-next" onclick="ccPageNext()">
+          <span class="cc-pagination-tab-next-text" id="cc-id-p121u4W8U9DU">Next</span>
+          <span class="fa fa-chevron-right cc-pagination-tab-next-icon" id="cc-id-XQ0xTgmd0kDu"></span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
