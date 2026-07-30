@@ -1,394 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="cc-id-NbrnTP3fAbnF">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signup - Get More Information</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
-  <style>
+  <meta charset="UTF-8" id="cc-id-bmOHnKYaXRvj" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="cc-id-7uff0LYTH8xI" />
+  <title id="cc-id-ZM1JRcoreogr">Get Started - Sign Up</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-Nwwmq6OLkTkx" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-9NIQ0Wobtqn6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" id="cc-id-2tOy4CqpIqK3" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" id="cc-id-yn9FfcgMXAdx" />
+  <style id="cc-id-9G81aSQHqNgA">
     body {
-      font-family: Poppins, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #fbfbfb;
       margin: 0;
+      padding: 0;
     }
 
-    .cc-hero-section {
-      background: linear-gradient(135deg, #f26419ff 0%, #f28c19 100%);
-      padding: 60px 20px 90px 20px;
+    .lead-hero {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%);
+      color: #ffffff;
+      padding: 70px 20px 90px 20px;
       text-align: center;
-      color: #fff;
     }
 
-    .cc-hero-section h1 {
-      font-family: Montserrat, sans-serif;
+    .lead-hero h1 {
       font-weight: 700;
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       margin-bottom: 15px;
     }
 
-    .cc-hero-section p {
-      font-size: 1.1rem;
+    .lead-hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
       max-width: 600px;
       margin: 0 auto;
-      opacity: 0.95;
     }
 
-    .cc-form-wrapper {
-      max-width: 800px;
-      margin: -50px auto 60px auto;
+    .lead-content-wrapper {
+      max-width: 620px;
+      margin: -55px auto 60px auto;
       padding: 0 15px;
     }
 
-    .cc-form-card {
+    .lead-card {
       background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
       padding: 10px;
     }
 
-    /* ---- Lead - with label component styles (unmodified) ---- */
-    .form-style {
-      width: auto;
-      border: 1px solid #f4f4f4;
+    .lead-benefits {
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
     }
 
-    .btn {
-      display: inline-block;
-      font-weight: 400;
+    .lead-benefit-item {
       text-align: center;
-      white-space: normal;
-      vertical-align: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      border: 1px solid transparent;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      padding-left: 25px;
-      padding-right: 25px;
-      line-height: 1.5;
-      border-radius: 0.25rem;
-      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-      margin: 20px auto;
-      white-space: normal;
-      font-size: 20px;
+      padding: 20px;
     }
 
-    .btn-primary {
-      background: #007bff;
-      color: #fff;
-      border-color: #007bff;
-      white-space: normal;
+    .lead-benefit-item i {
+      font-size: 2rem;
+      color: #f26419;
+      margin-bottom: 12px;
     }
 
-    .form-control-custom {
-      display: block;
-      width: 100%;
-      padding: 12px 18px;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #495057;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid #ced4da;
-      border-radius: 0.25rem;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    .lead-benefit-item h5 {
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
-    .form-group-div {
-      margin: 10px 0px;
-      width: 100%;
-      padding: 0px 15px;
+    .lead-benefit-item p {
+      color: #6c757d;
+      font-size: 0.95rem;
     }
 
-    .text-center {
+    .cc-footer {
+      background-color: #0d1b2a;
+      color: #cfd8dc;
       text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9rem;
     }
 
-    .row-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      width: auto;
+    .cc-footer a {
+      color: #f26419;
+      text-decoration: none;
     }
+  </style>
+</head>
 
-    .cc-v2 {
-      border-radius: 6px;
-      background: #f4f4f4ff;
-      padding: 20px 10px 10px 10px;
-      font-family: Poppins;
-      font-weight: 400;
-    }
+<body id="cc-id-C72qFl41sNLj">
 
-    .cc-v2 label {
-      font-family: Poppins;
-      font-weight: 400;
-      width: fit-content;
-    }
-
-    .cc-form-control-custom {
-      font-family: poppins;
-      font-weight: 400;
-      width: 100%;
-      padding: 12px 18px;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: rgba(73, 80, 87, 1);
-      background-color: rgba(255, 255, 255, 1);
-      background-clip: padding-box;
-      border: 1px solid rgba(206, 212, 218, 1);
-      border-radius: 0.25rem;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-
-    .cc-v2 .btn.btn-primary.cc-form-btn {
-      padding-top: 8px;
-      padding-bottom: 8px;
-      padding-left: 25px;
-      padding-right: 25px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      font-size: 20px;
-      background: #f26419ff;
-      border-color: #f26419ff;
-    }
-
-    .cc-v2 .btn.btn-primary.cc-form-btn:hover {
-      background: #f26419ff;
-      border-color: #f26419ff;
-    }
-
-    .cc-container {
-      justify-content: space-between;
-      align-items: center;
-      font-family: Poppins;
-      font-weight: 400;
-    }
-
-    .cc-container div {
-      text-align: left;
-      width: 49%;
-      padding: 0px;
-    }
-
-    .cc-container h1 {
-      font-family: montserrat;
-    }
-
-    .form-control-custom:focus,
-    input:not([type="radio"]):focus,
-    select:focus {
-      border: solid 1px rgba(242, 100, 25, 1);
-      border-radius: 6px;
-      outline: none !important;
-      box-shadow: none;
-    }
-
-    @media screen and (max-width: 576px) {
-      .cc-container div {
-        width: 100%;
-      }
-    }
-
-    /* ---- Header component styles (unmodified) ---- */
-    .quantity-circle {
-      margin-right: 9%;
-      margin-top: 1%;
-      position: absolute;
-      top: unset;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      padding: 8px;
-      border: 2px solid #666;
-      color: #666;
-      text-align: center;
-      font: 10px Arial, sans-serif;
-      right: unset;
-    }
-
-    .image-quantity-container {
-      margin: 0 auto;
-      width: 100px;
-      height: auto;
-      position: relative;
-    }
-
-    .image-cart-header {
-      width: 300px;
-      height: 56px;
-      float: left;
-      margin-left: 10%;
-      max-height: 100px;
-    }
-
-    .cc-cv-canvas__tools > #cc-tools > .cc-toolbar > div > .fa-trash-o {
-      pointer-events: none;
-    }
-
-    .rightPanelHTML {
-      display: none;
-    }
-
-    .fk-parent-cart-element {
-      display: inline-block;
-      float: right;
-      margin-right: 10%;
-    }
-
-    .panelCartCircle {
-      position: absolute;
-      margin: 0%;
-      margin-left: -6px;
-      top: unset;
-      right: unset;
-    }
-
-    .fk-shopping-cart-icon {
-      font-size: 32px;
-      margin-top: 15px;
-      cursor: pointer;
-    }
-
-    .cartPanelHeader {
-      padding: 0.5rem;
-      min-height: 80px;
-      background-color: #fff;
-      overflow: visible;
-    }
-
-    .fk-inner-header-wrapper {
-      display: flex;
-      flex-direction: row;
-      margin: 0 10%;
-      justify-content: space-between;
-    }
-
-    .fk-brand-wrapper {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .fk-brand,
-    .fk-cart-icon-container {
-      margin: 0;
-    }
-
-    .fk-menu-container {
-      padding: 5px;
-      display: flex;
-      flex-direction: row;
-      align-self: center;
-      flex-wrap: wrap;
-      margin-right: auto;
-    }
-
-    .fk-inner-header-wrapper .fk-menu-container .fk-menu {
-      padding: 5px;
-      white-space: nowrap;
-      color: black;
-    }
-
-    .fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
-    .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
-      color: black;
-    }
-
-    .fk-menu-btn-container {
-      display: none;
-      padding: 5px;
-    }
-
-    .fk-menu-btn {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      color: black;
-      font-size: 25px;
-      padding: 5px 8px;
-    }
-
-    .fk-menu-btn,
-    .fk-menu-btn:focus {
-      outline: none;
-    }
-
-    .fk-cart-container {
-      padding: 5px;
-      position: relative;
-    }
-
-    .fk-cart-wrapper {
-      display: flex;
-      flex-direction: row;
-      padding: 5px;
-    }
-
-    .sidepanel .cc-panel-view-cart,
-    .sidepanel .cc-panel-checkout {
-      font-size: 16px;
-      padding: 5px 0;
-      margin: 0px auto;
-    }
-
-    @media (max-width: 480px) {
-      .image-quantity-container {
-        margin: 0 auto;
-        width: 55px;
-        position: relative;
-      }
-      .image-cart-header {
-        margin-left: 5%;
-        width: 150px;
-        height: 28px;
-        margin-top: 3%;
-      }
+  <!-- Header Component: Header -->
+  <header class="cartPanelHeader" id="cc-id-VHWGaub52Ztd">
+    <style id="cc-id-26fEeVVhDIq2">
       .quantity-circle {
+        margin-right: 9%;
+        margin-top: 1%;
         position: absolute;
         top: unset;
         border-radius: 50%;
-        width: 25px;
-        height: 25px;
-        padding: 5px;
+        width: 30px;
+        height: 30px;
+        padding: 8px;
         border: 2px solid #666;
         color: #666;
         text-align: center;
-        font: 8px Arial, sans-serif;
+        font: 10px Arial, sans-serif;
         right: unset;
       }
-    }
 
-    @media (max-width: 768px) {
-      .fk-menu-btn-container {
-        display: flex;
-        align-self: center;
+      .image-quantity-container {
+        margin: 0 auto;
+        width: 100px;
+        height: auto;
+        position: relative;
       }
-      .fk-menu-container {
+
+      .image-cart-header {
+        width: 300px;
+        height: 56px;
+        float: left;
+        margin-left: 10%;
+        max-height: 100px;
+      }
+
+      .cc-cv-canvas__tools>#cc-tools>.cc-toolbar>div>.fa-trash-o {
+        pointer-events: none;
+      }
+
+      .rightPanelHTML {
         display: none;
       }
-      .cartPanelHeader {
-        height: 70px;
-      }
-      .fk-shopping-cart-icon {
-        font-size: 25px;
-      }
-      .fk-inner-header-wrapper {
-        margin-left: 3%;
-        margin-right: 8%;
-      }
-    }
 
-    @media (max-width: 480px) {
-      .fk-shopping-cart-icon {
-        font-size: 20px;
+      .fk-parent-cart-element {
+        display: inline-block;
+        float: right;
+        margin-right: 10%;
       }
-      .cartPanelHeader {
-        height: 60px;
-      }
+
       .panelCartCircle {
         position: absolute;
         margin: 0%;
@@ -396,37 +148,189 @@
         top: unset;
         right: unset;
       }
-    }
-  </style>
-</head>
 
-<body id="cc-id-9G81aSQHqNgA">
+      .fk-shopping-cart-icon {
+        font-size: 32px;
+        margin-top: 15px;
+        cursor: pointer;
+      }
 
-  <!-- ===================== Header Component ===================== -->
-  <header class="cartPanelHeader" id="cc-id-Ny8H6h8l7qgA">
-    <div class="fk-inner-header-wrapper" id="cc-id-ZRL9OaYsP6ih">
-      <div class="fk-brand-wrapper" id="cc-id-k7Gdp0CXP9K6">
-        <div class="fk-menu-btn-container" id="cc-id-NuYUPnmbpD0e">
+      .cartPanelHeader {
+        padding: 0.5rem;
+        min-height: 80px;
+        background-color: #fff;
+        overflow: visible;
+      }
+
+      .fk-inner-header-wrapper {
+        display: flex;
+        flex-direction: row;
+        margin: 0 10%;
+        justify-content: space-between;
+      }
+
+      .fk-brand-wrapper {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .fk-brand,
+      .fk-cart-icon-container {
+        margin: 0;
+      }
+
+      .fk-menu-container {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        flex-wrap: wrap;
+        margin-right: auto;
+      }
+
+      .fk-inner-header-wrapper .fk-menu-container .fk-menu {
+        padding: 5px;
+        white-space: nowrap;
+        color: black;
+      }
+
+      .fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
+      .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
+        color: black;
+      }
+
+      .fk-menu-btn-container {
+        display: none;
+        padding: 5px;
+      }
+
+      .fk-menu-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: black;
+        font-size: 25px;
+        padding: 5px 8px;
+      }
+
+      .fk-menu-btn,
+      .fk-menu-btn:focus {
+        outline: none;
+      }
+
+      .fk-cart-container {
+        padding: 5px;
+        position: relative;
+      }
+
+      .fk-cart-wrapper {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+      }
+
+      .sidepanel .cc-panel-view-cart,
+      .sidepanel .cc-panel-checkout {
+        font-size: 16px;
+        padding: 5px 0;
+        margin: 0px auto;
+      }
+
+      @media (max-width: 480px) {
+        .image-quantity-container {
+          margin: 0 auto;
+          width: 55px;
+          position: relative;
+        }
+
+        .image-cart-header {
+          margin-left: 5%;
+          width: 150px;
+          height: 28px;
+          margin-top: 3%;
+        }
+
+        .quantity-circle {
+          position: absolute;
+          top: unset;
+          border-radius: 50%;
+          width: 25px;
+          height: 25px;
+          padding: 5px;
+          border: 2px solid #666;
+          color: #666;
+          text-align: center;
+          font: 8px Arial, sans-serif;
+          right: unset;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .fk-menu-btn-container {
+          display: flex;
+          align-self: center;
+        }
+
+        .fk-menu-container {
+          display: none;
+        }
+
+        .cartPanelHeader {
+          height: 70px;
+        }
+
+        .fk-shopping-cart-icon {
+          font-size: 25px;
+        }
+
+        .fk-inner-header-wrapper {
+          margin-left: 3%;
+          margin-right: 8%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .fk-shopping-cart-icon {
+          font-size: 20px;
+        }
+
+        .cartPanelHeader {
+          height: 60px;
+        }
+
+        .panelCartCircle {
+          position: absolute;
+          margin: 0%;
+          margin-left: -6px;
+          top: unset;
+          right: unset;
+        }
+      }
+    </style>
+    <div class="fk-inner-header-wrapper" id="cc-id-AnHTmt9OBGhn">
+      <div class="fk-brand-wrapper" id="cc-id-uKoneNo41eoP">
+        <div class="fk-menu-btn-container" id="cc-id-ni6JDWYlgAAC">
           <span class="fk-menu-btn" onclick="toggleSideMenuItems(event)" title="" target="_self" action="choose"
             align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
             data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
-            id="cc-id-eC99enq522wj">
-            <i class="fa fa-bars" id="cc-id-j7elKPoh3pKM"></i>
+            id="cc-id-TP9gyv1plBAr">
+            <i class="fa fa-bars" id="cc-id-p5B1Id9Z850k"></i>
           </span>
         </div>
         <img id="img1" class="image-quantity-container image-cart-header fk-logo fk-brand"
           src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title="" href=""
           onclick="" target="_self" alt="" align="center" width="150" height="50" />
       </div>
-      <div class="fk-menu-container" id="cc-id-xavU07zUHLnn">
-        <div class="fk-menu" data-selector="true" id="cc-id-zNmREpOaUVgA">
+      <div class="fk-menu-container" id="cc-id-Enydx9qWCA79">
+        <div class="fk-menu" data-selector="true" id="cc-id-ISjs8JHUdKF0">
           Menu Option
         </div>
       </div>
-      <div class="fk-cart-wrapper" id="cc-id-4HZKjht3X13n">
-        <div class="fk-cart-container" id="cc-id-rhQR6FEecAtp">
+      <div class="fk-cart-wrapper" id="cc-id-j7elKPoh3pKM">
+        <div class="fk-cart-container" id="cc-id-zKG5mSoyPstU">
           <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
-            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()" id="cc-id-AraVNqTIAae2"></i>
+            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()"
+              id="cc-id-eC99enq522wj"></i>
             <span id="panelCartCircle" class="quantity-circle panelCartCircle">0</span>
           </span>
         </div>
@@ -435,116 +339,219 @@
     <div class="rightPanelHTML" id="rightPanelHTML">
       <div id="mySidepanel" class="sidepanel cc-custom-right-panel"
         style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
-        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-4lKNEfvuP1uR">
-          <h2 style="margin-left:2%" id="cc-id-Y7gbtP7ySeQM">
-            Your Cart<span> </span><span class="close-panel" onclick="closeNav()" title="×" target="_self" action="choose"
-              align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
-              data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
-              id="cc-id-bTu5X1YqWg21">×</span>
+        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-ZRL9OaYsP6ih">
+          <h2 style="margin-left:2%" id="cc-id-gIqLSmNqE40f">
+            Your Cart<span id="cc-id-AraVNqTIAae2"> </span><span class="close-panel" onclick="closeNav()" title=""
+              target="_self" action="choose" align="center" animate="" speed="" delay="none" loop="none"
+              variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproductid="" billnow="false" offer=""
+              upsell="" quantity="" price="" id="cc-id-4HZKjht3X13n">×</span>
           </h2>
         </div>
         <div id="cartPanelId" class="sticky" style="padding:1%;overflow:hidden"></div>
-        <h5 style="margin-left:2%" id="cc-id-AJOCBnD3XkfF">
+        <h5 style="margin-left:2%" id="cc-id-pgW2zMj518Y2">
           Subtotal:
-          <span class="cartPanelSubtotalClass" id="cc-id-r6YICtu8zF9O">0</span>
+          <span class="cartPanelSubtotalClass" id="cc-id-bTu5X1YqWg21">0</span>
         </h5>
         <br id="cc-id-nYCsXoblu17r" />
-        <p style="margin-left:2%" id="cc-id-bjhPInRVkLUh">
+        <p style="margin-left:2%" id="cc-id-Ny8H6h8l7qgA">
           Taxes, shipping, and coupons will be calculated at checkout
         </p>
         <button style="margin-left:12%;width:224px;" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL"
           action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
           data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
-          upsell="" quantity="" price="" id="cc-id-EjHvIHCtlRJo">
-          VIEW CART</button><br id="cc-id-0Yg7NZRBT7qY" /><br id="cc-id-O5AHO4ZektUJ" />
-        <button style="margin-left:12%;width:224px;" class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F"
-          action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
-          data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
-          upsell="" quantity="" price="" id="cc-id-K12BGCSzOjD8">
+          upsell="" quantity="" price="" id="cc-id-TtLFxJpRa5HS">
+          VIEW CART</button><br id="cc-id-UPwePut0Sstz" /><br id="cc-id-yshA6P3MsHar" />
+        <button style="margin-left:12%;width:224px;"
+          class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" action="route"
+          onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay="" data-minutesdelay=""
+          type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer="" upsell=""
+          quantity="" price="" id="cc-id-AJOCBnD3XkfF">
           PROCEED TO CHECKOUT
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ===================== Hero Section ===================== -->
-  <section class="cc-hero-section" id="cc-id-AnHTmt9OBGhn">
-    <h1 id="cc-id-yn9FfcgMXAdx">Stay In The Loop</h1>
-    <p id="cc-id-VGMrerqtHioR">Sign up below to receive exclusive updates, early access to offers, and more information delivered straight to you.</p>
+  <!-- Hero Section -->
+  <section class="lead-hero" id="cc-id-NuYUPnmbpD0e">
+    <h1 id="cc-id-zNmREpOaUVgA">Get Instant Access</h1>
+    <p id="cc-id-k7Gdp0CXP9K6">Sign up below and be the first to receive exclusive updates, offers, and information straight to your inbox.</p>
   </section>
 
-  <!-- ===================== Lead - with label Component ===================== -->
-  <div class="cc-form-wrapper" id="cc-id-zKG5mSoyPstU">
-    <div class="cc-form-card" id="cc-id-p5B1Id9Z850k">
-      <form class="form form-style cc-v2 cc-cl-lead-with-label" id="cc-id-RdzHzmA4KR1V">
-        <h1 id="cc-id-bNiCdxnuVxUZ">Signup for more information</h1>
-        <div class="row-wrap fk-element-container cc-container" id="cc-id-h8LojIIf94Ch">
-          <div class="form-group-div fk-element-container" id="cc-id-7uff0LYTH8xI">
-            <label class="label-name" id="cc-id-ni6JDWYlgAAC">First name</label>
-            <input type="text" class="form-control-custom" name="firstName" customval="" placeholder=""
-              id="cc-id-VHWGaub52Ztd" />
-          </div>
-          <div class="form-group-div fk-element-container" id="cc-id-Nwwmq6OLkTkx">
-            <label class="label-name" id="cc-id-KDGAUuRqphlh">Last Name</label>
-            <input type="text" class="form-control-custom" name="lastName" customval="" placeholder=""
-              id="cc-id-HzlwUMVmI5BR" />
-          </div>
-          <div class="form-group-div fk-element-container" id="cc-id-f7ZJ69PqcUDO">
-            <label class="label-name" id="cc-id-UPwePut0Sstz">Email Address</label>
-            <input type="text" class="form-control-custom" name="emailAddress" customval="" placeholder=""
-              id="cc-id-21rWz5FYrsK9" />
-          </div>
-          <div class="form-group-div fk-element-container" id="cc-id-9NIQ0Wobtqn6">
-            <label class="label-name" id="cc-id-HVlnES8Grgmo">Phone Number</label>
-            <input type="text" class="form-control-custom" name="phoneNumber" inputmode="tel" customval="" placeholder=""
-              id="cc-id-fSEVQOEXfnQs" />
-          </div>
-          <div class="form-group-div fk-element-container" id="cc-id-ZESFqZ8pIx5F">
-            <label class="label-name" id="cc-id-26fEeVVhDIq2">Full Address</label>
-            <input type="text" class="form-control-custom" name="address1" customval="" placeholder=""
-              id="cc-id-gIqLSmNqE40f" />
-          </div>
+  <!-- Lead Form Section -->
+  <div class="lead-content-wrapper" id="cc-id-3LSFZH3UDqpN">
+    <div class="lead-card" id="cc-id-VGMrerqtHioR">
+      <!-- Component: Lead - vertical basic -->
+      <style id="cc-id-RdzHzmA4KR1V">
+        .form-style {
+          width: auto;
+          border: 1px solid #f4f4f4;
+        }
+
+        .btn {
+          display: inline-block;
+          font-weight: 400;
+          text-align: center;
+          white-space: normal;
+          vertical-align: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          border: 1px solid transparent;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 25px;
+          padding-right: 25px;
+          line-height: 1.5;
+          border-radius: 0.25rem;
+          transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+            border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+          margin: 20px auto;
+          white-space: normal;
+          font-size: 20px;
+        }
+
+        .btn-primary {
+          background: #007bff;
+          color: #fff;
+          border-color: #007bff;
+          white-space: normal;
+        }
+
+        .form-control-custom {
+          display: block;
+          width: 100%;
+          padding: 12px 18px;
+          font-size: 1rem;
+          line-height: 1.5;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          border-radius: 0.25rem;
+          transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .form-group-div {
+          margin: 10px 0px;
+          width: 100%;
+          padding: 0px 15px;
+        }
+
+        .row-wrap {
+          display: flex;
+          flex-wrap: wrap;
+          width: auto;
+        }
+
+        .cc-v2 {
+          border-radius: 6px;
+          background: #f4f4f4ff;
+          padding: 20px 10px 10px 10px;
+          font-family: Poppins;
+          font-weight: 400;
+        }
+
+        .cc-v2 label {
+          font-family: Poppins;
+          font-weight: 400;
+          width: fit-content;
+        }
+
+        .cc-v2 .btn.btn-primary.cc-form-btn {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          padding-left: 25px;
+          padding-right: 25px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          font-size: 20px;
+          background: #f26419ff;
+          border-color: #f26419ff;
+        }
+
+        .cc-v2 .btn.btn-primary.cc-form-btn:hover {
+          background: #f26419ff;
+          border-color: #f26419ff;
+        }
+
+        .cc-container-100 div {
+          text-align: left;
+          padding: 0px;
+        }
+
+        .form-control-custom:focus,
+        input:not([type="radio"]):focus,
+        select:focus {
+          border: solid 1px rgba(242, 100, 25, 1);
+          border-radius: 6px;
+          outline: none !important;
+          box-shadow: none;
+        }
+      </style>
+      <form class="form form-style cc-v2 cc-cl-lead-vertical-basic" id="cc-id-xavU07zUHLnn">
+        <h1 id="cc-id-BbuQzkChMbyI">Signup for more information</h1>
+        <div class="row-wrap fk-element-container cc-container-100" id="cc-id-bNiCdxnuVxUZ">
           <div class="form-group-div fk-element-container" id="cc-id-pfbH9vOWOU6m">
-            <label class="label-name" id="cc-id-WcURYxPY8EcF">Address Line 2</label>
-            <input type="text" class="form-control-custom" name="address2" customval="" placeholder=""
-              id="cc-id-laHr8IRh1E2J" />
-          </div>
-          <div class="form-group-div fk-element-container" id="cc-id-ISjs8JHUdKF0">
-            <label class="label-name" id="cc-id-BbuQzkChMbyI">City</label>
-            <input type="text" class="form-control-custom" name="city" customval="" placeholder=""
-              id="cc-id-TtLFxJpRa5HS" />
-          </div>
-          <div class="form-group-div fk-element-container" id="cc-id-bmOHnKYaXRvj">
-            <label class="label-name" id="cc-id-pgW2zMj518Y2">State/Province</label>
-            <select name="state" class="form-control-custom fk-form-select cc-form-control-custom" type="select" customval=""
-              id="cc-id-uKoneNo41eoP">
-              <option value="" id="cc-id-NbrnTP3fAbnF">Select State</option>
-            </select>
+            <label class="label-name" id="cc-id-bjhPInRVkLUh">First name</label>
+            <input type="text" class="form-control-custom" name="firstName" customval="" placeholder=""
+              id="cc-id-Y7gbtP7ySeQM" />
           </div>
           <div class="form-group-div fk-element-container" id="cc-id-gV0Lh8WvAwFv">
-            <label class="label-name" id="cc-id-HDBTq0Zf2pCL">Zip Code</label>
-            <input type="text" class="form-control-custom" name="postalCode" customval="" placeholder=""
-              id="cc-id-DBld6DYyeNdj" />
+            <label class="label-name" id="cc-id-0Yg7NZRBT7qY">Last Name</label>
+            <input type="text" class="form-control-custom" name="lastName" customval="" placeholder=""
+              id="cc-id-HDBTq0Zf2pCL" />
           </div>
-          <div class="form-group-div fk-element-container" id="cc-id-9sMLT6mnOjke">
-            <label class="label-name" id="cc-id-ZM1JRcoreogr">Country</label>
-            <select onchange="changeCountry()" name="country" required=""
-              class="form-control-custom fk-form-select cc-form-control-custom" type="select" customval=""
-              id="cc-id-3LSFZH3UDqpN">
-              <option value="" id="cc-id-Is9hVLXnGBB1">Choose Country *</option>
-            </select>
+          <div class="form-group-div fk-element-container" id="cc-id-xb0lnXv2Rra6">
+            <label class="label-name" id="cc-id-fSEVQOEXfnQs">Email Address</label>
+            <input type="text" class="form-control-custom" name="emailAddress" customval="" placeholder=""
+              id="cc-id-KDGAUuRqphlh" />
+          </div>
+          <div class="form-group-div fk-element-container" id="cc-id-HVlnES8Grgmo">
+            <label class="label-name" id="cc-id-laHr8IRh1E2J">Phone Number</label>
+            <input type="text" class="form-control-custom" name="phoneNumber" inputmode="tel" customval=""
+              placeholder="" id="cc-id-DBld6DYyeNdj" />
           </div>
         </div>
-        <div class="text-center fk-element-container" id="cc-id-TP9gyv1plBAr">
-          <button class="btn btn-primary cc-form-btn" title="" align="center" btntype="none" type="button"
-            onclick="callMethod(event)" action="submit" size="none" style="margin-left: auto; margin-right: auto;"
-            id="cc-id-Enydx9qWCA79">
-            Submit
-          </button>
-        </div>
+        <button class="btn btn-primary cc-form-btn" title="" style="margin-left: auto; margin-right: auto;"
+          align="center" btntype="none" type="button" onclick="callMethod(event)" action="submit" size="none"
+          id="cc-id-Is9hVLXnGBB1">
+          Submit
+        </button>
       </form>
     </div>
   </div>
 
+  <!-- Trust / Benefit Strip -->
+  <div class="lead-benefits" id="cc-id-9sMLT6mnOjke">
+    <div class="row" id="cc-id-aBKsoRRCQ5WM">
+      <div class="col-md-4 lead-benefit-item" id="cc-id-O5AHO4ZektUJ">
+        <i class="fas fa-shield-alt" id="cc-id-rhQR6FEecAtp"></i>
+        <h5 id="cc-id-a1B2c3D4e5F6">Secure & Private</h5>
+        <p id="cc-id-b2C3d4E5f6G7">Your information is protected and never shared without permission.</p>
+      </div>
+      <div class="col-md-4 lead-benefit-item" id="cc-id-c3D4e5F6g7H8">
+        <i class="fas fa-bolt" id="cc-id-d4E5f6G7h8I9"></i>
+        <h5 id="cc-id-e5F6g7H8i9J0">Instant Access</h5>
+        <p id="cc-id-f6G7h8I9j0K1">Submit the form and get access right away, no waiting required.</p>
+      </div>
+      <div class="col-md-4 lead-benefit-item" id="cc-id-g7H8i9J0k1L2">
+        <i class="fas fa-gift" id="cc-id-h8I9j0K1l2M3"></i>
+        <h5 id="cc-id-i9J0k1L2m3N4">Exclusive Offers</h5>
+        <p id="cc-id-j0K1l2M3n4O5">Be the first to know about deals and special promotions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="cc-footer" id="cc-id-k1L2m3N4o5P6">
+    <p id="cc-id-l2M3n4O5p6Q7">© 2026 Your Brand. All rights reserved.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" id="cc-id-m3N4o5P6q7R8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" id="cc-id-n4O5p6Q7r8S9"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js" id="cc-id-o5P6q7R8s9T0"></script>
 </body>
+
 </html>
