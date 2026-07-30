@@ -1,351 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" id="cc-id-a1B2c3D4e5F6">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" id="cc-id-g7H8i9J0k1L2">
-<title id="cc-id-m3N4o5P6q7R8">Shop Our Collection</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-s9T0u1V2w3X4">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-y5Z6a7B8c9D0">
-<style id="cc-id-e1F2g3H4i5J6">
-  body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-  }
-
-  .cc-collection-hero {
-    text-align: center;
-    padding: 40px 20px 20px;
-  }
-
-  .cc-collection-hero h1 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #212529;
-    margin-bottom: 8px;
-  }
-
-  .cc-collection-hero p {
-    color: #6c757d;
-    font-size: 16px;
-  }
-
-  .fk-product-row {
-    margin: 10px 18%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-  }
-
-  .fk-product-col {
-    padding: 10px;
-    width: 25%;
-    display: flex;
-    flex: 0 0 auto;
-    width: 25%;
-  }
-
-  .fk-product-col-dynamic {
-    flex: 0 0 auto;
-    width: 25%;
-  }
-
-  .fk-product-card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .fk-product-card-image:hover {
-    transform: scale(1.1);
-  }
-
-  .fk-product-card-image-container {
-    overflow: hidden;
-    width: 100%;
-    height: 150px;
-  }
-
-  .fk-product-card {
-    border: 1px solid #80808047;
-    border-radius: 10px;
-    width: 100%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    background-color: #fff;
-    transition: box-shadow 0.2s ease;
-  }
-
-  .fk-product-card:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  .fk-product-body {
-    padding: 10px;
-    text-align: center;
-  }
-
-  .fk-product-price span {
-    font-size: 18px;
-  }
-
-  .fk-product-actual-price {
-    text-decoration: line-through red;
-    word-break: break-word;
-  }
-
-  .fk-product-offer-price {
-    color: green;
-    font-weight: 700;
-    word-break: break-word;
-  }
-
-  .fk-product-name,
-  .fk-product-headline {
-    font-size: 18px;
-    font-weight: 400;
-    word-break: break-word;
-  }
-
-  .cc-align-center-box {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cc-align-center-box .btn-outline-primary {
-    border-color: #007bff !important;
-  }
-
-  #productRow {
-    flex: none;
-  }
-
-  @media (max-width: 991.98px) {
-
-    .fk-product-col,
-    .fk-product-col-dynamic {
-      width: 33.3333%;
+  <meta charset="UTF-8" id="cc-id-PqTumDXj1cnj" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" id="cc-id-4jooR2KB49lN" />
+  <title>Collection | Shop Our Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-G87u6YqgUE3L" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-Aofi8Z1XOW8w" />
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #222;
     }
-  }
 
-  @media (max-width: 767.98px) {
-
-    .fk-product-col,
-    .fk-product-col-dynamic {
-      width: 50%;
+    .cc-collection-hero {
+      text-align: center;
+      padding: 40px 15px 10px;
     }
-  }
 
-  @media (max-width: 480px) {
+    .cc-collection-hero h1 {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
 
-    .fk-product-col,
-    .fk-product-col-dynamic {
+    .cc-collection-hero p {
+      color: #6c757d;
+      max-width: 560px;
+      margin: 10px auto 0;
+    }
+
+    .cc-tiles-row {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 15px 60px;
+    }
+
+    .cc-tile-col {
+      display: flex;
+    }
+
+    .cc-tile-col .cc-cl-variant-tile {
       width: 100%;
     }
-  }
 
-  /* Header component styles */
-  .quantity-circle {
-    margin-right: 9%;
-    margin-top: 1%;
-    position: absolute;
-    top: unset;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding: 8px;
-    border: 2px solid #666;
-    color: #666;
-    text-align: center;
-    font: 10px Arial, sans-serif;
-    right: unset;
-  }
+    /* ---- Header component styles ---- */
+    .quantity-circle {
+      margin-right: 9%;
+      margin-top: 1%;
+      position: absolute;
+      top: unset;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      padding: 8px;
+      border: 2px solid #666;
+      color: #666;
+      text-align: center;
+      font: 10px Arial, sans-serif;
+      right: unset;
+    }
 
-  .image-quantity-container {
-    margin: 0 auto;
-    width: 100px;
-    height: auto;
-    position: relative;
-  }
-
-  .image-cart-header {
-    width: 300px;
-    height: 56px;
-    float: left;
-    margin-left: 10%;
-    max-height: 100px;
-  }
-
-  .cc-cv-canvas__tools>#cc-tools>.cc-toolbar>div>.fa-trash-o {
-    pointer-events: none;
-  }
-
-  .rightPanelHTML {
-    display: none;
-  }
-
-  .fk-parent-cart-element {
-    display: inline-block;
-    float: right;
-    margin-right: 10%;
-  }
-
-  .panelCartCircle {
-    position: absolute;
-    margin: 0%;
-    margin-left: -6px;
-    top: unset;
-    right: unset;
-  }
-
-  .fk-shopping-cart-icon {
-    font-size: 32px;
-    margin-top: 15px;
-    cursor: pointer;
-  }
-
-  .cartPanelHeader {
-    padding: 0.5rem;
-    min-height: 80px;
-    background-color: #fff;
-    overflow: visible;
-  }
-
-  .fk-inner-header-wrapper {
-    display: flex;
-    flex-direction: row;
-    margin: 0 10%;
-    justify-content: space-between;
-  }
-
-  .fk-brand-wrapper {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .fk-brand,
-  .fk-cart-icon-container {
-    margin: 0;
-  }
-
-  .fk-menu-container {
-    padding: 5px;
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    flex-wrap: wrap;
-    margin-right: auto;
-  }
-
-  .fk-inner-header-wrapper .fk-menu-container .fk-menu {
-    padding: 5px;
-    white-space: nowrap;
-    color: black;
-  }
-
-  .fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
-  .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
-    color: black;
-  }
-
-  .fk-menu-btn-container {
-    display: none;
-    padding: 5px;
-  }
-
-  .fk-menu-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: black;
-    font-size: 25px;
-    padding: 5px 8px;
-  }
-
-  .fk-menu-btn,
-  .fk-menu-btn:focus {
-    outline: none;
-  }
-
-  .fk-cart-container {
-    padding: 5px;
-    position: relative;
-  }
-
-  .fk-cart-wrapper {
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-  }
-
-  .sidepanel .cc-panel-view-cart,
-  .sidepanel .cc-panel-checkout {
-    font-size: 16px;
-    padding: 5px 0;
-    margin: 0px auto;
-  }
-
-  @media (max-width: 480px) {
     .image-quantity-container {
       margin: 0 auto;
-      width: 55px;
+      width: 100px;
+      height: auto;
       position: relative;
     }
 
     .image-cart-header {
-      margin-left: 5%;
-      width: 150px;
-      height: 28px;
-      margin-top: 3%;
+      width: 300px;
+      height: 56px;
+      float: left;
+      margin-left: 10%;
+      max-height: 100px;
     }
 
-    .quantity-circle {
-      position: absolute;
-      top: unset;
-      border-radius: 50%;
-      width: 25px;
-      height: 25px;
-      padding: 5px;
-      border: 2px solid #666;
-      color: #666;
-      text-align: center;
-      font: 8px Arial, sans-serif;
-      right: unset;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .fk-menu-btn-container {
-      display: flex;
-      align-self: center;
+    .cc-cv-canvas__tools > #cc-tools > .cc-toolbar > div > .fa-trash-o {
+      pointer-events: none;
     }
 
-    .fk-menu-container {
+    .rightPanelHTML {
       display: none;
     }
 
-    .cartPanelHeader {
-      height: 70px;
-    }
-
-    .fk-shopping-cart-icon {
-      font-size: 25px;
-    }
-
-    .fk-inner-header-wrapper {
-      margin-left: 3%;
-      margin-right: 8%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .fk-shopping-cart-icon {
-      font-size: 20px;
-    }
-
-    .cartPanelHeader {
-      height: 60px;
+    .fk-parent-cart-element {
+      display: inline-block;
+      float: right;
+      margin-right: 10%;
     }
 
     .panelCartCircle {
@@ -355,38 +96,263 @@
       top: unset;
       right: unset;
     }
-  }
-</style>
+
+    .fk-shopping-cart-icon {
+      font-size: 32px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .cartPanelHeader {
+      padding: 0.5rem;
+      min-height: 80px;
+      background-color: #fff;
+      overflow: visible;
+    }
+
+    .fk-inner-header-wrapper {
+      display: flex;
+      flex-direction: row;
+      margin: 0 10%;
+      justify-content: space-between;
+    }
+
+    .fk-brand-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .fk-brand,
+    .fk-cart-icon-container {
+      margin: 0;
+    }
+
+    .fk-menu-container {
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      flex-wrap: wrap;
+      margin-right: auto;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu {
+      padding: 5px;
+      white-space: nowrap;
+      color: black;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
+      color: black;
+    }
+
+    .fk-menu-btn-container {
+      display: none;
+      padding: 5px;
+    }
+
+    .fk-menu-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: black;
+      font-size: 25px;
+      padding: 5px 8px;
+    }
+
+    .fk-menu-btn,
+    .fk-menu-btn:focus {
+      outline: none;
+    }
+
+    .fk-cart-container {
+      padding: 5px;
+      position: relative;
+    }
+
+    .fk-cart-wrapper {
+      display: flex;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    .sidepanel .cc-panel-view-cart,
+    .sidepanel .cc-panel-checkout {
+      font-size: 16px;
+      padding: 5px 0;
+      margin: 0px auto;
+    }
+
+    @media (max-width: 480px) {
+      .image-quantity-container {
+        margin: 0 auto;
+        width: 55px;
+        position: relative;
+      }
+      .image-cart-header {
+        margin-left: 5%;
+        width: 150px;
+        height: 28px;
+        margin-top: 3%;
+      }
+      .quantity-circle {
+        position: absolute;
+        top: unset;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        border: 2px solid #666;
+        color: #666;
+        text-align: center;
+        font: 8px Arial, sans-serif;
+        right: unset;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .fk-menu-btn-container {
+        display: flex;
+        align-self: center;
+      }
+      .fk-menu-container {
+        display: none;
+      }
+      .cartPanelHeader {
+        height: 70px;
+      }
+      .fk-shopping-cart-icon {
+        font-size: 25px;
+      }
+      .fk-inner-header-wrapper {
+        margin-left: 3%;
+        margin-right: 8%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fk-shopping-cart-icon {
+        font-size: 20px;
+      }
+      .cartPanelHeader {
+        height: 60px;
+      }
+      .panelCartCircle {
+        position: absolute;
+        margin: 0%;
+        margin-left: -6px;
+        top: unset;
+        right: unset;
+      }
+    }
+
+    /* ---- Variant Tile component styles ---- */
+    .product-section-border {
+      border-style: solid;
+      border-width: 1px;
+    }
+
+    .margin-class {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .text-wrap {
+      word-break: break-word !important;
+    }
+
+    .section-style {
+      padding: 16px;
+      margin: 10px 0;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    label {
+      font-family: Helvetica, serif;
+    }
+
+    .qtyInput {
+      border: 1px solid #eeeeee;
+      box-sizing: border-box;
+      margin: 0 !important;
+      outline: none;
+      padding: 10px !important;
+    }
+
+    .qtyInput::-webkit-outer-spin-button,
+    .qtyInput::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .qtyInputGrp {
+      clear: both;
+      margin: 15px 0;
+      position: relative;
+    }
+
+    .button-minus,
+    .button-plus {
+      background-color: #eeeeee;
+      min-width: 38px;
+      min-height: 38px;
+      transition: all 300ms ease;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 0;
+      position: relative;
+      -webkit-appearance: button;
+      cursor: pointer;
+    }
+
+    .quantity-field {
+      position: relative;
+      text-align: center;
+      min-height: 38px;
+      width: 60px;
+      display: inline-block;
+      font-size: 13px;
+      margin: 0 0 5px;
+      resize: vertical;
+      -moz-appearance: textfield;
+      -webkit-appearance: none;
+    }
+
+    .fk-display-flex {
+      display: flex;
+    }
+  </style>
 </head>
+<body id="cc-id-dUuH2U4PN3v0">
 
-<body id="cc-id-k1L2m3N4o5P6">
-
-  <!-- Header Component -->
-  <header class="cartPanelHeader" id="cc-id-q7R8s9T0u1V2">
-    <div class="fk-inner-header-wrapper" id="cc-id-w3X4y5Z6a7B8">
-      <div class="fk-brand-wrapper" id="cc-id-c9D0e1F2g3H4">
-        <div class="fk-menu-btn-container" id="cc-id-i5J6k7L8m9N0">
+  <header class="cartPanelHeader" id="cc-id-gZ7xPWuaiMa0">
+    <div class="fk-inner-header-wrapper" id="cc-id-UMI5ygZgqs4R">
+      <div class="fk-brand-wrapper" id="cc-id-1jdyxmyjODWs">
+        <div class="fk-menu-btn-container" id="cc-id-J04mIlEIx8dM">
           <span class="fk-menu-btn" onclick="toggleSideMenuItems(event)" title="" target="_self" action="choose"
             align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
             data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
-            id="cc-id-o1P2q3R4s5T6">
-            <i class="fa fa-bars" id="cc-id-u7V8w9X0y1Z2"></i>
+            id="cc-id-WfetZs4SlcgH">
+            <i class="fa fa-bars" id="cc-id-vvkSsKYNOBSh"></i>
           </span>
         </div>
         <img id="img1" class="image-quantity-container image-cart-header fk-logo fk-brand"
           src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title="" href=""
           onclick="" target="_self" alt="" align="center" width="150" height="50" />
       </div>
-      <div class="fk-menu-container" id="cc-id-a3B4c5D6e7F8">
-        <div class="fk-menu" data-selector="true" id="cc-id-g9H0i1J2k3L4">
+      <div class="fk-menu-container" id="cc-id-Gx0ounQqFcKn">
+        <div class="fk-menu" data-selector="true" id="cc-id-ncbmAghZnpFi">
           Menu Option
         </div>
       </div>
-      <div class="fk-cart-wrapper" id="cc-id-m5N6o7P8q9R0">
-        <div class="fk-cart-container" id="cc-id-s1T2u3V4w5X6">
+      <div class="fk-cart-wrapper" id="cc-id-qOBRtoo4Mu3v">
+        <div class="fk-cart-container" id="cc-id-viYVmg4nUyUC">
           <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
-            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()"
-              id="cc-id-y7Z8a9B0c1D2"></i>
+            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()" id="cc-id-cEwEejkDPaZj"></i>
             <span id="panelCartCircle" class="quantity-circle panelCartCircle">0</span>
           </span>
         </div>
@@ -395,82 +361,149 @@
     <div class="rightPanelHTML" id="rightPanelHTML">
       <div id="mySidepanel" class="sidepanel cc-custom-right-panel"
         style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
-        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-e3F4g5H6i7J8">
-          <h2 style="margin-left:2%" id="cc-id-k9L0m1N2o3P4">
-            Your Cart<span id="cc-id-q5R6s7T8u9V0"> </span><span class="close-panel" onclick="closeNav()" title="×"
-              target="_self" action="choose" align="center" animate="" speed="" delay="none" loop="none"
-              variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproductid="" billnow="false" offer=""
-              upsell="" quantity="" price="" id="cc-id-w1X2y3Z4a5B6">×</span>
+        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-6ZNwTVMb5KIt">
+          <h2 style="margin-left:2%" id="cc-id-nLdrt4cArv2F">
+            Your Cart<span id="cc-id-uYkxkx6CrsRR"> </span><span class="close-panel" onclick="closeNav()" title="" target="_self" action="choose"
+              align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
+              data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
+              id="cc-id-BdhrfNrR6trT">×</span>
           </h2>
         </div>
         <div id="cartPanelId" class="sticky" style="padding:1%;overflow:hidden"></div>
-        <h5 style="margin-left:2%" id="cc-id-c7D8e9F0g1H2">
+        <h5 style="margin-left:2%" id="cc-id-XmEqnzHsIfvN">
           Subtotal:
-          <span class="cartPanelSubtotalClass">0</span>
+          <span class="cartPanelSubtotalClass" id="cc-id-a1e16iAlx4oC">0</span>
         </h5>
-        <br id="cc-id-i3J4k5L6m7N8" />
-        <p style="margin-left:2%" id="cc-id-o9P0q1R2s3T4">
+        <br id="cc-id-GPWETsZFTG35" />
+        <p style="margin-left:2%" id="cc-id-QdmaGwCMeYf9">
           Taxes, shipping, and coupons will be calculated at checkout
         </p>
         <button style="margin-left:12%;width:224px;" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL"
           action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
           data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
           upsell="" quantity="" price="">
-          VIEW CART</button><br id="cc-id-u5V6w7X8y9Z0" /><br id="cc-id-a1B2c3D4e5F7" />
+          VIEW CART</button><br id="cc-id-mkbCyIXry0f0" /><br id="cc-id-NtvDclfJ7Ue9" />
         <button style="margin-left:12%;width:224px;"
           class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" action="route"
           onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay="" data-minutesdelay=""
-          type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer="" upsell=""
-          quantity="" price="">
+          type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer="" upsell="" quantity=""
+          price="">
           PROCEED TO CHECKOUT
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Collection intro -->
-  <section class="cc-collection-hero" id="cc-id-g7H8i9J0k1L3">
-    <h1 id="cc-id-m3N4o5P6q7R9">Shop Our Collection</h1>
-    <p id="cc-id-s9T0u1V2w3X5">Browse our full range of products below</p>
+  <section class="cc-collection-hero" id="cc-id-VZKQEcieKLmx">
+    <h1 id="cc-id-dB6q4ffwOQeg">Shop Our Collection</h1>
+    <p id="cc-id-qj4YcKs7eFUY">Pick a style below, choose your quantity, and add your favorite variant to the cart.</p>
   </section>
 
-  <!-- Product Row Component -->
-  <div class="fk-product-row" id="productRow" columns="4" lazyload="0" maxproducts="100" desktopsize="4"
-    desktopsizeproducts="100" largetabletsize="3" largetabletsizeproducts="80" tabletsize="2"
-    tabletsizeproducts="60" largemobilesize="2" largemobilesizeproducts="40" mobilesize="1"
-    mobilesizeproducts="30">
-    <div class="fk-product-col" id="productColumn">
-      <section class="fk-product-section fk-product-card" name="product" type="section" value="">
-        <div class="fk-product-card-container" id="cc-id-y5Z6a7B8c9D1">
-          <div class="fk-product-card-image-container" id="cc-id-e1F2g3H4i5J7">
-            <img class="fk-product-card-image"
-              src="https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/1624453926190_second_img.jpg"
-              title="" alt="" align="center" />
+  <div class="container-fluid cc-tiles-row" id="cc-id-FwwMScKejDw2">
+    <div class="row" id="cc-id-4jjJxEwtd8K7">
+
+      <div class="col-lg-4 col-md-6 col-12 mb-4 cc-tile-col" id="cc-id-GhUdGIH1Qi5D">
+        <section class="section-style fk-product-section fk-variant-tile product-section-border fk-display-flex flex-column cc-cl-variant-tile"
+          name="product" type="section" value="">
+          <div class="io-attrs fk-element-container" id="cc-id-eIHVJgNqD0mK">
+            <img src="https://dev-assets.checkoutchamp.com/snippets/testimonials/generic-product.webp" alt="profile-sample6"
+              class="d-flex w-100" target="_self" align="center" id="cc-id-3n9pDAbnkhAr" />
           </div>
-          <div class="fk-product-body" id="cc-id-k1L2m3N4o5P7">
-            <div class="fk-product-name">
-              {{productName}}
-            </div>
-            <div class="fk-product-price" id="cc-id-q7R8s9T0u1V3">
-              <span class="fk-product-actual-price">{{compareAtPrice}}</span>
-            </div>
-            <div class="fk-product-price" id="cc-id-w3X4y5Z6a7B9">
-              <span class="fk-product-offer-price">{{cycle1_price}}</span>
+          <h5 class="margin-class" id="cc-id-N2A5CCRtaiZr">Product Name</h5>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-HBhbAEn6eSY9">
+            <label class="text-wrap" id="cc-id-vaA13lm5SsyM">Quantity</label>
+            <div class="qtyInputGrp" id="cc-id-OGp8rFgQJMmw">
+              <input type="button" value="-" class="qtyInput button-minus" data-field="quantity" name="" customval=""
+                placeholder="" id="cc-id-rltRx1F7AppP" />
+              <input type="number" step="1" value="0" name="quantity" class="qtyInput quantity-field" readonly="" customval=""
+                placeholder="" id="cc-id-hyEjXtty7Ra4" />
+              <input type="button" value="+" class="qtyInput button-plus" data-field="quantity" name="" customval=""
+                placeholder="" id="cc-id-xfnvaa0LOWZR" />
             </div>
           </div>
-          <div class="cc-align-center-box" id="cc-id-c9D0e1F2g3H5">
-            <button type="button" class="btn btn-outline-primary mt-2 fk-cc-id-WhWOxAwutIjx" action="route"
-              onclick="route(event)" title="" align="center" btntype="none" variantvalue="" size="none" offer="">
-              Details
-            </button>
-            <button type="button" class="btn btn-primary mt-2 fk-cc-id-5nIACsY9sPV5" data-text-value="Add to Cart"
-              action="addToCart" onclick="toggleProductSelection(event)" title="" align="center" btntype="none"
-              variantvalue="" size="none" offer="">
-              Add to Cart
-            </button>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-Gvfn4KRJpr4M">
+            <label class="text-wrap" id="cc-id-xdoNXKN51ISo">Variant Label 1</label>
+            <label class="text-wrap variant-label1">Variant Tile 1</label>
           </div>
-        </div>
-      </section>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-26ZYgHXSyPwI">
+            <label class="text-wrap" id="cc-id-qw8yXZaNY88R">Variant Label 2</label>
+            <label class="text-wrap variant-label2">Variant Tile 2</label>
+          </div>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-XaY9cwD8mZYN">
+            <label class="text-wrap" id="cc-id-b1omLVRnR0mV">Variant Label 3</label>
+            <label class="text-wrap variant-label3">Variant Tile 3</label>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-12 mb-4 cc-tile-col" id="cc-id-rGVk6ooMGuyh">
+        <section class="section-style fk-product-section fk-variant-tile product-section-border fk-display-flex flex-column cc-cl-variant-tile"
+          name="product" type="section" value="">
+          <div class="io-attrs fk-element-container" id="cc-id-fBGK3CTu37kP">
+            <img src="https://dev-assets.checkoutchamp.com/snippets/testimonials/generic-product.webp" alt="profile-sample6"
+              class="d-flex w-100" target="_self" align="center" id="cc-id-NgHINorwMa7e" />
+          </div>
+          <h5 class="margin-class" id="cc-id-hs8FuFp5AVqA">Product Name</h5>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-VqdUmgyoxeK6">
+            <label class="text-wrap" id="cc-id-oczdiIN5Eb2L">Quantity</label>
+            <div class="qtyInputGrp" id="cc-id-nnmnEEeb2JDA">
+              <input type="button" value="-" class="qtyInput button-minus" data-field="quantity" name="" customval=""
+                placeholder="" id="cc-id-5Tmds5uVnh8d" />
+              <input type="number" step="1" value="0" name="quantity" class="qtyInput quantity-field" readonly="" customval=""
+                placeholder="" id="cc-id-cxoBMB9GbX5C" />
+              <input type="button" value="+" class="qtyInput button-plus" data-field="quantity" name="" customval=""
+                placeholder="" id="cc-id-2joQYEbo5ofI" />
+            </div>
+          </div>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-sDITcVy6FnBI">
+            <label class="text-wrap" id="cc-id-dVmVlAzlAvc1">Variant Label 1</label>
+            <label class="text-wrap variant-label1">Variant Tile 1</label>
+          </div>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-4NGg4jGP4apE">
+            <label class="text-wrap" id="cc-id-8KpZ4mQ2vXrT">Variant Label 2</label>
+            <label class="text-wrap variant-label2">Variant Tile 2</label>
+          </div>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-9RtLq6NfZaGx">
+            <label class="text-wrap" id="cc-id-2WvYkE7pTsHm">Variant Label 3</label>
+            <label class="text-wrap variant-label3">Variant Tile 3</label>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-12 mb-4 cc-tile-col" id="cc-id-3FbXwR8yLpQd">
+        <section class="section-style fk-product-section fk-variant-tile product-section-border fk-display-flex flex-column cc-cl-variant-tile"
+          name="product" type="section" value="">
+          <div class="io-attrs fk-element-container" id="cc-id-6HnKdT4oWvXe">
+            <img src="https://dev-assets.checkoutchamp.com/snippets/testimonials/generic-product.webp" alt="profile-sample6"
+              class="d-flex w-100" target="_self" align="center" id="cc-id-P9mZqL2rNsYw" />
+          </div>
+          <h5 class="margin-class" id="cc-id-K3vGdE7hRtQm">Product Name</h5>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-J8yTnB4wXpLr">
+            <label class="text-wrap" id="cc-id-M6fVcQ9kDzRe">Quantity</label>
+            <div class="qtyInputGrp" id="cc-id-H2sWnA5jYtCu">
+              <input type="button" value="-" class="qtyInput button-minus" data-field="quantity" name="" customval=""
+                placeholder="" id="cc-id-D7rKpV3mXbNo" />
+              <input type="number" step="1" value="0" name="quantity" class="qtyInput quantity-field" readonly="" customval=""
+                placeholder="" id="cc-id-F4tLqW8nCyEz" />
+              <input type="button" value="+" class="qtyInput button-plus" data-field="quantity" name="" customval=""
+                placeholder="" id="cc-id-R9uNbY2sTkAg" />
+            </div>
+          </div>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-Z5wXmC7fVpQt">
+            <label class="text-wrap" id="cc-id-B3nRkE9dHsYu">Variant Label 1</label>
+            <label class="text-wrap variant-label1">Variant Tile 1</label>
+          </div>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-Q6xTmA4pWvNk">
+            <label class="text-wrap" id="cc-id-Y8zLnD5rXbCf">Variant Label 2</label>
+            <label class="text-wrap variant-label2">Variant Tile 2</label>
+          </div>
+          <div class="form-group-div fk-display-flex flex-column fk-element-container mb-3 align-items-start" align="left" id="cc-id-N7vKpS2mYtQr">
+            <label class="text-wrap" id="cc-id-W4cXbF6hRzAe">Variant Label 3</label>
+            <label class="text-wrap variant-label3">Variant Tile 3</label>
+          </div>
+        </section>
+      </div>
+
     </div>
   </div>
 
