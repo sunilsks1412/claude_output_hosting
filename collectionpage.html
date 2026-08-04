@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html id="cc-id-a1B2c3D4e5F6" lang="en">
+<head id="cc-id-g7H8i9J0k1L2">
+  <meta id="cc-id-m3N4o5P6q7R8" charset="UTF-8" />
+  <meta id="cc-id-s9T0u1V2w3X4" name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="cc-id-y5Z6a7B8c9D0">Collection | Your Brand</title>
+
+  <link id="cc-id-e1F2g3H4i5J6" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" />
+  <link id="cc-id-k7L8m9N0o1P2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+
+  <style id="cc-id-q3R4s5T6u7V8">
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #212529;
+    }
+
+    /* ===== Header component styles ===== */
+    .quantity-circle {
+      margin-right: 9%;
+      margin-top: 1%;
+      position: absolute;
+      top: unset;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      padding: 8px;
+      border: 2px solid #666;
+      color: #666;
+      text-align: center;
+      font: 10px Arial, sans-serif;
+      right: unset;
+    }
+
+    .image-quantity-container {
+      margin: 0 auto;
+      width: 100px;
+      height: auto;
+      position: relative;
+    }
+
+    .image-cart-header {
+      width: 300px;
+      height: 56px;
+      float: left;
+      margin-left: 10%;
+      max-height: 100px;
+    }
+
+    .cc-cv-canvas__tools > #cc-tools > .cc-toolbar > div > .fa-trash-o {
+      pointer-events: none;
+    }
+
+    .rightPanelHTML {
+      display: none;
+    }
+
+    .fk-parent-cart-element {
+      display: inline-block;
+      float: right;
+      margin-right: 10%;
+    }
+
+    .panelCartCircle {
+      position: absolute;
+      margin: 0%;
+      margin-left: -6px;
+      top: unset;
+      right: unset;
+    }
+
+    .fk-shopping-cart-icon {
+      font-size: 32px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .cartPanelHeader {
+      padding: 0.5rem;
+      min-height: 80px;
+      background-color: #fff;
+      overflow: visible;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .fk-inner-header-wrapper {
+      display: flex;
+      flex-direction: row;
+      margin: 0 10%;
+      justify-content: space-between;
+    }
+
+    .fk-brand-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .fk-brand,
+    .fk-cart-icon-container {
+      margin: 0;
+    }
+
+    .fk-menu-container {
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      flex-wrap: wrap;
+      margin-right: auto;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu {
+      padding: 5px;
+      white-space: nowrap;
+      color: black;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
+      color: black;
+    }
+
+    .fk-menu-btn-container {
+      display: none;
+      padding: 5px;
+    }
+
+    .fk-menu-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: black;
+      font-size: 25px;
+      padding: 5px 8px;
+    }
+
+    .fk-menu-btn,
+    .fk-menu-btn:focus {
+      outline: none;
+    }
+
+    .fk-cart-container {
+      padding: 5px;
+      position: relative;
+    }
+
+    .fk-cart-wrapper {
+      display: flex;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    .sidepanel .cc-panel-view-cart,
+    .sidepanel .cc-panel-checkout {
+      font-size: 16px;
+      padding: 5px 0;
+      margin: 0px auto;
+    }
+
+    @media (max-width: 480px) {
+      .image-quantity-container {
+        margin: 0 auto;
+        width: 55px;
+        position: relative;
+      }
+      .image-cart-header {
+        margin-left: 5%;
+        width: 150px;
+        height: 28px;
+        margin-top: 3%;
+      }
+      .quantity-circle {
+        position: absolute;
+        top: unset;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        border: 2px solid #666;
+        color: #666;
+        text-align: center;
+        font: 8px Arial, sans-serif;
+        right: unset;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .fk-menu-btn-container {
+        display: flex;
+        align-self: center;
+      }
+      .fk-menu-container {
+        display: none;
+      }
+      .cartPanelHeader {
+        height: 70px;
+      }
+      .fk-shopping-cart-icon {
+        font-size: 25px;
+      }
+      .fk-inner-header-wrapper {
+        margin-left: 3%;
+        margin-right: 8%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fk-shopping-cart-icon {
+        font-size: 20px;
+      }
+      .cartPanelHeader {
+        height: 60px;
+      }
+      .panelCartCircle {
+        position: absolute;
+        margin: 0%;
+        margin-left: -6px;
+        top: unset;
+        right: unset;
+      }
+    }
+
+    /* ===== Collection page heading ===== */
+    .cc-collection-heading-wrapper {
+      padding: 48px 20px 24px;
+      background-color: #f8f9fa;
+    }
+
+    .cc-collection-headline {
+      font-weight: 700;
+      font-size: 2.25rem;
+      margin-bottom: 8px;
+    }
+
+    .cc-collection-subtext {
+      color: #6c757d;
+      font-size: 1.05rem;
+    }
+
+    .cc-collection-main {
+      min-height: 60vh;
+    }
+
+    /* ===== Multi Collection component styles ===== */
+    .fk-product-row {
+      margin: 10px 18%;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .fk-product-col {
+      padding: 10px;
+      width: 25%;
+      display: flex;
+      flex: 0 0 auto;
+      width: 25%;
+    }
+
+    .fk-product-col-dynamic {
+      flex: 0 0 auto;
+      width: 25%;
+    }
+
+    .fk-product-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .fk-product-card-image:hover {
+      transform: scale(1.1);
+    }
+
+    .fk-product-card-image-container {
+      overflow: hidden;
+      width: 100%;
+      height: 150px;
+    }
+
+    .fk-product-card {
+      border: 1px solid #80808047;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .fk-product-body {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .fk-product-price span {
+      font-size: 18px;
+    }
+
+    .fk-product-actual-price {
+      text-decoration: line-through red;
+      word-break: break-word;
+    }
+
+    .fk-product-offer-price {
+      color: green;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .fk-product-name,
+    .fk-product-headline {
+      font-size: 18px;
+      font-weight: 400;
+      word-break: break-word;
+    }
+
+    .cc-align-center-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cc-align-center-box .btn-outline-primary {
+      border-color: #007bff !important;
+    }
+
+    .cc-multi-collection-menu {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .cc-menu-item {
+      margin: 10px;
+      padding: 10px;
+    }
+
+    #productRow-1 {
+      flex: none;
+    }
+
+    @media (max-width: 991.98px) {
+      .fk-product-col,
+      .fk-product-col-dynamic {
+        width: 33.3333%;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .fk-product-col,
+      .fk-product-col-dynamic {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fk-product-col,
+      .fk-product-col-dynamic {
+        width: 100%;
+      }
+    }
+
+    /* ===== Footer ===== */
+    .cc-collection-footer {
+      padding: 24px 20px;
+      background-color: #212529;
+      color: #f8f9fa;
+    }
+
+    .cc-footer-text {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body id="cc-id-w9X0y1Z2a3B4">
+<header class="cartPanelHeader" id="cc-id-HECVjSjSs7Xm">
+<div class="fk-inner-header-wrapper" id="cc-id-e4rMiQl6fmwh">
+<div class="fk-brand-wrapper" id="cc-id-P0Q5C5WP0kTy">
+<div class="fk-menu-btn-container" id="cc-id-Z130TIjPuwQ2">
+<span action="choose" align="center" animate="" billnow="false" class="fk-menu-btn" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-tzP5D7bMXz7d" loop="none" offer="" onclick="toggleSideMenuItems(event)" price="" quantity="" replaceproductid="" speed="" target="_self" title="" upsell="" variantvalue="">
+<i class="fa fa-bars" id="cc-id-Bt7Eoy4ykauE"></i>
+</span>
+</div>
+<img align="center" alt="" class="image-quantity-container image-cart-header fk-logo fk-brand" height="50" href="" id="img1" onclick="" src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" target="_self" title="" width="150"/>
+</div>
+<div class="fk-menu-container" id="cc-id-rCl5H8suPIwl">
+<div class="fk-menu" data-selector="true" id="cc-id-U2j4f416lTVR">
+        Menu Option
+      </div>
+</div>
+<div class="fk-cart-wrapper" id="cc-id-9AB0Wv27uCjp">
+<div class="fk-cart-container" id="cc-id-8LMBTZTypNEe">
+<span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
+<i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" id="cc-id-X7RCTtIQ03fi" onclick="openNav()"></i>
+<span class="quantity-circle panelCartCircle" id="panelCartCircle">0</span>
+</span>
+</div>
+</div>
+</div>
+<div class="rightPanelHTML" id="rightPanelHTML">
+<div class="sidepanel cc-custom-right-panel" id="mySidepanel" style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
+<div class="sticky" id="cc-id-Ps6TbkDWBKDP" style="padding:1%;overflow:hidden">
+<h2 id="cc-id-z693xn1HA197" style="margin-left:2%">
+          Your Cart<span id="cc-id-I1eP5ZQ2aLZu"> </span><span action="choose" align="center" animate="" billnow="false" class="close-panel" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-VIMRrHhb916X" loop="none" offer="" onclick="closeNav()" price="" quantity="" replaceproductid="" speed="" target="_self" title="×" upsell="" variantvalue="">×</span>
+</h2>
+</div>
+<div class="sticky" id="cartPanelId" style="padding:1%;overflow:hidden"></div>
+<h5 id="cc-id-wm9TxXeCjRqo" style="margin-left:2%">
+        Subtotal:
+        <span class="cartPanelSubtotalClass" id="cc-id-ZG2qfeAPHgsB">0</span>
+</h5>
+<br id="cc-id-TOVISxQT2Ljf"/>
+<p id="cc-id-RDHlYaEkzk6s" style="margin-left:2%">
+        Taxes, shipping, and coupons will be calculated at checkout
+      </p>
+<button action="route" align="center" billnow="false" btntype="none" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL" data-minutesdelay="" data-secondsdelay="" id="cc-id-l3sc5vFOexmJ" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
+        VIEW CART</button><br id="cc-id-DhL2raWAfFk2"/><br id="cc-id-Ha8xzr600oc6"/>
+<button action="route" align="center" billnow="false" btntype="none" class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" data-minutesdelay="" data-secondsdelay="" id="cc-id-r0wAs99M6T7Y" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
+        PROCEED TO CHECKOUT
+      </button>
+</div>
+</div>
+</header>
+<main class="cc-collection-main" id="cc-id-n8KYvhMBoJTT">
+<div class="container-fluid cc-collection-heading-wrapper text-center" id="cc-id-IB4v1OTO5HGM">
+<h1 class="cc-collection-headline" id="cc-id-F26TX8KH2X4c">Shop Our Collection</h1>
+<p class="cc-collection-subtext" id="cc-id-3faeW77dN0Hj">Browse our full range of products below</p>
+</div>
+<div class="cc-multi-collection-container" collectionitems="" id="cc-id-XeXULnBKpjxI">
+<div class="cc-multi-collection-menu" id="multiCollection">
+<div class="cc-menu-item" id="cc-id-qXxajBNfhFgW">
+<a action="choose" align="center" animate="" billnow="false" collectionname="Choose Collection" data-minutesdelay="" data-secondsdelay="" delay="none" href="#" id="cc-id-cgR5Oo2PGeZN" link="" linktype="collection" loop="none" menuname="Choose Collection" offer="" price="" quantity="" replaceproductid="" speed="" target="_self" title="Choose Collection" upsell="" variantvalue="">Choose
+          Collection</a>
+</div>
+</div>
+<div class="cc-multi-collection-product-row" id="cc-id-16wK7FGILtTr">
+<div class="fk-product-row" columns="4" desktopsize="4" desktopsizeproducts="100" id="productRow-1" lazyload="0" link="" maxproducts="100">
+<div class="fk-product-col" id="productColumn-1">
+<section class="fk-product-section fk-product-card" id="cc-id-EcyV8V063kth" name="product" type="section" value="">
+<div class="fk-product-card-container" id="cc-id-HGmVj84vUyjx">
+<div class="fk-product-card-image-container" id="cc-id-wMZYQpXvYz7D">
+<img align="center" alt="" class="fk-product-card-image" height="" href="" id="cc-id-eZ8VgFLqgPCl" onclick="" src="https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/1624453926190_second_img.jpg" target="_self" title="" width=""/>
+</div>
+<div class="fk-product-body" id="cc-id-Ta94CTyrUvHs">
+<div class="fk-product-name" id="cc-id-y04ru9MIntNv">
+                  {{productName}}
+                </div>
+<div class="fk-product-price" id="cc-id-13Km37kx8jO8">
+<span class="fk-product-actual-price" id="cc-id-F2ijHUJID03b">{{compareAtPrice}}</span>
+</div>
+<div class="fk-product-price" id="cc-id-Ggeybh3Pn5kV">
+<span class="fk-product-offer-price" id="cc-id-cXRXK7pZQ0UB">{{cycle1_price}}</span>
+</div>
+</div>
+<div class="cc-align-center-box" id="cc-id-A9nI3owtRPEQ">
+<button action="route" align="center" billnow="false" btntype="none" class="btn btn-outline-primary mt-2" data-minutesdelay="" data-secondsdelay="" id="cc-id-oQNPQlcmlUMk" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left: auto; margin-right: auto;" title="" type="button" upsell="" variantvalue="">
+                  Details
+                </button>
+<button action="addToCart" align="center" billnow="false" btntype="none" class="btn btn-primary mt-2" data-minutesdelay="" data-secondsdelay="" data-text-value="Add to Cart" id="cc-id-4bPCm9vWER6j" offer="" onclick="toggleProductSelection(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left: auto; margin-right: auto;" title="" type="button" upsell="" variantvalue="">
+                  Add to Cart
+                </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="cc-collection-footer text-center" id="cc-id-5fdA0bSDe9kp">
+<p class="cc-footer-text" id="cc-id-ztC2hvP6As3x">© 2026 Your Brand. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
