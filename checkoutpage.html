@@ -1,203 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" id="cc-id-DeNynECKHJD1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" id="cc-id-OTKakcd95jv1">
-<title id="cc-id-UeYlMTmZ2KS1">Secure Checkout</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-WhUyoaTPFU81">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-MtkjGbh5aHP1">
-<style id="cc-id-FX5G9W91I3J1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Black Friday Sale</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
   body {
-    background-color: #f7f7f9;
-    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #f7f7f8;
+    margin: 0;
+    padding: 0;
+  }
+  .cc-brand-header {
+    background-color: #ffffff;
+    padding: 18px 0;
+    border-bottom: 1px solid #eaeaea;
+  }
+  .cc-brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+  }
+  .cc-page-headline {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 30px 0 8px 0;
+  }
+  .cc-page-subheadline {
+    text-align: center;
+    color: #6a6a6a;
+    font-size: 15px;
+    margin-bottom: 30px;
   }
   .cc-checkout-wrapper {
-    max-width: 1140px;
-    margin: 30px auto;
-    padding: 0 15px;
-  }
-  .cc-checkout-title {
-    font-size: 28px;
-    font-weight: 700;
-    margin: 20px 0;
-    text-align: left;
-    color: #222;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px 60px 15px;
   }
   .cc-checkout-card {
     background: #ffffff;
-    border-radius: 8px;
+    border-radius: 10px;
+    padding: 25px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    padding: 15px;
     margin-bottom: 20px;
   }
-  .cc-checkout-card-header {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #222;
-  }
-  .cc-sticky-summary {
-    position: sticky;
-    top: 20px;
-  }
-  .cc-checkout-btn-wrapper {
-    text-align: center;
-  }
-  .cc-checkout-btn-wrapper .btn.btn-primary {
-    width: 100%;
-    max-width: 420px;
-  }
-  .fk-bullet {
-    padding: 2px 15px 2px 15px;
-    text-align: left;
+  .cc-checkout-card-title {
     font-size: 20px;
     font-weight: 700;
-    list-style: none;
+    margin-bottom: 15px;
+    color: #1a1a1a;
   }
-  .fk-bullet-span {
-    color: red;
-  }
-  .fk-bullet-list-container {
-    padding: 5px;
+  .cc-secure-badge {
     display: flex;
-    flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    justify-content: center;
+    color: #6a6a6a;
+    font-size: 13px;
+    margin-top: 10px;
   }
-  .fk-bullet-icon-container {
-    padding: 5px 10px 5px 5px;
+  .cc-secure-badge i {
+    margin-right: 6px;
+    color: #28a745;
+  }
+  .cc-complete-checkout-btn {
+    width: 100%;
+    margin: 20px 0 0 0 !important;
+  }
+  @media (max-width: 768px) {
+    .cc-page-headline {
+      font-size: 24px;
+    }
   }
 </style>
 </head>
-<body id="cc-id-z3BHWvn0G8y1">
+<body>
 
-<!--
-window.routes = ["/checkoutpage"];
-
-window.navigations = {
-  "checkoutpage": {
-    "cc-id-completechkbtn": "thankyoupage"
+<!-- Black Friday Banner -->
+<div class="cc-banner cc-blackfriday-banner" bannertype="blackfriday" id="cc-id-as1qwVeHeG2R">
+  <div align="center" class="cc-blackfriday-banner-container" data-element-absolute="" id="cc-id-zn9mXCBm2vn6">
+    <div class="cc-blackfriday-banner-bottomleft" id="cc-id-1KO9D8ifd26L">
+      <img class="cc-blackfriday-banner-img fk-disable-lazy"
+        src="https://assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1761840315903_cart_card.png"
+        alt="Shopping cart and card" title="" href="" onclick="" target="_self" align="center" width="" height="" id="cc-id-mQwCtyj7kNaR" />
+    </div>
+    <p class="cc-blackfriday-banner-title" id="cc-id-DdRiH4RkgUXD">
+      <i class="fas fa-calendar-alt cc-blackfriday-banner-icon" aria-hidden="true" id="cc-id-rWrTKV3MNXP9"></i>&nbsp;BLACK FRIDAY SALE ENDS
+      SOON!
+    </p>
+    <p class="cc-blackfriday-banner-subtitle" id="cc-id-EOHEGKT4HeNi">
+      Save 10%. Use Coupon Code:
+      <strong class="cc-blackfriday-banner-code" id="cc-id-fhXrgYLXSpYZ">BFCM!</strong>
+    </p>
+    <div class="cc-blackfriday-banner-topright" id="cc-id-HqQGfDgJs2NI">
+      <img class="cc-blackfriday-banner-img fk-disable-lazy"
+        src="https://assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1761840692866_sale.png"
+        alt="Sale Tag" title="" href="" onclick="" target="_self" align="center" width="" height="" id="cc-id-234ooK98xMPF" />
+    </div>
+  </div>
+</div>
+<style>
+.cc-banner {
+    overflow: hidden;
+    padding: 5px 0;
   }
-};
--->
+  .cc-banner-container {
+    position: relative;
+    text-align: center;
+  }
+  .cc-banner-corner {
+    position: absolute;
+  }
+  .cc-banner-corner--bl {
+    bottom: 0;
+    left: 0;
+  }
+  .cc-banner-corner--tr {
+    top: 0;
+    right: 0;
+  }
+  .cc-banner-title,
+  .cc-banner-subtitle {
+    margin: 0;
+    font-weight: bold;
+  }
+  .cc-banner-img {
+    width: auto;
+    display: block;
+    transform-origin: center center;
+  }
+  .cc-banner-icon {
+    font-size: 20px;
+  }
+  .cc-blackfriday-banner {
+    background-color: rgb(0, 0, 0);
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .cc-blackfriday-banner-container {
+    position: relative;
+  }
+  .cc-blackfriday-banner-bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .cc-blackfriday-banner-bottomleft .cc-blackfriday-banner-img {
+    color: black;
+    height: 35px;
+    width: auto;
+    transform: rotate(-15deg);
+    transform-origin: center center;
+  }
+  .cc-blackfriday-banner-title,
+  .cc-blackfriday-banner-subtitle {
+    margin: 0;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+  .cc-blackfriday-banner-icon {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+  }
+  .cc-blackfriday-banner-topright {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .cc-blackfriday-banner-topright .cc-blackfriday-banner-img {
+    color: black;
+    height: 45px;
+    width: auto;
+    transform: rotate(15deg);
+    transform-origin: center center;
+  }
+</style>
 
-<header class="cartPanelHeader" id="cc-id-02qlWr1e8aw1">
-  <div class="fk-inner-header-wrapper" id="cc-id-ReOPHmBTK4j1">
-    <div class="fk-brand-wrapper" id="cc-id-MeZdJDRgcaN1">
-      <div class="fk-menu-btn-container" id="cc-id-3LLL40gFjUO1">
-        <span class="fk-menu-btn" onclick="toggleSideMenuItems(event)" title="" target="_self" action="choose"
-          align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
-          data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
-          id="cc-id-3dbvwdFu9Zf1">
-          <i class="fa fa-bars" id="cc-id-6RgYTH3uO3M1"></i>
-        </span>
-      </div>
-      <img id="img1" class="image-quantity-container image-cart-header fk-logo fk-brand"
-        src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title="" href=""
-        onclick="" target="_self" alt="Brand Logo" align="center" width="150" height="50" />
-    </div>
-    <div class="fk-menu-container" id="cc-id-wsDKJVNJHwG1">
-      <div class="fk-menu" data-selector="true" id="cc-id-3sRgOrxDK7t1">
-        Menu Option
-      </div>
-    </div>
-    <div class="fk-cart-wrapper" id="cc-id-sHMXSpqz8nJ1">
-      <div class="fk-cart-container" id="cc-id-P51TXwMlep01">
-        <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
-          <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()" id="cc-id-gdMPuQwPluX1"></i>
-          <span id="panelCartCircle" class="quantity-circle panelCartCircle">0</span>
-        </span>
-      </div>
-    </div>
+<!-- Simple Brand Header -->
+<div class="cc-brand-header" id="cc-id-4OAp1nT85cpw">
+  <div class="container" id="cc-id-X0GWv2w85CbM">
+    <div class="cc-brand-name" id="cc-id-kh9Re9iYVaZu">YOUR BRAND</div>
   </div>
-  <div class="rightPanelHTML" id="rightPanelHTML">
-    <div id="mySidepanel" class="sidepanel cc-custom-right-panel"
-      style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
-      <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-KBTFSUj3CuM1">
-        <h2 style="margin-left:2%" id="cc-id-8OYYQgbuZtS1">
-          Your Cart<span id="cc-id-whQvMS6uchk1"> </span><span class="close-panel" onclick="closeNav()" title="×" target="_self" action="choose"
-            align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
-            data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
-            id="cc-id-QmdQT990VrZ1">×</span>
-        </h2>
-      </div>
-      <div id="cartPanelId" class="sticky" style="padding:1%;overflow:hidden"></div>
-      <h5 style="margin-left:2%" id="cc-id-FY8PmaddWPZ1">
-        Subtotal:
-        <span class="cartPanelSubtotalClass">0</span>
-      </h5>
-      <br id="cc-id-kSyeMNhdI8g1" />
-      <p style="margin-left:2%" id="cc-id-yRvBIKIqNMG1">
-        Taxes, shipping, and coupons will be calculated at checkout
-      </p>
-      <button style="margin-left:12%;width:224px;" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL"
-        action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
-        data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
-        upsell="" quantity="" price="">
-        VIEW CART</button><br id="cc-id-oR8IG6Zcs0I1" /><br id="cc-id-DDOPAVn2GuK1" />
-      <button style="margin-left:12%;width:224px;"
-        class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" action="route"
-        onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay="" data-minutesdelay=""
-        type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer="" upsell="" quantity=""
-        price="">
-        PROCEED TO CHECKOUT
-      </button>
-    </div>
-  </div>
-</header>
+</div>
 
-<div class="cc-checkout-wrapper" id="cc-id-PAssisx8JxL1">
+<div class="cc-checkout-wrapper" id="cc-id-ciM9Chlm2SJ2">
 
-  <div class="cc-checkout-title" id="cc-id-5uIcNffPwAi1">Secure Checkout</div>
+  <div class="cc-page-headline" id="cc-id-nZ2BjyhNZthO">Secure Checkout</div>
+  <div class="cc-page-subheadline" id="cc-id-YIshvrUrRzua">Complete your order below — Black Friday pricing applied at checkout</div>
 
-  <ul class="fk-bullet" id="cc-id-4HEVCb8owDg1">
-    <li id="cc-id-JiNnNVHK1Aj1">
-      <div class="fk-bullet-list-container" id="cc-id-DNewiJo0JML1">
-        <div class="fk-bullet-icon-container" id="cc-id-r5kchlKbNmU1">
-          <i class="fas fa-check-circle" id="cc-id-OpvFQu5l6qP1"></i>
-        </div>
-        <div id="cc-id-1kwZ4TFKVAr1">
-          <div id="cc-id-DxnJ9D6cTNA1">100% Secure and Encrypted Checkout</div>
-        </div>
-      </div>
-    </li>
-    <li id="cc-id-luRb5OZTubO1">
-      <div class="fk-bullet-list-container" id="cc-id-KLIqWab44MU1">
-        <div class="fk-bullet-icon-container" id="cc-id-V6sJvCcuwYc1">
-          <i class="fas fa-check-circle" id="cc-id-Umap2o5ymg01"></i>
-        </div>
-        <div id="cc-id-A1B2C3D4E5F1">
-          <div id="cc-id-A1B2C3D4E5F2">Fast &amp; Free Shipping on All Orders</div>
-        </div>
-      </div>
-    </li>
-    <li id="cc-id-A1B2C3D4E5F3">
-      <div class="fk-bullet-list-container" id="cc-id-A1B2C3D4E5F4">
-        <div class="fk-bullet-icon-container" id="cc-id-A1B2C3D4E5F5">
-          <i class="fas fa-check-circle" id="cc-id-A1B2C3D4E5F6"></i>
-        </div>
-        <div id="cc-id-A1B2C3D4E5F7">
-          <div id="cc-id-A1B2C3D4E5F8">30-Day Money-Back Guarantee</div>
-        </div>
-      </div>
-    </li>
-    <li id="cc-id-A1B2C3D4E5F9">
-      <div class="fk-bullet-list-container" id="cc-id-A1B2C3D4E5G1">
-        <div class="fk-bullet-icon-container" id="cc-id-A1B2C3D4E5G2">
-          <i class="fas fa-check-circle" id="cc-id-A1B2C3D4E5G3"></i>
-        </div>
-        <div id="cc-id-A1B2C3D4E5G4">
-          <div id="cc-id-A1B2C3D4E5G5">24/7 Customer Support</div>
-        </div>
-      </div>
-    </li>
-  </ul>
+  <div class="row" id="cc-id-ZUbkB3IhkicC">
 
-  <div class="row" id="cc-id-A1B2C3D4E5G6">
+    <!-- Left Column: Address 3 + Payment Option -->
+    <div class="col-lg-7 col-md-12" id="cc-id-e7XbdlQaIL7Q">
 
-    <!-- LEFT COLUMN: Checkout Form -->
-    <div class="col-lg-7 col-md-12" id="cc-id-A1B2C3D4E5G7">
+      <div class="cc-checkout-card" id="cc-id-4j3Ed8z37fvJ">
+        <div class="cc-checkout-card-title" id="cc-id-XTTLv1n1vqFP">Contact &amp; Shipping</div>
 
-      <div class="cc-checkout-card" id="cc-id-A1B2C3D4E5G8">
+        <!-- Address 3 Component -->
         <style>
         .fk-shopify-form-wrapper {
             padding: 5px;
@@ -329,6 +333,7 @@ window.navigations = {
                 margin-top: 0px
             }
             .fk-shopify-multiple-form-select .fk-shopify-form-select-container:last-child,
+            .fk-shopify-multiple-form-select .fk-shopify-form-field:last-child:last-child,
             .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child,
             .fk-shopify-multiple-form-field .fk-shopify-form-select-container:last-child {
                 margin-bottom: 0px;
@@ -336,7 +341,7 @@ window.navigations = {
         }
         </style>
         <div class="form fk-shopify-form-wrapper">
-            <form class="form"  data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false" data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-unstylable='[["width","height"],"shape-outside"]'>
+            <form class="form" id="cc-id-DwZTOTGGmLAq" data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false" data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-unstylable='[["width","height"],"shape-outside"]'>
                 <div class="fk-shopify-form-container">
                     <div class="fk-shopify-form-icon-header">
                         <div>
@@ -472,7 +477,7 @@ window.navigations = {
                     </div>
                 </div>
             </form>
-            <form class="form"  data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false" data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-unstylable='[["width","height"],"shape-outside"]'>
+            <form class="form" id="cc-id-izmaUyZhvdOS" data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false" data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-unstylable='[["width","height"],"shape-outside"]'>
                 <div class="fk-shopify-form-container">
                     <div class="fk-shopify-form-icon-header">
                         <div>
@@ -496,9 +501,13 @@ window.navigations = {
                 </div>
             </form>
         </div>
+        <!-- End Address 3 Component -->
       </div>
 
-      <div class="cc-checkout-card" id="cc-id-A1B2C3D4E5G9">
+      <div class="cc-checkout-card" id="cc-id-5tOVoO4LIVez">
+        <div class="cc-checkout-card-title" id="cc-id-kSDkx82xFOCt">Payment</div>
+
+        <!-- Payment Option Component -->
         <style>
             .fk-payment-option-wrapper {
                 padding: 5px;
@@ -742,146 +751,21 @@ window.navigations = {
                 </div>
             </div>
         </div>
+        <!-- End Payment Option Component -->
       </div>
 
-      <div class="cc-checkout-card" id="cc-id-A1B2C3D4E5H1">
-        <div class="cc-checkout-card-header" id="cc-id-A1B2C3D4E5H2"><i class="fas fa-tag" id="cc-id-A1B2C3D4E5H3"></i> Have a Coupon?</div>
-        <style>
-          .btn {
-            display: inline-block;
-            font-weight: 400;
-            text-align: center;
-            white-space: normal;
-            vertical-align: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            border: 1px solid transparent;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 25px;
-            padding-right: 25px;
-            line-height: 1.5;
-            border-radius: 0.25rem;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-              border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-            margin: 20px auto;
-            white-space: normal;
-            font-size: 20px;
-          }
-          .form-control-custom {
-            display: block;
-            width: 100%;
-            padding: 12px 18px;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
-            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-          }
-          .cc-v2 {
-            border-radius: 6px;
-            background: #f4f4f4ff;
-            padding: 20px 10px 10px 10px;
-            font-family: Poppins;
-            font-weight: 400;
-          }
-          .cc-v2 .btn.btn-primary.cc-form-btn {
-            padding-top: 8px;
-            padding-bottom: 8px;
-            padding-left: 25px;
-            padding-right: 25px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            font-size: 20px;
-            background: #f26419ff;
-            border-color: #f26419ff;
-          }
-          .cc-v2 .btn.btn-primary.cc-form-btn:hover {
-            background: #f26419ff;
-            border-color: #f26419ff;
-          }
-          .form-check-label {
-            font-family: Poppins;
-            font-weight: 400;
-          }
-          .form-control-custom:focus,
-          input:not([type="radio"]):focus {
-            border: solid 1px rgba(242, 100, 25, 1);
-            border-radius: 6px;
-            outline: none !important;
-            box-shadow: none;
-          }
-          .cc-coupon {
-            display: inline-block;
-            width: 75%;
-            padding-left: 0px;
-            padding-right: 0px;
-            margin-right: 10px;
-          }
-        </style>
-        <form class="form form-style cc-v2 cc-cl-coupon-code">
-          <div class="fk-element-container cc-coupon">
-            <input type="text" class="form-control-custom" name="couponCode" placeholder="Coupon Code" customval="" />
-          </div>
-          <button class="btn btn-primary cc-form-btn apply-coupon" title="" align="center" btntype="none" data-secondsdelay=""
-            data-minutesdelay="" type="button" onclick="applyCoupon(event)" action="applyCoupon" size="none">
-            Apply
-          </button>
-        </form>
-      </div>
-
-      <div class="cc-checkout-btn-wrapper" id="cc-id-A1B2C3D4E5H4">
-        <style>
-                    .btn {
-                        display: inline-block;
-                        font-weight: 400;
-                        text-align: center;
-                        white-space: normal;
-                        vertical-align: middle;
-                        -webkit-user-select: none;
-                        -moz-user-select: none;
-                        -ms-user-select: none;
-                        user-select: none;
-                        border: 1px solid transparent;
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                        padding-left: 25px;
-                        padding-right: 25px;
-                        line-height: 1.5;
-                        border-radius: .25rem;
-                        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                        margin: 20px auto;
-                        white-space: normal;
-                        font-size: 20px;
-                        font-family: Helvetica, serif;
-                    }
-                    .btn.btn-primary {
-                        background: #007bff;
-                        color: #fff;
-                        border-color: #007bff;
-                        white-space: normal;
-                    }
-                    .btn.btn-primary.btn-one-style:active:focus {
-                        box-shadow: none;
-                    }
-                    .btn.btn-primary.btn-one-style:focus {
-                        box-shadow: none;
-                    }
-        </style>
-        <button class="btn btn-primary btn-one-style" id="cc-id-completechkbtn" action="submit" onclick="callMethod(event)">Complete Checkout</button>
-      </div>
+      <button class="btn btn-primary btn-one-style cc-complete-checkout-btn" action="submit" onclick="callMethod(event)" id="cc-id-jtDsRj7MfTp0">Complete Checkout</button>
+      <div class="cc-secure-badge" id="cc-id-BaFuv6bTKRqZ"><i class="fas fa-lock" id="cc-id-sdNOq5duHnct"></i> Your payment information is processed securely</div>
 
     </div>
 
-    <!-- RIGHT COLUMN: Order Summary / Shopping Cart -->
-    <div class="col-lg-5 col-md-12" id="cc-id-A1B2C3D4E5H5">
-      <div class="cc-checkout-card cc-sticky-summary" id="cc-id-A1B2C3D4E5H6">
-        <div class="cc-checkout-card-header" id="cc-id-A1B2C3D4E5H7">Order Summary</div>
+    <!-- Right Column: Shopping Cart + Coupon -->
+    <div class="col-lg-5 col-md-12" id="cc-id-cRGzmC8Rkyq1">
+
+      <div class="cc-checkout-card" id="cc-id-qL9WXj33MYx1">
+        <div class="cc-checkout-card-title" id="cc-id-llcNsUWhLNzY">Order Summary</div>
+
+        <!-- Shopping Cart Component -->
         <style>
         .cc-cart-container {
           margin: 10px;
@@ -989,8 +873,7 @@ window.navigations = {
             <div class="cc-cart-toggle p-1 bg-light d-flex flex-row justify-content-between align-items-center"
                 data-cc-type="cartToggle" data-cc-custom-name="Shopping Cart Toggle" data-cc-draggable="true"
                 data-cc-droppable="true" draggable="true" data-layer-name="Shopping Cart Toggle"
-                hideonloadfordesktop="false" hideonloadforlargetablet="false" hideonloadfortablet="false"
-                hideonloadforlargemobile="false" hideonloadformobile="false">
+                hideonloadfordesktop="false" hideonloadforlargetablet="false" hideonloadfortablet="false" hideonloadforlargemobile="false" hideonloadformobile="false">
                 <div class="d-flex flex-row align-items-center" data-cc-type="default" data-cc-draggable="true"
                     data-cc-droppable="true" draggable="true" data-layer-name="Box">
                     <div class="p-1" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true" draggable="true"
@@ -1152,25 +1035,60 @@ window.navigations = {
                 </span>
             </div>
         </div>
+        <!-- End Shopping Cart Component -->
+
+        <!-- Coupon Component -->
+        <style>
+          .cc-v2 {
+            border-radius: 6px;
+            background: #f4f4f4ff;
+            padding: 20px 10px 10px 10px;
+            font-family: Poppins, Helvetica, sans-serif;
+            font-weight: 400;
+          }
+
+          .cc-v2 .btn.btn-primary.cc-form-btn {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            background: #f26419ff;
+            border-color: #f26419ff;
+          }
+
+          .cc-v2 .btn.btn-primary.cc-form-btn:hover {
+            background: #f26419ff;
+            border-color: #f26419ff;
+          }
+
+          .cc-coupon {
+            display: inline-block;
+            width: 75%;
+            padding-left: 0px;
+            padding-right: 0px;
+            margin-right: 10px;
+          }
+        </style>
+        <form class="form form-style cc-v2 cc-cl-coupon-code">
+          <div class="fk-element-container cc-coupon">
+            <input type="text" class="form-control-custom" name="couponCode" placeholder="Coupon Code (Try BFCM!)" customval="" />
+          </div>
+          <button class="btn btn-primary cc-form-btn apply-coupon" title="" align="center" btntype="none" data-secondsdelay=""
+            data-minutesdelay="" type="button" onclick="applyCoupon(event)" action="applyCoupon" size="none">
+            Apply
+          </button>
+        </form>
+        <!-- End Coupon Component -->
+
       </div>
+
     </div>
 
   </div>
 </div>
 
-<footer id="cc-id-A1B2C3D4E5H8" style="background:#222;color:#ccc;padding:30px 15px;text-align:center;margin-top:40px;">
-  <div id="cc-id-A1B2C3D4E5H9">
-    <p id="cc-id-A1B2C3D4E5I1" style="margin:0;font-size:14px;">© 2026 Your Store. All rights reserved.</p>
-    <p id="cc-id-A1B2C3D4E5I2" style="margin:5px 0 0;font-size:13px;">
-      <a href="#" id="cc-id-A1B2C3D4E5I3" action="none" style="color:#ccc;margin:0 8px;">Privacy Policy</a>
-      <a href="#" id="cc-id-A1B2C3D4E5I4" action="none" style="color:#ccc;margin:0 8px;">Terms of Service</a>
-      <a href="#" id="cc-id-A1B2C3D4E5I5" action="none" style="color:#ccc;margin:0 8px;">Contact Us</a>
-    </p>
-  </div>
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" id="cc-id-A1B2C3D4E5I6"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" id="cc-id-A1B2C3D4E5I7"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js" id="cc-id-A1B2C3D4E5I8"></script>
 </body>
 </html>
