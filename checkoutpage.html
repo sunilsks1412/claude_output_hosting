@@ -1,1316 +1,1127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" id="cc-id-h1J2k3L4m5N6">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" id="cc-id-h2J3k4L5m6N7">
-<title id="cc-id-h3J4k5L6m7N8">Checkout | Halloween Sale</title>
-
-<!-- Bootstrap 4 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-h4J5k6L7m8N9">
-<!-- Font Awesome 5.12.1 (required for Halloween Banner fa-ghost icon) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-h5J6k7L8m9N1">
-<!-- Font Awesome 4.7 (required for Address 3 / Shopping Cart / Header / Coupon icons) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" id="cc-id-h6J7k8L9m1N2">
-
-<style id="cc-id-h7J8k9L1m2N3">
-  body {
-    font-family: Helvetica, Arial, sans-serif;
-    background-color: #fbf7f2;
-  }
-  .cc-checkout-page-title {
-    text-align: center;
-    margin: 30px 0 10px 0;
-    font-weight: 700;
-    color: #2b2b2b;
-  }
-  .cc-checkout-page-subtitle {
-    text-align: center;
-    color: #7a7a7a;
-    margin-bottom: 30px;
-  }
-  .cc-checkout-section-card {
-    background-color: #ffffff;
-    border: 1px solid #e6e6e6;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
-  }
-  .cc-checkout-section-card-heading {
-    padding: 15px 20px 0 20px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #2b2b2b;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 12px;
-  }
-  .cc-checkout-summary-sticky {
-    position: sticky;
-    top: 20px;
-  }
-  .cc-checkout-submit-wrapper {
-    text-align: center;
-  }
-  .cc-checkout-submit-wrapper .btn.btn-primary.btn-one-style {
-    background: #f26419;
-    border-color: #f26419;
-    width: 100%;
-    max-width: 400px;
-  }
-  @media screen and (max-width: 767px) {
-    .cc-checkout-summary-sticky {
-      position: static;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', Helvetica, sans-serif;
+      background-color: #f7f7f9;
+      margin: 0;
     }
-  }
-</style>
 
-<!-- ================= Halloween Banner component styles ================= -->
-<style id="cc-id-h8J9k1L2m3N4">
-.cc-banner {
-  overflow: hidden;
-  padding: 5px 0;
-}
-
-.cc-banner-container {
-  position: relative;
-  text-align: center;
-}
-
-.cc-banner-corner {
-  position: absolute;
-}
-
-.cc-banner-corner--bl {
-  bottom: 0;
-  left: 0;
-}
-
-.cc-banner-corner--tr {
-  top: 0;
-  right: 0;
-}
-
-.cc-banner-title,
-.cc-banner-subtitle {
-  margin: 0;
-  font-weight: bold;
-}
-
-.cc-banner-img {
-  width: auto;
-  display: block;
-  transform-origin: center center;
-}
-
-.cc-banner-icon {
-  font-size: 20px;
-}
-
-.cc-halloween-banner {
-  background-color: rgb(0, 0, 0);
-}
-
-.cc-halloween-banner .cc-banner-title,
-.cc-halloween-banner .cc-banner-subtitle {
-  color: rgb(245, 166, 35);
-}
-
-.cc-halloween-banner .cc-banner-icon {
-  color: rgb(255, 255, 255);
-  margin-right: 5px;
-}
-
-.cc-halloween-banner .cc-banner-corner--tr .cc-banner-img {
-  height: 45px;
-  transform: rotate(90deg);
-}
-
-.cc-halloween-banner .cc-banner-corner--bl .cc-banner-img {
-  height: 35px;
-  transform: rotate(-90deg);
-}
-</style>
-
-<!-- ================= Header component styles ================= -->
-<style id="cc-id-h9J1k2L3m4N5">
-.quantity-circle {
-  margin-right: 9%;
-  margin-top: 1%;
-  position: absolute;
-  top: unset;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  padding: 8px;
-  border: 2px solid #666;
-  color: #666;
-  text-align: center;
-  font: 10px Arial, sans-serif;
-  right: unset;
-}
-
-.image-quantity-container {
-  margin: 0 auto;
-  width: 100px;
-  height: auto;
-  position: relative;
-}
-
-.image-cart-header {
-  width: 300px;
-  height: 56px;
-  float: left;
-  margin-left: 10%;
-  max-height: 100px;
-}
-
-.cc-cv-canvas__tools > #cc-tools > .cc-toolbar > div > .fa-trash-o {
-  pointer-events: none;
-}
-
-.rightPanelHTML {
-  display: none;
-}
-
-.fk-parent-cart-element {
-  display: inline-block;
-  float: right;
-  margin-right: 10%;
-}
-
-.panelCartCircle {
-  position: absolute;
-  margin: 0%;
-  margin-left: -6px;
-  top: unset;
-  right: unset;
-}
-
-.fk-shopping-cart-icon {
-  font-size: 32px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-.cartPanelHeader {
-  padding: 0.5rem;
-  min-height: 80px;
-  background-color: #fff;
-  overflow: visible;
-}
-
-.fk-inner-header-wrapper {
-  display: flex;
-  flex-direction: row;
-  margin: 0 10%;
-  justify-content: space-between;
-}
-
-.fk-brand-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-.fk-brand,
-.fk-cart-icon-container {
-  margin: 0;
-}
-
-.fk-menu-container {
-  padding: 5px;
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  flex-wrap: wrap;
-  margin-right: auto;
-}
-
-.fk-inner-header-wrapper .fk-menu-container .fk-menu {
-  padding: 5px;
-  white-space: nowrap;
-  color: black;
-}
-
-.fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
-.fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
-  color: black;
-}
-
-.fk-menu-btn-container {
-  display: none;
-  padding: 5px;
-}
-
-.fk-menu-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: black;
-  font-size: 25px;
-  padding: 5px 8px;
-}
-
-.fk-menu-btn,
-.fk-menu-btn:focus {
-  outline: none;
-}
-
-.fk-cart-container {
-  padding: 5px;
-  position: relative;
-}
-
-.fk-cart-wrapper {
-  display: flex;
-  flex-direction: row;
-  padding: 5px;
-}
-
-.sidepanel .cc-panel-view-cart,
-.sidepanel .cc-panel-checkout {
-  font-size: 16px;
-  padding: 5px 0;
-  margin: 0px auto;
-}
-
-@media (max-width: 480px) {
-  .image-quantity-container {
-    margin: 0 auto;
-    width: 55px;
-    position: relative;
-  }
-  .image-cart-header {
-    margin-left: 5%;
-    width: 150px;
-    height: 28px;
-    margin-top: 3%;
-  }
-  .quantity-circle {
-    position: absolute;
-    top: unset;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    padding: 5px;
-    border: 2px solid #666;
-    color: #666;
-    text-align: center;
-    font: 8px Arial, sans-serif;
-    right: unset;
-  }
-}
-
-@media (max-width: 768px) {
-  .fk-menu-btn-container {
-    display: flex;
-    align-self: center;
-  }
-  .fk-menu-container {
-    display: none;
-  }
-  .cartPanelHeader {
-    height: 70px;
-  }
-  .fk-shopping-cart-icon {
-    font-size: 25px;
-  }
-  .fk-inner-header-wrapper {
-    margin-left: 3%;
-    margin-right: 8%;
-  }
-}
-
-@media (max-width: 480px) {
-  .fk-shopping-cart-icon {
-    font-size: 20px;
-  }
-  .cartPanelHeader {
-    height: 60px;
-  }
-  .panelCartCircle {
-    position: absolute;
-    margin: 0%;
-    margin-left: -6px;
-    top: unset;
-    right: unset;
-  }
-}
-</style>
-
-<!-- ================= Address 3 component styles ================= -->
-<style id="cc-id-h1K2l3M4n5O6">
-.fk-shopify-form-wrapper {
-    padding: 5px;
-    margin: 5px;
-}
-.fk-shopify-form-container {
-    padding: 5px;
-}
-.fk-shopify-form-header {
-    font-size: 22px;
-    margin: 5px;
-}
-.fk-shopify-form-icon-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px 5px;
-}
-.fk-shopify-form-icon {
-    margin: 0 5px;
-}
-.fk-shopify-form-field {
-    margin: 10px 5px;
-    padding: 5px;
-}
-.fk-shopify-form-field input {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 12px 18px;
-    font-size: 16px;
-    font-weight: 400;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-}
-.fk-shopify-multiple-form-field {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-.fk-shopify-multiple-form-field .fk-shopify-form-field {
-    width: 100%;
-    margin: 0 5px;
-    padding: 5px;
-}
-.fk-shopify-form-select-container {
-    padding: 5px 10px;
-    width: 100%;
-}
-.fk-shopify-form-select {
-  position: relative;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  background-color: #ffffff;
-  height: 50px;
-}
-.fk-shopify-form-select select {
-  border: none;
-  outline: none;
-  background: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  margin: 0;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 12px 30px 12px 18px;
-  font-size: 16px;
-  border-radius: 5px;
-}
-.fk-shopify-form-select:after {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  right: 0;
-  top: 0;
-  width: 30px;
-  height: 100%;
-  content: "\f0d7";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  color: #505050;
-  text-align: center;
-  font-size: 16px;
-  border-left: 1px solid #ced4da;
-  pointer-events: none;
-}
-.fk-shopify-multiple-form-select {
-    display: flex;
-    flex-direction: row;
-}
-.fk-shopify-multiple-form-select .fk-shopify-form-select-container,
-.fk-shopify-multiple-form-select .fk-shopify-form-field {
-    width: 100%;
-    margin: 0 5px;
-    padding: 5px;
-}
-.fk-shopify-form-checkbox-container {
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-}
-.fk-shopify-form-checkbox input {
-    position: relative;
-    margin: 0.4rem 0;;
-}
-.fk-shopify-form-checkbox-label {
-    margin: 0 0.5rem;
-    text-align: left;
-    font-size: 1rem;
-}
-@media screen and (max-width: 1024px) {
-    .fk-shopify-multiple-form-select,
-    .fk-shopify-multiple-form-field {
-        flex-wrap: wrap;
+    .cc-checkout-wrapper {
+      max-width: 1140px;
+      margin: 30px auto;
+      padding: 0 15px;
     }
-    .fk-shopify-multiple-form-select .fk-shopify-form-select-container,
-    .fk-shopify-multiple-form-select .fk-shopify-form-field,
-    .fk-shopify-multiple-form-field .fk-shopify-form-field,
-    .fk-shopify-multiple-form-field .fk-shopify-form-select-container {
-        margin: 5px;
-        padding: 5px;
+
+    .cc-checkout-heading {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 20px 0;
+      color: #222;
     }
-    .fk-shopify-multiple-form-select .fk-shopify-form-select-container:first-child,
-    .fk-shopify-multiple-form-select .fk-shopify-form-field:first-child,
-    .fk-shopify-multiple-form-field .fk-shopify-form-field:first-child,
-    .fk-shopify-multiple-form-field .fk-shopify-form-select-container:first-child {
-        margin-top: 0px
+
+    .cc-checkout-card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      margin-bottom: 20px;
     }
-    .fk-shopify-multiple-form-select .fk-shopify-form-select-container:last-child,
-    .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child,
-    .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child,
-    .fk-shopify-multiple-form-field .fk-shopify-form-select-container:last-child {
-        margin-bottom: 0px;
+
+    .cc-checkout-btn-row {
+      text-align: center;
     }
-}
-</style>
 
-<!-- ================= Payment Option component styles ================= -->
-<style id="cc-id-h2K3l4M5n6O7">
-.fk-payment-option-wrapper {
-    padding: 5px;
-}
-.fk-payment-header {
-    text-align: left;
-}
-.fk-payment-header-main {
-    margin: 5px 10px;
-    font-size: 20px;
-    font-weight: 500;
-}
-.fk-payment-header-sub {
-    margin: 5px 10px;
-    color: #9b9b9b;
-}
-.fk-payment-options {
-    padding: 5px;
-}
-.fk-payment-option-container {
-    position: relative;
-    padding: 0 5px;
-}
-.fk-payment-option-container:first-child
-.fk-payment-option-header-wrapper {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-.fk-payment-option-container:last-child
-.fk-payment-option-header-wrapper {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-.fk-payment-option-container:last-child
-.fk-payment-option-body {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-.fk-payment-option-header-wrapper {
-    border: 1px solid #d9d9d9;
-    display: block;
-}
-.fk-payment-option-header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 10px;
-    height: 40px;
-}
-.fk-card-payment-bg-icon-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 40px;
-}
-.fk-payment-option-label {
-    margin-left: 30px;
-    font-weight: bold;
-    color: #6f6f6f;
-    padding: 5px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    text-align: left;
-}
-@media screen and (max-width: 450px) {
-    .fk-card-payment-bg-icon-container {
-    display: none;
+    .cc-checkout-btn-row .btn.btn-primary {
+      width: 100%;
+      max-width: 400px;
     }
-}
-.fk-background {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-.fk-card-payment-bg-icon {
-    margin-left: 5px;
-    padding: 5px;
-    min-height: 25px;
-    min-width: 40px;
-}
-.fk-card-one {
-    background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/visa.svg);
-}
-.fk-card-two {
-    background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/master.svg);
-}
-.fk-card-three {
-    background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/american.svg);
-}
-.fk-card-four {
-    background-image: url(https://dev-assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1721766810842_discover1_1_.png);
-}
-.fk-payment-option-toggler-field {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-}
-.fk-payment-option-toggler-field:checked ~ .fk-payment-option-header-wrapper {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.fk-payment-option-toggler-field:checked ~ .fk-payment-option-body {
-    display: flex;
-    border: 1px solid #d9d9d9;
-}
-.fk-payment-option-body {
-    background-color: #fafafa;
-    display: flex;
-    align-items: center;
-    border: 1px solid #d9d9d9;
-}
-.fk-card-payment-field {
-    flex: 1;
-    margin: 10px;
-    position: relative;
-}
-.fk-card-payment-field-icon {
-    position: absolute;
-    top: 12px;
-    right: 20px;
-}
-.fk-card-payment-field input {
-    outline: none;
-    font-size: 18px;
-    padding: 15px;
-    height: 45px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-    box-sizing: border-box;
-}
-.fk-card-number input{
-    padding: 15px 35px 15px 15px;
-}
-.fk-card-payment-container {
-    width: 100%;
-    margin: 5px;
-}
-.fk-card-multiple-payment-field {
-    display: flex;
-    flex-direction: row;
-}
-.fk-payment-option-body-content{
-    display: flex;
-    height: 130px;
-    width: 100%;
-    align-items:center;
-    justify-content: center;
-    margin: 5px;
-}
-.btnPayPal2 {
-    background-image: url('https://config.checkoutchamp.com/development/paypal-checkout-3.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: transparent;
-    background-color: #ffd11a;
-    border: 1px solid transparent;
-}
-.btnPayPal2:hover {
-    background-color: #e6b800;
-    color: transparent;
-    border-color: transparent;
-    white-space: normal;
-}
-.btnPayPal2:focus {
-    box-shadow: none;
-}
-.btn-paypal2-styles {
-    padding: 6px 12px;
-    background-size: contain;
-}
-</style>
+  </style>
 
-<!-- ================= Shopping Cart component styles ================= -->
-<style id="cc-id-h3K4l5M6n7O8">
-.cc-cart-container {
-  margin: 10px;
-  border-radius: 10px;
-  padding: 10px;
-}
+  <!--
+  window.routes = ["/checkoutpage"];
 
-.cc-cart-row {
-  border: 1px solid lightgray;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 16px;
-  word-break: break-word;
-  background-color: white;
-  margin: 5px 0;
-}
-
-.cc-cart-row-img {
-  width: 100%;
-  max-height: 150px;
-  object-fit: contain;
-}
-
-.cc-cart-row-trash-icon {
-  cursor: pointer;
-  background-color: black;
-  padding: 5px;
-  color: white;
-  border-radius: 5px;
-}
-
-.cc-cart-row-qty-btn {
-  cursor: pointer;
-  background-color: black;
-  padding: 6px;
-  color: white;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-}
-
-.cc-cart-row-content {
-  text-align: left;
-}
-
-.cc-cart-row-prod-qty-container {
-  margin: 5px 2px;
-  min-width: 30px;
-  padding: 2px 5px;
-  border: 1px solid lightgray;
-  display: inline-block;
-}
-
-.cc-cart-row-prod-title {
-  font-weight: bold;
-  margin: 5px;
-}
-
-.cc-cart-row-variant,
-.cc-cart-row-margin,
-.cc-cart-row-prod-price {
-  margin: 5px;
-}
-
-.cc-cart-details-block {
-  display: block;
-  padding: 5px 10px;
-}
-
-.cc-cart-details-block .cc-cart-details-value,
-.cc-cart-details-block .cc-cart-details-label {
-  padding: 10px;
-  text-align: right;
-  display: block;
-  width: auto;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.cc-cart-prod-qty-bubble {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: #f2f2f2;
-  color: black;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-}
-
-@media screen and (max-width: 480px) {
-  .cc-cart-row .cc-cart-row-content {
-    flex: 0 0 100%;
-    max-width: 100%;
-    text-align: center;
-  }
-}
-</style>
-
-<!-- ================= Coupon component styles ================= -->
-<style id="cc-id-h4K5l6M7n8O9">
-.form-control-custom {
-    display: block;
-    width: 100%;
-    padding: 12px 18px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.cc-v2 {
-    border-radius: 6px;
-    background: #f4f4f4ff;
-    padding: 20px 10px 10px 10px;
-    font-family: Poppins;
-    font-weight: 400;
-}
-
-.cc-v2 .btn.btn-primary.cc-form-btn {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    background: #f26419ff;
-    border-color: #f26419ff;
-}
-
-.cc-v2 .btn.btn-primary.cc-form-btn:hover {
-    background: #f26419ff;
-    border-color: #f26419ff;
-}
-
-.form-control-custom:focus,
-input:not([type="radio"]):focus {
-    border: solid 1px rgba(242, 100, 25, 1);
-    border-radius: 6px;
-    outline: none !important;
-    box-shadow: none;
-}
-
-.cc-coupon {
-    display: inline-block;
-    width: 75%;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-right: 10px;
-}
-</style>
-
-<!-- ================= Button1 component styles ================= -->
-<style id="cc-id-h5K6l7M8n9O1">
-.btn {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: normal;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    margin: 20px auto;
-    white-space: normal;
-    font-size: 20px;
-    font-family: Helvetica, serif;
-}
-.btn.btn-primary {
-    background: #007bff;
-    color: #fff;
-    border-color: #007bff;
-    white-space: normal;
-}
-.btn.btn-primary.btn-one-style:active:focus {
-    box-shadow: none;
-}
-.btn.btn-primary.btn-one-style:focus {
-    box-shadow: none;
-}
-</style>
-
-<!-- ================= Footer component styles ================= -->
-<style id="cc-id-h6K7l8M9n1O2">
-footer > div.fk-footer-row {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  flex-wrap: nowrap;
-  height: auto;
-  margin-top: 100px;
-  background-color: #f5f5f5;
-  padding: 0 50px;
-}
-
-footer .fk-footer-col {
-  min-height: 25px;
-  flex-grow: 1;
-  flex-basis: 100%;
-  padding: 10px;
-}
-
-.fk-footer-headline {
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
-  text-align: left;
-  margin-top: 0;
-  color: #6a6a6a !important;
-  padding: 10px 0;
-  font-weight: 600;
-}
-
-.fk-footer-bullet {
-  padding: 2px 15px 2px 0px;
-  text-align: left;
-  font-size: 20px;
-  line-height: 20px;
-  list-style: none;
-  margin-bottom: 0px;
-}
-
-.fk-footer-links {
-  color: #6a6a6a !important;
-  padding: 5px 10px;
-  text-align: left;
-  display: inline-block;
-  font-family: Helvetica, serif;
-  cursor: pointer;
-  font-size: 12px;
-}
-
-.fk-footer-brand-name {
-  padding: 10px;
-  font-size: 16px;
-  font-family: Helvetica, serif;
-  color: #6a6a6a !important;
-}
-
-.fk-footer-contacts-text {
-  padding: 10px;
-  font-size: 12px;
-  font-family: Helvetica, sans-serif;
-  color: #6a6a6a !important;
-}
-
-.fk-footer-logo {
-  width: 300px;
-  height: 56px;
-  float: left;
-  margin-bottom: 100px;
-  max-height: 100px;
-}
-
-.fk-footer-logo-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.fk-footer-social-media-icons {
-  height: 28px;
-  width: 28px !important;
-  padding-left: 0;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-  .fk-footer-row .fk-col {
-    width: 100%;
-  }
-  footer > div.fk-footer-row {
-    flex-wrap: wrap;
-  }
-  .fk-footer-logo-container-col {
-    order: 5;
-  }
-  .fk-footer-logo {
-    align-self: center;
-    margin-bottom: 0;
-  }
-  .fk-footer-social-icons-container {
-    text-align: center;
-  }
-  .fk-footer-brand-name {
-    text-align: center;
-    margin-top: 20px;
-  }
-}
-</style>
+  window.navigations = {
+    "checkoutpage": {}
+  };
+  -->
 </head>
 
-<body id="cc-id-i1P2q3R4s5T6">
+<body id="cc-id-Q1w2E3r4T5y6">
 
-<!-- ============================================================ -->
-<!-- HEADER COMPONENT                                              -->
-<!-- ============================================================ -->
-<header class="cartPanelHeader">
-  <div class="fk-inner-header-wrapper">
-    <div class="fk-brand-wrapper">
-      <div class="fk-menu-btn-container">
-        <span class="fk-menu-btn" onclick="toggleSideMenuItems(event)" title="" target="_self" action="choose"
-          align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
-          data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price="">
-          <i class="fa fa-bars"></i>
-        </span>
-      </div>
-      <img id="img1" class="image-quantity-container image-cart-header fk-logo fk-brand"
-        src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title="" href=""
-        onclick="" target="_self" alt="Brand Logo" align="center" width="150" height="50" />
-    </div>
-    <div class="fk-menu-container">
-      <div class="fk-menu" data-selector="true">
-        Menu Option
-      </div>
-    </div>
-    <div class="fk-cart-wrapper">
-      <div class="fk-cart-container">
-        <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
-          <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()"></i>
-          <span id="panelCartCircle" class="quantity-circle panelCartCircle">0</span>
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="rightPanelHTML" id="rightPanelHTML">
-    <div id="mySidepanel" class="sidepanel cc-custom-right-panel"
-      style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
-      <div class="sticky" style="padding:1%;overflow:hidden">
-        <h2 style="margin-left:2%">
-          Your Cart<span> </span><span class="close-panel" onclick="closeNav()" title="×" target="_self" action="choose"
+  <!-- ==================== HEADER ==================== -->
+  <style>
+    .quantity-circle {
+      margin-right: 9%;
+      margin-top: 1%;
+      position: absolute;
+      top: unset;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      padding: 8px;
+      border: 2px solid #666;
+      color: #666;
+      text-align: center;
+      font: 10px Arial, sans-serif;
+      right: unset;
+    }
+
+    .image-quantity-container {
+      margin: 0 auto;
+      width: 100px;
+      height: auto;
+      position: relative;
+    }
+
+    .image-cart-header {
+      width: 300px;
+      height: 56px;
+      float: left;
+      margin-left: 10%;
+      max-height: 100px;
+    }
+
+    .rightPanelHTML {
+      display: none;
+    }
+
+    .fk-parent-cart-element {
+      display: inline-block;
+      float: right;
+      margin-right: 10%;
+    }
+
+    .panelCartCircle {
+      position: absolute;
+      margin: 0%;
+      margin-left: -6px;
+      top: unset;
+      right: unset;
+    }
+
+    .fk-shopping-cart-icon {
+      font-size: 32px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .cartPanelHeader {
+      padding: 0.5rem;
+      min-height: 80px;
+      background-color: #fff;
+      overflow: visible;
+    }
+
+    .fk-inner-header-wrapper {
+      display: flex;
+      flex-direction: row;
+      margin: 0 10%;
+      justify-content: space-between;
+    }
+
+    .fk-brand-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .fk-brand,
+    .fk-cart-icon-container {
+      margin: 0;
+    }
+
+    .fk-menu-container {
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      flex-wrap: wrap;
+      margin-right: auto;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu {
+      padding: 5px;
+      white-space: nowrap;
+      color: black;
+    }
+
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
+    .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
+      color: black;
+    }
+
+    .fk-menu-btn-container {
+      display: none;
+      padding: 5px;
+    }
+
+    .fk-menu-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: black;
+      font-size: 25px;
+      padding: 5px 8px;
+    }
+
+    .fk-menu-btn,
+    .fk-menu-btn:focus {
+      outline: none;
+    }
+
+    .fk-cart-container {
+      padding: 5px;
+      position: relative;
+    }
+
+    .fk-cart-wrapper {
+      display: flex;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    .sidepanel .cc-panel-view-cart,
+    .sidepanel .cc-panel-checkout {
+      font-size: 16px;
+      padding: 5px 0;
+      margin: 0px auto;
+    }
+
+    @media (max-width: 480px) {
+      .image-quantity-container {
+        margin: 0 auto;
+        width: 55px;
+        position: relative;
+      }
+
+      .image-cart-header {
+        margin-left: 5%;
+        width: 150px;
+        height: 28px;
+        margin-top: 3%;
+      }
+
+      .quantity-circle {
+        position: absolute;
+        top: unset;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        border: 2px solid #666;
+        color: #666;
+        text-align: center;
+        font: 8px Arial, sans-serif;
+        right: unset;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .fk-menu-btn-container {
+        display: flex;
+        align-self: center;
+      }
+
+      .fk-menu-container {
+        display: none;
+      }
+
+      .cartPanelHeader {
+        height: 70px;
+      }
+
+      .fk-shopping-cart-icon {
+        font-size: 25px;
+      }
+
+      .fk-inner-header-wrapper {
+        margin-left: 3%;
+        margin-right: 8%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fk-shopping-cart-icon {
+        font-size: 20px;
+      }
+
+      .cartPanelHeader {
+        height: 60px;
+      }
+
+      .panelCartCircle {
+        position: absolute;
+        margin: 0%;
+        margin-left: -6px;
+        top: unset;
+        right: unset;
+      }
+    }
+  </style>
+  <header class="cartPanelHeader" id="cc-id-a1B2c3D4e5F6">
+    <div class="fk-inner-header-wrapper" id="cc-id-g7H8i9J0k1L2">
+      <div class="fk-brand-wrapper" id="cc-id-m3N4o5P6q7R8">
+        <div class="fk-menu-btn-container" id="cc-id-s9T0u1V2w3X4">
+          <span class="fk-menu-btn" onclick="toggleSideMenuItems(event)" title="" target="_self" action="choose"
             align="center" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay=""
-            data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price="">×</span>
-        </h2>
+            data-minutesdelay="" replaceproductid="" billnow="false" offer="" upsell="" quantity="" price=""
+            id="cc-id-y5Z6a7B8c9D0">
+            <i class="fa fa-bars" id="cc-id-e1F2g3H4i5J6"></i>
+          </span>
+        </div>
+        <img id="img1" class="image-quantity-container image-cart-header fk-logo fk-brand"
+          src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title="" href=""
+          onclick="" target="_self" alt="Brand Logo" align="center" width="150" height="50" />
       </div>
-      <div id="cartPanelId" class="sticky" style="padding:1%;overflow:hidden"></div>
-      <h5 style="margin-left:2%">
-        Subtotal:
-        <span class="cartPanelSubtotalClass">0</span>
-      </h5>
-      <br />
-      <p style="margin-left:2%">
-        Taxes, shipping, and coupons will be calculated at checkout
+      <div class="fk-menu-container" id="cc-id-k7L8m9N0o1P2">
+        <div class="fk-menu" data-selector="true" id="cc-id-q3R4s5T6u7V8">
+          Menu Option
+        </div>
+      </div>
+      <div class="fk-cart-wrapper" id="cc-id-w9X0y1Z2a3B4">
+        <div class="fk-cart-container" id="cc-id-c5D6e7F8g9H0">
+          <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
+            <i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" onclick="openNav()"
+              id="cc-id-i1J2k3L4m5N6"></i>
+            <span id="panelCartCircle" class="quantity-circle panelCartCircle">0</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="rightPanelHTML" id="rightPanelHTML">
+      <div id="mySidepanel" class="sidepanel cc-custom-right-panel"
+        style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
+        <div class="sticky" style="padding:1%;overflow:hidden" id="cc-id-o7P8q9R0s1T2">
+          <h2 style="margin-left:2%" id="cc-id-u3V4w5X6y7Z8">
+            Your Cart<span id="cc-id-a9B0c1D2e3F4"> </span><span class="close-panel" onclick="closeNav()" title="×"
+              target="_self" action="choose" align="center" animate="" speed="" delay="none" loop="none"
+              variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproductid="" billnow="false" offer=""
+              upsell="" quantity="" price="" id="cc-id-g5H6i7J8k9L0">×</span>
+          </h2>
+        </div>
+        <div id="cartPanelId" class="sticky" style="padding:1%;overflow:hidden"></div>
+        <h5 style="margin-left:2%" id="cc-id-m1N2o3P4q5R6">
+          Subtotal:
+          <span class="cartPanelSubtotalClass">0</span>
+        </h5>
+        <br id="cc-id-s7T8u9V0w1X2" />
+        <p style="margin-left:2%" id="cc-id-y3Z4a5B6c7D8">
+          Taxes, shipping, and coupons will be calculated at checkout
+        </p>
+        <button style="margin-left:12%;width:224px;" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL"
+          action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
+          data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
+          upsell="" quantity="" price="">
+          VIEW CART</button><br id="cc-id-e9F0g1H2i3J4" /><br id="cc-id-k5L6m7N8o9P0" />
+        <button style="margin-left:12%;width:224px;" class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F"
+          action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
+          data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
+          upsell="" quantity="" price="">
+          PROCEED TO CHECKOUT
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== JULY SALE BANNER ==================== -->
+  <style>
+    .cc-banner {
+      overflow: hidden;
+      padding: 5px 0;
+    }
+
+    .cc-banner-container {
+      position: relative;
+      text-align: center;
+    }
+
+    .cc-banner-corner {
+      position: absolute;
+    }
+
+    .cc-banner-corner--bl {
+      bottom: 0;
+      left: 0;
+    }
+
+    .cc-banner-corner--tr {
+      top: 0;
+      right: 0;
+    }
+
+    .cc-banner-title,
+    .cc-banner-subtitle {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .cc-banner-img {
+      width: auto;
+      display: block;
+      transform-origin: center center;
+    }
+
+    .cc-banner-icon {
+      font-size: 20px;
+    }
+
+    .cc-july-banner {
+      background-color: rgb(255, 255, 255);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-color: rgb(74, 144, 226);
+      border-style: solid;
+      border-width: 0px 0px 3px;
+    }
+
+    .cc-july-banner-container {
+      position: relative;
+    }
+
+    .cc-july-banner-bottomleft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .cc-july-banner-bottomleft .cc-july-banner-img {
+      color: black;
+      height: 35px;
+      width: auto;
+      transform: rotate(-15deg);
+      transform-origin: center center;
+    }
+
+    .cc-july-banner-title {
+      margin: 0;
+      font-weight: bold;
+      color: rgb(74, 144, 226);
+    }
+
+    .cc-july-banner-subtitle {
+      margin: 0;
+      font-weight: bold;
+      color: rgb(253, 4, 8);
+    }
+
+    .cc-july-banner-icon {
+      font-size: 20px;
+      color: rgb(74, 144, 226);
+    }
+
+    .cc-july-banner-topright {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .cc-july-banner-topright .cc-july-banner-img {
+      color: black;
+      height: 45px;
+      width: auto;
+      transform: rotate(15deg);
+      transform-origin: center center;
+    }
+  </style>
+  <div class="cc-banner cc-july-banner" bannertype="julySale" id="cc-id-Q7w8E9r0T1y2">
+    <div align="center" class="cc-july-banner-container" data-element-absolute="">
+      <div class="cc-july-banner-bottomleft">
+        <img class="cc-july-banner-img fk-disable-lazy"
+          src="https://assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1761835559604_4th.png"
+          alt="4th of July icon" title="" href="" onclick="" target="_self" align="center" width="" height="" />
+      </div>
+      <p class="cc-july-banner-title">
+        <i class="fas fa-flag-usa cc-july-banner-icon" aria-hidden="true"></i>&nbsp;4TH OF JULY SALE ENDS SOON!
       </p>
-      <button style="margin-left:12%;width:224px;" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL"
-        action="route" onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay=""
-        data-minutesdelay="" type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer=""
-        upsell="" quantity="" price="">
-        VIEW CART</button><br /><br />
-      <button style="margin-left:12%;width:224px;"
-        class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" action="route"
-        onclick="route(event)" title="" align="center" btntype="none" data-secondsdelay="" data-minutesdelay=""
-        type="button" variantvalue="" replaceproductid="" size="none" billnow="false" offer="" upsell="" quantity=""
-        price="">
-        PROCEED TO CHECKOUT
-      </button>
+      <p class="cc-july-banner-subtitle">
+        Save 10%. Use Coupon Code:
+        <strong class="cc-july-banner-code">INDEPENDENCE!</strong>
+      </p>
+      <div class="cc-july-banner-topright">
+        <img class="cc-july-banner-img fk-disable-lazy"
+          src="https://assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1761835559604_4th.png"
+          alt="4th of July decoration" title="" href="" onclick="" target="_self" align="center" width="" height="" />
+      </div>
     </div>
   </div>
-</header>
 
-<!-- ============================================================ -->
-<!-- HALLOWEEN BANNER COMPONENT                                    -->
-<!-- ============================================================ -->
-<div class="cc-banner cc-halloween-banner" bannertype="halloween">
-  <div class="cc-banner-container" align="center">
-    <div class="cc-banner-corner cc-banner-corner--bl">
-      <img class="cc-banner-img fk-disable-lazy"
-        src="https://assets.checkoutchamp.com/226de040-f3d2-11eb-8d0a-736fec5a0e07/1761148882419_spiderweb.png"
-        alt="Spider web" title="" href="" onclick="" target="_self" align="center" width="" height="" />
-    </div>
-    <p class="cc-banner-title">
-      <i class="fas fa-ghost cc-banner-icon" aria-hidden="true"></i>
-      HALLOWEEN SALE ENDS SOON!
-    </p>
-    <p class="cc-banner-subtitle">
-      Save 10%. Use Coupon Code:
-      <strong class="cc-halloween-banner-code">BOO!</strong>
-    </p>
-    <div class="cc-banner-corner cc-banner-corner--tr">
-      <img class="cc-banner-img fk-disable-lazy"
-        src="https://assets.checkoutchamp.com/226de040-f3d2-11eb-8d0a-736fec5a0e07/1761148882419_spiderweb.png"
-        alt="Spider web" title="" href="" onclick="" target="_self" align="center" width="" height="" />
-    </div>
-  </div>
-</div>
+  <!-- ==================== CHECKOUT CONTENT ==================== -->
+  <div class="cc-checkout-wrapper" id="cc-id-U3i4O5p6A7s8">
+    <div class="cc-checkout-heading" id="cc-id-D9f0G1h2J3k4">Checkout</div>
+    <div class="row" id="cc-id-L5z6X7c8V9b0">
 
-<!-- ============================================================ -->
-<!-- PAGE CONTENT                                                  -->
-<!-- ============================================================ -->
-<div class="container-fluid" id="cc-id-j1U2v3W4x5Y6">
-  <h2 class="cc-checkout-page-title" id="cc-id-j2U3v4W5x6Y7">Secure Checkout</h2>
-  <p class="cc-checkout-page-subtitle" id="cc-id-j3U4v5W6x7Y8">Complete your order below — treats included, no tricks.</p>
+      <!-- LEFT COLUMN: Address / Payment -->
+      <div class="col-lg-7 col-md-12" id="cc-id-N1m2Q3w4E5r6">
+        <div class="cc-checkout-card" id="cc-id-T7y8U9i0O1p2">
+          <!-- ===== Address 3 (Checkout Form) ===== -->
+          <style>
+            .fk-shopify-form-wrapper {
+              padding: 5px;
+              margin: 5px;
+            }
 
-  <div class="row justify-content-center" id="cc-id-j4U5v6W7x8Y9">
-    <!-- LEFT COLUMN: CHECKOUT FORM -->
-    <div class="col-lg-7 col-md-12" id="cc-id-j5U6v7W8x9Y1">
+            .fk-shopify-form-container {
+              padding: 5px;
+            }
 
-      <!-- Address 3 Component -->
-      <div class="cc-checkout-section-card" id="cc-id-j6U7v8W9x1Y2">
-        <div class="form fk-shopify-form-wrapper">
-          <form class="form" data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false" data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-unstylable='[["width","height"],"shape-outside"]'>
-            <div class="fk-shopify-form-container">
-              <div class="fk-shopify-form-icon-header">
-                <div>
-                  <div class="fk-shopify-form-icon">
-                    <i class="icp icp-auto fas fa-envelope"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="fk-shopify-form-header">
-                    Contact Information
-                  </div>
-                </div>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="text" placeholder="Email Address" name="emailAddress" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-            </div>
-            <div class="fk-shopify-form-container">
-              <div class="fk-shopify-form-icon-header">
-                <div>
-                  <div class="fk-shopify-form-icon">
-                    <i class="icp icp-auto fas fa-address-card"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="fk-shopify-form-header">
-                    Shipping Information
-                  </div>
-                </div>
-              </div>
-              <div class="fk-shopify-multiple-form-field">
-                <div class="fk-shopify-form-field">
-                  <input type="text" placeholder="First Name" name="shipFirstName" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                </div>
-                <div class="fk-shopify-form-field">
-                  <input type="text" placeholder="Last Name" name="shipLastName" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                </div>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="text" placeholder="Address" name="shipAddress1" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="text" placeholder="Apt, suite, etc (optional)" name="shipAddress2" data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="text" placeholder="City" name="shipCity" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-              <div class="fk-shopify-multiple-form-select">
-                <div class="fk-shopify-form-select-container">
-                  <div class="fk-shopify-form-select">
-                    <select name="shipCountry" required class="form-control-custom fk-form-select" data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                      <option value="">Select your country</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="fk-shopify-form-select-container">
-                  <div class="fk-shopify-form-select">
-                    <select name="shipState" required class="form-control-custom fk-form-select" data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                      <option value="">Select state</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="fk-shopify-form-field">
-                  <input type="text" placeholder="Postal Code" name="shipPostalCode" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                </div>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="tel" placeholder="Phone" name="phoneNumber" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-            </div>
-            <div class="fk-shopify-form-container">
-              <div class="fk-shopify-form-checkbox-container">
-                <div class="fk-shopify-form-checkbox">
-                  <input type="checkbox" class="fk-form-checkbox form-check-input" name="billShipSame" checked opencheckboxsection="billingAddress" onclick="checkBoxChange(attributes)">
-                </div>
-                <div class="fk-shopify-form-checkbox-label">
+            .fk-shopify-form-header {
+              font-size: 22px;
+              margin: 5px;
+            }
+
+            .fk-shopify-form-icon-header {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              margin: 10px 5px;
+            }
+
+            .fk-shopify-form-icon {
+              margin: 0 5px;
+            }
+
+            .fk-shopify-form-field {
+              margin: 10px 5px;
+              padding: 5px;
+            }
+
+            .fk-shopify-form-field input {
+              box-sizing: border-box;
+              width: 100%;
+              padding: 12px 18px;
+              font-size: 16px;
+              font-weight: 400;
+              border: 1px solid #ced4da;
+              border-radius: 5px;
+            }
+
+            .fk-shopify-multiple-form-field {
+              display: flex;
+              flex-direction: row;
+              width: 100%;
+            }
+
+            .fk-shopify-multiple-form-field .fk-shopify-form-field {
+              width: 100%;
+              margin: 0 5px;
+              padding: 5px;
+            }
+
+            .fk-shopify-form-select-container {
+              padding: 5px 10px;
+              width: 100%;
+            }
+
+            .fk-shopify-form-select {
+              position: relative;
+              border: 1px solid #ced4da;
+              border-radius: 5px;
+              background-color: #ffffff;
+              height: 50px;
+            }
+
+            .fk-shopify-form-select select {
+              border: none;
+              outline: none;
+              background: transparent;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              border-radius: 0;
+              margin: 0;
+              width: 100%;
+              box-sizing: border-box;
+              padding: 12px 30px 12px 18px;
+              font-size: 16px;
+              border-radius: 5px;
+            }
+
+            .fk-shopify-form-select:after {
+              position: absolute;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              right: 0;
+              top: 0;
+              width: 30px;
+              height: 100%;
+              content: "\f0d7";
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              color: #505050;
+              text-align: center;
+              font-size: 16px;
+              border-left: 1px solid #ced4da;
+              pointer-events: none;
+            }
+
+            .fk-shopify-multiple-form-select {
+              display: flex;
+              flex-direction: row;
+            }
+
+            .fk-shopify-multiple-form-select .fk-shopify-form-select-container,
+            .fk-shopify-multiple-form-select .fk-shopify-form-field {
+              width: 100%;
+              margin: 0 5px;
+              padding: 5px;
+            }
+
+            .fk-shopify-form-checkbox-container {
+              display: flex;
+              flex-direction: row;
+              margin: 10px;
+            }
+
+            .fk-shopify-form-checkbox input {
+              position: relative;
+              margin: 0.4rem 0;
+              ;
+            }
+
+            .fk-shopify-form-checkbox-label {
+              margin: 0 0.5rem;
+              text-align: left;
+              font-size: 1rem;
+            }
+
+            @media screen and (max-width: 1024px) {
+
+              .fk-shopify-multiple-form-select,
+              .fk-shopify-multiple-form-field {
+                flex-wrap: wrap;
+              }
+
+              .fk-shopify-multiple-form-select .fk-shopify-form-select-container,
+              .fk-shopify-multiple-form-select .fk-shopify-form-field,
+              .fk-shopify-multiple-form-field .fk-shopify-form-field,
+              .fk-shopify-multiple-form-field .fk-shopify-form-select-container {
+                margin: 5px;
+                padding: 5px;
+              }
+
+              .fk-shopify-multiple-form-select .fk-shopify-form-select-container:first-child,
+              .fk-shopify-multiple-form-select .fk-shopify-form-field:first-child,
+              .fk-shopify-multiple-form-field .fk-shopify-form-field:first-child,
+              .fk-shopify-multiple-form-field .fk-shopify-form-select-container:first-child {
+                margin-top: 0px
+              }
+
+              .fk-shopify-multiple-form-select .fk-shopify-form-select-container:last-child,
+              .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child,
+              .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child,
+              .fk-shopify-multiple-form-select .fk-shopify-form-select-container:last-child {
+                margin-bottom: 0px;
+              }
+            }
+          </style>
+          <div class="form fk-shopify-form-wrapper">
+            <form class="form" data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false"
+              data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)"
+              data-gjs-unstylable='[["width","height"],"shape-outside"]'>
+              <div class="fk-shopify-form-container">
+                <div class="fk-shopify-form-icon-header">
                   <div>
-                    Billing Address is Same as Shipping Address?
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-          <form class="form" id="billingAddress" data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false" data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-unstylable='[["width","height"],"shape-outside"]'>
-            <div class="fk-shopify-form-container">
-              <div class="fk-shopify-form-icon-header">
-                <div>
-                  <div class="fk-shopify-form-icon">
-                    <i class="icp icp-auto fas fa-money-bill-alt"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="fk-shopify-form-header">
-                    Billing Information
-                  </div>
-                </div>
-              </div>
-              <div class="fk-shopify-multiple-form-field">
-                <div class="fk-shopify-form-field">
-                  <input type="text" placeholder="First Name" name="firstName" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                </div>
-                <div class="fk-shopify-form-field">
-                  <input type="text" placeholder="Last Name" name="lastName" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                </div>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="text" placeholder="Address" name="address1" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="text" placeholder="Apt, suite, etc (optional)" name="address2" data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-              <div class="fk-shopify-form-field">
-                <input type="text" placeholder="City" name="city" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-              </div>
-              <div class="fk-shopify-multiple-form-select">
-                <div class="fk-shopify-form-select-container">
-                  <div class="fk-shopify-form-select">
-                    <select name="country" required class="form-control-custom fk-form-select" data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                      <option value="">Select your country</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="fk-shopify-form-select-container">
-                  <div class="fk-shopify-form-select">
-                    <select name="state" required class="form-control-custom fk-form-select" data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                      <option value="">Select state</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="fk-shopify-form-field">
-                  <input type="text" placeholder="Postal Code" name="postalCode" required data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                </div>
-              </div>
-            </div>
-          </form>
-          <form class="form" data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false" data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-unstylable='[["width","height"],"shape-outside"]'>
-            <div class="fk-shopify-form-container">
-              <div class="fk-shopify-form-icon-header">
-                <div>
-                  <div class="fk-shopify-form-icon">
-                    <i class="icp icp-auto fas fa-truck"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="fk-shopify-form-header">
-                    Shipping Method
-                  </div>
-                </div>
-              </div>
-              <div class="fk-shopify-form-select-container">
-                <div class="fk-shopify-form-select">
-                  <select name="shipProfileId" required class="form-control-custom fk-form-select" data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-unstylable='["height","shape-outside"]'>
-                    <option value="">Select your Shipping Method</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- Payment Option Component -->
-      <div class="cc-checkout-section-card" id="cc-id-j7U8v9W1x2Y3">
-        <div class="fk-payment-option-wrapper">
-          <div>
-            <div class="fk-payment-header">
-              <div class="fk-payment-header-main">
-                Payment
-              </div>
-              <div class="fk-payment-header-sub">
-                All transactions are secure and encrypted
-              </div>
-            </div>
-            <div class="fk-payment-options">
-              <div class="fk-payment-option-container">
-                <input opencheckboxsection="fkCreditCard" checked class="fk-form-radio fk-payment-option-toggler-field" type="radio" name="fk-payment-option-toggler" onclick="checkBoxChange(attributes)" value="CREDITCARD">
-                <div class="fk-payment-option-header-wrapper">
-                  <div class="fk-payment-option-header-container">
-                    <div class="fk-payment-option-label">
-                      <div class="fk-headline">Credit Card</div>
+                    <div class="fk-shopify-form-icon">
+                      <i class="icp icp-auto fas fa-envelope"></i>
                     </div>
-                    <div class="fk-card-payment-bg-icon-container">
-                      <div class="fk-card-payment-bg-icon fk-background fk-card-one"></div>
-                      <div class="fk-card-payment-bg-icon fk-background fk-card-two"></div>
-                      <div class="fk-card-payment-bg-icon fk-background fk-card-three"></div>
-                      <div class="fk-card-payment-bg-icon fk-background fk-card-four"></div>
+                  </div>
+                  <div>
+                    <div class="fk-shopify-form-header">
+                      Contact Information
                     </div>
                   </div>
                 </div>
-                <div id="fkCreditCard" class="fk-payment-option-body fk-payment-options-hide-on-load">
-                  <form class="fk-card-payment-container">
+                <div class="fk-shopify-form-field">
+                  <input type="text" placeholder="Email Address" name="emailAddress" required data-gjs-type="input"
+                    data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+              </div>
+              <div class="fk-shopify-form-container">
+                <div class="fk-shopify-form-icon-header">
+                  <div>
+                    <div class="fk-shopify-form-icon">
+                      <i class="icp icp-auto fas fa-address-card"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="fk-shopify-form-header">
+                      Shipping Information
+                    </div>
+                  </div>
+                </div>
+                <div class="fk-shopify-multiple-form-field">
+                  <div class="fk-shopify-form-field">
+                    <input type="text" placeholder="First Name" name="shipFirstName" required data-gjs-type="input"
+                      data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                      data-gjs-unstylable='["height","shape-outside"]'>
+                  </div>
+                  <div class="fk-shopify-form-field">
+                    <input type="text" placeholder="Last Name" name="shipLastName" required data-gjs-type="input"
+                      data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                      data-gjs-unstylable='["height","shape-outside"]'>
+                  </div>
+                </div>
+                <div class="fk-shopify-form-field">
+                  <input type="text" placeholder="Address" name="shipAddress1" required data-gjs-type="input"
+                    data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+                <div class="fk-shopify-form-field">
+                  <input type="text" placeholder="Apt, suite, etc (optional)" name="shipAddress2"
+                    data-gjs-type="input" data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+                <div class="fk-shopify-form-field">
+                  <input type="text" placeholder="City" name="shipCity" required data-gjs-type="input"
+                    data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+                <div class="fk-shopify-multiple-form-select">
+                  <div class="fk-shopify-form-select-container">
+                    <div class="fk-shopify-form-select">
+                      <select name="shipCountry" required class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                        <option value="">Select your country</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="fk-shopify-form-select-container">
+                    <div class="fk-shopify-form-select">
+                      <select name="shipState" required class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                        <option value="">Select state</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="fk-shopify-form-field">
+                    <input type="text" placeholder="Postal Code" name="shipPostalCode" required data-gjs-type="input"
+                      data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                      data-gjs-unstylable='["height","shape-outside"]'>
+                  </div>
+                </div>
+                <div class="fk-shopify-form-field">
+                  <input type="tel" placeholder="Phone" name="phoneNumber" required data-gjs-type="input"
+                    data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+              </div>
+              <div class="fk-shopify-form-container">
+                <div class="fk-shopify-form-checkbox-container">
+                  <div class="fk-shopify-form-checkbox">
+                    <input type="checkbox" class="fk-form-checkbox form-check-input" name="billShipSame" checked
+                      opencheckboxsection="billingAddress" onclick="checkBoxChange(attributes)">
+                  </div>
+                  <div class="fk-shopify-form-checkbox-label">
                     <div>
-                      <div class="fk-card-payment-field fk-card-number">
-                        <div class="fk-card-payment-field-icon">
-                          <i class="fa fa-lock fa-icon icp icp-auto"></i>
+                      Billing Address is Same as Shipping Address?
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="form" id="billingAddress" data-gjs-type="form" data-gjs-highlightable="false"
+              data-gjs-editable="false" data-gjs-resizable="false"
+              data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)"
+              data-gjs-unstylable='[["width","height"],"shape-outside"]'>
+              <div class="fk-shopify-form-container">
+                <div class="fk-shopify-form-icon-header">
+                  <div>
+                    <div class="fk-shopify-form-icon">
+                      <i class="icp icp-auto fas fa-money-bill-alt"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="fk-shopify-form-header">
+                      Billing Information
+                    </div>
+                  </div>
+                </div>
+                <div class="fk-shopify-multiple-form-field">
+                  <div class="fk-shopify-form-field">
+                    <input type="text" placeholder="First Name" name="firstName" required data-gjs-type="input"
+                      data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                      data-gjs-unstylable='["height","shape-outside"]'>
+                  </div>
+                  <div class="fk-shopify-form-field">
+                    <input type="text" placeholder="Last Name" name="lastName" required data-gjs-type="input"
+                      data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                      data-gjs-unstylable='["height","shape-outside"]'>
+                  </div>
+                </div>
+                <div class="fk-shopify-form-field">
+                  <input type="text" placeholder="Address" name="address1" required data-gjs-type="input"
+                    data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+                <div class="fk-shopify-form-field">
+                  <input type="text" placeholder="Apt, suite, etc (optional)" name="address2" data-gjs-type="input"
+                    data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+                <div class="fk-shopify-form-field">
+                  <input type="text" placeholder="City" name="city" required data-gjs-type="input"
+                    data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                    data-gjs-unstylable='["height","shape-outside"]'>
+                </div>
+                <div class="fk-shopify-multiple-form-select">
+                  <div class="fk-shopify-form-select-container">
+                    <div class="fk-shopify-form-select">
+                      <select name="country" required class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                        <option value="">Select your country</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="fk-shopify-form-select-container">
+                    <div class="fk-shopify-form-select">
+                      <select name="state" required class="form-control-custom fk-form-select"
+                        data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs"
+                        data-gjs-unstylable='["height","shape-outside"]'>
+                        <option value="">Select state</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="fk-shopify-form-field">
+                    <input type="text" placeholder="Postal Code" name="postalCode" required data-gjs-type="input"
+                      data-gjs-stylable="true" data-gjs-draggable=".form, .io-attrs"
+                      data-gjs-unstylable='["height","shape-outside"]'>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="form" data-gjs-type="form" data-gjs-highlightable="false" data-gjs-editable="false"
+              data-gjs-resizable="false" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)"
+              data-gjs-unstylable='[["width","height"],"shape-outside"]'>
+              <div class="fk-shopify-form-container">
+                <div class="fk-shopify-form-icon-header">
+                  <div>
+                    <div class="fk-shopify-form-icon">
+                      <i class="icp icp-auto fas fa-truck"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="fk-shopify-form-header">
+                      Shipping Method
+                    </div>
+                  </div>
+                </div>
+                <div class="fk-shopify-form-select-container">
+                  <div class="fk-shopify-form-select">
+                    <select name="shipProfileId" required class="form-control-custom fk-form-select"
+                      data-gjs-type="form-select" data-gjs-draggable=".form, .io-attrs"
+                      data-gjs-unstylable='["height","shape-outside"]'>
+                      <option value="">Select your Shipping Method</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="cc-checkout-card" id="cc-id-A3s4D5f6G7h8">
+          <!-- ===== Payment Option ===== -->
+          <style>
+            .fk-payment-option-wrapper {
+              padding: 5px;
+            }
+
+            .fk-payment-header {
+              text-align: left;
+            }
+
+            .fk-payment-header-main {
+              margin: 5px 10px;
+              font-size: 20px;
+              font-weight: 500;
+            }
+
+            .fk-payment-header-sub {
+              margin: 5px 10px;
+              color: #9b9b9b;
+            }
+
+            .fk-payment-options {
+              padding: 5px;
+            }
+
+            .fk-payment-option-container {
+              position: relative;
+              padding: 0 5px;
+            }
+
+            .fk-payment-option-container:first-child .fk-payment-option-header-wrapper {
+              border-top-left-radius: 5px;
+              border-top-right-radius: 5px;
+            }
+
+            .fk-payment-option-container:last-child .fk-payment-option-header-wrapper {
+              border-bottom-right-radius: 5px;
+              border-bottom-left-radius: 5px;
+            }
+
+            .fk-payment-option-container:last-child .fk-payment-option-body {
+              border-bottom-right-radius: 5px;
+              border-bottom-left-radius: 5px;
+            }
+
+            .fk-payment-option-header-wrapper {
+              border: 1px solid #d9d9d9;
+              display: block;
+            }
+
+            .fk-payment-option-header-container {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              margin: 0 10px;
+              height: 40px;
+            }
+
+            .fk-card-payment-bg-icon-container {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              height: 40px;
+            }
+
+            .fk-payment-option-label {
+              margin-left: 30px;
+              font-weight: bold;
+              color: #6f6f6f;
+              padding: 5px;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              white-space: nowrap;
+              text-align: left;
+            }
+
+            @media screen and (max-width: 450px) {
+              .fk-card-payment-bg-icon-container {
+                display: none;
+              }
+            }
+
+            .fk-background {
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+            }
+
+            .fk-card-payment-bg-icon {
+              margin-left: 5px;
+              padding: 5px;
+              min-height: 25px;
+              min-width: 40px;
+            }
+
+            .fk-card-one {
+              background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/visa.svg);
+            }
+
+            .fk-card-two {
+              background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/master.svg);
+            }
+
+            .fk-card-three {
+              background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/american.svg);
+            }
+
+            .fk-card-four {
+              background-image: url(https://dev-assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1721766810842_discover1_1_.png);
+            }
+
+            .fk-payment-option-toggler-field {
+              position: absolute;
+              top: 10px;
+              left: 15px;
+              height: 20px;
+              width: 20px;
+              cursor: pointer;
+            }
+
+            .fk-payment-option-toggler-field:checked~.fk-payment-option-header-wrapper {
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: 0;
+            }
+
+            .fk-payment-option-toggler-field:checked~.fk-payment-option-body {
+              display: flex;
+              border: 1px solid #d9d9d9;
+            }
+
+            .fk-payment-option-body {
+              background-color: #fafafa;
+              display: flex;
+              align-items: center;
+              border: 1px solid #d9d9d9;
+            }
+
+            .fk-card-payment-field {
+              flex: 1;
+              margin: 10px;
+              position: relative;
+            }
+
+            .fk-card-payment-field-icon {
+              position: absolute;
+              top: 12px;
+              right: 20px;
+            }
+
+            .fk-card-payment-field input {
+              outline: none;
+              font-size: 18px;
+              padding: 15px;
+              height: 45px;
+              width: 100%;
+              border-radius: 5px;
+              border: 1px solid #ced4da;
+              box-sizing: border-box;
+            }
+
+            .fk-card-number input {
+              padding: 15px 35px 15px 15px;
+            }
+
+            .fk-card-payment-container {
+              width: 100%;
+              margin: 5px;
+            }
+
+            .fk-card-multiple-payment-field {
+              display: flex;
+              flex-direction: row;
+            }
+
+            .fk-payment-option-body-content {
+              display: flex;
+              height: 130px;
+              width: 100%;
+              align-items: center;
+              justify-content: center;
+              margin: 5px;
+            }
+
+            .btnPayPal2 {
+              background-image: url('https://config.checkoutchamp.com/development/paypal-checkout-3.png');
+              background-position: center center;
+              background-repeat: no-repeat;
+              color: transparent;
+              background-color: #ffd11a;
+              border: 1px solid transparent;
+            }
+
+            .btnPayPal2:hover {
+              background-color: #e6b800;
+              color: transparent;
+              border-color: transparent;
+              white-space: normal;
+            }
+
+            .btnPayPal2:focus {
+              box-shadow: none;
+            }
+
+            .btn-paypal2-styles {
+              padding: 6px 12px;
+              background-size: contain;
+            }
+          </style>
+          <div class="fk-payment-option-wrapper">
+            <div>
+              <div class="fk-payment-header">
+                <div class="fk-payment-header-main">
+                  Payment
+                </div>
+                <div class="fk-payment-header-sub">
+                  All transactions are secure and encrypted
+                </div>
+              </div>
+              <div class="fk-payment-options">
+                <div class="fk-payment-option-container">
+                  <input opencheckboxsection="fkCreditCard" checked class="fk-form-radio fk-payment-option-toggler-field"
+                    type="radio" name="fk-payment-option-toggler" value="CREDITCARD" onclick="checkBoxChange(attributes)">
+                  <div class="fk-payment-option-header-wrapper">
+                    <div class="fk-payment-option-header-container">
+                      <div class="fk-payment-option-label">
+                        <div class="fk-headline">Credit Card</div>
+                      </div>
+                      <div class="fk-card-payment-bg-icon-container">
+                        <div class="fk-card-payment-bg-icon fk-background fk-card-one"></div>
+                        <div class="fk-card-payment-bg-icon fk-background fk-card-two"></div>
+                        <div class="fk-card-payment-bg-icon fk-background fk-card-three"></div>
+                        <div class="fk-card-payment-bg-icon fk-background fk-card-four"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="fkCreditCard" class="fk-payment-option-body fk-payment-options-hide-on-load">
+                    <form class="fk-card-payment-container">
+                      <div>
+                        <div class="fk-card-payment-field fk-card-number">
+                          <div class="fk-card-payment-field-icon">
+                            <i class="fa fa-lock fa-icon icp icp-auto"></i>
+                          </div>
+                          <input placeholder="Card Number" name="cardNumber" type="text" required>
                         </div>
-                        <input placeholder="Card Number" name="cardNumber" type="text" required>
                       </div>
-                    </div>
-                    <div class="fk-card-multiple-payment-field">
-                      <div class="fk-card-payment-field">
-                        <input placeholder="MMYY" name="cardDate" type="text" required>
+                      <div class="fk-card-multiple-payment-field">
+                        <div class="fk-card-payment-field">
+                          <input placeholder="MMYY" name="cardDate" type="text" required>
+                        </div>
+                        <div class="fk-card-payment-field">
+                          <input placeholder="CVV" name="cardSecurityCode" type="text" required>
+                        </div>
                       </div>
-                      <div class="fk-card-payment-field">
-                        <input placeholder="CVV" name="cardSecurityCode" type="text" required>
-                      </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
-              </div>
-              <div class="fk-payment-option-container">
-                <input opencheckboxsection="fkPayPal" class="fk-form-radio fk-payment-option-toggler-field" type="radio" name="fk-payment-option-toggler" onclick="checkBoxChange(attributes)" value="PAYPAL">
-                <div class="fk-payment-option-header-wrapper">
-                  <div class="fk-payment-option-header-container">
-                    <div class="fk-payment-option-label">
-                      <div class="fk-headline">PayPal</div>
+                <div class="fk-payment-option-container">
+                  <input opencheckboxsection="fkPayPal" class="fk-form-radio fk-payment-option-toggler-field"
+                    type="radio" name="fk-payment-option-toggler" value="PAYPAL" onclick="checkBoxChange(attributes)">
+                  <div class="fk-payment-option-header-wrapper">
+                    <div class="fk-payment-option-header-container">
+                      <div class="fk-payment-option-label">
+                        <div class="fk-headline">PayPal</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="fkPayPal" class="fk-payment-option-body fk-payment-options-hide-on-load">
+                    <div class="fk-payment-option-body-content">
+                      <button class="btn btnPayPal2 btn-paypal2-styles" title="PayPal" data-cc-resizable="true"
+                        action="none">Checkoutwithpaypal</button>
                     </div>
                   </div>
                 </div>
-                <div id="fkPayPal" class="fk-payment-option-body fk-payment-options-hide-on-load">
-                  <div class="fk-payment-option-body-content">
-                    <button class="btn btnPayPal2 btn-paypal2-styles" title="PayPal" data-cc-resizable="true">Checkoutwithpaypal</button>
-                  </div>
-                </div>
-              </div>
-              <div class="fk-payment-option-container">
-                <input opencheckboxsection="fkOther" class="fk-form-radio fk-payment-option-toggler-field" type="radio" name="fk-payment-option-toggler" onclick="checkBoxChange(attributes)" value="">
-                <div class="fk-payment-option-header-wrapper">
-                  <div class="fk-payment-option-header-container">
-                    <div class="fk-payment-option-label">
-                      <div class="fk-headline">Other</div>
+                <div class="fk-payment-option-container">
+                  <input opencheckboxsection="fkOther" class="fk-form-radio fk-payment-option-toggler-field"
+                    type="radio" name="fk-payment-option-toggler" value="" onclick="checkBoxChange(attributes)">
+                  <div class="fk-payment-option-header-wrapper">
+                    <div class="fk-payment-option-header-container">
+                      <div class="fk-payment-option-label">
+                        <div class="fk-headline">Other</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div id="fkOther" class="fk-payment-option-body fk-payment-options-hide-on-load">
-                  <div class="fk-payment-option-body-content"></div>
+                  <div id="fkOther" class="fk-payment-option-body fk-payment-options-hide-on-load">
+                    <div class="fk-payment-option-body-content"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1318,285 +1129,612 @@ footer .fk-footer-col {
         </div>
       </div>
 
-      <!-- Coupon Component -->
-      <div class="cc-checkout-section-card" id="cc-id-j8U9v1W2x3Y4">
-        <div class="cc-checkout-section-card-heading" id="cc-id-j9U1v2W3x4Y5"><i class="fas fa-ghost" aria-hidden="true"></i> Got a Spooky Discount Code?</div>
-        <form class="form form-style cc-v2 cc-cl-coupon-code">
-          <div class="fk-element-container cc-coupon">
-            <input type="text" class="form-control-custom" name="couponCode" placeholder="Coupon Code" customval="" />
-          </div>
-          <button class="btn btn-primary cc-form-btn apply-coupon" title="" align="center" btntype="none" data-secondsdelay=""
-            data-minutesdelay="" type="button" onclick="applyCoupon(event)" action="applyCoupon" size="none">
-            Apply
-          </button>
-        </form>
-      </div>
+      <!-- RIGHT COLUMN: Cart / Coupon / Submit -->
+      <div class="col-lg-5 col-md-12" id="cc-id-J9k0L1m2N3o4">
+        <div class="cc-checkout-card" id="cc-id-P5q6R7s8T9u0">
+          <!-- ===== Shopping Cart ===== -->
+          <style>
+            .cc-cart-container {
+              margin: 10px;
+              border-radius: 10px;
+              padding: 10px;
+            }
 
-    </div>
+            .cc-cart-row {
+              border: 1px solid lightgray;
+              padding: 5px;
+              border-radius: 5px;
+              font-size: 16px;
+              word-break: break-word;
+              background-color: white;
+              margin: 5px 0;
+            }
 
-    <!-- RIGHT COLUMN: ORDER SUMMARY (SHOPPING CART) -->
-    <div class="col-lg-5 col-md-12" id="cc-id-k1L2m3N4o5P6">
-      <div class="cc-checkout-summary-sticky" id="cc-id-k2L3m4N5o6P7">
-        <div class="cc-checkout-section-card" id="cc-id-k3L4m5N6o7P8">
-          <div class="cc-checkout-section-card-heading" id="cc-id-k4L5m6N7o8P9">Order Summary</div>
+            .cc-cart-row-img {
+              width: 100%;
+              max-height: 150px;
+              object-fit: contain;
+            }
 
-          <!-- Shopping Cart Component -->
-          <div align="left" class="cc-cart-wrapper cc-shopping-cart-two-identifier" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
-              draggable="true" data-layer-name="Box" hideonloadfordesktop="false" hideonloadforlargetablet="false" hideonloadfortablet="false" hideonloadforlargemobile="false" hideonloadformobile="false">
-              <div class="cc-cart-toggle p-1 bg-light d-flex flex-row justify-content-between align-items-center"
-                  data-cc-type="cartToggle" data-cc-custom-name="Shopping Cart Toggle" data-cc-draggable="true"
-                  data-cc-droppable="true" draggable="true" data-layer-name="Shopping Cart Toggle">
-                  <div class="d-flex flex-row align-items-center" data-cc-type="default" data-cc-draggable="true"
-                      data-cc-droppable="true" draggable="true" data-layer-name="Box">
-                      <div class="p-1" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true" draggable="true"
-                          data-layer-name="Box">
-                          <i class="fa fa-shopping-cart m-1" data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
-                              data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                              data-layer-name="Fa-icon"></i>
-                      </div>
-                      <div data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true" class="cc-dashed droppable"
-                          draggable="true" data-layer-name="Box">
-                          <div class="cc-cart-open-text" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
-                              draggable="true" data-layer-name="Box">
-                              <span class="m-1" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                  data-cc-droppable="false" draggable="true" data-layer-name="Text">Show Order Summary</span>
-                              <i class="fa fa-caret-down m-1" data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
-                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
-                                  draggable="true" data-layer-name="Fa-icon"></i>
-                          </div>
-                          <div class="cc-cart-hidden-text" data-cc-type="default" data-cc-draggable="true"
-                              data-cc-droppable="true" draggable="true" data-layer-name="Box">
-                              <span class="m-1" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                  data-cc-droppable="false" draggable="true" data-layer-name="Text">Hide Order Summary</span>
-                              <i class="fa fa-caret-up m-1" data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
-                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
-                                  draggable="true" data-layer-name="Fa-icon"></i>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="p-1" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true" draggable="true"
-                      data-layer-name="Box">
-                      <div class="grandTotal m-1" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                          data-cc-droppable="false" draggable="true" data-layer-name="Text">$0.00</div>
-                  </div>
-              </div>
-              <div class="cc-cart-toggle-target" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
+            .cc-cart-row-trash-icon {
+              cursor: pointer;
+              background-color: black;
+              padding: 5px;
+              color: white;
+              border-radius: 5px;
+            }
+
+            .cc-cart-row-qty-btn {
+              cursor: pointer;
+              background-color: black;
+              padding: 6px;
+              color: white;
+              border-radius: 5px;
+              outline: none;
+              border: none;
+            }
+
+            .cc-cart-row-content {
+              text-align: left;
+            }
+
+            .cc-cart-row-prod-qty-container {
+              margin: 5px 2px;
+              min-width: 30px;
+              padding: 2px 5px;
+              border: 1px solid lightgray;
+              display: inline-block;
+            }
+
+            .cc-cart-row-prod-title {
+              font-weight: bold;
+              margin: 5px;
+            }
+
+            .cc-cart-row-variant,
+            .cc-cart-row-margin,
+            .cc-cart-row-prod-price {
+              margin: 5px;
+            }
+
+            .cc-cart-details-block {
+              display: block;
+              padding: 5px 10px;
+            }
+
+            .cc-cart-details-block .cc-cart-details-value,
+            .cc-cart-details-block .cc-cart-details-label {
+              padding: 10px;
+              text-align: right;
+              display: block;
+              width: auto;
+              font-size: 16px;
+              font-weight: 400;
+            }
+
+            .cc-cart-prod-qty-bubble {
+              position: absolute;
+              top: -10px;
+              right: -10px;
+              background-color: #f2f2f2;
+              color: black;
+              border-radius: 50%;
+              height: 40px;
+              width: 40px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 14px;
+            }
+
+            @media screen and (max-width: 480px) {
+              .cc-cart-row .cc-cart-row-content {
+                flex: 0 0 100%;
+                max-width: 100%;
+                text-align: center;
+              }
+            }
+          </style>
+          <div align="left" class="cc-cart-wrapper cc-shopping-cart-two-identifier" data-cc-type="default"
+            data-cc-draggable="true" data-cc-droppable="true" draggable="true" data-layer-name="Box"
+            hideonloadfordesktop="false" hideonloadforlargetablet="false" hideonloadfortablet="false"
+            hideonloadforlargemobile="false" hideonloadformobile="false">
+            <div class="cc-cart-toggle p-1 bg-light d-flex flex-row justify-content-between align-items-center"
+              data-cc-type="cartToggle" data-cc-custom-name="Shopping Cart Toggle" data-cc-draggable="true"
+              data-cc-droppable="true" draggable="true" data-layer-name="Shopping Cart Toggle">
+              <div class="d-flex flex-row align-items-center" data-cc-type="default" data-cc-draggable="true"
+                data-cc-droppable="true" draggable="true" data-layer-name="Box">
+                <div class="p-1" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
                   draggable="true" data-layer-name="Box">
-                  <div class="cc-cart-container" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
-                      draggable="true" data-layer-name="Box">
-                      <div class="cc-cart-row" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
-                          draggable="true" data-layer-name="Box">
-                          <div class="row cc-cart-row-margin" data-cc-type="row" data-cc-custom-name="Row"
-                              data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]"
-                              data-cc-droppable="[data-cc-type=column]" draggable="true" data-layer-name="Row">
-                              <div class="col-sm-3 p-0 position-relative" data-cc-type="column" data-cc-custom-name="Column"
-                                  data-cc-draggable=".fk-row" data-cc-droppable="true" draggable="true" data-layer-name="Column">
-                                  <img class="cc-cart-row-img"
-                                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
-                                      data-cc-type="image" title="" href="" onclick="" target="_self" alt="" align="center"
-                                      width="" height="" data-cc-custom-name="Image"
-                                      data-cc-draggable=":not([data-cc-type=wrapper]):not([data-cc-type=form]):not(.form-group)"
-                                      data-cc-droppable="false" draggable="true" data-layer-name="Image">
-                                  <div class="cc-cart-prod-qty-bubble" data-cc-type="text"
-                                      data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
-                                      draggable="true" data-layer-name="Text">0</div>
-                              </div>
-                              <div class="col-sm-9 p-0" data-cc-type="column" data-cc-custom-name="Column"
-                                  data-cc-draggable=".fk-row" data-cc-droppable="true" draggable="true" data-layer-name="Column">
-                                  <div class="row cc-cart-row-margin" data-cc-type="row" data-cc-custom-name="Row"
-                                      data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]"
-                                      data-cc-droppable="[data-cc-type=column]" draggable="true" data-layer-name="Row">
-                                      <div class="col-6 cc-cart-row-content p-0" data-cc-type="column"
-                                          data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true"
-                                          draggable="true" data-layer-name="Column">
-                                          <div class="cc-cart-row-prod-title" data-cc-type="text"
-                                              data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
-                                              draggable="true" data-layer-name="Text">Name</div>
-                                          <div class="cc-cart-row-variant" data-cc-type="default" data-cc-draggable="true"
-                                              data-cc-droppable="true" draggable="true" data-layer-name="Box">
-                                              <span class="cc-cart-row-prod-variant-label font-weight-bold mr-1"
-                                                  data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                                  data-cc-droppable="false" draggable="true" data-layer-name="Text">Label</span>
-                                              <span class="cc-cart-row-prod-variant cc-cart-row-frequency" data-cc-type="text"
-                                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                                  data-cc-droppable="false" draggable="true" data-layer-name="Text">Variant</span>
-                                          </div>
-                                          <div class="cc-cart-row-trash-icon-container" data-cc-type="default"
-                                              data-cc-draggable="true" data-cc-droppable="true" draggable="true"
-                                              data-layer-name="Box">
-                                              <i class="cc-cart-row-trash-icon fa fa-trash" data-cc-type="fa-icon"
-                                                  data-cc-custom-name="Fa-icon"
-                                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                                  data-cc-droppable="false" draggable="true" data-layer-name="Fa-icon"></i>
-                                          </div>
-                                      </div>
-                                      <div class="col-6 cc-cart-row-content p-0" data-cc-type="column"
-                                          data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true"
-                                          draggable="true" data-layer-name="Column">
-                                          <div class="text-center p-2" data-cc-type="default" data-cc-draggable="true"
-                                              data-cc-droppable="true" draggable="true" data-layer-name="Box">
-                                              <i class="fa fa-minus cc-cart-row-qty-btn cc-cart-row-prod-qty-minus"
-                                                  data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
-                                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                                  data-cc-droppable="false" draggable="true" data-layer-name="Fa-icon"></i>
-                                              <div class="cc-cart-row-prod-qty-container cc-cart-row-prod-qty" data-cc-type="text"
-                                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                                  data-cc-droppable="false" draggable="true" data-layer-name="Text">1</div>
-                                              <i class="fa fa-plus cc-cart-row-qty-btn cc-cart-row-prod-qty-plus"
-                                                  data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
-                                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                                  data-cc-droppable="false" draggable="true" data-layer-name="Fa-icon"></i>
-                                          </div>
-                                          <div class="text-center" data-cc-type="default" data-cc-draggable="true"
-                                              data-cc-droppable="true" draggable="true" data-layer-name="Box">
-                                              <div class="cc-cart-row-prod-price" data-cc-type="text"
-                                                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                                                  data-cc-droppable="false" draggable="true" data-layer-name="Text">$0.00</div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                  <i class="fa fa-shopping-cart m-1" data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
+                    data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                    draggable="true" data-layer-name="Fa-icon"></i>
+                </div>
+                <div data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true" class="cc-dashed droppable"
+                  draggable="true" data-layer-name="Box">
+                  <div class="cc-cart-open-text" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
+                    draggable="true" data-layer-name="Box">
+                    <span class="m-1" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                      data-cc-droppable="false" draggable="true" data-layer-name="Text">Show Order Summary</span>
+                    <i class="fa fa-caret-down m-1" data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
+                      data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                      draggable="true" data-layer-name="Fa-icon"></i>
                   </div>
+                  <div class="cc-cart-hidden-text" data-cc-type="default" data-cc-draggable="true"
+                    data-cc-droppable="true" draggable="true" data-layer-name="Box">
+                    <span class="m-1" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                      data-cc-droppable="false" draggable="true" data-layer-name="Text">Hide Order Summary</span>
+                    <i class="fa fa-caret-up m-1" data-cc-type="fa-icon" data-cc-custom-name="Fa-icon"
+                      data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                      draggable="true" data-layer-name="Fa-icon"></i>
+                  </div>
+                </div>
               </div>
-
-              <div align="right" class="cc-cart-details-block" data-cc-type="default" data-cc-draggable="true"
-                  data-cc-droppable="true" draggable="true" data-layer-name="Box">
-                  <span class="d-inline-block" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                      data-cc-droppable="false" draggable="true" data-layer-name="Text">
-                      <span class="cc-cart-details-label" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">Sub Total</span>
-                      <span class="cc-cart-details-label" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">Shipping</span>
-                      <span class="cc-cart-details-label" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">Sales Tax</span>
-                      <span class="cc-cart-details-label cc-surcharge-name" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">Surcharge</span>
-                      <span class="cc-cart-details-label" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">Discount</span>
-                      <span class="cc-cart-details-label" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">Grand Total</span>
-                  </span>
-                  <span class="d-inline-block" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
-                      data-cc-droppable="false" draggable="true" data-layer-name="Text">
-                      <span class="dynamic-price-total cc-cart-details-value" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">$0.00</span>
-                      <span class="dynamic-shipping-total cc-cart-details-value" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">$0.00</span>
-                      <span class="salesTax cc-cart-details-value" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">$0.00</span>
-                      <span class="cc-surcharge cc-cart-details-value" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">$0.00</span>
-                      <span class="discount cc-cart-details-value" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">$0.00</span>
-                      <span class="grandTotal cc-cart-details-value" data-cc-type="text"
-                          data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
-                          data-layer-name="Text">$0.00</span>
-                  </span>
+              <div class="p-1" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true" draggable="true"
+                data-layer-name="Box">
+                <div class="grandTotal m-1" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                  data-cc-droppable="false" draggable="true" data-layer-name="Text">$0.00</div>
               </div>
-          </div>
+            </div>
+            <div class="cc-cart-toggle-target" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
+              draggable="true" data-layer-name="Box">
+              <div class="cc-cart-container" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
+                draggable="true" data-layer-name="Box">
+                <div class="cc-cart-row" data-cc-type="default" data-cc-draggable="true" data-cc-droppable="true"
+                  draggable="true" data-layer-name="Box">
+                  <div class="row cc-cart-row-margin" data-cc-type="row" data-cc-custom-name="Row"
+                    data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]"
+                    data-cc-droppable="[data-cc-type=column]" draggable="true" data-layer-name="Row">
+                    <div class="col-sm-3 p-0 position-relative" data-cc-type="column" data-cc-custom-name="Column"
+                      data-cc-draggable=".fk-row" data-cc-droppable="true" draggable="true" data-layer-name="Column">
+                      <img class="cc-cart-row-img"
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
+                        data-cc-type="image" title="" href="" onclick="" target="_self" alt="" align="center" width=""
+                        height="" data-cc-custom-name="Image"
+                        data-cc-draggable=":not([data-cc-type=wrapper]):not([data-cc-type=form]):not(.form-group)"
+                        data-cc-droppable="false" draggable="true" data-layer-name="Image">
+                      <div class="cc-cart-prod-qty-bubble" data-cc-type="text"
+                        data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                        draggable="true" data-layer-name="Text">0</div>
+                    </div>
+                    <div class="col-sm-9 p-0" data-cc-type="column" data-cc-custom-name="Column"
+                      data-cc-draggable=".fk-row" data-cc-droppable="true" draggable="true" data-layer-name="Column">
+                      <div class="row cc-cart-row-margin" data-cc-type="row" data-cc-custom-name="Row"
+                        data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]"
+                        data-cc-droppable="[data-cc-type=column]" draggable="true" data-layer-name="Row">
+                        <div class="col-6 cc-cart-row-content p-0" data-cc-type="column" data-cc-custom-name="Column"
+                          data-cc-draggable=".fk-row" data-cc-droppable="true" draggable="true" data-layer-name="Column">
+                          <div class="cc-cart-row-prod-title" data-cc-type="text"
+                            data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                            draggable="true" data-layer-name="Text">Name</div>
+                          <div class="cc-cart-row-variant" data-cc-type="default" data-cc-draggable="true"
+                            data-cc-droppable="true" draggable="true" data-layer-name="Box">
+                            <span class="cc-cart-row-prod-variant-label font-weight-bold mr-1" data-cc-type="text"
+                              data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                              draggable="true" data-layer-name="Text">Label</span>
+                            <span class="cc-cart-row-prod-variant cc-cart-row-frequency" data-cc-type="text"
+                              data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                              draggable="true" data-layer-name="Text">Variant</span>
+                          </div>
+                          <div class="cc-cart-row-trash-icon-container" data-cc-type="default" data-cc-draggable="true"
+                            data-cc-droppable="true" draggable="true" data-layer-name="Box">
+                            <i class="cc-cart-row-trash-icon fa fa-trash" data-cc-type="fa-icon"
+                              data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                              data-cc-droppable="false" draggable="true" data-layer-name="Fa-icon"></i>
+                          </div>
+                        </div>
+                        <div class="col-6 cc-cart-row-content p-0" data-cc-type="column" data-cc-custom-name="Column"
+                          data-cc-draggable=".fk-row" data-cc-droppable="true" draggable="true" data-layer-name="Column">
+                          <div class="text-center p-2" data-cc-type="default" data-cc-draggable="true"
+                            data-cc-droppable="true" draggable="true" data-layer-name="Box">
+                            <i class="fa fa-minus cc-cart-row-qty-btn cc-cart-row-prod-qty-minus" data-cc-type="fa-icon"
+                              data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                              data-cc-droppable="false" draggable="true" data-layer-name="Fa-icon"></i>
+                            <div class="cc-cart-row-prod-qty-container cc-cart-row-prod-qty" data-cc-type="text"
+                              data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                              draggable="true" data-layer-name="Text">1</div>
+                            <i class="fa fa-plus cc-cart-row-qty-btn cc-cart-row-prod-qty-plus" data-cc-type="fa-icon"
+                              data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                              data-cc-droppable="false" draggable="true" data-layer-name="Fa-icon"></i>
+                          </div>
+                          <div class="text-center" data-cc-type="default" data-cc-draggable="true"
+                            data-cc-droppable="true" draggable="true" data-layer-name="Box">
+                            <div class="cc-cart-row-prod-price" data-cc-type="text"
+                              data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false"
+                              draggable="true" data-layer-name="Text">$0.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <!-- Button1 Component: Complete Checkout -->
-          <div class="cc-checkout-submit-wrapper" id="cc-id-k5L6m7N8o9P1">
-            <button class="btn btn-primary btn-one-style" action="submit" onclick="callMethod(event)" id="cc-id-k6L7m8N9o1P2">Complete Checkout</button>
+            <div align="right" class="cc-cart-details-block" data-cc-type="default" data-cc-draggable="true"
+              data-cc-droppable="true" draggable="true" data-layer-name="Box">
+              <span class="d-inline-block" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                data-cc-droppable="false" draggable="true" data-layer-name="Text">
+                <span class="cc-cart-details-label" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">Sub Total</span>
+                <span class="cc-cart-details-label" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">Shipping</span>
+                <span class="cc-cart-details-label" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">Sales Tax</span>
+                <span class="cc-cart-details-label cc-surcharge-name" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">Surcharge</span>
+                <span class="cc-cart-details-label" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">Discount</span>
+                <span class="cc-cart-details-label" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">Grand Total</span>
+              </span>
+              <span class="d-inline-block" data-cc-type="text" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)"
+                data-cc-droppable="false" draggable="true" data-layer-name="Text">
+                <span class="dynamic-price-total cc-cart-details-value" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">$0.00</span>
+                <span class="dynamic-shipping-total cc-cart-details-value" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">$0.00</span>
+                <span class="salesTax cc-cart-details-value" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">$0.00</span>
+                <span class="cc-surcharge cc-cart-details-value" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">$0.00</span>
+                <span class="discount cc-cart-details-value" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">$0.00</span>
+                <span class="grandTotal cc-cart-details-value" data-cc-type="text"
+                  data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" draggable="true"
+                  data-layer-name="Text">$0.00</span>
+              </span>
+            </div>
           </div>
+        </div>
+
+        <div class="cc-checkout-card" id="cc-id-V1w2X3y4Z5a6">
+          <!-- ===== Coupon Code ===== -->
+          <style>
+            .cc-v2 {
+              border-radius: 6px;
+              background: #f4f4f4ff;
+              padding: 20px 10px 10px 10px;
+              font-family: Poppins;
+              font-weight: 400;
+            }
+
+            .cc-v2 .btn.btn-primary.cc-form-btn {
+              padding-top: 8px;
+              padding-bottom: 8px;
+              padding-left: 25px;
+              padding-right: 25px;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              font-size: 20px;
+              background: #f26419ff;
+              border-color: #f26419ff;
+            }
+
+            .cc-v2 .btn.btn-primary.cc-form-btn:hover {
+              background: #f26419ff;
+              border-color: #f26419ff;
+            }
+
+            .form-control-custom:focus,
+            input:not([type="radio"]):focus {
+              border: solid 1px rgba(242, 100, 25, 1);
+              border-radius: 6px;
+              outline: none !important;
+              box-shadow: none;
+            }
+
+            .cc-coupon {
+              display: inline-block;
+              width: 75%;
+              padding-left: 0px;
+              padding-right: 0px;
+              margin-right: 10px;
+            }
+          </style>
+          <form class="form form-style cc-v2 cc-cl-coupon-code">
+            <div class="fk-element-container cc-coupon">
+              <input type="text" class="form-control-custom" name="couponCode" placeholder="Coupon Code" customval="" />
+            </div>
+            <button class="btn btn-primary cc-form-btn apply-coupon" title="" align="center" btntype="none"
+              data-secondsdelay="" data-minutesdelay="" type="button" onclick="applyCoupon(event)" action="applyCoupon"
+              size="none">
+              Apply
+            </button>
+          </form>
+        </div>
+
+        <div class="cc-checkout-card cc-checkout-btn-row" id="cc-id-B7c8D9e0F1g2">
+          <!-- ===== Button1 - Complete Checkout ===== -->
+          <button class="btn btn-primary btn-one-style" id="buttonid1" action="submit" onclick="callMethod(event)">Complete
+            Checkout</button>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ============================================================ -->
-<!-- FOOTER COMPONENT                                              -->
-<!-- ============================================================ -->
-<footer class="cartPanelFooter cc-cl-footer">
-  <div class="fk-row fk-footer-row">
-    <div class="fk-col fk-footer-col fk-footer-logo-container-col">
-      <div class="fk-footer-logo-container">
-        <img src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title=""
-          target="_self" class="fk-footer-logo fk-logo" href="" onclick="" alt="Brand Logo" align="center" width="" height="" />
-        <div class="fk-footer-social-icons-container">
-          <img src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Facebook_glyph_svg-512.png"
-            target="_blank" class="fk-icon fk-footer-social-media-icons" href="" onclick="" />
-          <img src="https://config.checkoutchamp.com/production/social_media/Twitter1.png" target="_blank"
-            class="fk-icon fk-footer-social-media-icons" href="https://twitter.com/" onclick="navigate(attributes)" />
-          <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png"
-            target="_blank" class="fk-icon fk-footer-social-media-icons" href="" onclick="" />
+  <!-- ==================== FOOTER ==================== -->
+  <style>
+    footer>div.fk-footer-row {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-wrap: nowrap;
+      height: auto;
+      margin-top: 100px;
+      background-color: #f5f5f5;
+      padding: 0 50px;
+    }
+
+    footer .fk-footer-col {
+      min-height: 25px;
+      flex-grow: 1;
+      flex-basis: 100%;
+      padding: 10px;
+    }
+
+    .fk-footer-headline {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      text-align: left;
+      margin-top: 0;
+      color: #6a6a6a !important;
+      padding: 10px 0;
+      font-weight: 600;
+    }
+
+    .fk-footer-bullet {
+      padding: 2px 15px 2px 0px;
+      text-align: left;
+      font-size: 20px;
+      line-height: 20px;
+      list-style: none;
+      margin-bottom: 0px;
+    }
+
+    .fk-footer-links {
+      color: #6a6a6a !important;
+      padding: 5px 10px;
+      text-align: left;
+      display: inline-block;
+      font-family: Helvetica, serif;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .fk-footer-brand-name {
+      padding: 10px;
+      font-size: 16px;
+      font-family: Helvetica, serif;
+      color: #6a6a6a !important;
+    }
+
+    .fk-footer-contacts-text {
+      padding: 10px;
+      font-size: 12px;
+      font-family: Helvetica, sans-serif;
+      color: #6a6a6a !important;
+    }
+
+    .fk-footer-logo {
+      width: 300px;
+      height: 56px;
+      float: left;
+      margin-bottom: 100px;
+      max-height: 100px;
+    }
+
+    .fk-footer-logo-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fk-footer-social-media-icons {
+      height: 28px;
+      width: 28px !important;
+      padding-left: 0;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .fk-footer-row .fk-col {
+        width: 100%;
+      }
+
+      footer>div.fk-footer-row {
+        flex-wrap: wrap;
+      }
+
+      .fk-footer-logo-container-col {
+        order: 5;
+      }
+
+      .fk-footer-logo {
+        align-self: center;
+        margin-bottom: 0;
+      }
+
+      .fk-footer-social-icons-container {
+        text-align: center;
+      }
+
+      .fk-footer-brand-name {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+  </style>
+  <footer class="cartPanelFooter cc-cl-footer">
+    <div class="fk-row fk-footer-row">
+      <div class="fk-col fk-footer-col fk-footer-logo-container-col">
+        <div class="fk-footer-logo-container">
+          <img src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" title=""
+            target="_self" class="fk-footer-logo fk-logo" href="" onclick="" alt="Brand Logo" align="center" width=""
+            height="" />
+          <div class="fk-footer-social-icons-container">
+            <img src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Facebook_glyph_svg-512.png"
+              target="_blank" class="fk-icon fk-footer-social-media-icons" href="" onclick="" alt="Facebook" />
+            <img src="https://config.checkoutchamp.com/production/social_media/Twitter1.png" target="_blank"
+              class="fk-icon fk-footer-social-media-icons" href="https://twitter.com/" onclick="navigate(attributes)"
+              alt="Twitter" />
+            <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png"
+              target="_blank" class="fk-icon fk-footer-social-media-icons" href="" onclick="" alt="LinkedIn" />
+          </div>
+          <div data-text="text" align="left" class="fk-footer-brand-name">
+            <span style="color: #222222;"><b data-text="text">© Brand Name {{yyyy}}
+              </b></span>
+          </div>
         </div>
-        <div data-text="text" align="left" class="fk-footer-brand-name">
-          <span style="color: #222222;"><b data-text="text">© Brand Name {{yyyy}}
-            </b></span>
+      </div>
+      <div align="center" class="fk-col fk-footer-col">
+        <div align="left" class="fk-headline fk-footer-headline">
+          Categories
+        </div>
+        <ul class="fk-bullet fk-footer-bullet">
+          <li>
+            <a title="category1" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Category 1</a>
+          </li>
+          <li>
+            <a title="category2" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Category 2</a>
+          </li>
+          <li>
+            <a title="category3" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Category 3</a>
+          </li>
+          <li>
+            <a title="category4" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Category 4</a>
+          </li>
+          <li>
+            <a title="category5" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Category 5</a>
+          </li>
+          <li>
+            <a title="category6" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Category 6</a>
+          </li>
+        </ul>
+      </div>
+      <div align="center" class="fk-col fk-footer-col">
+        <div align="left" class="fk-headline fk-footer-headline">
+          Further Information
+        </div>
+        <ul class="fk-bullet fk-footer-bullet">
+          <li>
+            <a title="about us" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">About Us</a>
+          </li>
+          <li>
+            <a title="contact us" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Contact Us</a>
+          </li>
+          <li>
+            <a title="blog" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Blog</a>
+          </li>
+          <li>
+            <a title="brands" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Brands</a>
+          </li>
+        </ul>
+      </div>
+      <div align="center" class="fk-col fk-footer-col">
+        <div align="left" class="fk-headline fk-footer-headline">
+          Customer Service
+        </div>
+        <ul class="fk-bullet fk-footer-bullet">
+          <li>
+            <a title="FAQs" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Help &amp;
+              FAQ</a>
+          </li>
+          <li>
+            <a title="terms" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Terms &amp;
+              Conditions</a>
+          </li>
+          <li>
+            <a title="privacy" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Privacy
+              Policy</a>
+          </li>
+          <li>
+            <a title="returns" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Online Return
+              Policy</a>
+          </li>
+          <li>
+            <a title="rewards" target="_self" action="route" align="center" onclick="linkMethod(event)"
+              class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue=""
+              data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity=""
+              price="">Rewards
+              Program</a>
+          </li>
+        </ul>
+      </div>
+      <div align="center" class="fk-col fk-footer-col">
+        <div align="left" class="fk-headline fk-footer-headline">
+          Contacts
+        </div>
+        <div data-text="text" align="left" class="fk-footer-contacts-text">
+          Address: XXXX Bradstreet&nbsp;
+          <div data-text="text">NM 23232 USA&nbsp;</div>
+        </div>
+        <div data-text="text" align="left" class="fk-footer-contacts-text">
+          Phone: +8888 8989
+        </div>
+        <div data-text="text" align="left" class="fk-footer-contacts-text">
+          Hours: M-F 9 am to 9 pm
+        </div>
+        <div data-text="text" align="left" class="fk-footer-contacts-text">
+          Email: abc@xyz.com
         </div>
       </div>
     </div>
-    <div align="center" class="fk-col fk-footer-col">
-      <div align="left" class="fk-headline fk-footer-headline">
-        Categories
-      </div>
-      <ul class="fk-bullet fk-footer-bullet">
-        <li><a title="category1" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Category 1</a></li>
-        <li><a title="category2" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Category 2</a></li>
-        <li><a title="category3" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Category 3</a></li>
-        <li><a title="category4" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Category 4</a></li>
-        <li><a title="category5" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Category 5</a></li>
-        <li><a title="category6" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Category 6</a></li>
-      </ul>
-    </div>
-    <div align="center" class="fk-col fk-footer-col">
-      <div align="left" class="fk-headline fk-footer-headline">
-        Further Information
-      </div>
-      <ul class="fk-bullet fk-footer-bullet">
-        <li><a title="about us" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">About Us</a></li>
-        <li><a title="contact us" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Contact Us</a></li>
-        <li><a title="blog" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Blog</a></li>
-        <li><a title="brands" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Brands</a></li>
-      </ul>
-    </div>
-    <div align="center" class="fk-col fk-footer-col">
-      <div align="left" class="fk-headline fk-footer-headline">
-        Customer Service
-      </div>
-      <ul class="fk-bullet fk-footer-bullet">
-        <li><a title="FAQs" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Help &amp; FAQ</a></li>
-        <li><a title="terms" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Terms &amp; Conditions</a></li>
-        <li><a title="privacy" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Privacy Policy</a></li>
-        <li><a title="returns" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Online Return Policy</a></li>
-        <li><a title="rewards" target="_self" action="route" align="center" onclick="linkMethod(event)" class="fk-footer-links" animate="" speed="" delay="none" loop="none" variantvalue="" data-secondsdelay="" data-minutesdelay="" replaceproduct billnow="false" offer="" upsell="" quantity="" price="">Rewards Program</a></li>
-      </ul>
-    </div>
-    <div align="center" class="fk-col fk-footer-col">
-      <div align="left" class="fk-headline fk-footer-headline">
-        Contacts
-      </div>
-      <div data-text="text" align="left" class="fk-footer-contacts-text">
-        Address: XXXX Bradstreet&nbsp;
-        <div data-text="text">NM 23232 USA&nbsp;</div>
-      </div>
-      <div data-text="text" align="left" class="fk-footer-contacts-text">
-        Phone: +8888 8989
-      </div>
-      <div data-text="text" align="left" class="fk-footer-contacts-text">
-        Hours: M-F 9 am to 9 pm
-      </div>
-      <div data-text="text" align="left" class="fk-footer-contacts-text">
-        Email: abc@xyz.com
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
+
 </html>
