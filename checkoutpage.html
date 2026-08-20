@@ -1,1096 +1,1596 @@
 <!DOCTYPE html>
 
-<html id="cc-id-aNwmoFG7GxxX" lang="en">
-<head id="cc-id-qGtNr2s8LZjl">
-<meta charset="utf-8" id="cc-id-O3OC8cmhzIXj"/>
-<meta content="width=device-width, initial-scale=1.0" id="cc-id-HgkSMCmBtp1l" name="viewport"/>
-<title id="cc-id-xiJDsDjFC5xa">Checkout</title>
-<link cc="true" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" id="cc-id-7mvZ5sI53Gwj" media="all" rel="stylesheet"/>
-<link cc="true" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" id="cc-id-0XwWrhbQxJMi" media="all" rel="stylesheet"/>
-<link cc="true" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" id="cc-id-q67Q97Es6aLg" media="all" onload="this.onload=null;this.media='all'" rel="stylesheet"/>
-<link cc="true" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" id="cc-id-kDVaz8p8K2P7" media="all" onload="this.onload=null;this.media='all'" rel="stylesheet"/>
-<script cc="true" id="cc-id-te1iBMaJCn7y" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script cc="true" id="cc-id-uLRII5M12Nd0" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script cc="true" id="cc-id-sfVgu12QQiJk" src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
-<style id="cc-id-pbsztUHMEhPc">
-/* ===== Header ===== */
-.quantity-circle { margin-right: 9%; margin-top: 1%; position: absolute; top: unset; border-radius: 50%; width: 30px; height: 30px; padding: 8px; border: 2px solid #666; color: #666; text-align: center; font: 10px Arial, sans-serif; right: unset; }
-.image-quantity-container { margin: 0 auto; width: 100px; height: auto; position: relative; }
-.image-cart-header { width: 300px; height: 56px; float: left; margin-left: 10%; max-height: 100px; }
-.rightPanelHTML { display: none; }
-.fk-parent-cart-element { display: inline-block; float: right; margin-right: 10%; }
-.panelCartCircle { position: absolute; margin: 0%; margin-left: -6px; top: unset; right: unset; }
-.fk-shopping-cart-icon { font-size: 32px; margin-top: 15px; cursor: pointer; }
-.cartPanelHeader { padding: 0.5rem; min-height: 80px; background-color: #fff; overflow: visible; }
-.fk-inner-header-wrapper { display: flex; flex-direction: row; margin: 0 10%; justify-content: space-between; }
-.fk-brand-wrapper { display: flex; flex-direction: row; }
-.fk-brand, .fk-cart-icon-container { margin: 0; }
-.fk-menu-container { padding: 5px; display: flex; flex-direction: row; align-self: center; flex-wrap: wrap; margin-right: auto; }
-.fk-inner-header-wrapper .fk-menu-container .fk-menu { padding: 5px; white-space: nowrap; color: black; }
-.fk-inner-header-wrapper .fk-menu-container .fk-menu:hover, .fk-inner-header-wrapper .fk-menu-container .fk-menu:focus { color: black; }
-.fk-menu-btn-container { display: none; padding: 5px; }
-.fk-menu-btn { background-color: transparent; border: none; cursor: pointer; color: black; font-size: 25px; padding: 5px 8px; }
-.fk-menu-btn, .fk-menu-btn:focus { outline: none; }
-.fk-cart-container { padding: 5px; position: relative; }
-.fk-cart-wrapper { display: flex; flex-direction: row; padding: 5px; }
-.sidepanel .cc-panel-view-cart, .sidepanel .cc-panel-checkout { font-size: 16px; padding: 5px 0; margin: 0px auto; }
-@media (max-width: 480px) {
-  .image-quantity-container { margin: 0 auto; width: 55px; position: relative; }
-  .image-cart-header { margin-left: 5%; width: 150px; height: 28px; margin-top: 3%; }
-  .quantity-circle { position: absolute; top: unset; border-radius: 50%; width: 25px; height: 25px; padding: 5px; border: 2px solid #666; color: #666; text-align: center; font: 8px Arial, sans-serif; right: unset; }
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet"/>
+<link cc="true" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" media="all" onload="this.onload=null;this.media='all'" rel="stylesheet"/>
+<link cc="true" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="all" onload="this.onload=null;this.media='all'" rel="stylesheet"/>
+<style>
+.cc-headline-style {
+  font-size: 32px;
+  font-family: Helvetica, serif;
+  font-weight: 700;
+  margin-top: 15px;
+}
+.cc-headline-style.cc-headline-sm {
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+</style>
+<style>
+.fk-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  padding: 1px;
+  height: auto;
+  max-width: 100%;
+}
+
+.fk-col {
+  min-height: 25px;
+  padding: 1px;
+  flex-grow: 1;
+  width: min-content;
+}
+
+@media (max-width: 768px) {
+  .fk-row {
+    flex-wrap: wrap;
+  }
+  .fk-col {
+    flex-basis: 100%;
+    display: block;
+  }
+}
+</style>
+<style>
+body {
+  background-color: #f7f8fa;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.cc-checkout-page-wrapper {
+  padding: 30px 0 60px 0;
+}
+.cc-checkout-page-wrapper .fk-col.cc-checkout-left {
+  flex: 3;
+  margin-right: 10px;
+}
+.cc-checkout-page-wrapper .fk-col.cc-checkout-right {
+  flex: 2;
+  margin-left: 10px;
 }
 @media (max-width: 768px) {
-  .fk-menu-btn-container { display: flex; align-self: center; }
-  .fk-menu-container { display: none; }
-  .cartPanelHeader { height: 70px; }
-  .fk-shopping-cart-icon { font-size: 25px; }
-  .fk-inner-header-wrapper { margin-left: 3%; margin-right: 8%; }
+  .cc-checkout-page-wrapper .fk-col.cc-checkout-left,
+  .cc-checkout-page-wrapper .fk-col.cc-checkout-right {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
-@media (max-width: 480px) {
-  .fk-shopping-cart-icon { font-size: 20px; }
-  .cartPanelHeader { height: 60px; }
-  .panelCartCircle { position: absolute; margin: 0%; margin-left: -6px; top: unset; right: unset; }
+.cc-panel-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  padding: 15px;
+  margin-bottom: 20px;
 }
-
-/* ===== Headline ===== */
-.cc-headline-style { font-size: 32px; font-family: Helvetica, serif; font-weight: 700; margin-top: 15px; text-align: center; }
-
-/* ===== Carousel (Slick Carousel 1) ===== */
-.cc-carousel-container { width: 90%; max-width: 100vw; padding: 5px; margin: 5px auto; height: auto; }
-.cc-carousel-slide { width: 100%; margin: 5px; padding: 5px; height: auto; }
-.cc-carousel-text { font-size: 20px; font-weight: bold; color: black; text-align: center; padding: 5px; }
-.cc-carousel-image { width: 100%; height: auto; }
-@media screen and (max-width: 600px) { .cc-carousel-container { width: 85%; } }
-
-/* ===== Thumbnail Carousel (Slick Carousel 2) ===== */
-.cc-bottom-nav-carousel, .cc-bottom-nav-carousel .cc-thumbnail-carousel-slide { padding: 5px; margin: 5px; }
-.cc-bottom-nav-carousel .cc-thumbnail-carousel-slide, .cc-bottom-nav-carousel .cc-thumbnail-carousel-image { width: 100%; height: auto; }
-
-/* ===== Vertical Thumbnail Carousel (Slick Carousel 3) ===== */
-.cc-side-nav-carousel { display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; max-width: 100vw; margin: 5px auto; padding: 5px; }
-.cc-side-nav-carousel .cc-vertical-carousel-nav { width: 25%; height: auto; }
-.cc-side-nav-carousel .cc-vertical-carousel-main { width: 65%; height: auto; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
-.cc-side-nav-carousel .cc-thumbnail-carousel-slide { width: 100%; height: auto; margin: 5px; padding: 5px; }
-.cc-side-nav-carousel .cc-thumbnail-carousel-image { width: 100%; height: 100px; }
-.cc-side-nav-carousel .cc-carousel-slide, .cc-side-nav-carousel .cc-carousel-image { height: auto; }
-@media screen and (max-width: 600px) {
-  .cc-side-nav-carousel .cc-vertical-carousel-main { width: 90%; }
-  .cc-side-nav-carousel .cc-vertical-carousel-nav { display: none; }
+.cc-trust-section, .cc-cross-sell-section {
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+  padding: 0 15px;
 }
-
-/* ===== Address 3 (Checkout form) ===== */
-.fk-shopify-form-wrapper { padding: 5px; margin: 5px; }
-.fk-shopify-form-container { padding: 5px; }
-.fk-shopify-form-header { font-size: 22px; margin: 5px; }
-.fk-shopify-form-icon-header { display: flex; flex-direction: row; align-items: center; margin: 10px 5px; }
-.fk-shopify-form-icon { margin: 0 5px; }
-.fk-shopify-form-field { margin: 10px 5px; padding: 5px; }
-.fk-shopify-form-field input { box-sizing: border-box; width: 100%; padding: 12px 18px; font-size: 16px; font-weight: 400; border: 1px solid #ced4da; border-radius: 5px; }
-.fk-shopify-multiple-form-field { display: flex; flex-direction: row; width: 100%; }
-.fk-shopify-multiple-form-field .fk-shopify-form-field { width: 100%; margin: 0 5px; padding: 5px; }
-.fk-shopify-form-select-container { padding: 5px 10px; width: 100%; }
-.fk-shopify-form-select { position: relative; border: 1px solid #ced4da; border-radius: 5px; background-color: #ffffff; height: 50px; }
-.fk-shopify-form-select select { border: none; outline: none; background: transparent; -webkit-appearance: none; -moz-appearance: none; appearance: none; border-radius: 0; margin: 0; width: 100%; box-sizing: border-box; padding: 12px 30px 12px 18px; font-size: 16px; border-radius: 5px; }
-.fk-shopify-form-select:after { position: absolute; display: flex; justify-content: center; align-items: center; right: 0; top: 0; width: 30px; height: 100%; content: "\f0d7"; font-family: "Font Awesome 5 Free"; font-weight: 900; color: #505050; text-align: center; font-size: 16px; border-left: 1px solid #ced4da; pointer-events: none; }
-.fk-shopify-multiple-form-select { display: flex; flex-direction: row; }
-.fk-shopify-multiple-form-select .fk-shopify-form-select-container, .fk-shopify-multiple-form-select .fk-shopify-form-field { width: 100%; margin: 0 5px; padding: 5px; }
-.fk-shopify-form-checkbox-container { display: flex; flex-direction: row; margin: 10px; }
-.fk-shopify-form-checkbox input { position: relative; margin: 0.4rem 0; }
-.fk-shopify-form-checkbox-label { margin: 0 0.5rem; text-align: left; font-size: 1rem; }
-@media screen and (max-width: 1024px) {
-  .fk-shopify-multiple-form-select, .fk-shopify-multiple-form-field { flex-wrap: wrap; }
-  .fk-shopify-multiple-form-select .fk-shopify-form-select-container, .fk-shopify-multiple-form-select .fk-shopify-form-field, .fk-shopify-multiple-form-field .fk-shopify-form-field, .fk-shopify-multiple-form-field .fk-shopify-form-select-container { margin: 5px; padding: 5px; }
-  .fk-shopify-multiple-form-select .fk-shopify-form-select-container:first-child, .fk-shopify-multiple-form-select .fk-shopify-form-field:first-child, .fk-shopify-multiple-form-field .fk-shopify-form-field:first-child, .fk-shopify-multiple-form-field .fk-shopify-form-select-container:first-child { margin-top: 0px; }
-  .fk-shopify-multiple-form-select .fk-shopify-form-select-container:last-child, .fk-shopify-multiple-form-select .fk-shopify-form-field:last-child:last-child, .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child, .fk-shopify-multiple-form-field .fk-shopify-form-select-container:last-child { margin-bottom: 0px; }
-}
-
-/* ===== Payment Option ===== */
-.fk-payment-option-wrapper { padding: 5px; }
-.fk-payment-header { text-align: left; }
-.fk-payment-header-main { margin: 5px 10px; font-size: 20px; font-weight: 500; }
-.fk-payment-header-sub { margin: 5px 10px; color: #9b9b9b; }
-.fk-payment-options { padding: 5px; }
-.fk-payment-option-container { position: relative; padding: 0 5px; }
-.fk-payment-option-container:first-child .fk-payment-option-header-wrapper { border-top-left-radius: 5px; border-top-right-radius: 5px; }
-.fk-payment-option-container:last-child .fk-payment-option-header-wrapper { border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; }
-.fk-payment-option-container:last-child .fk-payment-option-body { border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; }
-.fk-payment-option-header-wrapper { border: 1px solid #d9d9d9; display: block; }
-.fk-payment-option-header-container { display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin: 0 10px; height: 40px; }
-.fk-card-payment-bg-icon-container { display: flex; flex-direction: row; align-items: center; height: 40px; }
-.fk-payment-option-label { margin-left: 30px; font-weight: bold; color: #6f6f6f; padding: 5px; height: 40px; display: flex; align-items: center; white-space: nowrap; text-align: left; }
-@media screen and (max-width: 450px) { .fk-card-payment-bg-icon-container { display: none; } }
-.fk-background { background-repeat: no-repeat; background-position: center; background-size: cover; }
-.fk-card-payment-bg-icon { margin-left: 5px; padding: 5px; min-height: 25px; min-width: 40px; }
-.fk-card-one { background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/visa.svg); }
-.fk-card-two { background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/master.svg); }
-.fk-card-three { background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/american.svg); }
-.fk-card-four { background-image: url(https://dev-assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1721766810842_discover1_1_.png); }
-.fk-payment-option-toggler-field { position: absolute; top: 10px; left: 15px; height: 20px; width: 20px; cursor: pointer; }
-.fk-payment-option-toggler-field:checked ~ .fk-payment-option-header-wrapper { border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
-.fk-payment-option-toggler-field:checked ~ .fk-payment-option-body { display: flex; border: 1px solid #d9d9d9; }
-.fk-payment-option-body { background-color: #fafafa; display: flex; align-items: center; border: 1px solid #d9d9d9; }
-.fk-card-payment-field { flex: 1; margin: 10px; position: relative; }
-.fk-card-payment-field-icon { position: absolute; top: 12px; right: 20px; }
-.fk-card-payment-field input { outline: none; font-size: 18px; padding: 15px; height: 45px; width: 100%; border-radius: 5px; border: 1px solid #ced4da; box-sizing: border-box; }
-.fk-card-number input{ padding: 15px 35px 15px 15px; }
-.fk-card-payment-container { width: 100%; margin: 5px; }
-.fk-card-multiple-payment-field { display: flex; flex-direction: row; }
-.fk-payment-option-body-content{ display: flex; height: 130px; width: 100%; align-items:center; justify-content: center; margin: 5px; }
-.btnPayPal2 { background-image: url('https://config.checkoutchamp.com/development/paypal-checkout-3.png'); background-position: center center; background-repeat: no-repeat; color: transparent; background-color: #ffd11a; border: 1px solid transparent; }
-.btnPayPal2:hover { background-color: #e6b800; color: transparent; border-color: transparent; white-space: normal; }
-.btnPayPal2:focus { box-shadow: none; }
-.btn-paypal2-styles { padding: 6px 12px; background-size: contain; }
-
-/* ===== Coupon ===== */
-.form-control-custom { display: block; width: 100%; padding: 12px 18px; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: 0.25rem; transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
-.cc-v2 { border-radius: 6px; background: #f4f4f4ff; padding: 20px 10px 10px 10px; font-family: Poppins; font-weight: 400; }
-.cc-v2 .btn.btn-primary.cc-form-btn { padding-top: 8px; padding-bottom: 8px; padding-left: 25px; padding-right: 25px; margin-top: 20px; margin-bottom: 20px; font-size: 20px; background: #f26419ff; border-color: #f26419ff; }
-.cc-v2 .btn.btn-primary.cc-form-btn:hover { background: #f26419ff; border-color: #f26419ff; }
-.form-control-custom:focus, input:not([type="radio"]):focus { border: solid 1px rgba(242, 100, 25, 1); border-radius: 6px; outline: none !important; box-shadow: none; }
-.cc-coupon { display: inline-block; width: 75%; padding-left: 0px; padding-right: 0px; margin-right: 10px; }
-
-/* ===== Button1 ===== */
-.btn { display: inline-block; font-weight: 400; text-align: center; white-space: normal; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; padding-top: 10px; padding-bottom: 10px; padding-left: 25px; padding-right: 25px; line-height: 1.5; border-radius: .25rem; transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; margin: 20px auto; font-size: 20px; font-family: Helvetica, serif; }
-.btn.btn-primary { background: #007bff; color: #fff; border-color: #007bff; }
-.btn.btn-primary.btn-one-style:active:focus { box-shadow: none; }
-.btn.btn-primary.btn-one-style:focus { box-shadow: none; }
-.cc-checkout-btn-wrap { text-align: center; }
-
-/* ===== Shopping Cart ===== */
-.cc-cart-container { margin: 10px; border-radius: 10px; padding: 10px; }
-.cc-cart-row { border: 1px solid lightgray; padding: 5px; border-radius: 5px; font-size: 16px; word-break: break-word; background-color: white; margin: 5px 0; }
-.cc-cart-row-img { width: 100%; max-height: 150px; object-fit: contain; }
-.cc-cart-row-trash-icon { cursor: pointer; background-color: black; padding: 5px; color: white; border-radius: 5px; }
-.cc-cart-row-qty-btn { cursor: pointer; background-color: black; padding: 6px; color: white; border-radius: 5px; outline: none; border: none; }
-.cc-cart-row-content { text-align: left; }
-.cc-cart-row-prod-qty-container { margin: 5px 2px; min-width: 30px; padding: 2px 5px; border: 1px solid lightgray; display: inline-block; }
-.cc-cart-row-prod-title { font-weight: bold; margin: 5px; }
-.cc-cart-row-variant, .cc-cart-row-margin, .cc-cart-row-prod-price { margin: 5px; }
-.cc-cart-details-block { display: block; padding: 5px 10px; }
-.cc-cart-details-block .cc-cart-details-value, .cc-cart-details-block .cc-cart-details-label { padding: 10px; text-align: right; display: block; width: auto; font-size: 16px; font-weight: 400; }
-.cc-cart-prod-qty-bubble { position: absolute; top: -10px; right: -10px; background-color: #f2f2f2; color: black; border-radius: 50%; height: 40px; width: 40px; display: flex; justify-content: center; align-items: center; font-size: 14px; }
-@media screen and (max-width: 480px) { .cc-cart-row .cc-cart-row-content { flex: 0 0 100%; max-width: 100%; text-align: center; } }
-
-/* ===== 2 Columns ===== */
-.fk-row { display: flex; justify-content: flex-start; align-items: stretch; flex-wrap: nowrap; padding: 1px; height: auto; max-width: 100%; }
-.fk-col { min-height: 25px; padding: 1px; flex-grow: 1; width: min-content; }
-@media (max-width: 768px) { .fk-row { flex-wrap: wrap; } .fk-col { flex-basis: 100%; display: block; } }
-
-/* ===== Footer ===== */
-footer > div.fk-footer-row { display: flex; justify-content: flex-start; align-items: stretch; flex-wrap: nowrap; height: auto; margin-top: 100px; background-color: #f5f5f5; padding: 0 50px; }
-footer .fk-footer-col { min-height: 25px; flex-grow: 1; flex-basis: 100%; padding: 10px; }
-.fk-footer-headline { font-family: Helvetica, sans-serif; font-size: 16px; text-align: left; margin-top: 0; color: #6a6a6a !important; padding: 10px 0; font-weight: 600; }
-.fk-footer-bullet { padding: 2px 15px 2px 0px; text-align: left; font-size: 20px; line-height: 20px; list-style: none; margin-bottom: 0px; }
-.fk-footer-links { color: #6a6a6a !important; padding: 5px 10px; text-align: left; display: inline-block; font-family: Helvetica, serif; cursor: pointer; font-size: 12px; }
-.fk-footer-brand-name { padding: 10px; font-size: 16px; font-family: Helvetica, serif; color: #6a6a6a !important; }
-.fk-footer-contacts-text { padding: 10px; font-size: 12px; font-family: Helvetica, sans-serif; color: #6a6a6a !important; }
-.fk-footer-logo { width: 300px; height: 56px; float: left; margin-bottom: 100px; max-height: 100px; }
-.fk-footer-logo-container { display: flex; flex-direction: column; }
-.fk-footer-social-media-icons { height: 28px; width: 28px !important; padding-left: 0; margin-left: 10px; margin-top: 10px; }
-@media (max-width: 768px) {
-  .fk-footer-row .fk-col { width: 100%; }
-  footer > div.fk-footer-row { flex-wrap: wrap; }
-  .fk-footer-logo-container-col { order: 5; }
-  .fk-footer-logo { align-self: center; margin-bottom: 0; }
-  .fk-footer-social-icons-container { text-align: center; }
-  .fk-footer-brand-name { text-align: center; margin-top: 20px; }
-}
-
-/* ===== Page layout ===== */
-.cc-section { max-width: 1200px; margin: 0 auto; padding: 20px 15px; }
-.cc-checkout-panel { background: #ffffff; border-radius: 8px; }
 </style>
 </head>
-<body id="cc-id-oXF73s7qEOLP">
-<header class="cartPanelHeader" id="cc-id-GQzPxDYQDumB">
-<div class="fk-inner-header-wrapper" id="cc-id-gfobEtfV6seB">
-<div class="fk-brand-wrapper" id="cc-id-a4X5QqhJDe1t">
-<div class="fk-menu-btn-container" id="cc-id-OQmHO8cH6VwV">
-<span action="choose" align="center" animate="" billnow="false" class="fk-menu-btn" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-Mf46VEOxaDro" loop="none" offer="" onclick="toggleSideMenuItems(event)" price="" quantity="" replaceproductid="" speed="" target="_self" title="" upsell="" variantvalue="">
-<i class="fa fa-bars" id="cc-id-TkewhVLbcIQ0"></i>
+<body id="cc-id-NbrnTP3fAbnF">
+<style>
+.quantity-circle {
+  margin-right: 9%;
+  margin-top: 1%;
+  position: absolute;
+  top: unset;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  border: 2px solid #666;
+  color: #666;
+  text-align: center;
+  font: 10px Arial, sans-serif;
+  right: unset;
+}
+
+.image-quantity-container {
+  margin: 0 auto;
+  width: 100px;
+  height: auto;
+  position: relative;
+}
+
+.image-cart-header {
+  width: 300px;
+  height: 56px;
+  float: left;
+  margin-left: 10%;
+  max-height: 100px;
+}
+
+.cc-cv-canvas__tools > #cc-tools > .cc-toolbar > div > .fa-trash-o {
+  pointer-events: none;
+}
+
+.rightPanelHTML {
+  display: none;
+}
+
+.fk-parent-cart-element {
+  display: inline-block;
+  float: right;
+  margin-right: 10%;
+}
+
+.panelCartCircle {
+  position: absolute;
+  margin: 0%;
+  margin-left: -6px;
+  top: unset;
+  right: unset;
+}
+
+.fk-shopping-cart-icon {
+  font-size: 32px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.cartPanelHeader {
+  padding: 0.5rem;
+  min-height: 80px;
+  background-color: #fff;
+  overflow: visible;
+}
+
+.fk-inner-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10%;
+  justify-content: space-between;
+}
+
+.fk-brand-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.fk-brand,
+.fk-cart-icon-container {
+  margin: 0;
+}
+
+.fk-menu-container {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  flex-wrap: wrap;
+  margin-right: auto;
+}
+
+.fk-inner-header-wrapper .fk-menu-container .fk-menu {
+  padding: 5px;
+  white-space: nowrap;
+  color: black;
+}
+
+.fk-inner-header-wrapper .fk-menu-container .fk-menu:hover,
+.fk-inner-header-wrapper .fk-menu-container .fk-menu:focus {
+  color: black;
+}
+
+.fk-menu-btn-container {
+  display: none;
+  padding: 5px;
+}
+
+.fk-menu-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-size: 25px;
+  padding: 5px 8px;
+}
+
+.fk-menu-btn,
+.fk-menu-btn:focus {
+  outline: none;
+}
+
+.fk-cart-container {
+  padding: 5px;
+  position: relative;
+}
+
+.fk-cart-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.sidepanel .cc-panel-view-cart,
+.sidepanel .cc-panel-checkout {
+  font-size: 16px;
+  padding: 5px 0;
+  margin: 0px auto;
+}
+
+@media (max-width: 480px) {
+  .image-quantity-container {
+    margin: 0 auto;
+    width: 55px;
+    position: relative;
+  }
+  .image-cart-header {
+    margin-left: 5%;
+    width: 150px;
+    height: 28px;
+    margin-top: 3%;
+  }
+  .quantity-circle {
+    position: absolute;
+    top: unset;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 8px Arial, sans-serif;
+    right: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .fk-menu-btn-container {
+    display: flex;
+    align-self: center;
+  }
+  .fk-menu-container {
+    display: none;
+  }
+  .cartPanelHeader {
+    height: 70px;
+  }
+  .fk-shopping-cart-icon {
+    font-size: 25px;
+  }
+  .fk-inner-header-wrapper {
+    margin-left: 3%;
+    margin-right: 8%;
+  }
+}
+
+@media (max-width: 480px) {
+  .fk-shopping-cart-icon {
+    font-size: 20px;
+  }
+  .cartPanelHeader {
+    height: 60px;
+  }
+  .panelCartCircle {
+    position: absolute;
+    margin: 0%;
+    margin-left: -6px;
+    top: unset;
+    right: unset;
+  }
+}
+</style>
+<header class="cartPanelHeader" id="cc-id-bmOHnKYaXRvj">
+<div class="fk-inner-header-wrapper" id="cc-id-7uff0LYTH8xI">
+<div class="fk-brand-wrapper" id="cc-id-ZM1JRcoreogr">
+<div class="fk-menu-btn-container" id="cc-id-Nwwmq6OLkTkx">
+<span action="choose" align="center" animate="" billnow="false" class="fk-menu-btn" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-9NIQ0Wobtqn6" loop="none" offer="" onclick="toggleSideMenuItems(event)" price="" quantity="" replaceproductid="" speed="" target="_self" title="" upsell="" variantvalue="">
+<i class="fa fa-bars" id="cc-id-2tOy4CqpIqK3"></i>
 </span>
 </div>
 <img align="center" alt="Brand Logo" class="image-quantity-container image-cart-header fk-logo fk-brand" height="50" href="" id="img1" onclick="" src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" target="_self" title="" width="150"/>
 </div>
-<div class="fk-menu-container" id="cc-id-M6jEhC33xcq9">
-<div class="fk-menu" data-selector="true" id="cc-id-TgNNcp5VIBQw">
+<div class="fk-menu-container" id="cc-id-yn9FfcgMXAdx">
+<div class="fk-menu" data-selector="true" id="cc-id-9G81aSQHqNgA">
         Menu Option
       </div>
 </div>
-<div class="fk-cart-wrapper" id="cc-id-1kKWjhE2iGYX">
-<div class="fk-cart-container" id="cc-id-bo3ituFzpEyI">
+<div class="fk-cart-wrapper" id="cc-id-C72qFl41sNLj">
+<div class="fk-cart-container" id="cc-id-VHWGaub52Ztd">
 <span class="fk-parent-cart-element fk-cart-icon-container" id="panelCartBubbleWrapper">
-<i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" id="cc-id-88Tk5yf5qfqV" onclick="openNav()"></i>
+<i class="cc-pn-btn fa fa-shopping-cart fk-shopping-cart-icon" id="cc-id-26fEeVVhDIq2" onclick="openNav()"></i>
 <span class="quantity-circle panelCartCircle" id="panelCartCircle">0</span>
 </span>
 </div>
 </div>
 </div>
-<div class="rightPanelHTML" id="rightPanelHTML" style="display:none;">
+<div class="rightPanelHTML" id="rightPanelHTML">
 <div class="sidepanel cc-custom-right-panel" id="mySidepanel" style="border-color: lightgrey; width: 320px; max-width: 320px; border-style: solid; border-width: thin; min-height: 10%; visibility: hidden; position: fixed; height: 100vh; top: 0px; right: 0px; background-color: white; z-index: 999999;">
-<div class="sticky" id="cc-id-w2xXZrNpOyji" style="padding:1%;overflow:hidden">
-<h2 id="cc-id-CGJemHdBvJcj" style="margin-left:2%">
-          Your Cart<span id="cc-id-urlqIvDQlDwr"> </span><span action="choose" align="center" animate="" billnow="false" class="close-panel" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-5KdkWGzBcDv7" loop="none" offer="" onclick="closeNav()" price="" quantity="" replaceproductid="" speed="" target="_self" title="×" upsell="" variantvalue="">×</span>
+<div class="sticky" id="cc-id-AnHTmt9OBGhn" style="padding:1%;overflow:hidden">
+<h2 id="cc-id-uKoneNo41eoP" style="margin-left:2%">
+          Your Cart<span id="cc-id-ni6JDWYlgAAC"> </span><span action="choose" align="center" animate="" billnow="false" class="close-panel" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-TP9gyv1plBAr" loop="none" offer="" onclick="closeNav()" price="" quantity="" replaceproductid="" speed="" target="_self" title="\u00d7" upsell="" variantvalue="">\u00d7</span>
 </h2>
 </div>
 <div class="sticky" id="cartPanelId" style="padding:1%;overflow:hidden"></div>
-<h5 id="cc-id-GXcCU2OxTZMv" style="margin-left:2%">
+<h5 id="cc-id-p5B1Id9Z850k" style="margin-left:2%">
         Subtotal:
-        <span class="cartPanelSubtotalClass" id="cc-id-CYYBydOMfeyF">0</span>
+        <span class="cartPanelSubtotalClass" id="cc-id-Enydx9qWCA79">0</span>
 </h5>
-<br id="cc-id-97N3vFz2IzPE"/>
-<p id="cc-id-UBqE2Oek0Djy" style="margin-left:2%">
+<br id="cc-id-ISjs8JHUdKF0"/>
+<p id="cc-id-j7elKPoh3pKM" style="margin-left:2%">
         Taxes, shipping, and coupons will be calculated at checkout
       </p>
-<button action="route" align="center" billnow="false" btntype="none" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL" data-minutesdelay="" data-secondsdelay="" id="cc-id-HAXqe1y2Xddq" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
-        VIEW CART</button><br id="cc-id-lf6Ln1l9egnU"/><br id="cc-id-oFHCREW0os44"/>
-<button action="route" align="center" billnow="false" btntype="none" class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" data-minutesdelay="" data-secondsdelay="" id="cc-id-5ka74du7CXup" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
+<button action="route" align="center" billnow="false" btntype="none" class="btn btn-primary cc-panel-view-cart fk-cc-id-WHREorRtUOyL" data-minutesdelay="" data-secondsdelay="" id="cc-id-zKG5mSoyPstU" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
+        VIEW CART</button><br id="cc-id-eC99enq522wj"/><br id="cc-id-ZRL9OaYsP6ih"/>
+<button action="route" align="center" billnow="false" btntype="none" class="btn btn-danger panel-checkout cc-panel-checkout fk-cc-id-KEq36y6OVM6F" data-minutesdelay="" data-secondsdelay="" id="cc-id-gIqLSmNqE40f" offer="" onclick="route(event)" price="" quantity="" replaceproductid="" size="none" style="margin-left:12%;width:224px;" title="" type="button" upsell="" variantvalue="">
         PROCEED TO CHECKOUT
       </button>
 </div>
 </div>
 </header>
-<div class="cc-section" id="cc-id-NnQyWAohN7Hw">
-<div class="fk-headline cc-headline-style" id="cc-id-U4KGSHzVaJcX">Complete Your Purchase</div>
+<main class="cc-checkout-page-wrapper" id="cc-id-AraVNqTIAae2">
+<div class="container" id="cc-id-4HZKjht3X13n">
+<div id="cc-id-pgW2zMj518Y2" style="text-align:center; margin-bottom: 10px;">
+<div class="fk-headline cc-headline-style" id="cc-id-bTu5X1YqWg21">Secure Checkout</div>
 </div>
-<div class="cc-section" id="cc-id-JcTSPjhIVkqR">
-<div class="fk-headline cc-headline-style" id="cc-id-xK4GKLkechPx" style="font-size:24px;">Slick Carousel 1</div>
-<div arrowposition="out" autoplay="false" autoplayspeed="3" cc-carousel-type="slick" cc-type="1" class="cc-carousel-container cc-cl-slick-carousel1" data-cc-carousel-drag="false" dots="true" fade="false" focusonselect="false" id="cc-carousel-slick1" infinite="false" navigationfor="" pauseonfocus="false" pauseonhover="false" scrollslides="1" showarrows="true" showslides="1" swipe="false" vertical="false" verticalswipe="false">
-<div class="cc-carousel-slide" id="cc-id-fDHlNtjJyEP1">
-<img align="center" alt="Featured product slide 1" class="cc-carousel-image" height="" href="" id="cc-id-lBMoE35q1wrP" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-tKL6EZK2AU7q">Free Shipping On All Orders</div>
+<div class="cc-trust-section" id="cc-id-nYCsXoblu17r">
+<div autoplay="true" autoplayspeed="4" cc-carousel-type="swiper" cc-type="1" class="swiper cc-swiper-carousel-container cc-cl-swiper-carousel1" data-cc-swiper-carousel-drag="true" dots="true" fade="false" id="cc-swiper-carousel-1" infinite="true" navigationfor="" scrollslides="1" showarrows="true" showslides="1" swipe="false" vertical="false">
+<div class="swiper-wrapper cc-swiper-slider-wrapper" id="cc-id-Ny8H6h8l7qgA">
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-TtLFxJpRa5HS">
+<img alt="Free Worldwide Shipping On Every Order" class="cc-swiper-carousel-image" id="cc-id-UPwePut0Sstz" src="https://picsum.photos/id/1015/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-yshA6P3MsHar">
+        Free Worldwide Shipping On Every Order
+      </div>
 </div>
-<div class="cc-carousel-slide" id="cc-id-uXOEJSFkEGMj" tabindex="-1">
-<img align="center" alt="Featured product slide 2" class="cc-carousel-image" height="" href="" id="cc-id-LGtySFih8Yh8" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-OxnYwabxY04B">30-Day Money Back Guarantee</div>
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-AJOCBnD3XkfF">
+<img alt="30-Day Money-Back Guarantee" class="cc-swiper-carousel-image" id="cc-id-NuYUPnmbpD0e" src="https://picsum.photos/id/1025/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-zNmREpOaUVgA">
+        30-Day Money-Back Guarantee
+      </div>
 </div>
-<div class="cc-carousel-slide" id="cc-id-5DG6aYbpO4ni" tabindex="-1">
-<img align="center" alt="Featured product slide 3" class="cc-carousel-image" height="" href="" id="cc-id-MNYOdKeOiivu" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-a757fTJOau5z">Secure &amp; Encrypted Checkout</div>
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-k7Gdp0CXP9K6">
+<img alt="256-bit SSL Encrypted Secure Checkout" class="cc-swiper-carousel-image" id="cc-id-3LSFZH3UDqpN" src="https://picsum.photos/id/1035/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-VGMrerqtHioR">
+        256-bit SSL Encrypted Secure Checkout
+      </div>
 </div>
 </div>
-<div class="cc-cl-slick-carousel1-script" id="cc-id-2MfDwmDpvg3G">
-<script id="carousel-script-cc-carousel-slick1-var" script-type="cc">
-      var varcccarouselslick1 = {};
-    </script>
-<script id="carousel-script-cc-carousel-slick1" script-type="cc">
-      $(document).ready(function () {
-        var ccCarouselConfig = { 'cssEase': "linear", 'infinite': false, 'swipe': false, 'arrows': true, 'vertical': false, 'verticalSwiping': false, 'autoplay': false, 'dots': true, 'fade': false, 'focusOnSelect': false, 'pauseOnFocus': false, 'pauseOnHover': false, 'slidesToShow': 1, 'slidesToScroll': 1, 'autoplaySpeed': 3000, 'nextArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;right:-30px;'><i class='fa fa-angle-right'></i></button>", 'prevArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;left:-30px;'><i class='fa fa-angle-left'></i></button>", };
-        var userConfig = Object.keys(varcccarouselslick1 || {});
+<div class="swiper-button-next cc-swiper-button-next" id="cc-id-RdzHzmA4KR1V"></div>
+<div class="swiper-button-prev cc-swiper-button-prev" id="cc-id-xavU07zUHLnn"></div>
+<div class="swiper-pagination cc-swiper-pagination" id="cc-id-BbuQzkChMbyI"></div>
+</div>
+<div class="cc-cl-swiper-carousel1-script" id="cc-id-bNiCdxnuVxUZ">
+<script id="swiper-carousel-script-cc-swiper-carousel-1-var" script-type="cc">
+    var varccswipercarousel1 = { 'autoplay': { 'delay': 4000, 'disableOnInteraction': false }, 'loop': true };
+  </script>
+<script id="swiper-carousel-script-cc-swiper-carousel-1" script-type="cc">
+    $(document).ready(function () {
+      try {
+
+        if (window.swipervarccswipercarousel1 && window.swipervarccswipercarousel1.destroy) {
+          window.swipervarccswipercarousel1.destroy(true, true);
+        }
+        var ccCarouselConfig = { 'allowTouchMove': false, 'loop': false, 'slidesPerView': 1, 'slidesPerGroup': 1, 'pagination': { "el": "#cc-swiper-carousel-1 .cc-swiper-pagination", "type": "bullets", "clickable": true }, 'navigation': { "nextEl": "#cc-swiper-carousel-1 .cc-swiper-button-next", "prevEl": "#cc-swiper-carousel-1 .cc-swiper-button-prev" }, };
+
+        var userConfig = Object.keys(varccswipercarousel1 || {});
         if (userConfig && userConfig.length) {
-          for (var i in varcccarouselslick1) {
-            ccCarouselConfig[i] = varcccarouselslick1[i];
+          for (var i in varccswipercarousel1) {
+            ccCarouselConfig[i] = varccswipercarousel1[i];
           }
         }
-        if ($("#cc-carousel-slick1").hasClass('slick-initialized')) {
-          $("#cc-carousel-slick1").slick('unslick');
+        if (window.Swiper) {
+          window.swipervarccswipercarousel1 = new Swiper("#cc-swiper-carousel-1", ccCarouselConfig);
+          window.swipervarccswipercarousel1 && window.swipervarccswipercarousel1.update && window.swipervarccswipercarousel1.update();
         }
-        $("#cc-carousel-slick1").slick(ccCarouselConfig);
-
-        $('#cc-carousel-slick1').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          var nextSlideElement = $('#cc-carousel-slick1 .slick-track .slick-slide').eq(nextSlide);
-          if (!nextSlideElement.attr('data-slide-id')) {
-            nextSlideElement.attr('data-slide-id', nextSlideElement.attr('id'));
-          }
-        });
-
-        $('#cc-carousel-slick1').on('afterChange', function (event, slick, currentSlide) {
-          setTimeout(() => {
-            var currentSlideElement = $('#cc-carousel-slick1 .slick-track .slick-slide').eq(currentSlide);
-            const preservedSlideId = currentSlideElement.attr('data-slide-id');
-            if (preservedSlideId) {
-              currentSlideElement.attr('id', preservedSlideId);
+      } catch (err) {
+        err;
+      }
+    });
+  </script>
+</div>
+</div>
+<div class="fk-row cc-cl-two-columns" id="cc-id-pfbH9vOWOU6m">
+<div align="left" class="fk-col col cc-checkout-left" id="cc-id-bjhPInRVkLUh">
+<div class="cc-panel-card" id="cc-id-Y7gbtP7ySeQM">
+<div class="fk-headline cc-headline-style cc-headline-sm" id="cc-id-gV0Lh8WvAwFv">Contact &amp; Shipping Details</div>
+<style>
+        .fk-shopify-form-wrapper {
+            padding: 5px;
+            margin: 5px;
+        }
+        .fk-shopify-form-container {
+            padding: 5px;
+        }
+        .fk-shopify-form-header {
+            font-size: 22px;
+            margin: 5px;
+        }
+        .fk-shopify-form-icon-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 10px 5px;
+        }
+        .fk-shopify-form-icon {
+            margin: 0 5px;
+        }
+        .fk-shopify-form-field {
+            margin: 10px 5px;
+            padding: 5px;
+        }
+        .fk-shopify-form-field input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 16px;
+            font-weight: 400;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        .fk-shopify-multiple-form-field {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        .fk-shopify-multiple-form-field .fk-shopify-form-field {
+            width: 100%;
+            margin: 0 5px;
+            padding: 5px;
+        }
+        .fk-shopify-form-select-container {
+            padding: 5px 10px;
+            width: 100%;
+        }
+        .fk-shopify-form-select {
+          position: relative;
+          border: 1px solid #ced4da;
+          border-radius: 5px;
+          background-color: #ffffff;
+          height: 50px;
+        }
+        .fk-shopify-form-select select {
+          border: none;
+          outline: none;
+          background: transparent;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border-radius: 0;
+          margin: 0;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 12px 30px 12px 18px;
+          font-size: 16px;
+          border-radius: 5px;
+        }
+        .fk-shopify-form-select:after {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          right: 0;
+          top: 0;
+          width: 30px;
+          height: 100%;
+          content: "\f0d7";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: #505050;
+          text-align: center;
+          font-size: 16px;
+          border-left: 1px solid #ced4da;
+          pointer-events: none;
+        }
+        .fk-shopify-multiple-form-select {
+            display: flex;
+            flex-direction: row;
+        }
+        .fk-shopify-multiple-form-select .fk-shopify-form-select-container,
+        .fk-shopify-multiple-form-select .fk-shopify-form-field {
+            width: 100%;
+            margin: 0 5px;
+            padding: 5px;
+        }
+        .fk-shopify-form-checkbox-container {
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+        }
+        .fk-shopify-form-checkbox input {
+            position: relative;
+            margin: 0.4rem 0;;
+        }
+        .fk-shopify-form-checkbox-label {
+            margin: 0 0.5rem;
+            text-align: left;
+            font-size: 1rem;
+        }
+        @media screen and (max-width: 1024px) {
+            .fk-shopify-multiple-form-select,
+            .fk-shopify-multiple-form-field {
+                flex-wrap: wrap;
             }
-          });
-        });
-
-        try {
-          $("#cc-carousel-slick1").slick("refresh");
-        } catch (err) { err; }
-        window.ccDeviceScreenWidthvarcccarouselslick1 = $(window).width();
-        var ccResizeTimeout;
-        $(window).on("resize", function () {
-          try {
-            clearTimeout(ccResizeTimeout);
-            ccResizeTimeout = setTimeout(() => {
-              var ccDeviceScreenWidth = $(window).width();
-              if (window.ccDeviceScreenWidthvarcccarouselslick1 !== ccDeviceScreenWidth) {
-                $("#cc-carousel-slick1").slick("setPosition");
-                const slideTrack = $("[vertical=true]#cc-carousel-slick1").find(".slick-track");
-                const slideTrackBoundary = slideTrack.length && slideTrack[0].getBoundingClientRect();
-                setTimeout(() => {
-                  slideTrack[0].style.transform = "translate3d(0px, 0px, 0px)";
-                }, 100);
-                window.ccDeviceScreenWidthvarcccarouselslick1 = ccDeviceScreenWidth;
-              }
-            }, 500);
-          } catch (err) { err; }
-        });
-      });
-    </script>
-</div>
-</div>
-<div class="cc-section" id="cc-id-I1cPD0jYufKo">
-<div class="fk-headline cc-headline-style" id="cc-id-edSBy9WDzkJX" style="font-size:24px;">Slick Carousel 2</div>
-<div cc-carousel-type="slick" cc-type="2" class="multi-carousel-container cc-bottom-nav-carousel cc-cl-slick-carousel2" data-cc-thumbnail-carousel-container="true" data-layer-name="Carousel" id="cc-id-25jpwpg0ew7M">
-<div arrowposition="out" autoplay="false" autoplayspeed="3" class="cc-carousel-container" data-cc-carousel-drag="false" data-cc-carousel-main="true" dots="false" fade="false" focusonselect="false" id="cc-thumbnail-carousel-main-2" infinite="false" navigationfor="" pauseonfocus="false" pauseonhover="false" scrollslides="1" showarrows="false" showslides="1" swipe="true" vertical="false" verticalswipe="false">
-<div class="cc-carousel-slide" id="cc-id-RmlGoDF26409">
-<img align="center" alt="Product view 1" class="cc-carousel-image" height="" href="" id="cc-id-UUV7kmxYZc54" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-quMi6VzuznSl">Front View</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-yT6D7BORa4ri" tabindex="-1">
-<img align="center" alt="Product view 2" class="cc-carousel-image" height="" href="" id="cc-id-Mqvft4Gdz9vC" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-kPXdOogWBk84">Side View</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-LlG13juZZO5g" tabindex="-1">
-<img align="center" alt="Product view 3" class="cc-carousel-image" height="" href="" id="cc-id-O6url4W7tmIU" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-3RfgSS6oAKJD">Back View</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-AXnsg7o2KHyM" tabindex="-1">
-<img align="center" alt="Product view 4" class="cc-carousel-image" height="" href="" id="cc-id-xcRe0nnI7PDD" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-kIJPHgSOIccY">Detail View</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-vIgoKm1Lbln3" tabindex="-1">
-<img align="center" alt="Product view 5" class="cc-carousel-image" height="" href="" id="cc-id-rgvz5srbbMli" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-3PLs4w3Y71Lm">In Use</div>
-</div>
-</div>
-<div arrowposition="out" autoplay="false" autoplayspeed="3" class="cc-carousel-container" data-cc-carousel-drag="false" data-cc-carousel-nav="true" dots="false" fade="false" focusonselect="true" id="cc-thumbnail-carousel-nav-2" infinite="false" navigationfor="#cc-thumbnail-carousel-main-2" pauseonfocus="false" pauseonhover="false" scrollslides="1" showarrows="false" showslides="5" swipe="true" vertical="false" verticalswipe="false">
-<div class="cc-thumbnail-carousel-slide" id="cc-id-q127zmgFoN2E">
-<img align="center" alt="Thumbnail 1" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-M7344jejaKbd" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-YHHtfguhlQzl">
-<img align="center" alt="Thumbnail 2" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-Z3B97piEE7qL" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-AcxMUFsWKDBm">
-<img align="center" alt="Thumbnail 3" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-gcz7CDYsSBCK" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-7fAo4pwOBwm0">
-<img align="center" alt="Thumbnail 4" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-NHvI9LPhK1Ft" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-QSrzJKXcjXyy">
-<img align="center" alt="Thumbnail 5" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-AxKDlHM8vbWp" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-</div>
-</div>
-<div class="cc-cl-slick-carousel2-script" id="cc-id-b15yMDvPyR88">
-<script id="carousel-script-cc-thumbnail-carousel-main-2-var" script-type="cc">
-      var varccthumbnailcarouselmain2 = {};
-    </script>
-<script id="carousel-script-cc-thumbnail-carousel-main-2" script-type="cc">
-      $(document).ready(function () {
-        var ccCarouselConfig = { 'cssEase': "linear", 'infinite': false, 'swipe': true, 'arrows': false, 'vertical': false, 'verticalSwiping': false, 'autoplay': false, 'dots': false, 'fade': false, 'focusOnSelect': false, 'pauseOnFocus': false, 'pauseOnHover': false, 'slidesToShow': 1, 'slidesToScroll': 1, 'autoplaySpeed': 3000, 'nextArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;right:-30px;'><i class='fa fa-angle-right'></i></button>", 'prevArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;left:-30px;'><i class='fa fa-angle-left'></i></button>", };
-        var userConfig = Object.keys(varccthumbnailcarouselmain2 || {});
-        if (userConfig && userConfig.length) {
-          for (var i in varccthumbnailcarouselmain2) {
-            ccCarouselConfig[i] = varccthumbnailcarouselmain2[i];
-          }
-        }
-        if ($("#cc-thumbnail-carousel-main-2").hasClass('slick-initialized')) {
-          $("#cc-thumbnail-carousel-main-2").slick('unslick');
-        }
-        $("#cc-thumbnail-carousel-main-2").slick(ccCarouselConfig);
-
-        $('#cc-thumbnail-carousel-main-2').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          var nextSlideElement = $('#cc-thumbnail-carousel-main-2 .slick-track .slick-slide').eq(nextSlide);
-          if (!nextSlideElement.attr('data-slide-id')) {
-            nextSlideElement.attr('data-slide-id', nextSlideElement.attr('id'));
-          }
-        });
-
-        $('#cc-thumbnail-carousel-main-2').on('afterChange', function (event, slick, currentSlide) {
-          setTimeout(() => {
-            var currentSlideElement = $('#cc-thumbnail-carousel-main-2 .slick-track .slick-slide').eq(currentSlide);
-            const preservedSlideId = currentSlideElement.attr('data-slide-id');
-            if (preservedSlideId) {
-              currentSlideElement.attr('id', preservedSlideId);
+            .fk-shopify-multiple-form-select .fk-shopify-form-select-container,
+            .fk-shopify-multiple-form-select .fk-shopify-form-field,
+            .fk-shopify-multiple-form-field .fk-shopify-form-field,
+            .fk-shopify-multiple-form-field .fk-shopify-form-select-container {
+                margin: 5px;
+                padding: 5px;
             }
-          });
-        });
-
-        try {
-          $("#cc-thumbnail-carousel-main-2").slick("refresh");
-        } catch (err) { err; }
-        window.ccDeviceScreenWidthvarccthumbnailcarouselmain2 = $(window).width();
-        var ccResizeTimeout;
-        $(window).on("resize", function () {
-          try {
-            clearTimeout(ccResizeTimeout);
-            ccResizeTimeout = setTimeout(() => {
-              var ccDeviceScreenWidth = $(window).width();
-              if (window.ccDeviceScreenWidthvarccthumbnailcarouselmain2 !== ccDeviceScreenWidth) {
-                $("#cc-thumbnail-carousel-main-2").slick("setPosition");
-                const slideTrack = $("[vertical=true]#cc-thumbnail-carousel-main-2").find(".slick-track");
-                const slideTrackBoundary = slideTrack.length && slideTrack[0].getBoundingClientRect();
-                setTimeout(() => {
-                  slideTrack[0].style.transform = "translate3d(0px, 0px, 0px)";
-                }, 100);
-                window.ccDeviceScreenWidthvarccthumbnailcarouselmain2 = ccDeviceScreenWidth;
-              }
-            }, 500);
-          } catch (err) { err; }
-        });
-      });
-    </script>
-<script id="carousel-script-cc-thumbnail-carousel-nav-2-var" script-type="cc">
-      var varccthumbnailcarouselnav2 = {};
-    </script>
-<script id="carousel-script-cc-thumbnail-carousel-nav-2" script-type="cc">
-      $(document).ready(function () {
-        var ccCarouselConfig = { 'cssEase': "linear", 'infinite': false, 'swipe': true, 'arrows': false, 'vertical': false, 'verticalSwiping': false, 'autoplay': false, 'dots': false, 'fade': false, 'focusOnSelect': true, 'pauseOnFocus': false, 'pauseOnHover': false, 'slidesToShow': 5, 'slidesToScroll': 1, 'autoplaySpeed': 3000, 'asNavFor': "#cc-thumbnail-carousel-main-2", 'nextArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;right:-30px;'><i class='fa fa-angle-right'></i></button>", 'prevArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;left:-30px;'><i class='fa fa-angle-left'></i></button>", };
-        var userConfig = Object.keys(varccthumbnailcarouselnav2 || {});
-        if (userConfig && userConfig.length) {
-          for (var i in varccthumbnailcarouselnav2) {
-            ccCarouselConfig[i] = varccthumbnailcarouselnav2[i];
-          }
-        }
-        if ($("#cc-thumbnail-carousel-nav-2").hasClass('slick-initialized')) {
-          $("#cc-thumbnail-carousel-nav-2").slick('unslick');
-        }
-        $("#cc-thumbnail-carousel-nav-2").slick(ccCarouselConfig);
-
-        $('#cc-thumbnail-carousel-nav-2').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          var nextSlideElement = $('#cc-thumbnail-carousel-nav-2 .slick-track .slick-slide').eq(nextSlide);
-          if (!nextSlideElement.attr('data-slide-id')) {
-            nextSlideElement.attr('data-slide-id', nextSlideElement.attr('id'));
-          }
-        });
-
-        $('#cc-thumbnail-carousel-nav-2').on('afterChange', function (event, slick, currentSlide) {
-          setTimeout(() => {
-            var currentSlideElement = $('#cc-thumbnail-carousel-nav-2 .slick-track .slick-slide').eq(currentSlide);
-            const preservedSlideId = currentSlideElement.attr('data-slide-id');
-            if (preservedSlideId) {
-              currentSlideElement.attr('id', preservedSlideId);
+            .fk-shopify-multiple-form-select .fk-shopify-form-select-container:first-child,
+            .fk-shopify-multiple-form-select .fk-shopify-form-field:first-child,
+            .fk-shopify-multiple-form-field .fk-shopify-form-field:first-child,
+            .fk-shopify-multiple-form-field .fk-shopify-form-select-container:first-child {
+                margin-top: 0px
             }
-          });
-        });
-
-        try {
-          $("#cc-thumbnail-carousel-nav-2").slick("refresh");
-        } catch (err) { err; }
-        window.ccDeviceScreenWidthvarccthumbnailcarouselnav2 = $(window).width();
-        var ccResizeTimeout;
-        $(window).on("resize", function () {
-          try {
-            clearTimeout(ccResizeTimeout);
-            ccResizeTimeout = setTimeout(() => {
-              var ccDeviceScreenWidth = $(window).width();
-              if (window.ccDeviceScreenWidthvarccthumbnailcarouselnav2 !== ccDeviceScreenWidth) {
-                $("#cc-thumbnail-carousel-nav-2").slick("setPosition");
-                const slideTrack = $("[vertical=true]#cc-thumbnail-carousel-nav-2").find(".slick-track");
-                const slideTrackBoundary = slideTrack.length && slideTrack[0].getBoundingClientRect();
-                setTimeout(() => {
-                  slideTrack[0].style.transform = "translate3d(0px, 0px, 0px)";
-                }, 100);
-                window.ccDeviceScreenWidthvarccthumbnailcarouselnav2 = ccDeviceScreenWidth;
-              }
-            }, 500);
-          } catch (err) { err; }
-        });
-      });
-    </script>
-</div>
-</div>
-<div class="cc-section" id="cc-id-OEVmchLz3vAG">
-<div class="fk-headline cc-headline-style" id="cc-id-hWfYPKCYOg1L" style="font-size:24px;">Slick Carousel 3</div>
-<div cc-carousel-type="slick" cc-type="3" class="multi-carousel-container cc-side-nav-carousel cc-cl-slick-carousel3" data-cc-thumbnail-carousel-container="true" data-layer-name="Carousel" id="cc-id-QIVwFzOLAFRq">
-<div arrowposition="out" autoplay="false" autoplayspeed="3" class="cc-carousel-container cc-vertical-carousel-nav slick-vertical" data-cc-carousel-drag="false" data-cc-carousel-nav="true" dots="false" fade="false" focusonselect="true" id="cc-thumbnail-carousel-nav-3" infinite="false" navigationfor="#cc-thumbnail-carousel-main-3" pauseonfocus="false" pauseonhover="false" scrollslides="1" showarrows="false" showslides="5" swipe="false" vertical="true" verticalswipe="true">
-<div class="cc-thumbnail-carousel-slide" id="cc-id-aQDjQPlesN0t">
-<img align="center" alt="Thumbnail 1" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-GZqdlrWgZOuT" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-XTXMrIjW60Ev">
-<img align="center" alt="Thumbnail 2" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-u769us0303JQ" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-tJNyHSWymL92">
-<img align="center" alt="Thumbnail 3" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-fyNAtR0ug7J9" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-hKuwMc4G7XLh">
-<img align="center" alt="Thumbnail 4" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-tpzLtyo4Ll7z" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-<div class="cc-thumbnail-carousel-slide" id="cc-id-Aw1woDMSdM2r">
-<img align="center" alt="Thumbnail 5" class="cc-thumbnail-carousel-image" height="" href="" id="cc-id-HvfxAuOQprKH" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-</div>
-</div>
-<div arrowposition="out" autoplay="false" autoplayspeed="3" class="cc-carousel-container cc-vertical-carousel-main" data-cc-carousel-drag="false" data-cc-carousel-main="true" dots="false" fade="false" focusonselect="false" id="cc-thumbnail-carousel-main-3" infinite="false" navigationfor="" pauseonfocus="false" pauseonhover="false" scrollslides="1" showarrows="false" showslides="1" swipe="true" vertical="false" verticalswipe="false">
-<div class="cc-carousel-slide" id="cc-id-7XelEa1XijHD">
-<img align="center" alt="Product angle 1" class="cc-carousel-image" height="" href="" id="cc-id-uXXro13pzXjX" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-Lc6gWnvbshzX">Angle 1</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-8fPNb4h7d5qt" tabindex="-1">
-<img align="center" alt="Product angle 2" class="cc-carousel-image" height="" href="" id="cc-id-P9YwdtrqVm0Y" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-C4xBE1ywqHHI">Angle 2</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-S8YcC7GLIB9m" tabindex="-1">
-<img align="center" alt="Product angle 3" class="cc-carousel-image" height="" href="" id="cc-id-cWc6yOXBlX4Z" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-YCskZAKjYtwM">Angle 3</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-wd2RuXL8n5Jv" tabindex="-1">
-<img align="center" alt="Product angle 4" class="cc-carousel-image" height="" href="" id="cc-id-ut7Gywqh4cZd" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-wpUmUvRBI16L">Angle 4</div>
-</div>
-<div class="cc-carousel-slide" id="cc-id-0JJcVG5PnoHq" tabindex="-1">
-<img align="center" alt="Product angle 5" class="cc-carousel-image" height="" href="" id="cc-id-7A44xPFlD0jC" onclick="" src="https://assets.checkoutchamp.com/690f7a60-f822-11ea-ae74-e3ceec18f960/Photo_Feb_15_9_37_28_PM_scaled.jpg" target="_self" title="" width=""/>
-<div class="cc-carousel-text" id="cc-id-u7jCg5H84y8K">Angle 5</div>
-</div>
-</div>
-</div>
-<div class="cc-cl-slick-carousel3-script" id="cc-id-hIYnXAM07FFi">
-<script id="carousel-script-cc-thumbnail-carousel-main-3-var" script-type="cc">
-      var varccthumbnailcarouselmain3 = {};
-    </script>
-<script id="carousel-script-cc-thumbnail-carousel-main-3" script-type="cc">
-      $(document).ready(function () {
-        var ccCarouselConfig = { 'cssEase': "linear", 'infinite': false, 'swipe': true, 'arrows': false, 'vertical': false, 'verticalSwiping': false, 'autoplay': false, 'dots': false, 'fade': false, 'focusOnSelect': false, 'pauseOnFocus': false, 'pauseOnHover': false, 'slidesToShow': 1, 'slidesToScroll': 1, 'autoplaySpeed': 3000, 'nextArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;right:-30px;'><i class='fa fa-angle-right'></i></button>", 'prevArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;left:-30px;'><i class='fa fa-angle-left'></i></button>", };
-        var userConfig = Object.keys(varccthumbnailcarouselmain3 || {});
-        if (userConfig && userConfig.length) {
-          for (var i in varccthumbnailcarouselmain3) {
-            ccCarouselConfig[i] = varccthumbnailcarouselmain3[i];
-          }
-        }
-        $("#cc-thumbnail-carousel-main-3").slick(ccCarouselConfig);
-
-        $('#cc-thumbnail-carousel-main-3').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          var nextSlideElement = $('#cc-thumbnail-carousel-main-3 .slick-track .slick-slide').eq(nextSlide);
-          if (!nextSlideElement.attr('data-slide-id')) {
-            nextSlideElement.attr('data-slide-id', nextSlideElement.attr('id'));
-          }
-        });
-
-        $('#cc-thumbnail-carousel-main-3').on('afterChange', function (event, slick, currentSlide) {
-          setTimeout(() => {
-            var currentSlideElement = $('#cc-thumbnail-carousel-main-3 .slick-track .slick-slide').eq(currentSlide);
-            const preservedSlideId = currentSlideElement.attr('data-slide-id');
-            if (preservedSlideId) {
-              currentSlideElement.attr('id', preservedSlideId);
+            .fk-shopify-multiple-form-select .fk-shopify-form-select-container:last-child,
+            .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child,
+            .fk-shopify-multiple-form-field .fk-shopify-form-field:last-child:last-child,
+            .fk-shopify-multiple-form-field .fk-shopify-form-select-container:last-child {
+                margin-bottom: 0px;
             }
-          });
-        });
-
-        try {
-          $("#cc-thumbnail-carousel-main-3").slick("refresh");
-        } catch (err) { err; }
-        window.ccDeviceScreenWidthvarccthumbnailcarouselmain3 = $(window).width();
-        var ccResizeTimeout;
-        $(window).on("resize", function () {
-          try {
-            clearTimeout(ccResizeTimeout);
-            ccResizeTimeout = setTimeout(() => {
-              var ccDeviceScreenWidth = $(window).width();
-              if (window.ccDeviceScreenWidthvarccthumbnailcarouselmain3 !== ccDeviceScreenWidth) {
-                $("#cc-thumbnail-carousel-main-3").slick("setPosition");
-                const slideTrack = $("[vertical=true]#cc-thumbnail-carousel-main-3").find(".slick-track");
-                const slideTrackBoundary = slideTrack.length && slideTrack[0].getBoundingClientRect();
-                setTimeout(() => {
-                  slideTrack[0].style.transform = "translate3d(0px, 0px, 0px)";
-                }, 100);
-                window.ccDeviceScreenWidthvarccthumbnailcarouselmain3 = ccDeviceScreenWidth;
-              }
-            }, 500);
-          } catch (err) { err; }
-        });
-      });
-    </script>
-<script id="carousel-script-cc-thumbnail-carousel-nav-3-var" script-type="cc">
-      var varccthumbnailcarouselnav3 = {};
-    </script>
-<script id="carousel-script-cc-thumbnail-carousel-nav-3" script-type="cc">
-      $(document).ready(function () {
-        var ccCarouselConfig = { 'cssEase': "linear", 'infinite': false, 'swipe': false, 'arrows': false, 'vertical': true, 'verticalSwiping': true, 'autoplay': false, 'dots': false, 'fade': false, 'focusOnSelect': true, 'pauseOnFocus': false, 'pauseOnHover': false, 'slidesToShow': 5, 'slidesToScroll': 1, 'autoplaySpeed': 3000, 'asNavFor': "#cc-thumbnail-carousel-main-3", 'nextArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;right:-30px;'><i class='fa fa-angle-right'></i></button>", 'prevArrow': "<button type='button' style='display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: absolute;z-index: 1;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);font-size: 25px;font-weight: bold;border-radius: 50%;border: none;cursor: pointer;outline:none;height:35px;width:35px;background-color: #cfcfcf5e;color: #000000;left:-30px;'><i class='fa fa-angle-left'></i></button>", };
-        var userConfig = Object.keys(varccthumbnailcarouselnav3 || {});
-        if (userConfig && userConfig.length) {
-          for (var i in varccthumbnailcarouselnav3) {
-            ccCarouselConfig[i] = varccthumbnailcarouselnav3[i];
-          }
         }
-        if ($("#cc-thumbnail-carousel-nav-3").hasClass('slick-initialized')) {
-          $("#cc-thumbnail-carousel-nav-3").slick('unslick');
-        }
-        $("#cc-thumbnail-carousel-nav-3").slick(ccCarouselConfig);
-
-        $('#cc-thumbnail-carousel-nav-3').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          var nextSlideElement = $('#cc-thumbnail-carousel-nav-3 .slick-track .slick-slide').eq(nextSlide);
-          if (!nextSlideElement.attr('data-slide-id')) {
-            nextSlideElement.attr('data-slide-id', nextSlideElement.attr('id'));
-          }
-        });
-
-        $('#cc-thumbnail-carousel-nav-3').on('afterChange', function (event, slick, currentSlide) {
-          setTimeout(() => {
-            var currentSlideElement = $('#cc-thumbnail-carousel-nav-3 .slick-track .slick-slide').eq(currentSlide);
-            const preservedSlideId = currentSlideElement.attr('data-slide-id');
-            if (preservedSlideId) {
-              currentSlideElement.attr('id', preservedSlideId);
-            }
-          });
-        });
-        try {
-          $("#cc-thumbnail-carousel-nav-3").slick("refresh");
-        } catch (err) { err; }
-        window.ccDeviceScreenWidthvarccthumbnailcarouselnav3 = $(window).width();
-        var ccResizeTimeout;
-        $(window).on("resize", function () {
-          try {
-            clearTimeout(ccResizeTimeout);
-            ccResizeTimeout = setTimeout(() => {
-              var ccDeviceScreenWidth = $(window).width();
-              if (window.ccDeviceScreenWidthvarccthumbnailcarouselnav3 !== ccDeviceScreenWidth) {
-                $("#cc-thumbnail-carousel-nav-3").slick("setPosition");
-                const slideTrack = $("[vertical=true]#cc-thumbnail-carousel-nav-3").find(".slick-track");
-                const slideTrackBoundary = slideTrack.length && slideTrack[0].getBoundingClientRect();
-                setTimeout(() => {
-                  slideTrack[0].style.transform = "translate3d(0px, 0px, 0px)";
-                }, 100);
-                window.ccDeviceScreenWidthvarccthumbnailcarouselnav3 = ccDeviceScreenWidth;
-              }
-            }, 500);
-          } catch (err) { err; }
-        });
-      });
-    </script>
+        </style>
+<div class="form fk-shopify-form-wrapper" id="cc-id-0Yg7NZRBT7qY">
+<form class="form" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-editable="false" data-gjs-highlightable="false" data-gjs-resizable="false" data-gjs-type="form" data-gjs-unstylable='[["width","height"],"shape-outside"]' id="cc-id-HDBTq0Zf2pCL">
+<div class="fk-shopify-form-container" id="cc-id-xb0lnXv2Rra6">
+<div class="fk-shopify-form-icon-header" id="cc-id-fSEVQOEXfnQs">
+<div id="cc-id-KDGAUuRqphlh">
+<div class="fk-shopify-form-icon" id="cc-id-HVlnES8Grgmo">
+<i class="icp icp-auto fas fa-envelope" id="cc-id-laHr8IRh1E2J"></i>
 </div>
 </div>
-<hr id="cc-id-KM6N8ki3GGcg" style="max-width:1200px;margin:30px auto;"/>
-<div class="container cc-section" id="cc-id-U9wMLz6RRtEk">
-<div class="row" id="cc-id-ZK0fdY3lStWY">
-<div class="col-lg-7 col-md-12 cc-checkout-panel" id="cc-id-iC2o4wAcNoB9">
-<div class="form fk-shopify-form-wrapper" id="cc-id-L52eXydB8KO4">
-<form class="form" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-editable="false" data-gjs-highlightable="false" data-gjs-resizable="false" data-gjs-type="form" data-gjs-unstylable='[["width","height"],"shape-outside"]' id="cc-id-kIEmr53BAqmN">
-<div class="fk-shopify-form-container" id="cc-id-ac9HuRwLsKym">
-<div class="fk-shopify-form-icon-header" id="cc-id-1KcwZ59T2YZb">
-<div id="cc-id-xMvYNAwtYZtk">
-<div class="fk-shopify-form-icon" id="cc-id-kMG3R655wZMN">
-<i class="icp icp-auto fas fa-envelope" id="cc-id-qPeq2vJxWuAl"></i>
+<div id="cc-id-DBld6DYyeNdj">
+<div class="fk-shopify-form-header" id="cc-id-Is9hVLXnGBB1">
+                                Contact Information
+                            </div>
 </div>
 </div>
-<div id="cc-id-sTw8tCb9hzGa">
-<div class="fk-shopify-form-header" id="cc-id-Miak8Eg5vD34">
-                  Contact Information
-                </div>
+<div class="fk-shopify-form-field" id="cc-id-9sMLT6mnOjke">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-aBKsoRRCQ5WM" name="emailAddress" placeholder="Email Address" required="" type="text"/>
 </div>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-2uA19UjHjTIX">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-UnxDM4wTlnoe" name="emailAddress" placeholder="Email Address" required="" type="text"/>
+<div class="fk-shopify-form-container" id="cc-id-O5AHO4ZektUJ">
+<div class="fk-shopify-form-icon-header" id="cc-id-rhQR6FEecAtp">
+<div id="cc-id-f7ZJ69PqcUDO">
+<div class="fk-shopify-form-icon" id="cc-id-4lKNEfvuP1uR">
+<i class="icp icp-auto fas fa-address-card" id="cc-id-r6YICtu8zF9O"></i>
 </div>
 </div>
-<div class="fk-shopify-form-container" id="cc-id-DNgY3BTAFKU6">
-<div class="fk-shopify-form-icon-header" id="cc-id-ZNTfFeZNV2m4">
-<div id="cc-id-mLBCC7C9TS94">
-<div class="fk-shopify-form-icon" id="cc-id-vy39Ncc0rUkC">
-<i class="icp icp-auto fas fa-address-card" id="cc-id-SROFVTCdzD7F"></i>
+<div id="cc-id-HzlwUMVmI5BR">
+<div class="fk-shopify-form-header" id="cc-id-h8LojIIf94Ch">
+                                Shipping Information
+                            </div>
 </div>
 </div>
-<div id="cc-id-i5VAEckB7TIB">
-<div class="fk-shopify-form-header" id="cc-id-8SsSxNrQBFFf">
-                  Shipping Information
-                </div>
+<div class="fk-shopify-multiple-form-field" id="cc-id-ZESFqZ8pIx5F">
+<div class="fk-shopify-form-field" id="cc-id-21rWz5FYrsK9">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-EjHvIHCtlRJo" name="shipFirstName" placeholder="First Name" required="" type="text"/>
+</div>
+<div class="fk-shopify-form-field" id="cc-id-WcURYxPY8EcF">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-K12BGCSzOjD8" name="shipLastName" placeholder="Last Name" required="" type="text"/>
 </div>
 </div>
-<div class="fk-shopify-multiple-form-field" id="cc-id-gAZAg349SyEn">
-<div class="fk-shopify-form-field" id="cc-id-1dIc9vT87b23">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-ibN1w5utxbJ6" name="shipFirstName" placeholder="First Name" required="" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-uQO001xtSV2c">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-eN59UAgN2BR4" name="shipAddress1" placeholder="Address" required="" type="text"/>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-YrkMwv065nYZ">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-lFSlntZ4o8US" name="shipLastName" placeholder="Last Name" required="" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-cXsxjGJXke1M">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-o4iCppaX3QjB" name="shipAddress2" placeholder="Apt, suite, etc (optional)" type="text"/>
 </div>
+<div class="fk-shopify-form-field" id="cc-id-vKNAp0mxDoJJ">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-9s8OrJQUdLE4" name="shipCity" placeholder="City" required="" type="text"/>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-WxJWGoaSp4Gd">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-ceIZINvkt4I5" name="shipAddress1" placeholder="Address" required="" type="text"/>
-</div>
-<div class="fk-shopify-form-field" id="cc-id-P15izPeIk1q9">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-iZesnA9qPafl" name="shipAddress2" placeholder="Apt, suite, etc (optional)" type="text"/>
-</div>
-<div class="fk-shopify-form-field" id="cc-id-DAJlCftgtu27">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-NVrWe6b14xDu" name="shipCity" placeholder="City" required="" type="text"/>
-</div>
-<div class="fk-shopify-multiple-form-select" id="cc-id-3iYmqOHUjjUK">
-<div class="fk-shopify-form-select-container" id="cc-id-Mq6E2gzeR17T">
-<div class="fk-shopify-form-select" id="cc-id-BVwtpUdaJaz5">
-<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-MRWqrbuRjVu3" name="shipCountry" required="">
-<option id="cc-id-sWIPbc9D2zKK" value="">Select your country</option>
+<div class="fk-shopify-multiple-form-select" id="cc-id-rXLvNMQSOZM4">
+<div class="fk-shopify-form-select-container" id="cc-id-OtBJTfsUkiH8">
+<div class="fk-shopify-form-select" id="cc-id-G4ZpZDYUvh7i">
+<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-71S87XwXaHCP" name="shipCountry" required="">
+<option id="cc-id-PKY6gob2I4nd" value="">Select your country</option>
 </select>
 </div>
 </div>
-<div class="fk-shopify-form-select-container" id="cc-id-P3VO8pt6mCB9">
-<div class="fk-shopify-form-select" id="cc-id-uMumIQ6XNOYF">
-<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-WdWdnJt0wG5D" name="shipState" required="">
-<option id="cc-id-1IJLCMHLVYIc" value="">Select state</option>
+<div class="fk-shopify-form-select-container" id="cc-id-Z4szi6sEg3iC">
+<div class="fk-shopify-form-select" id="cc-id-PU6zUjzgEz6c">
+<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-wB61gQH8wylh" name="shipState" required="">
+<option id="cc-id-0CPNLbWphJeV" value="">Select state</option>
 </select>
 </div>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-zRlHnw03NxRo">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-BBeKnFeRyqms" name="shipPostalCode" placeholder="Postal Code" required="" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-mn1uj3a1iipk">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-ObaWoukdTGUD" name="shipPostalCode" placeholder="Postal Code" required="" type="text"/>
 </div>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-wgnto92DbQqy">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-t28qOHcDPdaF" name="phoneNumber" placeholder="Phone" required="" type="tel"/>
+<div class="fk-shopify-form-field" id="cc-id-WFgF6cW1GC7d">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-DyQE4efLerNH" name="phoneNumber" placeholder="Phone" required="" type="tel"/>
 </div>
 </div>
-<div class="fk-shopify-form-container" id="cc-id-hYXVdqFUHaod">
-<div class="fk-shopify-form-checkbox-container" id="cc-id-zhs98pxJcrcS">
-<div class="fk-shopify-form-checkbox" id="cc-id-oh1zniZjeb9w">
-<input checked="" class="fk-form-checkbox form-check-input" id="cc-id-Ly0dKGWJowUd" name="billShipSame" onclick="checkBoxChange(attributes)" opencheckboxsection="billingAddress" type="checkbox"/>
+<div class="fk-shopify-form-container" id="cc-id-u9GCLgR0OVSn">
+<div class="fk-shopify-form-checkbox-container" id="cc-id-BovCzfAPxj5e">
+<div class="fk-shopify-form-checkbox" id="cc-id-ZffTYIKIuhvP">
+<input checked="" class="fk-form-checkbox form-check-input" id="cc-id-U1S8LvJnOng0" name="billShipSame" onclick="checkBoxChange(attributes)" opencheckboxsection="billingAddress" type="checkbox"/>
 </div>
-<div class="fk-shopify-form-checkbox-label" id="cc-id-L3fXEoCEIMrX">
-<div id="cc-id-t2WIkqByEJDw">
-                  Billing Address is Same as Shipping Address?
-                </div>
+<div class="fk-shopify-form-checkbox-label" id="cc-id-wVJY08YMNb5Z">
+<div id="cc-id-qlRtva1JyiNb">
+                                Billing Address is Same as Shipping Address?
+                            </div>
 </div>
 </div>
 </div>
 </form>
 <form class="form" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-editable="false" data-gjs-highlightable="false" data-gjs-resizable="false" data-gjs-type="form" data-gjs-unstylable='[["width","height"],"shape-outside"]' id="billingAddress">
-<div class="fk-shopify-form-container" id="cc-id-qFtRDREKCM0U">
-<div class="fk-shopify-form-icon-header" id="cc-id-rP2s6slMnWfe">
-<div id="cc-id-7LvFgZYkGrPf">
-<div class="fk-shopify-form-icon" id="cc-id-exBdaF5QKtlW">
-<i class="icp icp-auto fas fa-money-bill-alt" id="cc-id-icgeukdlcoK9"></i>
+<div class="fk-shopify-form-container" id="cc-id-UnAvwSWJfdjM">
+<div class="fk-shopify-form-icon-header" id="cc-id-PqPEBqUhArQE">
+<div id="cc-id-PcyLasnipuaU">
+<div class="fk-shopify-form-icon" id="cc-id-kxRFZXe1cb51">
+<i class="icp icp-auto fas fa-money-bill-alt" id="cc-id-JJRzhbuXMZ5f"></i>
 </div>
 </div>
-<div id="cc-id-suRqMlpMrz5T">
-<div class="fk-shopify-form-header" id="cc-id-NAColpujePqs">
-                  Billing Information
-                </div>
+<div id="cc-id-0pKGytvukFhF">
+<div class="fk-shopify-form-header" id="cc-id-4vTYYojmLVOk">
+                                Billing Information
+                            </div>
 </div>
 </div>
-<div class="fk-shopify-multiple-form-field" id="cc-id-qqCfKHkwicpo">
-<div class="fk-shopify-form-field" id="cc-id-RMGuPHYyfhx4">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-jYRwBeAdKQG5" name="firstName" placeholder="First Name" required="" type="text"/>
+<div class="fk-shopify-multiple-form-field" id="cc-id-VEUVB5INM1Mj">
+<div class="fk-shopify-form-field" id="cc-id-eBsrdFtCdZe1">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-1MFCIX3BYOtD" name="firstName" placeholder="First Name" required="" type="text"/>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-oKTbmSiJdPFz">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-9x2OgPqzlMmW" name="lastName" placeholder="Last Name" required="" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-jdg3vSFkpBBG">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-jxrzuLWOefQr" name="lastName" placeholder="Last Name" required="" type="text"/>
 </div>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-jK7Por95YoyD">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-JVIQVdMMPXE1" name="address1" placeholder="Address" required="" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-SO42uKiv7RyK">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-6txXYPZTQGOA" name="address1" placeholder="Address" required="" type="text"/>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-i1hxvISRU0NP">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-R0NYxIIIVjCh" name="address2" placeholder="Apt, suite, etc (optional)" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-wwln6Eoie0gV">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-Z2cuVixkZVYk" name="address2" placeholder="Apt, suite, etc (optional)" type="text"/>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-Nv4K7XZ6NIco">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-1SKxOH2K91kN" name="city" placeholder="City" required="" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-BzPoBrUBHtYD">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-Zw69CrxG7YXi" name="city" placeholder="City" required="" type="text"/>
 </div>
-<div class="fk-shopify-multiple-form-select" id="cc-id-OiNwYhaHZQ34">
-<div class="fk-shopify-form-select-container" id="cc-id-NCr1QfbR9l4c">
-<div class="fk-shopify-form-select" id="cc-id-QVac60KMaLge">
-<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-PhVQrWXyzSSM" name="country" required="">
-<option id="cc-id-trDzVbQ9TcV3" value="">Select your country</option>
+<div class="fk-shopify-multiple-form-select" id="cc-id-pN2Ig00rVq4j">
+<div class="fk-shopify-form-select-container" id="cc-id-B6nBvbdFo9xb">
+<div class="fk-shopify-form-select" id="cc-id-50OXirZRiRBa">
+<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-epZITGgrscAX" name="country" required="">
+<option id="cc-id-Cg4KbFpiAMoz" value="">Select your country</option>
 </select>
 </div>
 </div>
-<div class="fk-shopify-form-select-container" id="cc-id-H51LHhWBcAAS">
-<div class="fk-shopify-form-select" id="cc-id-YKGfVWECscIh">
-<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-r0bPXVblZ3NW" name="state" required="">
-<option id="cc-id-Caa9xVX1qoS2" value="">Select state</option>
+<div class="fk-shopify-form-select-container" id="cc-id-Pf8eGF9IyDN8">
+<div class="fk-shopify-form-select" id="cc-id-pbWvTMVTucHY">
+<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-kWCRNYdWCscm" name="state" required="">
+<option id="cc-id-c5F9HpUlwW1u" value="">Select state</option>
 </select>
 </div>
 </div>
-<div class="fk-shopify-form-field" id="cc-id-HHzhI6u8zAzO">
-<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-egX2ZfSil674" name="postalCode" placeholder="Postal Code" required="" type="text"/>
+<div class="fk-shopify-form-field" id="cc-id-hw3U3x8EE5GX">
+<input data-gjs-draggable=".form, .io-attrs" data-gjs-stylable="true" data-gjs-type="input" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-TeLYHteOtLAQ" name="postalCode" placeholder="Postal Code" required="" type="text"/>
 </div>
 </div>
 </div>
 </form>
-<form class="form" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-editable="false" data-gjs-highlightable="false" data-gjs-resizable="false" data-gjs-type="form" data-gjs-unstylable='[["width","height"],"shape-outside"]' id="cc-id-zY7lrq0FHgFb">
-<div class="fk-shopify-form-container" id="cc-id-V5M7Zp7vNMGL">
-<div class="fk-shopify-form-icon-header" id="cc-id-tKSlqrHrmbFH">
-<div id="cc-id-WfAiX01uDLm7">
-<div class="fk-shopify-form-icon" id="cc-id-euH6etXBNJMK">
-<i class="icp icp-auto fas fa-truck" id="cc-id-F0MtCMSbRl6Q"></i>
+<form class="form" data-gjs-draggable=".fk-col, :not([data-gjs-type=wrapper]):not(row):not(section)" data-gjs-editable="false" data-gjs-highlightable="false" data-gjs-resizable="false" data-gjs-type="form" data-gjs-unstylable='[["width","height"],"shape-outside"]' id="cc-id-vc1v9r86eNwX">
+<div class="fk-shopify-form-container" id="cc-id-Q7iLWceWwxJL">
+<div class="fk-shopify-form-icon-header" id="cc-id-Q6xVJGyOphTE">
+<div id="cc-id-xIqqB9r4Eh0C">
+<div class="fk-shopify-form-icon" id="cc-id-3BfQ0tveH30S">
+<i class="icp icp-auto fas fa-truck" id="cc-id-5NXFhmiXbIwX"></i>
 </div>
 </div>
-<div id="cc-id-j5vFtPAgnW7D">
-<div class="fk-shopify-form-header" id="cc-id-u1G3uhPLNHDR">
-                  Shipping Method
-                </div>
+<div id="cc-id-ILft9SGVZe8N">
+<div class="fk-shopify-form-header" id="cc-id-BQv2WNl7A4dh">
+                                Shipping Method
+                            </div>
 </div>
 </div>
-<div class="fk-shopify-form-select-container" id="cc-id-OydlwTmOj05z">
-<div class="fk-shopify-form-select" id="cc-id-xCF0d1qLsvqg">
-<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-Vhf4Boyl47Xl" name="shipProfileId" required="">
-<option id="cc-id-zYqp02vgWe8V" value="">Select your Shipping Method</option>
+<div class="fk-shopify-form-select-container" id="cc-id-jkuRv630pNIh">
+<div class="fk-shopify-form-select" id="cc-id-sHFk6jOSL0IZ">
+<select class="form-control-custom fk-form-select" data-gjs-draggable=".form, .io-attrs" data-gjs-type="form-select" data-gjs-unstylable='["height","shape-outside"]' id="cc-id-bcNJOVzNEMr7" name="shipProfileId" required="">
+<option id="cc-id-DXQsedBEmLtS" value="">Select your Shipping Method</option>
 </select>
 </div>
 </div>
 </div>
 </form>
 </div>
-<div class="fk-payment-option-wrapper" id="cc-id-LrnXuiuyssGj">
-<div id="cc-id-Mr8i8DYrjFPr">
-<div class="fk-payment-header" id="cc-id-IX86tnmr3RWo">
-<div class="fk-payment-header-main" id="cc-id-RNC4ZBj8s3t1">
-              Payment
-            </div>
-<div class="fk-payment-header-sub" id="cc-id-vkpkgBiY8BfX">
-              All transactions are secure and encrypted
-            </div>
 </div>
-<div class="fk-payment-options" id="cc-id-pDbQ5LaI4pqp">
-<div class="fk-payment-option-container" id="cc-id-0cdL7MdOINW3">
-<input checked="" class="fk-form-radio fk-payment-option-toggler-field" id="cc-id-7xl1875ego3w" name="fk-payment-option-toggler" opencheckboxsection="fkCreditCard" type="radio" value="CREDITCARD"/>
-<div class="fk-payment-option-header-wrapper" id="cc-id-Fpfz6lGTn8kP">
-<div class="fk-payment-option-header-container" id="cc-id-2vKS257GfWcV">
-<div class="fk-payment-option-label" id="cc-id-AdnTglCeNFGK">
-<div class="fk-headline" id="cc-id-tXV4RAHlXULY">Credit Card</div>
+<div class="cc-panel-card" id="cc-id-T18iwItCqpgr">
+<style>
+            .fk-payment-option-wrapper {
+                padding: 5px;
+            }
+            .fk-payment-header {
+                text-align: left;
+            }
+            .fk-payment-header-main {
+                margin: 5px 10px;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            .fk-payment-header-sub {
+                margin: 5px 10px;
+                color: #9b9b9b;
+            }
+            .fk-payment-options {
+                padding: 5px;
+            }
+            .fk-payment-option-container {
+                position: relative;
+                padding: 0 5px;
+            }
+            .fk-payment-option-container:first-child
+            .fk-payment-option-header-wrapper {
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            .fk-payment-option-container:last-child
+            .fk-payment-option-header-wrapper {
+                border-bottom-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            .fk-payment-option-container:last-child
+            .fk-payment-option-body {
+                border-bottom-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            .fk-payment-option-header-wrapper {
+                border: 1px solid #d9d9d9;
+                display: block;
+            }
+            .fk-payment-option-header-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 10px;
+                height: 40px;
+            }
+            .fk-card-payment-bg-icon-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 40px;
+            }
+            .fk-payment-option-label {
+                margin-left: 30px;
+                font-weight: bold;
+                color: #6f6f6f;
+                padding: 5px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+                text-align: left;
+            }
+            @media screen and (max-width: 450px) {
+                .fk-card-payment-bg-icon-container {
+                display: none;
+                }
+            }
+            .fk-background {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            .fk-card-payment-bg-icon {
+                margin-left: 5px;
+                padding: 5px;
+                min-height: 25px;
+                min-width: 40px;
+            }
+            .fk-card-one {
+                background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/visa.svg);
+            }
+            .fk-card-two {
+                background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/master.svg);
+            }
+            .fk-card-three {
+                background-image: url(https://dev-assets.checkoutchamp.com/f09818f0-af22-11ea-afe1-abac30942df7/american.svg);
+            }
+            .fk-card-four {
+                background-image: url(https://dev-assets.checkoutchamp.com/c4e813e0-5ce6-11ec-be68-c3d6cf8c5f89/1721766810842_discover1_1_.png);
+            }
+            .fk-payment-option-toggler-field {
+                position: absolute;
+                top: 10px;
+                left: 15px;
+                height: 20px;
+                width: 20px;
+                cursor: pointer;
+            }
+            .fk-payment-option-toggler-field:checked ~ .fk-payment-option-header-wrapper {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            .fk-payment-option-toggler-field:checked ~ .fk-payment-option-body {
+                display: flex;
+                border: 1px solid #d9d9d9;
+            }
+            .fk-payment-option-body {
+                background-color: #fafafa;
+                display: flex;
+                align-items: center;
+                border: 1px solid #d9d9d9;
+            }
+            .fk-card-payment-field {
+                flex: 1;
+                margin: 10px;
+                position: relative;
+            }
+            .fk-card-payment-field-icon {
+                position: absolute;
+                top: 12px;
+                right: 20px;
+            }
+            .fk-card-payment-field input {
+                outline: none;
+                font-size: 18px;
+                padding: 15px;
+                height: 45px;
+                width: 100%;
+                border-radius: 5px;
+                border: 1px solid #ced4da;
+                box-sizing: border-box;
+            }
+            .fk-card-number input{
+                padding: 15px 35px 15px 15px;
+            }
+            .fk-card-payment-container {
+                width: 100%;
+                margin: 5px;
+            }
+            .fk-card-multiple-payment-field {
+                display: flex;
+                flex-direction: row;
+            }
+            .fk-payment-option-body-content{
+                display: flex;
+                height: 130px;
+                width: 100%;
+                align-items:center;
+                justify-content: center;
+                margin: 5px;
+            }
+            .btnPayPal2 {
+                background-image: url('https://config.checkoutchamp.com/development/paypal-checkout-3.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                color: transparent;
+                background-color: #ffd11a;
+                border: 1px solid transparent;
+            }
+            .btnPayPal2:hover {
+                background-color: #e6b800;
+                color: transparent;
+                border-color: transparent;
+                white-space: normal;
+            }
+            .btnPayPal2:focus {
+                box-shadow: none;
+            }
+            .btn-paypal2-styles {
+                padding: 6px 12px;
+                background-size: contain;
+            }
+        </style>
+<div class="fk-payment-option-wrapper" id="cc-id-xMp1juJtVEFE">
+<div id="cc-id-tb6F7nvdE2OD">
+<div class="fk-payment-header" id="cc-id-H0A2TVwyJmIe">
+<div class="fk-payment-header-main" id="cc-id-FVr9Qh8yXv6U">
+                        Payment
+                    </div>
+<div class="fk-payment-header-sub" id="cc-id-mFFciuDCLFuM">
+                        All transactions are secure and encrypted
+                    </div>
 </div>
-<div class="fk-card-payment-bg-icon-container" id="cc-id-L0h15MPS31ba">
-<div class="fk-card-payment-bg-icon fk-background fk-card-one" id="cc-id-9icidMVKUOCL"></div>
-<div class="fk-card-payment-bg-icon fk-background fk-card-two" id="cc-id-TZwlQd4q8qGo"></div>
-<div class="fk-card-payment-bg-icon fk-background fk-card-three" id="cc-id-9WDKns572ITI"></div>
-<div class="fk-card-payment-bg-icon fk-background fk-card-four" id="cc-id-DXuro6vJbMhf"></div>
+<div class="fk-payment-options" id="cc-id-k9TsuZHRsYwP">
+<div class="fk-payment-option-container" id="cc-id-8KXSQbD7WWJS">
+<input checked="" class="fk-form-radio fk-payment-option-toggler-field" id="cc-id-KkMM0jQb6gbt" name="fk-payment-option-toggler" opencheckboxsection="fkCreditCard" type="radio" value="CREDITCARD"/>
+<div class="fk-payment-option-header-wrapper" id="cc-id-jQzW52TdimuP">
+<div class="fk-payment-option-header-container" id="cc-id-Gtk4vvVSNQLl">
+<div class="fk-payment-option-label" id="cc-id-pIn8srmRtv5X">
+<div class="fk-headline" id="cc-id-qhPx8Y7XsrSv">Credit Card</div>
+</div>
+<div class="fk-card-payment-bg-icon-container" id="cc-id-BpDmH5RiMKpP">
+<div class="fk-card-payment-bg-icon fk-background fk-card-one" id="cc-id-GNdzSgVaI5z5"></div>
+<div class="fk-card-payment-bg-icon fk-background fk-card-two" id="cc-id-2Dm7tO4fJHS6"></div>
+<div class="fk-card-payment-bg-icon fk-background fk-card-three" id="cc-id-4k2k59yE6752"></div>
+<div class="fk-card-payment-bg-icon fk-background fk-card-four" id="cc-id-aJg8r9HE60Dl"></div>
 </div>
 </div>
 </div>
 <div class="fk-payment-option-body fk-payment-options-hide-on-load" id="fkCreditCard">
-<form class="fk-card-payment-container" id="cc-id-5R4fD27el1XA">
-<div id="cc-id-eKAnFihZ226E">
-<div class="fk-card-payment-field fk-card-number" id="cc-id-KFRAQjgcQK0z">
-<div class="fk-card-payment-field-icon" id="cc-id-IY4UvVSkJbSY">
-<i class="fa fa-lock fa-icon icp icp-auto" id="cc-id-Vna6hcrBy3sn"></i>
+<form class="fk-card-payment-container" id="cc-id-gkCplTXJUk13">
+<div id="cc-id-ZFfPliupqoU7">
+<div class="fk-card-payment-field fk-card-number" id="cc-id-sSaOQdhtzF3R">
+<div class="fk-card-payment-field-icon" id="cc-id-th4sMnijULzI">
+<i class="fa fa-lock fa-icon icp icp-auto" id="cc-id-DHPnpU2fBReI"></i>
 </div>
-<input id="cc-id-dRxYyCLcAMXu" name="cardNumber" placeholder="Card Number" required="" type="text"/>
+<input id="cc-id-dHFJjuGhmKfF" name="cardNumber" placeholder="Card Number" required="" type="text"/>
 </div>
 </div>
-<div class="fk-card-multiple-payment-field" id="cc-id-O2d36BhduWlN">
-<div class="fk-card-payment-field" id="cc-id-Ua9WnUxAr4Vz">
-<input id="cc-id-RxFFtuElam4e" name="cardDate" placeholder="MMYY" required="" type="text"/>
+<div class="fk-card-multiple-payment-field" id="cc-id-YCFCdCYSyYUJ">
+<div class="fk-card-payment-field" id="cc-id-cvd95e5bzVV8">
+<input id="cc-id-OA9x14xQPHOv" name="cardDate" placeholder="MMYY" required="" type="text"/>
 </div>
-<div class="fk-card-payment-field" id="cc-id-dfROHc0QwVqY">
-<input id="cc-id-qjrZdhwy2ak0" name="cardSecurityCode" placeholder="CVV" required="" type="text"/>
+<div class="fk-card-payment-field" id="cc-id-lHGTnabsPHGZ">
+<input id="cc-id-pvr6SgYzV2am" name="cardSecurityCode" placeholder="CVV" required="" type="text"/>
 </div>
 </div>
 </form>
 </div>
 </div>
-<div class="fk-payment-option-container" id="cc-id-saF0bPOnlPjh">
-<input class="fk-form-radio fk-payment-option-toggler-field" id="cc-id-qsuTdtlUfyNB" name="fk-payment-option-toggler" opencheckboxsection="fkPayPal" type="radio" value="PAYPAL"/>
-<div class="fk-payment-option-header-wrapper" id="cc-id-DZuP9NktzNW7">
-<div class="fk-payment-option-header-container" id="cc-id-aEX0yMyamD1t">
-<div class="fk-payment-option-label" id="cc-id-WqagmDjkC7Ij">
-<div class="fk-headline" id="cc-id-Phud7wAryeTm">PayPal</div>
+<div class="fk-payment-option-container" id="cc-id-gcLRdTyon1dF">
+<input class="fk-form-radio fk-payment-option-toggler-field" id="cc-id-rYTtLPtsiOns" name="fk-payment-option-toggler" opencheckboxsection="fkPayPal" type="radio" value="PAYPAL"/>
+<div class="fk-payment-option-header-wrapper" id="cc-id-d624MAE86PWt">
+<div class="fk-payment-option-header-container" id="cc-id-zjxUD0sRX4I8">
+<div class="fk-payment-option-label" id="cc-id-IipmO50fSlqP">
+<div class="fk-headline" id="cc-id-L2lVSID1u7a6">PayPal</div>
 </div>
 </div>
 </div>
 <div class="fk-payment-option-body fk-payment-options-hide-on-load" id="fkPayPal">
-<div class="fk-payment-option-body-content" id="cc-id-cjWN2KDIAa4f">
-<button action="none" class="btn btnPayPal2 btn-paypal2-styles" data-cc-resizable="true" id="cc-id-ud8tfQZAraBV" title="PayPal">Checkoutwithpaypal</button>
+<div class="fk-payment-option-body-content" id="cc-id-7h9DpLm4IWxH">
+<button action="submit" class="btn btnPayPal2 btn-paypal2-styles" data-cc-resizable="true" id="cc-id-wqFEg8D04wzI" onclick="callMethod(event)" title="PayPal">Checkoutwithpaypal</button>
 </div>
 </div>
 </div>
-<div class="fk-payment-option-container" id="cc-id-Wt92gpfKRrQh">
-<input class="fk-form-radio fk-payment-option-toggler-field" id="cc-id-crMzmJPso3wL" name="fk-payment-option-toggler" opencheckboxsection="fkOther" type="radio" value=""/>
-<div class="fk-payment-option-header-wrapper" id="cc-id-oUa6hrq2SJST">
-<div class="fk-payment-option-header-container" id="cc-id-h4gicfD81paZ">
-<div class="fk-payment-option-label" id="cc-id-NpfasqLqFtaQ">
-<div class="fk-headline" id="cc-id-Zb6MRyA46rT2">Other</div>
+<div class="fk-payment-option-container" id="cc-id-njq5JzjuxZEO">
+<input class="fk-form-radio fk-payment-option-toggler-field" id="cc-id-QpY7NEkXkSE4" name="fk-payment-option-toggler" opencheckboxsection="fkOther" type="radio" value=""/>
+<div class="fk-payment-option-header-wrapper" id="cc-id-HNdc06PVz0oR">
+<div class="fk-payment-option-header-container" id="cc-id-aFxMPMDEaIaG">
+<div class="fk-payment-option-label" id="cc-id-r8bYPX4gfjlG">
+<div class="fk-headline" id="cc-id-YqyxzJ9oQ0O1">Other</div>
 </div>
 </div>
 </div>
 <div class="fk-payment-option-body fk-payment-options-hide-on-load" id="fkOther">
-<div class="fk-payment-option-body-content" id="cc-id-CWky9mOGHBJr"></div>
+<div class="fk-payment-option-body-content" id="cc-id-VfxIdakEAWJ1"></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<form class="form form-style cc-v2 cc-cl-coupon-code" id="cc-id-pp1CNat8gjwk">
-<div class="fk-element-container cc-coupon" id="cc-id-7YbOPAz2yyc2">
-<input class="form-control-custom" customval="" id="cc-id-Jgw5gGyZUvml" name="couponCode" placeholder="Coupon Code" type="text"/>
 </div>
-<button action="applyCoupon" align="center" btntype="none" class="btn btn-primary cc-form-btn apply-coupon" data-minutesdelay="" data-secondsdelay="" id="cc-id-bPU1yuH901cA" onclick="applyCoupon(event)" size="none" title="" type="button">
-          Apply
-        </button>
+<div class="cc-panel-card" id="cc-id-fGcn13Dce53I">
+<div class="fk-headline cc-headline-style cc-headline-sm" id="cc-id-c5t7KUSyekoZ">Have a Coupon?</div>
+<style>
+  .form-control-custom {
+    display: block;
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .cc-v2 {
+    border-radius: 6px;
+    background: #f4f4f4ff;
+    padding: 20px 10px 10px 10px;
+    font-family: Poppins;
+    font-weight: 400;
+  }
+
+  .cc-v2 .btn.btn-primary.cc-form-btn {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    background: #f26419ff;
+    border-color: #f26419ff;
+  }
+
+  .cc-v2 .btn.btn-primary.cc-form-btn:hover {
+    background: #f26419ff;
+    border-color: #f26419ff;
+  }
+
+  .form-control-custom:focus,
+  input:not([type="radio"]):focus {
+    border: solid 1px rgba(242, 100, 25, 1);
+    border-radius: 6px;
+    outline: none !important;
+    box-shadow: none;
+  }
+
+  .cc-coupon {
+    display: inline-block;
+    width: 75%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 10px;
+  }
+</style>
+<form class="form form-style cc-v2 cc-cl-coupon-code" id="cc-id-y3uUi9SF8dBZ">
+<div class="fk-element-container cc-coupon" id="cc-id-vV7yVbq9Ew6A">
+<input class="form-control-custom" customval="" id="cc-id-QOfMXSfjSNTt" name="couponCode" placeholder="Coupon Code" type="text">
+</input></div>
+<button action="applyCoupon" align="center" btntype="none" class="btn btn-primary cc-form-btn apply-coupon" data-minutesdelay="" data-secondsdelay="" id="cc-id-gatwqilBIzbv" onclick="applyCoupon(event)" size="none" title="" type="button">
+    Apply
+  </button>
 </form>
-<div class="cc-checkout-btn-wrap" id="cc-id-pXjzWzoVjm1Z">
-<button action="submit" class="btn btn-primary btn-one-style" id="cc-id-FPiHEc8mS5S7" onclick="callMethod(event)">Complete Checkout</button>
+</div>
+<style>
+                    .btn {
+                        display: inline-block;
+                        font-weight: 400;
+                        text-align: center;
+                        white-space: normal;
+                        vertical-align: middle;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        border: 1px solid transparent;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        padding-left: 25px;
+                        padding-right: 25px;
+                        line-height: 1.5;
+                        border-radius: .25rem;
+                        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                        margin: 20px auto;
+                        white-space: normal;
+                        font-size: 20px;
+                        font-family: Helvetica, serif;
+                    }
+                    .btn.btn-primary {
+                        background: #007bff;
+                        color: #fff;
+                        border-color: #007bff;
+                        white-space: normal;
+                    }
+                    .btn.btn-primary.btn-one-style:active:focus {
+                        box-shadow: none;
+                    }
+                    .btn.btn-primary.btn-one-style:focus {
+                        box-shadow: none;
+                    }
+                    .cc-checkout-submit-wrapper {
+                        text-align: center;
+                    }
+                    .cc-checkout-submit-wrapper .btn {
+                        width: 100%;
+                        max-width: 420px;
+                    }
+            </style>
+<div class="cc-checkout-submit-wrapper" id="cc-id-fLuxsyf348Jk">
+<button action="submit" class="btn btn-primary btn-one-style" id="cc-id-xisEdAAEeppM" onclick="callMethod(event)">Complete Checkout</button>
 </div>
 </div>
-<div class="col-lg-5 col-md-12" id="cc-id-jZDJTQXNwoWX">
-<div align="left" class="cc-cart-wrapper cc-shopping-cart-two-identifier" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-OFsnZF7iLx4E">
-<div class="cc-cart-toggle p-1 bg-light d-flex flex-row justify-content-between align-items-center" data-cc-custom-name="Shopping Cart Toggle" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="cartToggle" data-layer-name="Shopping Cart Toggle" draggable="true" hideonloadfordesktop="false" hideonloadforlargemobile="false" hideonloadforlargetablet="false" hideonloadformobile="false" hideonloadfortablet="false" id="cc-id-4sHy5DvP0aTs">
-<div class="d-flex flex-row align-items-center" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-n83gbSpTLxn8">
-<div class="p-1" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-xmgIz2gYdRHP">
-<i class="fa fa-shopping-cart m-1" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-RHZiOLyfyfSY"></i>
+<div align="left" class="fk-col col cc-checkout-right" id="cc-id-Kmgs6uMXuuY1">
+<div class="cc-panel-card" id="cc-id-8it6mt78sREJ">
+<div class="fk-headline cc-headline-style cc-headline-sm" id="cc-id-pxYyhIKHQI7C">Order Summary</div>
+<style>
+.cc-cart-container {
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.cc-cart-row {
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  word-break: break-word;
+  background-color: white;
+  margin: 5px 0;
+}
+
+.cc-cart-row-img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+}
+
+.cc-cart-row-trash-icon {
+  cursor: pointer;
+  background-color: black;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+}
+
+.cc-cart-row-qty-btn {
+  cursor: pointer;
+  background-color: black;
+  padding: 6px;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.cc-cart-row-content {
+  text-align: left;
+}
+
+.cc-cart-row-prod-qty-container {
+  margin: 5px 2px;
+  min-width: 30px;
+  padding: 2px 5px;
+  border: 1px solid lightgray;
+  display: inline-block;
+}
+
+.cc-cart-row-prod-title {
+  font-weight: bold;
+  margin: 5px;
+}
+
+.cc-cart-row-variant,
+.cc-cart-row-margin,
+.cc-cart-row-prod-price {
+  margin: 5px;
+}
+
+.cc-cart-details-block {
+  display: block;
+  padding: 5px 10px;
+}
+
+.cc-cart-details-block .cc-cart-details-value,
+.cc-cart-details-block .cc-cart-details-label {
+  padding: 10px;
+  text-align: right;
+  display: block;
+  width: auto;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cc-cart-prod-qty-bubble {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #f2f2f2;
+  color: black;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 480px) {
+  .cc-cart-row .cc-cart-row-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+</style>
+<div align="left" class="cc-cart-wrapper cc-shopping-cart-two-identifier" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-RBsQYXzENpOS">
+<div class="cc-cart-toggle p-1 bg-light d-flex flex-row justify-content-between align-items-center" data-cc-custom-name="Shopping Cart Toggle" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="cartToggle" data-layer-name="Shopping Cart Toggle" draggable="true" id="cc-id-We9DyF5QHXw3">
+<div class="d-flex flex-row align-items-center" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-HNfVOwOc8QyU">
+<div class="p-1" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-7AaqFGJJByVK">
+<i class="fa fa-shopping-cart m-1" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-Fvbgz7h6itCm"></i>
 </div>
-<div class="cc-dashed droppable" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-4JWDD8KNE0kz">
-<div class="cc-cart-open-text" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-c0jwb2VdcwAF">
-<span class="m-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-VQjfO30dpBXz">Show Order Summary</span>
-<i class="fa fa-caret-down m-1" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-lBqUBan9FjSo"></i>
+<div class="cc-dashed droppable" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-DDBRtsYh0OPk">
+<div class="cc-cart-open-text" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-9pkjI7ozlNAb">
+<span class="m-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-MmKyRmUYdg2l">Show Order Summary</span>
+<i class="fa fa-caret-down m-1" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-uCq1GNLLKv0M"></i>
 </div>
-<div class="cc-cart-hidden-text" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-WqeAuenT14nj">
-<span class="m-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-Y1dCP4UOOwp6">Hide Order Summary</span>
-<i class="fa fa-caret-up m-1" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-KcRs309rD79M"></i>
-</div>
-</div>
-</div>
-<div class="p-1" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-qScFkDQd7TO3">
-<div class="grandTotal m-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-mCOZqyPZqh4p">$0.00</div>
+<div class="cc-cart-hidden-text" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-YRsMfihslQFz">
+<span class="m-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-ixlNQO9IEitB">Hide Order Summary</span>
+<i class="fa fa-caret-up m-1" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-dwaiY7FEQz0E"></i>
 </div>
 </div>
-<div class="cc-cart-toggle-target" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-vBZ6vKDSENVF">
-<div class="cc-cart-container" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-x6fUFhAm3m6O">
-<div class="cc-cart-row" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-ACTr48xrQkiA">
-<div class="row cc-cart-row-margin" data-cc-custom-name="Row" data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]" data-cc-droppable="[data-cc-type=column]" data-cc-type="row" data-layer-name="Row" draggable="true" id="cc-id-E1byFQ1f8X1O">
-<div class="col-sm-3 p-0 position-relative" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-C1PdFDtPVOg2">
-<img align="center" alt="Product thumbnail" class="cc-cart-row-img" data-cc-custom-name="Image" data-cc-draggable=":not([data-cc-type=wrapper]):not([data-cc-type=form]):not(.form-group)" data-cc-droppable="false" data-cc-type="image" data-layer-name="Image" draggable="true" height="" href="" id="cc-id-kPD7ILzWYlU1" onclick="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+" target="_self" title="" width=""/>
-<div class="cc-cart-prod-qty-bubble" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-pkyx479gOUY4">0</div>
 </div>
-<div class="col-sm-9 p-0" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-juD0eqziq0jx">
-<div class="row cc-cart-row-margin" data-cc-custom-name="Row" data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]" data-cc-droppable="[data-cc-type=column]" data-cc-type="row" data-layer-name="Row" draggable="true" id="cc-id-4ZDqkg3LtCfZ">
-<div class="col-6 cc-cart-row-content p-0" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-DEcadMllkxaG">
-<div class="cc-cart-row-prod-title" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-v0M8CvHeg8S4">Name</div>
-<div class="cc-cart-row-variant" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-dMcOQbVtI9s6">
-<span class="cc-cart-row-prod-variant-label font-weight-bold mr-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-ZanhE0HcdasH">Label</span>
-<span class="cc-cart-row-prod-variant cc-cart-row-frequency" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-0wOdCYZC95E0">Variant</span>
-</div>
-<div class="cc-cart-row-trash-icon-container" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-nAuJQWVQ8MfO">
-<i class="cc-cart-row-trash-icon fa fa-trash" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-fBRfsgNw3E2f"></i>
+<div class="p-1" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-fbVsrHkCUVIh">
+<div class="grandTotal m-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-hWZwZcSH9gZU">$0.00</div>
 </div>
 </div>
-<div class="col-6 cc-cart-row-content p-0" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-y5GjRgolXqGo">
-<div class="text-center p-2" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-Maeo7UETfxnX">
-<i class="fa fa-minus cc-cart-row-qty-btn cc-cart-row-prod-qty-minus" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-wrs5U1UTGxOl"></i>
-<div class="cc-cart-row-prod-qty-container cc-cart-row-prod-qty" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-DMR02JX0Thqw">1</div>
-<i class="fa fa-plus cc-cart-row-qty-btn cc-cart-row-prod-qty-plus" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-G8lSuNZrkcGr"></i>
+<div class="cc-cart-toggle-target" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-s9BvYB9WoYKv">
+<div class="cc-cart-container" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-SNkimmdvrHuR">
+<div class="cc-cart-row" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-rq19Qf7W491h">
+<div class="row cc-cart-row-margin" data-cc-custom-name="Row" data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]" data-cc-droppable="[data-cc-type=column]" data-cc-type="row" data-layer-name="Row" draggable="true" id="cc-id-1pSZVPEJqzCN">
+<div class="col-sm-3 p-0 position-relative" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-2fFr6w6uaVTT">
+<img align="center" alt="Product image" class="cc-cart-row-img" data-cc-custom-name="Image" data-cc-draggable=":not([data-cc-type=wrapper]):not([data-cc-type=form]):not(.form-group)" data-cc-droppable="false" data-cc-type="image" data-layer-name="Image" draggable="true" height="" href="" id="cc-id-CPwdHnAnqZuJ" onclick="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+" target="_self" title="" width=""/>
+<div class="cc-cart-prod-qty-bubble" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-JEvQdgWCh1Ba">0</div>
 </div>
-<div class="text-center" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-fAWsJbOIzmZ8">
-<div class="cc-cart-row-prod-price" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-lpEQvFutWG86">$0.00</div>
+<div class="col-sm-9 p-0" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-7mQiOj5qOpx4">
+<div class="row cc-cart-row-margin" data-cc-custom-name="Row" data-cc-draggable="[data-cc-type=wrapper], [data-cc-type=default], [data-cc-type=box]" data-cc-droppable="[data-cc-type=column]" data-cc-type="row" data-layer-name="Row" draggable="true" id="cc-id-kysRoORaDioQ">
+<div class="col-6 cc-cart-row-content p-0" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-aRY9AiexTgt2">
+<div class="cc-cart-row-prod-title" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-iVUi9iGaOBSM">Name</div>
+<div class="cc-cart-row-variant" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-jzQ1fgUKx7ti">
+<span class="cc-cart-row-prod-variant-label font-weight-bold mr-1" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-rfILLWQ0OsGF">Label</span>
+<span class="cc-cart-row-prod-variant cc-cart-row-frequency" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-Usd37EgEKG89">Variant</span>
+</div>
+<div class="cc-cart-row-trash-icon-container" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-5i1JwQV7Vbeq">
+<i class="cc-cart-row-trash-icon fa fa-trash" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-cdWFMFzRfHMr"></i>
 </div>
 </div>
+<div class="col-6 cc-cart-row-content p-0" data-cc-custom-name="Column" data-cc-draggable=".fk-row" data-cc-droppable="true" data-cc-type="column" data-layer-name="Column" draggable="true" id="cc-id-tFmYHyNZQeRT">
+<div class="text-center p-2" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-0dfACLtTThRR">
+<i class="fa fa-minus cc-cart-row-qty-btn cc-cart-row-prod-qty-minus" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-k7GWSkhWq2Vb"></i>
+<div class="cc-cart-row-prod-qty-container cc-cart-row-prod-qty" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-YqdSJeCwEJwp">1</div>
+<i class="fa fa-plus cc-cart-row-qty-btn cc-cart-row-prod-qty-plus" data-cc-custom-name="Fa-icon" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="fa-icon" data-layer-name="Fa-icon" draggable="true" id="cc-id-gJSoFc1pDxj5"></i>
+</div>
+<div class="text-center" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-1I4TAtzSqexF">
+<div class="cc-cart-row-prod-price" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-3lX87eCr0uIa">$0.00</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div align="right" class="cc-cart-details-block" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-oKORT0yDIq1s">
-<span class="d-inline-block" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-fl3VjfO56vlV">
-<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-NQwLI2dUIPaq">Sub Total</span>
-<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-sX6tCppEybhy">Shipping</span>
-<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-xo6QhRYOa8Re">Sales Tax</span>
-<span class="cc-cart-details-label cc-surcharge-name" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-nDdTrGIUPLE9">Surcharge</span>
-<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-e1FUP3GVt0fI">Discount</span>
-<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-aNWH5FaA41i3">Grand Total</span>
+</div>
+</div>
+<div align="right" class="cc-cart-details-block" data-cc-draggable="true" data-cc-droppable="true" data-cc-type="default" data-layer-name="Box" draggable="true" id="cc-id-mIsMCKEVm3Vp">
+<span class="d-inline-block" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-azov026aO0Tg">
+<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-GoEd9Sf53GRx">Sub Total</span>
+<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-8ffiYeJA7oqt">Shipping</span>
+<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-XRTtqemWKjkC">Sales Tax</span>
+<span class="cc-cart-details-label cc-surcharge-name" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-zH7mtqhjQZRc">Surcharge</span>
+<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-ZufpwFPq9bzC">Discount</span>
+<span class="cc-cart-details-label" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-UpCXiaZ8iZxN">Grand Total</span>
 </span>
-<span class="d-inline-block" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-eOqoOnlLeTlm">
-<span class="dynamic-price-total cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-ekikzjOKP9Do">$0.00</span>
-<span class="dynamic-shipping-total cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-Udc4JlxK31lK">$0.00</span>
-<span class="salesTax cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-6JYKZkm5J9va">$0.00</span>
-<span class="cc-surcharge cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-pn59HE1S1dqt">$0.00</span>
-<span class="discount cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-ykSEHs61Uyce">$0.00</span>
-<span class="grandTotal cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-bXTAzVWy1iKM">$0.00</span>
+<span class="d-inline-block" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-NKqYbd3Bh4Zu">
+<span class="dynamic-price-total cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-cCkJYybQknlr">$0.00</span>
+<span class="dynamic-shipping-total cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-2cMpszIdrim2">$0.00</span>
+<span class="salesTax cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-GNXX9WwHE4Fy">$0.00</span>
+<span class="cc-surcharge cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-ltn3Wd9GV98g">$0.00</span>
+<span class="discount cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-OqY4d9n0Xv00">$0.00</span>
+<span class="grandTotal cc-cart-details-value" data-cc-draggable=":not([data-cc-type=wrapper]):not(row)" data-cc-droppable="false" data-cc-type="text" data-layer-name="Text" draggable="true" id="cc-id-kKXR4bR6IIl9">$0.00</span>
 </span>
 </div>
 </div>
 </div>
+<div class="cc-panel-card" id="cc-id-2EtEfonGa4mi">
+<div class="fk-headline cc-headline-style cc-headline-sm" id="cc-id-S40ubK4W017x">What Our Customers Say</div>
+<div autoplay="true" autoplayspeed="5" cc-carousel-type="swiper" cc-type="1" class="swiper cc-swiper-carousel-container cc-cl-swiper-carousel1" data-cc-swiper-carousel-drag="true" dots="true" fade="false" id="cc-swiper-carousel-2" infinite="true" navigationfor="" scrollslides="1" showarrows="true" showslides="1" swipe="false" vertical="false">
+<div class="swiper-wrapper cc-swiper-slider-wrapper" id="cc-id-6ygsij6X7Ok8">
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-R5WnKktQhT66">
+<img alt="“Fast shipping and the checkout took seconds.” — Amelia R." class="cc-swiper-carousel-image" id="cc-id-y97cL57nJ6iU" src="https://picsum.photos/id/1027/1000/420">
+<div class="cc-swiper-carousel-text" id="cc-id-o8k2fRN2Bqpe">
+        “Fast shipping and the checkout took seconds.” — Amelia R.
+      </div>
+</img></div>
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-pgaxT82ExHgD">
+<img alt="“Checkout felt smooth, safe and simple.” — Daniel K." class="cc-swiper-carousel-image" id="cc-id-1OQke0st7ekx" src="https://picsum.photos/id/1041/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-TH3fKMDb6k3j">
+        “Checkout felt smooth, safe and simple.” — Daniel K.
+      </div>
+</div>
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-gmlRSTqrodJ0">
+<img alt="“Support answered my question in minutes.” — Priya S." class="cc-swiper-carousel-image" id="cc-id-jwAsPLmbksf0" src="https://picsum.photos/id/1050/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-tyEOfHl2wBqC">
+        “Support answered my question in minutes.” — Priya S.
+      </div>
 </div>
 </div>
-<footer class="cartPanelFooter cc-cl-footer" id="cc-id-JtfMmtqycSKr">
-<div class="fk-row fk-footer-row" id="cc-id-SyEW82oyc9na">
-<div class="fk-col fk-footer-col fk-footer-logo-container-col" id="cc-id-5wTkhfOKsK3J">
-<div class="fk-footer-logo-container" id="cc-id-7JHsHeOaWWdF">
-<img align="center" alt="Brand Logo" class="fk-footer-logo fk-logo" height="" href="" id="cc-id-LKhwTOlBHQTA" onclick="" src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" target="_self" title="" width="">
-<div class="fk-footer-social-icons-container" id="cc-id-a6yLDW8FT6HZ">
-<img alt="Facebook" class="fk-icon fk-footer-social-media-icons" href="" id="cc-id-gCsg3dZBlpmM" onclick="" src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Facebook_glyph_svg-512.png" target="_blank"/>
-<img alt="Twitter" class="fk-icon fk-footer-social-media-icons" href="https://twitter.com/" id="cc-id-ieYMjUECsHAs" onclick="navigate(attributes)" src="https://config.checkoutchamp.com/production/social_media/Twitter1.png" target="_blank"/>
-<img alt="LinkedIn" class="fk-icon fk-footer-social-media-icons" href="" id="cc-id-QKHnjHpz9CvF" onclick="" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png" target="_blank"/>
+<div class="swiper-button-next cc-swiper-button-next" id="cc-id-oqdUPfvH8KI0"></div>
+<div class="swiper-button-prev cc-swiper-button-prev" id="cc-id-YzH1D2De3SF3"></div>
+<div class="swiper-pagination cc-swiper-pagination" id="cc-id-XQMhUk98YhA9"></div>
 </div>
-<div align="left" class="fk-footer-brand-name" data-text="text" id="cc-id-fOm4st1YblRJ">
-<span id="cc-id-9tSmroVQBxj8" style="color: #222222;"><b data-text="text" id="cc-id-eurKTqcfma76">© Brand Name {{yyyy}}
+<div class="cc-cl-swiper-carousel1-script" id="cc-id-A9MZp44eyyur">
+<script id="swiper-carousel-script-cc-swiper-carousel-2-var" script-type="cc">
+    var varccswipercarousel2 = { 'autoplay': { 'delay': 5000, 'disableOnInteraction': false }, 'loop': true };
+  </script>
+<script id="swiper-carousel-script-cc-swiper-carousel-2" script-type="cc">
+    $(document).ready(function () {
+      try {
+
+        if (window.swipervarccswipercarousel2 && window.swipervarccswipercarousel2.destroy) {
+          window.swipervarccswipercarousel2.destroy(true, true);
+        }
+        var ccCarouselConfig = { 'allowTouchMove': false, 'loop': false, 'slidesPerView': 1, 'slidesPerGroup': 1, 'pagination': { "el": "#cc-swiper-carousel-2 .cc-swiper-pagination", "type": "bullets", "clickable": true }, 'navigation': { "nextEl": "#cc-swiper-carousel-2 .cc-swiper-button-next", "prevEl": "#cc-swiper-carousel-2 .cc-swiper-button-prev" }, };
+
+        var userConfig = Object.keys(varccswipercarousel2 || {});
+        if (userConfig && userConfig.length) {
+          for (var i in varccswipercarousel2) {
+            ccCarouselConfig[i] = varccswipercarousel2[i];
+          }
+        }
+        if (window.Swiper) {
+          window.swipervarccswipercarousel2 = new Swiper("#cc-swiper-carousel-2", ccCarouselConfig);
+          window.swipervarccswipercarousel2 && window.swipervarccswipercarousel2.update && window.swipervarccswipercarousel2.update();
+        }
+      } catch (err) {
+        err;
+      }
+    });
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div class="cc-cross-sell-section" id="cc-id-C2WMGAzjKV65">
+<div class="fk-headline cc-headline-style cc-headline-sm" id="cc-id-IgrHvzxELcri">You May Also Like</div>
+<div autoplay="true" autoplayspeed="4" cc-carousel-type="swiper" cc-type="1" class="swiper cc-swiper-carousel-container cc-cl-swiper-carousel1" data-cc-swiper-carousel-drag="true" dots="true" fade="false" id="cc-swiper-carousel-3" infinite="true" navigationfor="" scrollslides="1" showarrows="true" showslides="1" swipe="false" vertical="false">
+<div class="swiper-wrapper cc-swiper-slider-wrapper" id="cc-id-LRc3uoU53bYs">
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-rERg1i8BZqzO">
+<img alt="Premium Travel Case — Add to your order" class="cc-swiper-carousel-image" id="cc-id-lnZTV1YFjtFi" src="https://picsum.photos/id/1062/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-02blZZpC4RqZ">
+        Premium Travel Case — Add to your order
+      </div>
+</div>
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-FNhbxKl1Kvk3">
+<img alt="Extended 2-Year Warranty Plan" class="cc-swiper-carousel-image" id="cc-id-UQrxkJ71OQqz" src="https://picsum.photos/id/1074/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-bWVa4OLapXs7">
+        Extended 2-Year Warranty Plan
+      </div>
+</div>
+<div class="swiper-slide cc-swiper-carousel-slide" id="cc-id-NAxvpCPZygFP">
+<img alt="Refill Bundle Pack — Save 15%" class="cc-swiper-carousel-image" id="cc-id-0xOLsgd9N1qS" src="https://picsum.photos/id/1080/1000/420"/>
+<div class="cc-swiper-carousel-text" id="cc-id-3sjV3XXLOQSO">
+        Refill Bundle Pack — Save 15%
+      </div>
+</div>
+</div>
+<div class="swiper-button-next cc-swiper-button-next" id="cc-id-9qzycRJlTnHW"></div>
+<div class="swiper-button-prev cc-swiper-button-prev" id="cc-id-4PF002lghqYV"></div>
+<div class="swiper-pagination cc-swiper-pagination" id="cc-id-lQufwUtWuqs0"></div>
+</div>
+<div class="cc-cl-swiper-carousel1-script" id="cc-id-D1K6e3F1xsd0">
+<script id="swiper-carousel-script-cc-swiper-carousel-3-var" script-type="cc">
+    var varccswipercarousel3 = { 'autoplay': { 'delay': 4000, 'disableOnInteraction': false }, 'loop': true };
+  </script>
+<script id="swiper-carousel-script-cc-swiper-carousel-3" script-type="cc">
+    $(document).ready(function () {
+      try {
+
+        if (window.swipervarccswipercarousel3 && window.swipervarccswipercarousel3.destroy) {
+          window.swipervarccswipercarousel3.destroy(true, true);
+        }
+        var ccCarouselConfig = { 'allowTouchMove': false, 'loop': false, 'slidesPerView': 1, 'slidesPerGroup': 1, 'pagination': { "el": "#cc-swiper-carousel-3 .cc-swiper-pagination", "type": "bullets", "clickable": true }, 'navigation': { "nextEl": "#cc-swiper-carousel-3 .cc-swiper-button-next", "prevEl": "#cc-swiper-carousel-3 .cc-swiper-button-prev" }, };
+
+        var userConfig = Object.keys(varccswipercarousel3 || {});
+        if (userConfig && userConfig.length) {
+          for (var i in varccswipercarousel3) {
+            ccCarouselConfig[i] = varccswipercarousel3[i];
+          }
+        }
+        if (window.Swiper) {
+          window.swipervarccswipercarousel3 = new Swiper("#cc-swiper-carousel-3", ccCarouselConfig);
+          window.swipervarccswipercarousel3 && window.swipervarccswipercarousel3.update && window.swipervarccswipercarousel3.update();
+        }
+      } catch (err) {
+        err;
+      }
+    });
+  </script>
+</div>
+</div>
+</div>
+</main>
+<style>
+footer > div.fk-footer-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  height: auto;
+  margin-top: 100px;
+  background-color: #f5f5f5;
+  padding: 0 50px;
+}
+
+footer .fk-footer-col {
+  min-height: 25px;
+  flex-grow: 1;
+  flex-basis: 100%;
+  padding: 10px;
+}
+
+.fk-footer-headline {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 0;
+  color: #6a6a6a !important;
+  padding: 10px 0;
+  font-weight: 600;
+}
+
+.fk-footer-bullet {
+  padding: 2px 15px 2px 0px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 20px;
+  list-style: none;
+  margin-bottom: 0px;
+}
+
+.fk-footer-links {
+  color: #6a6a6a !important;
+  padding: 5px 10px;
+  text-align: left;
+  display: inline-block;
+  font-family: Helvetica, serif;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.fk-footer-brand-name {
+  padding: 10px;
+  font-size: 16px;
+  font-family: Helvetica, serif;
+  color: #6a6a6a !important;
+}
+
+.fk-footer-contacts-text {
+  padding: 10px;
+  font-size: 12px;
+  font-family: Helvetica, sans-serif;
+  color: #6a6a6a !important;
+}
+
+.fk-footer-logo {
+  width: 300px;
+  height: 56px;
+  float: left;
+  margin-bottom: 100px;
+  max-height: 100px;
+}
+
+.fk-footer-logo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.fk-footer-social-media-icons {
+  height: 28px;
+  width: 28px !important;
+  padding-left: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .fk-footer-row .fk-col {
+    width: 100%;
+  }
+  footer > div.fk-footer-row {
+    flex-wrap: wrap;
+  }
+  .fk-footer-logo-container-col {
+    order: 5;
+  }
+  .fk-footer-logo {
+    align-self: center;
+    margin-bottom: 0;
+  }
+  .fk-footer-social-icons-container {
+    text-align: center;
+  }
+  .fk-footer-brand-name {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+</style>
+<footer class="cartPanelFooter cc-cl-footer" id="cc-id-imzJ4CtSWENk">
+<div class="fk-row fk-footer-row" id="cc-id-NaqVkVEVfMNz">
+<div class="fk-col fk-footer-col fk-footer-logo-container-col" id="cc-id-7xcmxatZlPMp">
+<div class="fk-footer-logo-container" id="cc-id-QvhxKkZssTKu">
+<img align="center" alt="Brand Logo" class="fk-footer-logo fk-logo" height="" href="" id="cc-id-39v3wl64zoTi" onclick="" src="https://templates.checkoutchamp.com/31a26ade-35f0-4c43-9b98-f730d58ad1c1/logo.png" target="_self" title="" width=""/>
+<div class="fk-footer-social-icons-container" id="cc-id-TKkwOc2pHd9P">
+<img alt="Facebook" class="fk-icon fk-footer-social-media-icons" href="" id="cc-id-ObQzxHDjRNsP" onclick="" src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Facebook_glyph_svg-512.png" target="_blank"/>
+<img alt="Twitter" class="fk-icon fk-footer-social-media-icons" href="https://twitter.com/" id="cc-id-PqLiZgShhgmm" onclick="navigate(attributes)" src="https://config.checkoutchamp.com/production/social_media/Twitter1.png" target="_blank"/>
+<img alt="LinkedIn" class="fk-icon fk-footer-social-media-icons" href="" id="cc-id-qGmRscEm5uaP" onclick="" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png" target="_blank"/>
+</div>
+<div align="left" class="fk-footer-brand-name" data-text="text" id="cc-id-4ZPjfFSgpo9s">
+<span id="cc-id-CgkcsXtTfVc0" style="color: #222222;"><b data-text="text" id="cc-id-PkwBM2fYly7q">\u00a9 Brand Name {{yyyy}}
             </b></span>
 </div>
-</img></div>
 </div>
-<div align="center" class="fk-col fk-footer-col" id="cc-id-jA2oPP3gEw45">
-<div align="left" class="fk-headline fk-footer-headline" id="cc-id-2722QJPvmUbc">
+</div>
+<div align="center" class="fk-col fk-footer-col" id="cc-id-x0XOXhRd6jzK">
+<div align="left" class="fk-headline fk-footer-headline" id="cc-id-XQlxwbQZ8i5h">
         Categories
       </div>
-<ul class="fk-bullet fk-footer-bullet" id="cc-id-Ud8haplt2KVk">
-<li id="cc-id-OB0c9tdh0QKB">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-ACZGHfSu2krj" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category1" upsell="" variantvalue="">Category 1</a>
+<ul class="fk-bullet fk-footer-bullet" id="cc-id-zcqtRQVJJ8Pu">
+<li id="cc-id-GRfPpvPx0I9d">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-Nj001eEo8dnN" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category1" upsell="" variantvalue="">Category 1</a>
 </li>
-<li id="cc-id-xWdkT6t6YhY0">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-RBIw3nek4S91" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category2" upsell="" variantvalue="">Category 2</a>
+<li id="cc-id-zoCXB1BhEOgz">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-IafLMsFmP6wd" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category2" upsell="" variantvalue="">Category 2</a>
 </li>
-<li id="cc-id-E8zIR592OtFu">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-7LCMi4X0XdOI" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category3" upsell="" variantvalue="">Category 3</a>
+<li id="cc-id-nCIMDOShVnvZ">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-7sGRckiSSgLl" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category3" upsell="" variantvalue="">Category 3</a>
 </li>
-<li id="cc-id-U7eNbbeFTtYk">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-qJlByG2Yl6nc" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category4" upsell="" variantvalue="">Category 4</a>
+<li id="cc-id-5yCWSgz5ZKVB">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-O7iEGd50DF5k" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category4" upsell="" variantvalue="">Category 4</a>
 </li>
-<li id="cc-id-lejJlb65YFn5">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-IqISBjXzu50m" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category5" upsell="" variantvalue="">Category 5</a>
+<li id="cc-id-JThyL2Fx84Vq">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-78CizRUsR1S6" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category5" upsell="" variantvalue="">Category 5</a>
 </li>
-<li id="cc-id-w82ezA0mSDpG">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-ZO7vWSfJsNnQ" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category6" upsell="" variantvalue="">Category 6</a>
+<li id="cc-id-NmMsvP8O7FRt">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-hvDJPzU0r0YG" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="category6" upsell="" variantvalue="">Category 6</a>
 </li>
 </ul>
 </div>
-<div align="center" class="fk-col fk-footer-col" id="cc-id-8b0ktSkJnkA3">
-<div align="left" class="fk-headline fk-footer-headline" id="cc-id-JGHOcJ50rdr3">
+<div align="center" class="fk-col fk-footer-col" id="cc-id-bjPmUjrp0QsU">
+<div align="left" class="fk-headline fk-footer-headline" id="cc-id-cYg1T1UIoWXr">
         Further Information
       </div>
-<ul class="fk-bullet fk-footer-bullet" id="cc-id-Hl9ht6Thaym0">
-<li id="cc-id-YVArOHkAebYs">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-5zJypzowVVB2" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="about us" upsell="" variantvalue="">About Us</a>
+<ul class="fk-bullet fk-footer-bullet" id="cc-id-P5y78tIapMW1">
+<li id="cc-id-Z4ROUHLW7slQ">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-lkFxAIiKpuSj" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="about us" upsell="" variantvalue="">About Us</a>
 </li>
-<li id="cc-id-behfxhIBwbA8">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-fhiZaYyytn6f" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="contact us" upsell="" variantvalue="">Contact Us</a>
+<li id="cc-id-jud5MPEJwWtn">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-leFzHfnnuwnU" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="contact us" upsell="" variantvalue="">Contact Us</a>
 </li>
-<li id="cc-id-11xKqzQHq12f">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-J1NVtiogmvkX" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="blog" upsell="" variantvalue="">Blog</a>
+<li id="cc-id-G9Z8aPB4MM7Q">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-t46xHr4YxXBc" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="blog" upsell="" variantvalue="">Blog</a>
 </li>
-<li id="cc-id-KPSgaxtciI9u">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-p8kcLxyjIbaG" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="brands" upsell="" variantvalue="">Brands</a>
+<li id="cc-id-3lF6k7HaePV1">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-AgHR8WO6UjCu" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="brands" upsell="" variantvalue="">Brands</a>
 </li>
 </ul>
 </div>
-<div align="center" class="fk-col fk-footer-col" id="cc-id-rgDeLijeuT1S">
-<div align="left" class="fk-headline fk-footer-headline" id="cc-id-BdnDsYjUJJqm">
+<div align="center" class="fk-col fk-footer-col" id="cc-id-fdXIJoqyNAbP">
+<div align="left" class="fk-headline fk-footer-headline" id="cc-id-HNMUKRe5gWsf">
         Customer Service
       </div>
-<ul class="fk-bullet fk-footer-bullet" id="cc-id-qvskcFpAGAWA">
-<li id="cc-id-BrNoGIaeZNYo">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-11gXSqYnYRAA" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="FAQs" upsell="" variantvalue="">Help &amp;
+<ul class="fk-bullet fk-footer-bullet" id="cc-id-VByODHiyXH7i">
+<li id="cc-id-P4XTx6IIhaKH">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-6sU4vzOFjnZm" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="FAQs" upsell="" variantvalue="">Help &amp;
             FAQ</a>
 </li>
-<li id="cc-id-CD2Z2pGoQvf5">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-OuKzAC1iFyPN" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="terms" upsell="" variantvalue="">Terms &amp;
+<li id="cc-id-lX0059CIsegS">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-EuhOgM3tBMsK" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="terms" upsell="" variantvalue="">Terms &amp;
             Conditions</a>
 </li>
-<li id="cc-id-Qy8SigIrpT4u">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-5zSDPC6FiVRF" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="privacy" upsell="" variantvalue="">Privacy
+<li id="cc-id-JwtAapnTB0iT">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-2CwsIkL01iHq" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="privacy" upsell="" variantvalue="">Privacy
             Policy</a>
 </li>
-<li id="cc-id-qS3LD0OoFB88">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-SVrr7b5R68ZM" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="returns" upsell="" variantvalue="">Online Return
+<li id="cc-id-2eebFbKzK4IH">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-9DWwnVTsCFyF" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="returns" upsell="" variantvalue="">Online Return
             Policy</a>
 </li>
-<li id="cc-id-Aifaiem0DNSp">
-<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-KGhxReZJw36X" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="rewards" upsell="" variantvalue="">Rewards
+<li id="cc-id-P0YMkFBl6O7T">
+<a action="route" align="center" animate="" billnow="false" class="fk-footer-links" data-minutesdelay="" data-secondsdelay="" delay="none" id="cc-id-DwnEdwcm4wDC" loop="none" offer="" onclick="linkMethod(event)" price="" quantity="" replaceproduct="" speed="" target="_self" title="rewards" upsell="" variantvalue="">Rewards
             Program</a>
 </li>
 </ul>
 </div>
-<div align="center" class="fk-col fk-footer-col" id="cc-id-E82ODA0yzf4j">
-<div align="left" class="fk-headline fk-footer-headline" id="cc-id-VBicehRKUH00">
+<div align="center" class="fk-col fk-footer-col" id="cc-id-c8uRGZZqHkOw">
+<div align="left" class="fk-headline fk-footer-headline" id="cc-id-OZGx4Gv1EDLF">
         Contacts
       </div>
-<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-7lLuc07BYhqn">
-        Address: XXXX Bradstreet 
-        <div data-text="text" id="cc-id-IOf3a2zmpbYM">NM 23232 USA </div>
+<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-ikeNnlwShoYS">
+        Address: 1200 Commerce Way 
+        <div data-text="text" id="cc-id-DDnjZbcJjNcJ">Austin, TX 78701 USA </div>
 </div>
-<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-TBNJ2s1Yb9Kv">
-        Phone: +8888 8989
+<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-dql7LIbSPrfB">
+        Phone: +1 (800) 555-0199
       </div>
-<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-TURjBVjwfDNN">
+<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-91kZLXYlOqSv">
         Hours: M-F 9 am to 9 pm
       </div>
-<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-urunGELDG5bx">
-        Email: abc@xyz.com
+<div align="left" class="fk-footer-contacts-text" data-text="text" id="cc-id-CKoxgm1FAjfD">
+        Email: support@yourbrand.com
       </div>
 </div>
 </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script cc="true" src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
